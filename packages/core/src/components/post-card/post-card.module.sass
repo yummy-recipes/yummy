@@ -1,0 +1,102 @@
+@import '../colors'
+
+.card
+  --box-shadow-color: #{$grey2}
+  background: $white
+  border-radius: 6px
+  box-shadow: 1px 2px 3px $grey2
+  box-shadow: 1px 2px 3px var(--box-shadow-color)
+  display: flex
+  flex-direction: column
+  overflow: hidden
+  text-decoration: none
+  color: $grey6
+  // Fixes border radius overflow: hidden glitch in Safari
+  transform: translateZ(0)
+
+  &:active
+    box-shadow: 2px 3px 5px $grey2
+
+  @media (prefers-color-scheme: dark)
+    --box-shadow-color: #{$grey4}
+    background-color: $grey5
+    color: $grey1
+
+.content
+  display: flex
+
+.cover
+  flex: 0 0 50%
+  height: 200px
+  opacity: 0.9
+  transition: 200ms opacity, 200ms transform
+  transform: scale(1.1)
+
+  .card:hover &
+    opacity: 1
+    transform: scale(1.05)
+
+.cover_link
+  position: relative
+  overflow: hidden
+  height: 200px
+
+.content_header
+  margin: 20px 20px 0
+
+.content_category
+  font-size: 16px
+  color: $grey4
+  text-transform: uppercase
+
+  @media (prefers-color-scheme: dark)
+    color: $grey2
+
+.content_title
+  color: $grey6
+  font-size: 28px
+  text-decoration: none
+  margin: 12px 0
+  font-weight: 500
+
+  @media (prefers-color-scheme: dark)
+    color: $grey1
+
+.content_summary
+  margin: 20px 0
+
+.separator
+  margin: auto 12px 0
+
+.attributes
+  padding: 12px 20px
+  display: flex
+
+.show_more
+  background: $blue
+  color: $white
+  display: inline-block
+  padding: 6px 15px
+  text-decoration: none
+  font-size: 16px
+  width: 100%
+  padding: 12px 0
+  text-align: center
+  text-transform: uppercase
+
+  @media (prefers-color-scheme: dark)
+    color: $grey6
+
+.show_more_icon
+  height: 15px
+  vertical-align: baseline
+  position: relative
+  bottom: -2px
+  transform: scale(1.3)
+  margin-left: 4px
+  transition: transform 200ms
+
+.vegetarian_icon
+  width: 20px
+  height: 20px
+  margin: 4px 10px 0 10px

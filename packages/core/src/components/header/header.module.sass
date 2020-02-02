@@ -1,0 +1,109 @@
+@import '../media'
+@import '../polka-dot'
+@import '../colors'
+
+.header
+  background-color: $brand-orange
+  position: relative
+
+.single_post
+  padding-bottom: 40px
+
+.navbar
+  display: flex
+  justify-content: flex-end
+  position: relative
+  z-index: 2
+
+.searchbar
+  max-width: 540px
+  margin-top: 30px
+  margin-left: auto
+  margin-right: auto
+  padding-bottom: 48px
+  padding-left: 20px
+  padding-right: 20px
+
+  +media('>tablet')
+    margin-top: 32px
+    padding-bottom: 70px
+
+.logo
+  max-height: 80px
+  opacity: 0.8
+  margin-top: 2px
+  margin-bottom: 2px
+  position: relative
+  z-index: 1
+
+  +media('>phone_l')
+    max-height: 100px
+
+  +media('>tablet')
+    max-height: 140px
+
+.logo_link
+  display: block
+  width: 300px
+  margin: auto
+
+
+@supports (clip-path: polygon(0% 0%, 100% 100%))
+  .header:after
+    +polka-dot
+    color: rgba(255, 255, 255, 0.2)
+    content: ""
+    top: 0
+
+@supports (border-left: 100vw solid transparent)
+  $triangle-height: 50px
+  $triangle-height-desktop: 130px
+
+  .header:before
+    content: ""
+    height: 0
+    display: block
+    width: 0
+    position: absolute
+    pointer-events: none
+    border-top: $triangle-height solid $brand-orange
+    border-left: 100vw solid transparent
+    bottom: -$triangle-height
+
+    +media('>tablet')
+      border-top-width: $triangle-height-desktop
+      bottom: -$triangle-height-desktop
+
+.subsection_heading_wrapper
+  padding-bottom: 30px
+  max-width: 1220px
+  margin: 0 auto
+
+  +media('>tablet')
+    padding-bottom: 50px
+
+$line-color: rgba(255, 255, 255, 0.75)
+.subsection_heading
+  font-size: 40px
+  text-transform: uppercase
+  color: $grey6
+  padding: 50px 10px 16px 10px
+  letter-spacing: 0.15em
+  font-weight: 400
+  hyphens: auto
+
+  +media('>phone_l')
+    padding: 50px 22px 16px 22px
+
+  +media('>tablet')
+    bottom: 68px
+
+  &:after
+    content: ''
+    background: linear-gradient(to bottom, $line-color, $line-color 10%, transparent 10%, transparent 90%, $line-color 90%, $line-color)
+    background-size: 100% 5px
+    height: 5px
+    width: 100%
+    position: absolute
+    bottom: 48px
+    left: 0

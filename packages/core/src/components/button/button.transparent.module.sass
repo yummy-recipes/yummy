@@ -1,0 +1,15 @@
+@import '../colors'
+@import '../media'
+
+.button
+  composes: button from './button.module.sass'
+  color: $blue
+  padding: 6px 20px
+  border: 2px solid $blue
+
+  +media('<tablet')
+    padding: 10px 10px
+
+.button:hover
+  color: $white
+  background-color: $blue
