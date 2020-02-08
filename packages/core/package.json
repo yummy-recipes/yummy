@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "description": "> TODO: description",
-  "author": "\"\"\"\"Mateusz Derks\"\"\"\" <\"\"\"\"mateusz.derks@toptal.com\"\"\"\">",
+  "author": "Dyrksy",
   "homepage": "",
   "license": "MIT",
   "main": "lib/core.js",
