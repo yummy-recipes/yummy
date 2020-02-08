@@ -72,8 +72,8 @@ yarn-error.log
 data.json
 .idea
 
-cypress/videos
-cypress/fixtures/recipes
+packages/core/cypress/videos
+packages/core/cypress/fixtures/recipes
 
 test-results
 
