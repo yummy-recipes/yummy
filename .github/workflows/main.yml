@@ -93,7 +93,7 @@ jobs:
           path: app
       - uses: actions/checkout@v2
         with:
-          repository: ertrzyiks/yummy-content
+          repository: yummy-recipes/yummy-content
           path: yummy-content
       - uses: actions/setup-node@v1
         with:
@@ -139,7 +139,7 @@ jobs:
           path: app
       - uses: actions/checkout@v2
         with:
-          repository: ertrzyiks/mini-yummy-content
+          repository: yummy-recipes/mini-yummy-content
           path: mini-yummy-content
       - uses: actions/setup-node@v1
         with:
