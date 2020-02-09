@@ -84,7 +84,7 @@ jobs:
 
   deploy-kuchnia-yummy-pl:
     runs-on: ubuntu-latest
-    needs: [build, visual, e2e, deploy-kuchnia-yummy-pl]
+    needs: [build, visual, e2e]
 
     steps:
       - uses: actions/github-script@0.4.0
