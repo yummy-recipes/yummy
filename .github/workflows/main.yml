@@ -82,9 +82,27 @@ jobs:
           name: visual
           path: packages/core/puppeteer/screenshots
 
-  deploy-kuchnia-yummy-pl:
+  tag-latest:
     runs-on: ubuntu-latest
     needs: [build, visual, e2e]
+    steps:
+      - uses: actions/github-script@0.4.0
+        with:
+          github-token: ${{secrets.MY_GITHUB_TOKEN}}
+          script: |
+            await github.gitdata.createTag({
+              user: context.repo.owner,
+              repo: context.repo.repo,
+              tag: "latest",
+              message: "The latest green version.",
+              object: context.sha,
+              type: "commit"
+            })
+
+
+  deploy-kuchnia-yummy-pl:
+    runs-on: ubuntu-latest
+    needs: [tag-latest]
 
     steps:
       - uses: actions/github-script@0.4.0
@@ -92,13 +110,13 @@ jobs:
           github-token: ${{secrets.MY_GITHUB_TOKEN}}
           script: |
             github.repos.createDispatchEvent({
-              owner: 'yummy-recipes',
+              owner: context.repo.owner,
               repo: 'yummy-content',
               event_type: 'deploy'
             })
   deploy-mini-kuchnia-yummy-pl:
     runs-on: ubuntu-latest
-    needs: [build, visual, e2e, deploy-kuchnia-yummy-pl]
+    needs: [tag-latest]
 
     steps:
       - uses: actions/github-script@0.4.0
@@ -106,7 +124,7 @@ jobs:
           github-token: ${{secrets.MY_GITHUB_TOKEN}}
           script: |
             github.repos.createDispatchEvent({
-              owner: 'yummy-recipes',
+              owner: context.repo.owner,
               repo: 'mini-yummy-content',
               event_type: 'deploy'
             })
