@@ -91,7 +91,7 @@ jobs:
           github-token: ${{secrets.MY_GITHUB_TOKEN}}
           script: |
             await github.gitdata.createTag({
-              user: context.repo.owner,
+              owner: context.repo.owner,
               repo: context.repo.repo,
               tag: "latest",
               message: "The latest green version.",
