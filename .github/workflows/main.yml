@@ -89,7 +89,7 @@ jobs:
     steps:
       - uses: actions/github-script@0.4.0
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{secrets.MY_GITHUB_TOKEN}}
           script: |
             github.repos.createDispatchEvent({
               owner: 'yummy-recipes',
@@ -103,7 +103,7 @@ jobs:
     steps:
       - uses: actions/github-script@0.4.0
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{secrets.MY_GITHUB_TOKEN}}
           script: |
             github.repos.createDispatchEvent({
               owner: 'yummy-recipes',
