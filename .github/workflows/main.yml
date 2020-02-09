@@ -90,15 +90,21 @@ jobs:
         with:
           github-token: ${{secrets.MY_GITHUB_TOKEN}}
           script: |
-            await github.gitdata.createTag({
+            await github.git.createTag({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              tag: "latest",
-              message: "The latest green version.",
+              tag: 'latest',
+              message: 'The latest green version.',
               object: context.sha,
-              type: "commit"
+              type: 'commit'
             })
 
+            await github.git.createRef({
+             owner: context.repo.owner,
+             repo: context.repo.repo,
+             ref: 'refs/tags/latest'
+             sha: context.sha,
+           })
 
   deploy-kuchnia-yummy-pl:
     runs-on: ubuntu-latest
