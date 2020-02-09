@@ -98,11 +98,10 @@ jobs:
               object: context.sha,
               type: 'commit'
             })
-
             await github.git.createRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              ref: 'refs/tags/latest'
+              ref: 'refs/tags/latest',
               sha: context.sha
             })
 
