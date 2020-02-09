@@ -100,11 +100,11 @@ jobs:
             })
 
             await github.git.createRef({
-             owner: context.repo.owner,
-             repo: context.repo.repo,
-             ref: 'refs/tags/latest'
-             sha: context.sha,
-           })
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'refs/tags/latest'
+              sha: context.sha
+            })
 
   deploy-kuchnia-yummy-pl:
     runs-on: ubuntu-latest
