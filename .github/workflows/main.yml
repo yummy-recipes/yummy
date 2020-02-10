@@ -94,7 +94,8 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               ref: 'refs/tags/latest',
-              sha: context.sha
+              sha: context.sha,
+              force: true
             })
 
   deploy-kuchnia-yummy-pl:
