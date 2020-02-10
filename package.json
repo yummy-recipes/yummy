@@ -9,8 +9,9 @@
     "lerna": "^3.20.2"
   },
   "scripts": {
-    "start": "lerna run develop --scope=@yummy/core --stream",
-    "build": "lerna run build --scope=@yummy/core --stream",
-    "minibuild": "GATSBY_SOURCE=mini lerna run build --scope=@yummy/core --stream"
+    "bootstrap": "lerna bootstrap --stream",
+    "start": "lerna run develop --scope=@yummy/blog --stream",
+    "build": "lerna run build --scope=@yummy/blog --stream",
+    "minibuild": "GATSBY_SOURCE=mini lerna run build --scope=@yummy/blog --stream"
   }
 }
