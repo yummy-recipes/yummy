@@ -1,4 +1,4 @@
-const {test} = require('./lib/visual-regression')
+const {test} = require('@yummy/visual-regression')
 
 test(async ({page, snapshot}) => {
   const responsiveSnapshot = async (name) => {

@@ -20,6 +20,7 @@
   "dependencies": {
     "@svgr/webpack": "^4.3.0",
     "@yummy/core": "^0.0.0",
+    "@yummy/visual-regression": "^0.0.0",
     "emotion": "9",
     "emotion-server": "9",
     "fuse.js": "^3.3.0",
