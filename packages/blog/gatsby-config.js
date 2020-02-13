@@ -1,18 +1,18 @@
 const {JSDOM} = require('jsdom')
 
 const localPlugins = [
-  'gatsby-yummy-categories',
-  'gatsby-yummy-recipes',
-  'gatsby-yummy-posts',
-  'gatsby-yummy-pages',
-  'gatsby-yummy-search-data',
+  '@yummy/gatsby-categories',
+  '@yummy/gatsby-recipes',
+  '@yummy/gatsby-posts',
+  '@yummy/gatsby-pages',
+  '@yummy/gatsby-search-data',
 ]
 
 function getSourcePlugins() {
   switch (process.env.GATSBY_SOURCE) {
     case 'test':
       return [
-        'gatsby-source-fixtures',
+        '@yummy/gatsby-source-fixtures',
         {
           resolve: 'gatsby-source-filesystem',
           options: {
