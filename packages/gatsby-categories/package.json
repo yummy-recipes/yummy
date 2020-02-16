@@ -13,6 +13,9 @@
   "files": [
     "lib"
   ],
+  "scripts": {
+    "lint": "eslint *.js 'lib/**/*.js'"
+  },
   "publishConfig": {
     "registry": "https://registry.yarnpkg.com"
   },
@@ -25,6 +28,7 @@
     "url": "https://github.com/yummy-recipes/yummy/issues"
   },
   "devDependencies": {
-    "@yummy/eslint-config-core": "^0.0.0"
+    "@yummy/eslint-config-core": "^0.0.0",
+    "eslint": "^6.8.0"
   }
 }

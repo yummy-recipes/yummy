@@ -35,7 +35,7 @@ module.exports = {
   test: function test (run) {
     function processTestCase(testCase) {
       console.log(`* (${testCase.status}) ${testCase.name} `)
-      if (testCase.status == 'failure') {
+      if (testCase.status === 'failure') {
         console.log(`  ${testCase.message}`)
       }
     }

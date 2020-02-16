@@ -1,9 +1,9 @@
 const path = require('path')
 
-const { createTagPages } = require('./lists/tags')
-const { createCategoryPages } = require('./lists/categories')
-const { createMainPage } = require('./lists/main')
-const { createMainBlogPage } = require('./lists/blog-main')
+const { createTagPages } = require('./lib/tags')
+const { createCategoryPages } = require('./lib/categories')
+const { createMainPage } = require('./lib/main')
+const { createMainBlogPage } = require('./lib/blog-main')
 
 exports.createPages = ({ actions, graphql }) => {
   return Promise.resolve()
