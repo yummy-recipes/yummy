@@ -1,6 +1,6 @@
 const crypto = require('crypto')
 const { createFilePath } = require('gatsby-source-filesystem')
-const { split } = require('../common/content')
+const { split } = require('@yummy/content-split')
 
 exports.onCreateNode = async ({ node, getNode, loadNodeContent, createNodeId, actions }) => {
   const { createNode } = actions
