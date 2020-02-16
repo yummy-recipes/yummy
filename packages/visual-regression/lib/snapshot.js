@@ -13,7 +13,7 @@ async function capture(page, filePath, viewport) {
 }
 
 async function snapshotPage({page, name, viewport, forceUpdate}) {
-  const directory  = `puppeteer/screenshots/`
+  const directory  = 'puppeteer/screenshots/'
   mkdirp.sync(`${directory}/current`)
   mkdirp.sync(`${directory}/golden`)
   mkdirp.sync(`${directory}/diff`)

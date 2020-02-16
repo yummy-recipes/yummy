@@ -1,14 +1,6 @@
 {
-  "globals": {
-    "graphql": true,
-    "__PATH_PREFIX__": true
-  },
-  "extends": "react-app",
-  "plugins": ["graphql"],
+  "extends": "@yummy/eslint-config-core/.eslintrc",
   "rules": {
-    "import/no-webpack-loader-syntax": [0],
-    "eqeqeq": ["error", "smart"],
-    "quotes": ["error", "single"],
-    "no-console": ["error"]
+    "no-console": "off"
   }
 }
