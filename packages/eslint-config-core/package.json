@@ -14,5 +14,8 @@
   },
   "bugs": {
     "url": "https://github.com/yummy-recipes/yummy/issues"
+  },
+  "dependencies": {
+    "gatsby-plugin-eslint": "^2.0.4"
   }
 }
