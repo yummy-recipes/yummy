@@ -1,12 +1,12 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import SiteMetadata from '../components/site_metadata'
+import { SiteMetadata } from '@yummy/components'
 
-import favicon16 from '../components/layout/assets/favicon-16x16.png'
-import favicon32 from '../components/layout/assets/favicon-32x32.png'
-import appleTouchIcon from '../components/layout/assets/apple-touch-icon.png'
-import safariPinnedTab from '../components/layout/assets/safari-pinned-tab.svg'
-import defaultOgImage from '../components/layout/assets/default_og_image.jpg'
+import favicon16 from '@yummy/components/lib/layout/assets/favicon-16x16.png'
+import favicon32 from '@yummy/components/lib/layout/assets/favicon-32x32.png'
+import appleTouchIcon from '@yummy/components/lib/layout/assets/apple-touch-icon.png'
+import safariPinnedTab from '@yummy/components/lib//layout/assets/safari-pinned-tab.svg'
+import defaultOgImage from '@yummy/components/lib/layout/assets/default_og_image.jpg'
 
 export default function Page({children}) {
   return <React.Fragment>

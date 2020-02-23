@@ -3,7 +3,7 @@ import Img from 'gatsby-image'
 import styles from './gallery.module.sass'
 import Loadable from 'react-loadable'
 import 'react-image-lightbox/style.css';
-import { getPrevImgUrl, getNextImgUrl, getPrevPhotoIndex, getNextPhotoIndex } from '../../utils/galleryBrowserHelper'
+import { getPrevImgUrl, getNextImgUrl, getPrevPhotoIndex, getNextPhotoIndex } from '../../../blog/src/utils/galleryBrowserHelper'
 
 const LoadableLightbox = Loadable({
   loader: () => import('react-image-lightbox'),

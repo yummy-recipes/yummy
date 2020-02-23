@@ -2,14 +2,10 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Helmet } from 'react-helmet'
-import TimeToPrepare from '../../components/time_to_prepare'
-import Breadcrumbs from '../../components/breadcrumbs'
+import { Breadcrumbs, Gallery, TimeToPrepare, SiteMetadata, Tag } from '@yummy/components'
 import pageStyles from '../page.module.sass'
 import postStyles from './post.module.sass'
 import Page from '../page'
-import SiteMetadata from '../../components/site_metadata'
-import Tag from '../../components/tag'
-import Gallery from '../../components/gallery'
 
 export default function PostPage({data}) {
   const { recipe, gallery } = data

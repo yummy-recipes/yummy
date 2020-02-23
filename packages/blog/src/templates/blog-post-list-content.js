@@ -1,6 +1,5 @@
 import React from 'react'
-import BlogPostCard from '../components/blog-post-card'
-import Paginator from '../components/paginator'
+import { BlogPostCard, Paginator } from '@yummy/components'
 
 import styles from './page.module.sass'
 

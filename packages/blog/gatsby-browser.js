@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from './src/components/layout'
+import { Layout } from '@yummy/components'
 
 export const wrapPageElement = ({ element, props }) => {
   const {pageContext: {fullHeaderVersion, subsection, isSingleRecipe}} = props

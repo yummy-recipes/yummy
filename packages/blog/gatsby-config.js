@@ -197,7 +197,7 @@ module.exports = {
         background_color: '#ec973b',
         theme_color: '#ec973b',
         display: 'standalone',
-        icon: 'src/components/layout/assets/android-chrome-192x192.png',
+        icon: require.resolve('@yummy/components/lib/layout/assets/android-chrome-192x192.png'),
       },
     },
     'gatsby-plugin-sass',

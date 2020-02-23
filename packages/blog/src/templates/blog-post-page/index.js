@@ -2,9 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import Page from '../page'
-import Breadcrumbs from '../../components/breadcrumbs'
-
-import SiteMetadata from '../../components/site_metadata'
+import { Breadcrumbs, SiteMetadata } from '@yummy/components'
 
 import pageStyles from '../page.module.sass'
 import postStyles from './blog-post.module.sass'

@@ -1,4 +1,4 @@
-import data from  '../../../data.json'
+import data from  '../../../blog/data.json'
 import * as Fuse from 'fuse.js'
 
 const LIMIT = 5

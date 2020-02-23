@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@svgr/webpack": "^4.3.0",
+    "@yummy/components": "^0.0.0",
     "@yummy/core": "^0.0.0",
     "@yummy/gatsby-categories": "^0.0.0",
     "@yummy/gatsby-pages": "^0.0.0",

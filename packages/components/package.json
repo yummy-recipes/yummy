@@ -1,0 +1,29 @@
+{
+  "name": "@yummy/components",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Dyrksy",
+  "homepage": "https://github.com/yummy-recipes/yummy#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yummy-recipes/yummy.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/yummy-recipes/yummy/issues"
+  }
+}
