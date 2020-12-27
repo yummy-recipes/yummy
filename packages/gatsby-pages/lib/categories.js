@@ -4,7 +4,7 @@ const {createPaginated} = require('./common')
 async function createCategoryPages({ actions, graphql }) {
   const result = await graphql(`
   {
-    allRecipeCategory {
+    allStrapiCategory {
       edges {
         node {
           name
@@ -18,7 +18,7 @@ async function createCategoryPages({ actions, graphql }) {
     return Promise.reject(result.errors)
   }
 
-  const categories = result.data.allRecipeCategory.edges.map(category => category.node)
+  const categories = result.data.allStrapiCategory.edges.map(category => category.node)
 
   return Promise.all(categories.map(category => createCategoryPage({
     category: category.name,
@@ -30,9 +30,9 @@ async function createCategoryPages({ actions, graphql }) {
 
 async function createCategoryPage({ category, slug, actions, graphql }) {
   const result = await graphql(`
-    query ($category: String!) {
-      allRecipe(
-        filter: { category: { name: { eq: $category } } }
+    query ($slug: String!) {
+      allStrapiRecipe(
+        filter: { category: { slug: { eq: $slug } } }
       ) {
         edges {
           node {
@@ -41,7 +41,7 @@ async function createCategoryPage({ category, slug, actions, graphql }) {
         }
       }
     }
-  `, {category})
+  `, {slug})
 
   if (result.errors) {
     return Promise.reject(result.errors)
@@ -49,7 +49,7 @@ async function createCategoryPage({ category, slug, actions, graphql }) {
 
   createPaginated({
     actions,
-    collection: result.data.allRecipe.edges,
+    collection: result.data.allStrapiRecipe.edges,
     component: path.resolve('./src/templates/post-list-by-category.js'),
     baseUrl: `/${slug}/`,
     context: {

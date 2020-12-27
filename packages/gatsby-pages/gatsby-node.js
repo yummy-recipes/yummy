@@ -82,13 +82,16 @@ async function createRecipePages({ actions, graphql }) {
 
   const result = await graphql(`
     {
-      allRecipe(
+      allStrapiRecipe(
         sort: { order: DESC, fields: [published_at] }
       ) {
         edges {
           node {
             slug
-            absolutePathRegex
+            
+            category {
+              slug
+            }
           }
         }
       }
@@ -99,18 +102,19 @@ async function createRecipePages({ actions, graphql }) {
     return Promise.reject(result.errors)
   }
 
-  const collection = result.data.allRecipe.edges
+  const collection = result.data.allStrapiRecipe.edges
   const component = path.resolve('./src/templates/post-page/index.js')
 
   collection.forEach(({ node }) => {
     createPage({
-      path: node.slug,
+      path: `/${node.category.slug}/${node.slug}`,
       component,
       context: {
         slug: node.slug,
         fullHeaderVersion: false,
         isSingleRecipe: true,
-        absolutePathRegex: node.absolutePathRegex
+        // TODO: fix gallery
+        absolutePathRegex: null
       }
     })
   })

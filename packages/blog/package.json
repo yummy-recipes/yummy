@@ -42,6 +42,7 @@
     "gatsby-plugin-typography": "^2.2.4",
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
     "gatsby-source-filesystem": "^2.0.21",
+    "gatsby-source-strapi": "^0.0.12",
     "gatsby-transformer-remark": "^2.1.17",
     "gatsby-transformer-sharp": "^2.1.9",
     "hygen": "^4.0.7",
@@ -87,7 +88,7 @@
     "webpack": "^4.28.4"
   },
   "optionalDependencies": {
-    "fsevents": "^1.2.9"
+    "fsevents": "^2.2.1"
   },
   "scripts": {
     "develop": "gatsby develop",

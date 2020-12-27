@@ -61,6 +61,15 @@ function getSourcePlugins() {
     default:
       return [
         {
+          resolve: 'gatsby-source-strapi',
+          options: {
+            apiURL: process.env.API_URL || 'http://localhost:1337',
+            contentTypes: ['recipe', 'category', 'tag'],
+            singleTypes: [],
+            queryLimit: 1000
+          }
+        },
+        {
           resolve: 'gatsby-source-filesystem',
           options: {
             path: `${__dirname}/../../../yummy-content/recipes`,

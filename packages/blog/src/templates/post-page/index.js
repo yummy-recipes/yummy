@@ -12,22 +12,22 @@ import Tag from '../../components/tag'
 import Gallery from '../../components/gallery'
 
 export default function PostPage({data}) {
-  const { recipe, gallery } = data
+  const { strapiRecipe: recipe, gallery } = data
 
   const Tags = (recipe.tags || []).map(tag => {
-    return <Tag name={tag} key={tag} className={postStyles.post_tag} />
+    return <Tag name={tag.name} key={tag.slug} className={postStyles.post_tag} />
   })
 
   return <Page>
     <div className={pageStyles.layout}>
       <SiteMetadata render={({siteUrl}) =>
         <Helmet>
-          <title>{recipe.html_title}</title>
-          <meta name='description' content={recipe.html_description}/>
-          <meta property='og:image' content={siteUrl + recipe.featured_image.childImageSharp.fluid.src} />
+          <title>{recipe.title}</title>
+          <meta name='description' content={recipe.title}/>
+          {recipe.cover && <meta property='og:image' content={siteUrl + recipe.cover.childImageSharp.fluid.src} />}
           <meta property='og:type' content='article' />
           <meta property='article:section' content={recipe.category.name} />
-          {(recipe.tags || []).map((tag, index) => <meta property='article:tag' content={tag} key={index}/>)}
+          {(recipe.tags || []).map((tag, index) => <meta property='article:tag' content={tag.name} key={index}/>)}
         </Helmet>
       } />
 
@@ -36,32 +36,35 @@ export default function PostPage({data}) {
           <div className={postStyles.post_intro}>
             <div className={postStyles.post_preamble}>
               <Breadcrumbs subsectionName={recipe.category.name} subsectionSlug={recipe.category.slug}/>
-              <TimeToPrepare>{recipe.required_time}</TimeToPrepare>
+              <TimeToPrepare>{recipe.preparationTime}</TimeToPrepare>
             </div>
 
-            <h1 className={postStyles.post_title}>{recipe.name}</h1>
+            <h1 className={postStyles.post_title}>{recipe.title}</h1>
 
-            <div className={postStyles.post_headline} dangerouslySetInnerHTML={{ __html: recipe.headline.childMarkdownRemark.html }}></div>
+            <div className={postStyles.post_headline} dangerouslySetInnerHTML={{ __html: recipe.headline }}></div>
 
             <div className={postStyles.post_tags}>
               {Tags}
             </div>
           </div>
 
-          <Img
-            fluid={recipe.featured_image.childImageSharp.fluid}
-            alt={'Photography of the food from the recipe.'}
-            className={postStyles.cover_image}
-          />
+            {
+              recipe.cover &&
+              <Img
+              fluid = {recipe.cover.childImageSharp.fluid}
+              alt = {'Photography of the food from the recipe.'}
+              className = {postStyles.cover_image}
+              />
+            }
 
           <div className={postStyles.post_body}>
             <div
               className={postStyles.post_ingredients}
-              dangerouslySetInnerHTML={{ __html: recipe.ingredients.childMarkdownRemark.html }}
+              dangerouslySetInnerHTML={{ __html: recipe.ingredients }}
             />
             <div
               className={postStyles.post_directions}
-              dangerouslySetInnerHTML={{ __html: recipe.directions.childMarkdownRemark.html}}
+              dangerouslySetInnerHTML={{ __html: recipe.directions }}
             />
           </div>
           <Gallery images={gallery.nodes}/>
@@ -72,10 +75,10 @@ export default function PostPage({data}) {
 }
 
 export const pageQuery = graphql`
-  query($slug: String!, $absolutePathRegex: String) {
+  query($slug: String!) {
       gallery: allFile (
           filter: {
-              absolutePath: { regex: $absolutePathRegex }
+              absolutePath: { regex: "/^TODO: FIXME$/" }
               extension: { regex: "/(jpg)|(png)|(tif)|(tiff)|(webp)|(jpeg)/" }
           }
           sort: { fields: name, order: ASC }
@@ -91,41 +94,22 @@ export const pageQuery = graphql`
               }
           }
       }
-    recipe(slug: { eq: $slug }) {
-      headline {
-        childMarkdownRemark {
-          html
-        }
-      }
-      directions {
-        childMarkdownRemark {
-          html
-        }
-      }
-      ingredients {
-        childMarkdownRemark {
-          html
-        }
-      }
+    strapiRecipe(slug: { eq: $slug }) {
+      headline 
+      directions 
+      ingredients 
       slug
-      name
-      html_title
-      html_description
-      tags
-      required_time
+      title
+      tags {
+        name
+        slug
+      }
+      preparationTime
       category {
         name
         slug
       }
       published_at(formatString: "D MMM YYYY", locale: "pl")
-      featured_image {
-        childImageSharp {
-          fluid(maxWidth: 2000, traceSVG: { color: "#e98500" }) {
-            ...GatsbyImageSharpFluid_tracedSVG
-          }
-        }
-      }
-      
     }
   }
 `
