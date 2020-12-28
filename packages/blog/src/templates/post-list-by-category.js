@@ -18,7 +18,7 @@ export default function PostListByCategoryPage({data, pageContext, location}) {
       </Helmet>
 
       <PostListContent
-        allRecipesData={data.allRecipe}
+        allRecipesData={data.allStrapiRecipe}
         pageInfo={pageInfo}
         location={location}
       />
@@ -28,7 +28,7 @@ export default function PostListByCategoryPage({data, pageContext, location}) {
 
 export const pageQuery = graphql`
   query blogListByCategoryQuery($category: String!, $skip: Int!, $limit: Int!) {
-    allRecipe (
+    allStrapiRecipe (
       filter: { category: { name: { eq: $category } } }
       sort: { order: DESC, fields: [published_at] }
       limit: $limit

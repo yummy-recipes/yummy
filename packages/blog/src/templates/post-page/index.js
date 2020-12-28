@@ -41,7 +41,7 @@ export default function PostPage({data}) {
 
             <h1 className={postStyles.post_title}>{recipe.title}</h1>
 
-            <div className={postStyles.post_headline} dangerouslySetInnerHTML={{ __html: recipe.headline }}></div>
+            <div className={postStyles.post_headline} dangerouslySetInnerHTML={{ __html: recipe.parsedHeadline.childMarkdownRemark.html }}></div>
 
             <div className={postStyles.post_tags}>
               {Tags}
@@ -60,11 +60,11 @@ export default function PostPage({data}) {
           <div className={postStyles.post_body}>
             <div
               className={postStyles.post_ingredients}
-              dangerouslySetInnerHTML={{ __html: recipe.ingredients }}
+              dangerouslySetInnerHTML={{ __html: recipe.parsedIngredients.childMarkdownRemark.html }}
             />
             <div
               className={postStyles.post_directions}
-              dangerouslySetInnerHTML={{ __html: recipe.directions }}
+              dangerouslySetInnerHTML={{ __html: recipe.parsedDirections.childMarkdownRemark.html }}
             />
           </div>
           <Gallery images={gallery.nodes}/>
@@ -95,9 +95,21 @@ export const pageQuery = graphql`
           }
       }
     strapiRecipe(slug: { eq: $slug }) {
-      headline 
-      directions 
-      ingredients 
+      parsedHeadline {
+        childMarkdownRemark {
+          html
+        }    
+      }
+      parsedDirections {
+        childMarkdownRemark {
+            html
+        }
+      }
+      parsedIngredients {
+        childMarkdownRemark {
+            html
+        }
+      }
       slug
       title
       tags {

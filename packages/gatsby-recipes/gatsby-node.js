@@ -3,8 +3,50 @@ const { createFilePath } = require('gatsby-source-filesystem')
 const { split } = require('@yummy/content-split')
 const path = require('path')
 
+function processStrapiRecipe({ node, actions, createNodeId }) {
+  const { createNode } = actions
+
+  createRecipePart(node, 'Headline', node.headline, {createNode, createNodeId})
+  createRecipePart(node, 'Ingredients', node.ingredients, {createNode, createNodeId})
+  createRecipePart(node, 'Directions', node.directions, {createNode, createNodeId})
+}
+
+exports.createResolvers = ({ createResolvers, createNodeId }) => {
+  const resolvers = {
+    StrapiRecipe: {
+      parsedHeadline: {
+        type: 'RecipePart',
+        resolve: (source, args, context, info) => {
+          const id = createNodeId(`Headline >>> ${source.id} >>> RecipePart`)
+          return context.nodeModel.getNodeById({ id, type: 'RecipePart'})
+        }
+      },
+      parsedIngredients: {
+        type: 'RecipePart',
+        resolve: (source, args, context, info) => {
+          const id = createNodeId(`Ingredients >>> ${source.id} >>> RecipePart`)
+          return context.nodeModel.getNodeById({ id, type: 'RecipePart'})
+        }
+      },
+      parsedDirections: {
+        type: 'RecipePart',
+        resolve: (source, args, context, info) => {
+          const id = createNodeId(`Directions >>> ${source.id} >>> RecipePart`)
+          return context.nodeModel.getNodeById({ id, type: 'RecipePart'})
+        }
+      }
+    }
+  }
+  createResolvers(resolvers)
+}
+
 exports.onCreateNode = async ({ node, getNode, loadNodeContent, createNodeId, actions }) => {
   const { createNode } = actions
+
+  if (node.internal.type === 'StrapiRecipe') {
+    processStrapiRecipe({ node, actions, createNodeId })
+    return
+  }
 
   if (node.internal.type !== 'MarkdownRemark') { return }
   if (getNode(node.parent).internal.type !== 'File') { return }
@@ -20,9 +62,9 @@ exports.onCreateNode = async ({ node, getNode, loadNodeContent, createNodeId, ac
     throw new Error(`Expected exactly three sections inside node: ${slug}. Check the number of splitters in the content.`)
   }
 
-  const headlineId = createRecipePart(node, 'Headline', sections[0], {createNode, createNodeId})
-  const ingredientsId = createRecipePart(node, 'Ingredients', sections[1], {createNode, createNodeId})
-  const directionsId = createRecipePart(node, 'Directions', sections[2], {createNode, createNodeId})
+  const headlineId = createRecipePart(node, 'Headline', sections[0], {createNode, createNodeId}).id
+  const ingredientsId = createRecipePart(node, 'Ingredients', sections[1], {createNode, createNodeId}).id
+  const directionsId = createRecipePart(node, 'Directions', sections[2], {createNode, createNodeId}).id
 
   if (isNaN(new Date(node.frontmatter.date).getTime())) {
     throw new Error(`Invalid date ${node.frontmatter.date} for recipe: ${node.frontmatter.title}`)
@@ -88,5 +130,5 @@ function createRecipePart(parent, kind, content, {createNodeId, createNode}) {
     .digest('hex')
 
   createNode(node)
-  return id
+  return node
 }
