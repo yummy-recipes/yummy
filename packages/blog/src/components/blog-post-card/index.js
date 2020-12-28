@@ -16,7 +16,7 @@ export default function BlogPostCard({post}) {
         <span className={styles.date_published}>
           {post.published_at}
         </span>
-        <div className={styles.content_summary} dangerouslySetInnerHTML={ {__html: post.headline.childMarkdownRemark.html} } />
+        <div className={styles.content_summary} dangerouslySetInnerHTML={ {__html: post.headline } } />
       </div>
 
       <span className={styles.show_more}>

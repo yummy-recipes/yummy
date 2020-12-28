@@ -64,7 +64,7 @@ function getSourcePlugins() {
           resolve: 'gatsby-source-strapi',
           options: {
             apiURL: process.env.API_URL || 'http://localhost:1337',
-            contentTypes: ['recipe', 'category', 'tag'],
+            contentTypes: ['recipe', 'category', 'tag', 'article'],
             singleTypes: [],
             queryLimit: 1000
           }
@@ -72,16 +72,11 @@ function getSourcePlugins() {
         {
           resolve: 'gatsby-source-filesystem',
           options: {
-            path: `${__dirname}/../../../yummy-content/recipes`,
-            name: 'recipes',
-          },
-        }, {
-          resolve: 'gatsby-source-filesystem',
-          options: {
             path: `${__dirname}/../../../yummy-content/posts`,
             name: 'posts',
           },
-        }, {
+        },
+        {
           resolve: 'gatsby-plugin-webpack-bundle-analyzer',
           options: {
             analyzerPort: 3005,

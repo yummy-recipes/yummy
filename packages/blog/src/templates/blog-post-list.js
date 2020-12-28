@@ -13,7 +13,7 @@ export default function BlogPostListPage({data, pageContext, location}) {
   return (
     <Page>
       <BlogPostListContent
-        allPostsData={data.allPost}
+        allPostsData={data.allStrapiArticle}
         pageInfo={pageInfo}
         location={location}
       />
@@ -22,22 +22,18 @@ export default function BlogPostListPage({data, pageContext, location}) {
 }
 
 export const query = graphql`
-fragment blogPostForList on Post {
+fragment blogPostForList on StrapiArticle {
   id
   title
   slug
   published_at(formatString: "D MMM YYYY", locale: "pl")
-  headline {
-    childMarkdownRemark {
-      html
-    }
-  }
+  headline
 }
 `
 
 export const pageQuery = graphql`
   query blogPostListQuery($skip: Int!, $limit: Int!) {
-    allPost (
+    allStrapiArticle (
       sort: { order: DESC, fields: [published_at] }
       limit: $limit
       skip: $skip

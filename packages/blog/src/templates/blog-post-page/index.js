@@ -42,11 +42,10 @@ export default function BlogPostPage({data}) {
                 {post.published_at}
               </span>
 
-              <div className={postStyles.post_headline} dangerouslySetInnerHTML={{ __html: post.headline.childMarkdownRemark.html }}></div>
+              <div className={postStyles.post_headline} dangerouslySetInnerHTML={{ __html: post.headline }}></div>
             </div>
             <div className={postStyles.post_body}>
-              <div dangerouslySetInnerHTML={{ __html: post.content.childMarkdownRemark.html }}></div>
-
+              <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
             </div>
           </article>
         </section>
@@ -57,17 +56,9 @@ export default function BlogPostPage({data}) {
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    post(slug: { eq: $slug }) {
-      headline {
-        childMarkdownRemark {
-          html
-        }
-      }
-      content {
-        childMarkdownRemark {
-            html
-          }
-      }
+    strapiArticle(slug: { eq: $slug }) {
+      headline
+      content
       slug
       title
       published_at(formatString: "D MMM YYYY", locale: "pl")
