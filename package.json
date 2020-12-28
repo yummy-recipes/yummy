@@ -11,6 +11,7 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "start": "lerna run develop --scope=@yummy/blog --stream",
+    "start:cms": "lerna run develop --scope=@yummy/cms --stream",
     "build": "lerna run build --scope=@yummy/blog --stream",
     "minibuild": "GATSBY_SOURCE=mini lerna run build --scope=@yummy/blog --stream"
   }

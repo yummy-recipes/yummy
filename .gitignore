@@ -74,6 +74,8 @@ data.json
 
 packages/core/cypress/videos
 packages/core/cypress/fixtures/recipes
+packages/cms/build
+packages/cms/.tmp
 
 test-results
 

@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "name": "Category",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "string"
+    },
+    "recipes": {
+      "collection": "recipe",
+      "via": "category"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.description"
+    }
+  }
+}
