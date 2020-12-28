@@ -67,7 +67,7 @@
     "@storybook/addon-links": "^5.0.3",
     "@storybook/addons": "^5.0.3",
     "@storybook/react": "^5.0.3",
-    "@yummy/eslint-config-core": "^0.0.0",
+    "@yummy/eslint-config-core": "0.0.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-dynamic-import-node": "^2.3.0",
     "babel-preset-gatsby": "^0.1.7",
