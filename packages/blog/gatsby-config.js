@@ -35,28 +35,6 @@ function getSourcePlugins() {
           },
         }
       ]
-    case 'mini':
-      return [
-        {
-          resolve: 'gatsby-source-filesystem',
-          options: {
-            path: `${__dirname}/../../../mini-yummy-content/recipes`,
-            name: 'recipes',
-          },
-        }, {
-          resolve: 'gatsby-source-filesystem',
-          options: {
-            path: `${__dirname}/../../../mini-yummy-content/posts`,
-            name: 'posts',
-          },
-        }, {
-          resolve: 'gatsby-plugin-webpack-bundle-analyzer',
-          options: {
-            analyzerPort: 3005,
-            openAnalyzer: false
-          }
-        }
-      ]
 
     default:
       return [
@@ -68,13 +46,6 @@ function getSourcePlugins() {
             singleTypes: [],
             queryLimit: 1000
           }
-        },
-        {
-          resolve: 'gatsby-source-filesystem',
-          options: {
-            path: `${__dirname}/../../../yummy-content/posts`,
-            name: 'posts',
-          },
         },
         {
           resolve: 'gatsby-plugin-webpack-bundle-analyzer',

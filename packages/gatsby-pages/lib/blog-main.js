@@ -4,7 +4,7 @@ const {createPaginated} = require('./common')
 function createMainBlogPage({ actions, graphql }) {
   return graphql(`
     {
-      allPost {
+      allStrapiArticle {
         edges {
           node {
             id
@@ -19,7 +19,7 @@ function createMainBlogPage({ actions, graphql }) {
 
     createPaginated({
       actions,
-      collection: result.data.allPost.edges,
+      collection: result.data.allStrapiArticle.edges,
       baseUrl: '/blog/',
       component: path.resolve('./src/templates/blog-post-list.js'),
       context: {

@@ -33,7 +33,7 @@ async function createBlogPostPages({ actions, graphql}) {
 
   const result = await graphql(`
     {
-      allPost(
+      allStrapiArticle(
         sort: { order: DESC, fields: [published_at] }
       ) {
         edges {
@@ -41,16 +41,8 @@ async function createBlogPostPages({ actions, graphql}) {
             title
             published_at
             slug
-            headline {
-              childMarkdownRemark {
-                html
-              }
-            }
-            content {
-              childMarkdownRemark {
-                html
-              }
-            }
+            headline
+            content
           }
         }
       }
@@ -61,12 +53,12 @@ async function createBlogPostPages({ actions, graphql}) {
     return Promise.reject(result.errors)
   }
 
-  const posts = result.data.allPost.edges
+  const posts = result.data.allStrapiArticle.edges
   const component = path.resolve('./src/templates/blog-post-page/index.js')
 
   posts.forEach(({ node }) => {
     createPage({
-      path: node.slug,
+      path: `/blog/${node.slug}`,
       component,
       context: {
         slug: node.slug,
