@@ -102,12 +102,12 @@ export const pageQuery = graphql`
       }
       parsedDirections {
         childMarkdownRemark {
-            html
+          html
         }
       }
       parsedIngredients {
         childMarkdownRemark {
-            html
+          html
         }
       }
       slug

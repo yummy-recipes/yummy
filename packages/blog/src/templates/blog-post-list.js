@@ -27,7 +27,11 @@ fragment blogPostForList on StrapiArticle {
   title
   slug
   published_at(formatString: "D MMM YYYY", locale: "pl")
-  headline
+  parsedHeadline {
+    childMarkdownRemark {
+      html
+    }  
+  }
 }
 `
 
