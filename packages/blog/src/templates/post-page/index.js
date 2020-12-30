@@ -67,7 +67,7 @@ export default function PostPage({data}) {
               dangerouslySetInnerHTML={{ __html: recipe.parsedDirections.childMarkdownRemark.html }}
             />
           </div>
-          <Gallery images={gallery.nodes}/>
+          <Gallery images={recipe.gallery.map(({ image }) => image)}/>
         </article>
       </section>
     </div>
@@ -76,24 +76,6 @@ export default function PostPage({data}) {
 
 export const pageQuery = graphql`
   query($slug: String!) {
-      gallery: allFile (
-          filter: {
-              absolutePath: { regex: "/^TODO: FIXME$/" }
-              extension: { regex: "/(jpg)|(png)|(tif)|(tiff)|(webp)|(jpeg)/" }
-          }
-          sort: { fields: name, order: ASC }
-      ){
-          nodes {
-              childImageSharp {
-                  small: fluid(maxWidth: 500, traceSVG: { color: "#e98500" }) {
-                      ...GatsbyImageSharpFluid_tracedSVG
-                  }
-                  large: fluid(maxWidth: 5000, traceSVG: { color: "#e98500" }) {
-                      ...GatsbyImageSharpFluid_tracedSVG
-                  }
-              }
-          }
-      }
     strapiRecipe(slug: { eq: $slug }) {
       parsedHeadline {
         childMarkdownRemark {
@@ -120,6 +102,18 @@ export const pageQuery = graphql`
         childImageSharp {
           fluid(maxWidth: 2000, traceSVG: { color: "#e98500" }) {
             ...GatsbyImageSharpFluid_tracedSVG
+          }
+        }
+      }
+      gallery {
+        image {
+          childImageSharp {
+            small: fluid(maxWidth: 500, traceSVG: { color: "#e98500" }) {
+              ...GatsbyImageSharpFluid_tracedSVG
+            }
+            large: fluid(maxWidth: 5000, traceSVG: { color: "#e98500" }) {
+              ...GatsbyImageSharpFluid_tracedSVG
+            }
           }
         }
       }

@@ -1,7 +1,25 @@
 const crypto = require('crypto')
+const { createRemoteFileNode } = require('gatsby-source-filesystem')
 
-exports.createResolvers = ({ createResolvers, createNodeId }) => {
+exports.createResolvers = ({ createResolvers, createNodeId, cache, actions, store, reporter, }) => {
+  const { createNode } = actions
+  const apiUrl = process.env.API_URL || 'http://localhost:1337'
   const resolvers = {
+    StrapiRecipeGallery: {
+      image: {
+        type: 'File',
+        resolve: (source, args, context, info) => {
+          return createRemoteFileNode({
+            url: source.url.startsWith('/') ? `${apiUrl}${source.url}` : source.url,
+            store,
+            cache,
+            createNode,
+            createNodeId,
+            reporter,
+          })
+        }
+      }
+    },
     StrapiRecipe: {
       parsedHeadline: {
         type: 'RecipePart',
