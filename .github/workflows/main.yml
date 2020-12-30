@@ -46,8 +46,6 @@ jobs:
       - run: yarn install --frozen-lockfile
       - name: Run e2e tests
         run: yarn test:e2e:ci
-        env:
-          GATSBY_SOURCE: test
       - name: Upload cypress screenshots
         uses: actions/upload-artifact@v1
         if: failure()
