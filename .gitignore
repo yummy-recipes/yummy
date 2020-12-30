@@ -79,5 +79,5 @@ packages/cms/.tmp
 
 test-results
 
-puppeteer/screenshots/diff/
-puppeteer/screenshots/current/
+packages/blog/puppeteer/screenshots/diff
+packages/blog/puppeteer/screenshots/current
