@@ -125,11 +125,11 @@ module.exports = {
       `,
         feeds: [
           {
-            serialize: ({ query: { site, allRecipe } }) => {
-              return allRecipe.edges.map(edge => {
+            serialize: ({ query: { site, allStrapiRecipe } }) => {
+              return allStrapiRecipe.edges.map(edge => {
                 return {
-                  title: edge.node.name,
-                  description: JSDOM.fragment(edge.node.headline.childMarkdownRemark.html).textContent,
+                  title: edge.node.title,
+                  description: JSDOM.fragment(edge.node.parsedHeadline.childMarkdownRemark.html).textContent,
                   date: edge.node.published_at,
                   url: site.siteMetadata.siteUrl + edge.node.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.slug
@@ -138,19 +138,19 @@ module.exports = {
             },
             query: `
             {
-              allRecipe(
+              allStrapiRecipe(
                 limit: 1000,
                 sort: { order: DESC, fields: [published_at] }
               ) {
                 edges {
                   node {
-                    headline { 
+                    parsedHeadline { 
                       childMarkdownRemark {
                         html
                       }
                     }
                     slug
-                    name
+                    title
                     published_at
                   }
                 }

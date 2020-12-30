@@ -62,7 +62,7 @@ async function importRecipe(slug, category, content, coverPath, gallery) {
     field: 'cover'
   }, file)
 
-  if (gallery.length > 0) {
+  if (gallery && gallery.length > 0) {
     await strapi.plugins.upload.services.upload.uploadToEntity({
       id: recipe.id,
       model: 'recipe',
@@ -112,10 +112,120 @@ async function updateUploadSettings() {
   await strapi.plugins.upload.services.upload.setSettings({ sizeOptimization: false, responsiveDimensions: false })
 }
 
+function createDateWithOffset(offset) {
+  const date = new Date('2019-01-01T00:00:00Z')
+  date.setMinutes(offset)
+  return date.toISOString()
+}
+
+async function createRecipe({ title, slug, category, publishedAt, tagNames, gallery}) {
+  const tags = await Promise.all(tagNames.map(name => findOrCreateTag(name)))
+  const categoryEntity = await strapi.services.category.findOne({ slug: category })
+
+  const recipe = await strapi.services.recipe.create({
+    title,
+    slug,
+    headline: 'Nagłówek',
+    directions: '## Przygotowanie',
+    category: categoryEntity.id,
+    published_at: publishedAt,
+    tags: tags.map(tag => tag.id),
+    preparationTime: 60,
+    ingredients: '## Lista zakupów'
+  })
+
+  const file = {
+    size: 10,
+    path: '../blog/cypress/fixtures/images/cover.jpg',
+    name: 'cover.jpg',
+    type: 'image/jpeg',
+    lastModifiedDate: null,
+    hash: null
+  }
+
+  await strapi.plugins.upload.services.upload.uploadToEntity({
+    id: recipe.id,
+    model: 'recipe',
+    field: 'cover'
+  }, file)
+
+  if (gallery && gallery.length > 0) {
+    await strapi.plugins.upload.services.upload.uploadToEntity({
+      id: recipe.id,
+      model: 'recipe',
+      field: 'gallery'
+    }, gallery.map(galleryFile => ({
+      size: 10,
+      path: galleryFile,
+      name: 'gallery.jpg',
+      type: 'image/jpeg',
+      lastModifiedDate: null,
+      hash: null
+    })))
+  }
+}
+
+async function createRecipeBatch({ createNewDate, variant }) {
+  await createRecipe({
+    slug: `obiad-${variant.toLowerCase()}`,
+    title: `Obiad ${variant}`,
+    publishedAt: createNewDate(),
+    category: 'obiady',
+    tagNames: ['kurczak']
+  })
+
+  await createRecipe({
+    slug: `zupa-${variant.toLowerCase()}`,
+    title: `Zupa ${variant}`,
+    publishedAt: createNewDate(),
+    category: 'zupy',
+    tagNames: ['woda']
+  })
+
+  await createRecipe({
+    slug: `koktajl-${variant.toLowerCase()}`,
+    title: `Koktajl ${variant}`,
+    publishedAt: createNewDate(),
+    category: 'koktajle',
+    tagNames: ['woda']
+  })
+
+  await createRecipe({
+    slug: `sniadaniowe-${variant.toLowerCase()}`,
+    title: `Sniadaniowe ${variant}`,
+    publishedAt: createNewDate(),
+    category: 'sniadaniowe',
+    tagNames: ['woda']
+  })
+
+  await createRecipe({
+    slug: `deser-${variant.toLowerCase()}`,
+    gallery: [
+      '../blog/cypress/fixtures/images/related.jpg',
+      '../blog/cypress/fixtures/images/related2.jpg'
+    ],
+    title: `Desery ${variant}`,
+    publishedAt: createNewDate(),
+    category: 'desery',
+    tagNames: ['woda']
+  })
+}
+
+async function setupTestFixtures() {
+  let counter = 0
+  const createNewDate = () => createDateWithOffset(counter++)
+
+  for (let i = 0; i < 10; i++) {
+    await createRecipeBatch({
+      createNewDate,
+      variant: String.fromCharCode('A'.charCodeAt(0) + i)
+    })
+  }
+}
+
 module.exports = async () => {
   // strapi.plugins.upload.services.upload
-
-  console.log(Object.keys(strapi.plugins.upload.services.upload))
+  // console.log(Object.keys(strapi.plugins.upload.services.upload))
 
 
   await enableRead()
@@ -136,20 +246,43 @@ module.exports = async () => {
   const numberOfRecipes = await strapi.services.recipe.count()
 
   if (numberOfRecipes === 0) {
-    fs.readdir('../../../yummy-content/recipes', async (err, files) => {
-      for (const file of files) {
-        await importByCategory(file)
-      }
-    })
+
+    if (process.env.NODE_ENV === 'test'){
+      await setupTestFixtures()
+    } else {
+      fs.readdir('../../../yummy-content/recipes', async (err, files) => {
+        for (const file of files) {
+          await importByCategory(file)
+        }
+      })
+    }
   }
 
   const numberOfArticles = await strapi.services.article.count()
 
   if (numberOfArticles === 0) {
     await strapi.services.article.create({
-      title: 'Article 1',
-      headline: 'First article',
-      content: 'Lorem ipsum'
+      title: 'Demo',
+      headline: 'Lorem ipsum',
+      content: 'Lorem ipsum',
+      published_at: '2019-05-15T12:00:00Z'
+    })
+
+    await strapi.services.article.create({
+      title: 'A second demo',
+      headline: 'Salami ground round biltong eiusmod velit sunt pig sirloin pork in chuck in. Minim biltong nulla cow nostrud capicola sausage aliqua bacon tempor turducken. Ham hock fatback aliqua alcatra capicola in sint fugiat ham beef ribs drumstick.',
+      content: `
+      Lorem ipsum
+      
+      Lorem ipsum
+      
+      Lorem ipsum
+      
+      Lorem ipsum
+      
+      Lorem ipsum
+      `,
+      published_at: '2019-05-22T12:00:00Z'
     })
   }
 }

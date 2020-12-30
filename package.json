@@ -6,13 +6,24 @@
   "private": true,
   "workspaces": ["packages/*"],
   "devDependencies": {
-    "lerna": "^3.20.2"
+    "lerna": "^3.20.2",
+    "start-server-and-test": "^1.11.7"
   },
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "start": "lerna run develop --scope=@yummy/blog --stream",
     "start:cms": "lerna run develop --scope=@yummy/cms --stream",
     "build": "lerna run build --scope=@yummy/blog --stream",
-    "minibuild": "GATSBY_SOURCE=mini lerna run build --scope=@yummy/blog --stream"
+    "minibuild": "GATSBY_SOURCE=mini lerna run build --scope=@yummy/blog --stream",
+    "test:cypress:start:cms": "lerna run start:cypress --scope=@yummy/cms --stream",
+    "test:cypress:start:blog": "lerna run start:cypress --scope=@yummy/blog --stream",
+    "test:cypress:start:blog:ci": "lerna run start:cypress:ci --scope=@yummy/blog --stream",
+    "test:cypress:open": "lerna run cy:open --stream",
+    "test:cypress:run": "lerna run cy:run --stream",
+    "test:e2e": "start-server-and-test 'start-server-and-test \"test:cypress:start:cms\" 1338 \"test:cypress:start:blog\"' '8001' 'test:cypress:open'",
+    "test:e2e:ci": "start-server-and-test 'start-server-and-test \"test:cypress:start:cms\" 1338 \"test:cypress:start:blog:ci\"' '8001' 'test:cypress:run'",
+    "test:visual:run": "lerna run pup:run --stream",
+    "test:visual": "start-server-and-test 'start-server-and-test \"test:cypress:start:cms\" 1338 \"test:cypress:start:blog:ci\"' '8001' 'test:visual:run'",
+    "test:visual:update": "UPDATE_SNAPSHOTS=true yarn test:visual"
   }
 }

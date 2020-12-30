@@ -7,10 +7,8 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
-  },
-  "devDependencies": {
-    "form-data": "^3.0.0"
+    "strapi": "strapi",
+    "start:cypress": "rm -fr .tmp/test && NODE_ENV=test PORT=1338 BROWSER=false DATABASE_FILENAME=.tmp/test/data.db strapi start"
   },
   "dependencies": {
     "knex": "<0.20.0",

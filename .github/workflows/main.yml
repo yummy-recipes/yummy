@@ -45,7 +45,7 @@ jobs:
             ${{ runner.os }}-yarn-
       - run: yarn install --frozen-lockfile
       - name: Run e2e tests
-        run: yarn lerna run --stream test:e2e:ci
+        run: yarn test:e2e:ci
         env:
           GATSBY_SOURCE: test
       - name: Upload cypress screenshots
@@ -74,7 +74,7 @@ jobs:
             ${{ runner.os }}-yarn-
       - run: yarn install --frozen-lockfile
       - name: Run visual tests
-        run: yarn lerna run --stream test:visual
+        run: yarn test:visual
       - name: Upload visual comparison results
         uses: actions/upload-artifact@v1
         if: failure()
