@@ -116,6 +116,13 @@ export const pageQuery = graphql`
         name
         slug
       }
+      cover {
+        childImageSharp {
+          fluid(maxWidth: 2000, traceSVG: { color: "#e98500" }) {
+            ...GatsbyImageSharpFluid_tracedSVG
+          }
+        }
+      }
       preparationTime
       category {
         name
