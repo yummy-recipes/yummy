@@ -8,56 +8,24 @@ const localPlugins = [
   '@yummy/gatsby-search-data',
 ]
 
-function getSourcePlugins() {
-  switch (process.env.GATSBY_SOURCE) {
-    case 'test':
-      return [
-        '@yummy/gatsby-source-fixtures',
-        {
-          resolve: 'gatsby-source-filesystem',
-          options: {
-            path: `${__dirname}/cypress/fixtures/recipes`,
-            name: 'recipes',
-          },
-        },
-        {
-          resolve: 'gatsby-source-filesystem',
-          options: {
-            path: `${__dirname}/cypress/fixtures/posts`,
-            name: 'posts',
-          },
-        },
-        {
-          resolve: 'gatsby-source-filesystem',
-          options: {
-            path: `${__dirname}/cypress/fixtures/images`,
-            name: 'images',
-          },
-        }
-      ]
-
-    default:
-      return [
-        {
-          resolve: 'gatsby-source-strapi',
-          options: {
-            apiURL: process.env.API_URL || 'http://localhost:1337',
-            contentTypes: ['recipe', 'category', 'tag', 'article'],
-            singleTypes: [],
-            queryLimit: 1000
-          }
-        },
-        {
-          resolve: 'gatsby-plugin-webpack-bundle-analyzer',
-          options: {
-            analyzerPort: 3005,
-            openAnalyzer: false
-          }
-        }
-      ]
+const sourcePlugins = [
+  {
+    resolve: 'gatsby-source-strapi',
+    options: {
+      apiURL: process.env.API_URL || 'http://localhost:1337',
+      contentTypes: ['recipe', 'category', 'tag', 'article'],
+      singleTypes: [],
+      queryLimit: 1000
+    }
+  },
+  {
+    resolve: 'gatsby-plugin-webpack-bundle-analyzer',
+    options: {
+      analyzerPort: 3005,
+      openAnalyzer: false
+    }
   }
-}
-const sourcePlugins = getSourcePlugins()
+]
 
 const typographyPlugins = process.env.GATSBY_SOURCE === 'test' ? [
   {
