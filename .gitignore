@@ -73,10 +73,5 @@ data.json
 .idea
 
 packages/core/cypress/videos
-packages/core/cypress/fixtures/recipes
-packages/cms/build
 
 test-results
-
-packages/blog/puppeteer/screenshots/diff
-packages/blog/puppeteer/screenshots/current
