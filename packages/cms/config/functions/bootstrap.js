@@ -271,17 +271,7 @@ module.exports = async () => {
     await strapi.services.article.create({
       title: 'A second demo',
       headline: 'Salami ground round biltong eiusmod velit sunt pig sirloin pork in chuck in. Minim biltong nulla cow nostrud capicola sausage aliqua bacon tempor turducken. Ham hock fatback aliqua alcatra capicola in sint fugiat ham beef ribs drumstick.',
-      content: `
-      Lorem ipsum
-      
-      Lorem ipsum
-      
-      Lorem ipsum
-      
-      Lorem ipsum
-      
-      Lorem ipsum
-      `,
+      content: ['Spicy jalapeno bacon', 'Spicy jalapeno bacon', 'Spicy jalapeno bacon', 'Spicy jalapeno bacon', 'Spicy jalapeno bacon'].join('\n\n'),
       published_at: '2019-05-22T12:00:00Z'
     })
   }

@@ -32,7 +32,7 @@ context('Blog', () => {
     cy.get('div[class*=post_body]').should($post => {
       expect($post.find('p')).to.have.length(5)
       expect($post.find('p')).to.contain('Spicy jalapeno bacon')
-      expect($post.find('p').text().length).to.eq(1835)
+      expect($post.find('p').text().length).to.eq(100)
     })
   })
 })
