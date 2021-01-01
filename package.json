@@ -5,6 +5,9 @@
   "license": "MIT",
   "private": true,
   "workspaces": ["packages/*"],
+  "engines": {
+    "node": "12.x | 14.x"
+  },
   "devDependencies": {
     "start-server-and-test": "^1.11.7"
   },
