@@ -135,7 +135,11 @@ async function createRecipe({ title, slug, category, publishedAt, tagNames, gall
     published_at: publishedAt,
     tags: tags.map(tag => tag.id),
     preparationTime: 60,
-    ingredients: '## Lista zakupów'
+    ingredients: '## Lista zakupów',
+    seo: {
+      htmlTitle: title,
+      htmlDescription: 'Nagłówek'
+    }
   })
 
   const file = {
