@@ -44,7 +44,11 @@ async function importRecipe(slug, category, content, coverPath, gallery) {
     published_at: config.date,
     tags: tags.map(tag => tag.id),
     preparationTime: parseInt(config.required_time, 10),
-    ingredients: ingredients.trim()
+    ingredients: ingredients.trim(),
+    seo: {
+      htmlTitle: config.title,
+      htmlDescription: headline.trim()
+    }
   })
 
   const file = {
