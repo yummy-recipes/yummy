@@ -22,8 +22,8 @@ export default function PostPage({data}) {
     <div className={pageStyles.layout}>
       <SiteMetadata render={({siteUrl}) =>
         <Helmet>
-          <title>{recipe.title}</title>
-          <meta name='description' content={recipe.title}/>
+          <title>{recipe.seo.htmlTitle || recipe.title}</title>
+          <meta name='description' content={recipe.seo.htmlDescription || recipe.title}/>
           {recipe.cover && <meta property='og:image' content={siteUrl + recipe.cover.childImageSharp.fluid.src} />}
           <meta property='og:type' content='article' />
           <meta property='article:section' content={recipe.category.name} />
@@ -77,6 +77,10 @@ export default function PostPage({data}) {
 export const pageQuery = graphql`
   query($slug: String!) {
     strapiRecipe(slug: { eq: $slug }) {
+      seo {
+        htmlTitle
+        htmlDescription
+      }  
       parsedHeadline {
         childMarkdownRemark {
           html
