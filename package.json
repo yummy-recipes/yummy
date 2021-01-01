@@ -6,10 +6,13 @@
   "private": true,
   "workspaces": ["packages/*"],
   "devDependencies": {
-    "lerna": "^3.20.2",
     "start-server-and-test": "^1.11.7"
   },
+  "dependencies": {
+    "lerna": "^3.20.2"
+  },
   "scripts": {
+    "postinstall": "lerna bootstrap",
     "bootstrap": "lerna bootstrap",
     "start": "lerna run develop --scope=@yummy/cms --stream",
     "start:blog": "lerna run develop --scope=@yummy/blog --stream",
