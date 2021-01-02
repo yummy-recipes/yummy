@@ -6,7 +6,7 @@
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
-    "start:prod": "strapi build && strapi start",
+    "start:prod": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
     "start:cypress": "rm -fr .tmp/test && NODE_ENV=test PORT=1338 BROWSER=false DATABASE_FILENAME=.tmp/test/data.db strapi start"
