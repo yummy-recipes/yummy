@@ -255,9 +255,9 @@ module.exports = async () => {
 
   if (numberOfRecipes === 0) {
 
-    if (process.env.NODE_ENV === 'test'){
+    if (process.env.NODE_ENV === 'test') {
       await setupTestFixtures()
-    } else {
+    } else if (process.env.SEED_CONTENT === 'true') {
       fs.readdir('../../../yummy-content/recipes', async (err, files) => {
         for (const file of files) {
           await importByCategory(file)
