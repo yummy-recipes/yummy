@@ -17,8 +17,8 @@
   "scripts": {
     "postinstall": "lerna bootstrap",
     "bootstrap": "lerna bootstrap",
-    "start": "lerna run develop --scope=@yummy/cms --stream",
-    "start:blog": "lerna run develop --scope=@yummy/blog --stream",
+    "start": "lerna run develop --scope=@yummy/blog --stream",
+    "start:cms": "lerna run develop --scope=@yummy/cms --stream",
     "build": "lerna run build --scope=@yummy/blog --stream",
     "minibuild": "GATSBY_SOURCE=mini lerna run build --scope=@yummy/blog --stream",
     "test:cypress:start:cms": "lerna run start:cypress --scope=@yummy/cms --stream",
