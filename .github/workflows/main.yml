@@ -83,6 +83,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: [build, visual, e2e]
+    if: github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -109,4 +110,4 @@ jobs:
           git remote add dokku dokku@ertrzyiks.me:yummy-api
           git add packages/cms/build --force
           git commit -m 'Add admin build'
-          git push dokku HEAD:master --force
+          git push dokku master --force
