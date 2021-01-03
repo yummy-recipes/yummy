@@ -1,14 +1,16 @@
 const path = require('path')
-const slugify = require('underscore.string/slugify')
 const {createPaginated} = require('./common')
 
 async function createTagPages({ actions, graphql }) {
   const result = await graphql(`
     {
-      allRecipe {
-        group(field: tags) {
-            fieldValue
+      allStrapiTag {
+        edges {
+          node {
+            slug
+            name
           }
+        }
       }
     }
   `)
@@ -17,18 +19,16 @@ async function createTagPages({ actions, graphql }) {
     return Promise.reject(result.errors)
   }
 
-  const tags = result.data.allRecipe.group.map(tag => tag.fieldValue)
+  const tags = result.data.allStrapiTag.edges.map(tag => tag.node)
 
-  return Promise.all(tags.map(tag => createTagPage({ tag, actions, graphql })))
+  return Promise.all(tags.map(({ name, slug }) => createTagPage({ tag: name, tagSlug: slug, actions, graphql })))
 }
 
-async function createTagPage({ tag, actions, graphql }) {
-  const slug = slugify(tag)
-
+async function createTagPage({ tag, tagSlug, actions, graphql }) {
   const result = await graphql(`
     query ($tag: String!) {
-      allRecipe(
-        filter: { tags: { in: [$tag] } }
+      allStrapiRecipe(
+        filter: { tags: { elemMatch: { slug: { in: [$tag] } } } }
       ) {
         edges {
           node {
@@ -37,7 +37,7 @@ async function createTagPage({ tag, actions, graphql }) {
         }
       }
     }
-  `, {tag})
+  `, {tag: tagSlug})
 
   if (result.errors) {
     return Promise.reject(result.errors)
@@ -45,11 +45,11 @@ async function createTagPage({ tag, actions, graphql }) {
 
   createPaginated({
     actions,
-    collection: result.data.allRecipe.edges,
+    collection: result.data.allStrapiRecipe.edges,
     component: path.resolve('./src/templates/post-list-by-tag.js'),
-    baseUrl: `/tag/${slug}/`,
+    baseUrl: `/tag/${tagSlug}/`,
     context: {
-      slug: slug,
+      slug: tagSlug,
       tag: tag,
       fullHeaderVersion: false,
       subsection: tag

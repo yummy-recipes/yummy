@@ -8,81 +8,24 @@ const localPlugins = [
   '@yummy/gatsby-search-data',
 ]
 
-function getSourcePlugins() {
-  switch (process.env.GATSBY_SOURCE) {
-    case 'test':
-      return [
-        '@yummy/gatsby-source-fixtures',
-        {
-          resolve: 'gatsby-source-filesystem',
-          options: {
-            path: `${__dirname}/cypress/fixtures/recipes`,
-            name: 'recipes',
-          },
-        },
-        {
-          resolve: 'gatsby-source-filesystem',
-          options: {
-            path: `${__dirname}/cypress/fixtures/posts`,
-            name: 'posts',
-          },
-        },
-        {
-          resolve: 'gatsby-source-filesystem',
-          options: {
-            path: `${__dirname}/cypress/fixtures/images`,
-            name: 'images',
-          },
-        }
-      ]
-    case 'mini':
-      return [
-        {
-          resolve: 'gatsby-source-filesystem',
-          options: {
-            path: `${__dirname}/../../../mini-yummy-content/recipes`,
-            name: 'recipes',
-          },
-        }, {
-          resolve: 'gatsby-source-filesystem',
-          options: {
-            path: `${__dirname}/../../../mini-yummy-content/posts`,
-            name: 'posts',
-          },
-        }, {
-          resolve: 'gatsby-plugin-webpack-bundle-analyzer',
-          options: {
-            analyzerPort: 3005,
-            openAnalyzer: false
-          }
-        }
-      ]
-
-    default:
-      return [
-        {
-          resolve: 'gatsby-source-filesystem',
-          options: {
-            path: `${__dirname}/../../../yummy-content/recipes`,
-            name: 'recipes',
-          },
-        }, {
-          resolve: 'gatsby-source-filesystem',
-          options: {
-            path: `${__dirname}/../../../yummy-content/posts`,
-            name: 'posts',
-          },
-        }, {
-          resolve: 'gatsby-plugin-webpack-bundle-analyzer',
-          options: {
-            analyzerPort: 3005,
-            openAnalyzer: false
-          }
-        }
-      ]
+const sourcePlugins = [
+  {
+    resolve: 'gatsby-source-strapi',
+    options: {
+      apiURL: process.env.API_URL || 'http://localhost:1337',
+      contentTypes: ['recipe', 'category', 'tag', 'article'],
+      singleTypes: [],
+      queryLimit: 1000
+    }
+  },
+  {
+    resolve: 'gatsby-plugin-webpack-bundle-analyzer',
+    options: {
+      analyzerPort: 3005,
+      openAnalyzer: false
+    }
   }
-}
-const sourcePlugins = getSourcePlugins()
+]
 
 const typographyPlugins = process.env.GATSBY_SOURCE === 'test' ? [
   {
@@ -150,11 +93,11 @@ module.exports = {
       `,
         feeds: [
           {
-            serialize: ({ query: { site, allRecipe } }) => {
-              return allRecipe.edges.map(edge => {
+            serialize: ({ query: { site, allStrapiRecipe } }) => {
+              return allStrapiRecipe.edges.map(edge => {
                 return {
-                  title: edge.node.name,
-                  description: JSDOM.fragment(edge.node.headline.childMarkdownRemark.html).textContent,
+                  title: edge.node.title,
+                  description: JSDOM.fragment(edge.node.parsedHeadline.childMarkdownRemark.html).textContent,
                   date: edge.node.published_at,
                   url: site.siteMetadata.siteUrl + edge.node.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.slug
@@ -163,19 +106,19 @@ module.exports = {
             },
             query: `
             {
-              allRecipe(
+              allStrapiRecipe(
                 limit: 1000,
                 sort: { order: DESC, fields: [published_at] }
               ) {
                 edges {
                   node {
-                    headline { 
+                    parsedHeadline { 
                       childMarkdownRemark {
                         html
                       }
                     }
                     slug
-                    name
+                    title
                     published_at
                   }
                 }

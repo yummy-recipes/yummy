@@ -13,15 +13,18 @@ describe('PostPage', () => {
       render({site: {siteMetadata: {siteUrl: 'http://localhost.test'}}})
     )
 
-    const recipe = {
-      html_title: 'Recipe title',
-      html_description: 'Recipe description',
-      tags: ['tag1', 'tag2'],
+    const strapiRecipe = {
+      seo: {
+        htmlTitle: 'Recipe title',
+        htmlDescription: 'Recipe description',
+      },
+      tags: [{ slug: 'tag1', name: 'Tag1'}, { slug: 'tag2', name: 'Tag2' }],
       category: { name: 'Category Name' },
-      headline: {childMarkdownRemark: {html: 'Lorem ipsum'}},
-      ingredients: {childMarkdownRemark: {html: 'Lorem ipsum'}},
-      directions: {childMarkdownRemark: {html: 'Lorem ipsum'}},
-      featured_image: {
+      parsedHeadline: {childMarkdownRemark: {html: 'Lorem ipsum'}},
+      parsedIngredients: {childMarkdownRemark: {html: 'Lorem ipsum'}},
+      parsedDirections: {childMarkdownRemark: {html: 'Lorem ipsum'}},
+      gallery: [],
+      cover: {
         childImageSharp: {
           fluid: {
             aspectRatio: 1,
@@ -33,10 +36,7 @@ describe('PostPage', () => {
       }
     }
 
-    const gallery = {
-      nodes: []
-    }
-    const data = {recipe, gallery}
+    const data = {strapiRecipe}
 
     render(<PostPage data={data} />)
 
@@ -46,8 +46,8 @@ describe('PostPage', () => {
     expect(helmet.metaTags).toContainEqual({name: 'description', content: 'Recipe description'})
     expect(helmet.metaTags).toContainEqual({property: 'og:type', content: 'article'})
     expect(helmet.metaTags).toContainEqual({property: 'article:section', content: 'Category Name'})
-    expect(helmet.metaTags).toContainEqual({property: 'article:tag', content: 'tag1'})
-    expect(helmet.metaTags).toContainEqual({property: 'article:tag', content: 'tag2'})
+    expect(helmet.metaTags).toContainEqual({property: 'article:tag', content: 'Tag1'})
+    expect(helmet.metaTags).toContainEqual({property: 'article:tag', content: 'Tag2'})
     expect(helmet.metaTags).toContainEqual({property: 'og:image', content: 'http://localhost.test/cover.jpg'})
   })
 })

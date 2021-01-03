@@ -3,11 +3,14 @@ const fs = require('fs')
 const createSearchDataJson = ({ graphql }) => {
   return graphql(`
     {
-      allRecipe {
+      allStrapiRecipe {
         edges {
           node {
             slug
-            name
+            category {
+              slug
+            }
+            title
           }
         }
       }
@@ -17,10 +20,10 @@ const createSearchDataJson = ({ graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    const pages = result.data.allRecipe.edges.map(({node}) => {
+    const pages = result.data.allStrapiRecipe.edges.map(({node}) => {
       return {
-        path: node.slug,
-        title: node.name
+        path: `/${node.category.slug}/${node.slug}`,
+        title: node.title
       }
     })
 
@@ -28,6 +31,6 @@ const createSearchDataJson = ({ graphql }) => {
   })
 }
 
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = ({ graphql }) => {
   return createSearchDataJson({ graphql })
 }

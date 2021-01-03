@@ -1,0 +1,43 @@
+{
+  "name": "@yummy/cms",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "start:prod": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi",
+    "start:cypress": "rm -fr .tmp/test && NODE_ENV=test PORT=1338 BROWSER=false DATABASE_FILENAME=.tmp/test/data.db strapi start"
+  },
+  "dependencies": {
+    "knex": "<0.20.0",
+    "pg-connection-string": "^2.4.0",
+    "slugify": "^1.4.6",
+    "sqlite3": "5.0.0",
+    "pg": "^8.5.1",
+    "strapi": "3.4.1",
+    "strapi-admin": "3.4.1",
+    "strapi-connector-bookshelf": "3.4.1",
+    "strapi-plugin-content-manager": "3.4.1",
+    "strapi-plugin-content-type-builder": "3.4.1",
+    "strapi-plugin-email": "3.4.1",
+    "strapi-plugin-graphql": "3.4.1",
+    "strapi-plugin-upload": "3.4.1",
+    "strapi-plugin-users-permissions": "3.4.1",
+    "strapi-utils": "3.4.1",
+    "yaml": "^1.10.0"
+  },
+  "author": {
+    "name": "Dyrksy"
+  },
+  "strapi": {
+    "uuid": "cbf64bbe-4ed5-493a-ab3d-62197dc88433"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

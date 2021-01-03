@@ -4,7 +4,7 @@ const {createPaginated} = require('./common')
 function createMainPage({ actions, graphql }) {
   return graphql(`
     {
-      allRecipe {
+      allStrapiRecipe {
         edges {
           node {
             id
@@ -19,7 +19,7 @@ function createMainPage({ actions, graphql }) {
 
     createPaginated({
       actions,
-      collection: result.data.allRecipe.edges,
+      collection: result.data.allStrapiRecipe.edges,
       baseUrl: '/',
       component: path.resolve('./src/templates/post-list.js')
     })

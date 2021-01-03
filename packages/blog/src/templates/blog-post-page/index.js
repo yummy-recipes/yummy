@@ -10,7 +10,7 @@ import pageStyles from '../page.module.sass'
 import postStyles from './blog-post.module.sass'
 
 export default function BlogPostPage({data}) {
-  const { post } = data
+  const { strapiArticle: post } = data
 
   // TODO: should it be setting all of this meta data? Some of it lives within the Page element itself
   return (
@@ -42,11 +42,10 @@ export default function BlogPostPage({data}) {
                 {post.published_at}
               </span>
 
-              <div className={postStyles.post_headline} dangerouslySetInnerHTML={{ __html: post.headline.childMarkdownRemark.html }}></div>
+              <div className={postStyles.post_headline} dangerouslySetInnerHTML={{ __html: post.parsedHeadline.childMarkdownRemark.html }}></div>
             </div>
             <div className={postStyles.post_body}>
-              <div dangerouslySetInnerHTML={{ __html: post.content.childMarkdownRemark.html }}></div>
-
+              <div dangerouslySetInnerHTML={{ __html: post.parsedContent.childMarkdownRemark.html }}></div>
             </div>
           </article>
         </section>
@@ -57,16 +56,16 @@ export default function BlogPostPage({data}) {
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    post(slug: { eq: $slug }) {
-      headline {
+    strapiArticle(slug: { eq: $slug }) {
+      parsedHeadline {
         childMarkdownRemark {
           html
         }
       }
-      content {
+      parsedContent {
         childMarkdownRemark {
             html
-          }
+        }  
       }
       slug
       title

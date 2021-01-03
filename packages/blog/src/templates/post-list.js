@@ -13,7 +13,7 @@ export default function PostListPage({data, pageContext, location}) {
   return (
     <Page>
       <PostListContent
-        allRecipesData={data.allRecipe}
+        allRecipesData={data.allStrapiRecipe}
         pageInfo={pageInfo}
         location={location}
       />
@@ -22,23 +22,26 @@ export default function PostListPage({data, pageContext, location}) {
 }
 
 export const query = graphql`
-fragment postForList on Recipe {
+fragment postForList on StrapiRecipe {
   id
-  name
-  headline { 
+  title
+  parsedHeadline { 
     childMarkdownRemark {
       html
     }
   }
   slug
-  tags
+  tags {
+    name 
+    slug  
+  }
   category {
     name
     slug
   }
-  required_time
+  preparationTime
   published_at(formatString: "D MMM YYYY", locale: "pl")
-  featured_image {
+  cover {
     childImageSharp {
       fluid(maxWidth: 1000, traceSVG: { color: "#ec973b" }) {
         ...GatsbyImageSharpFluid_tracedSVG
@@ -50,7 +53,7 @@ fragment postForList on Recipe {
 
 export const pageQuery = graphql`
   query blogListQuery($skip: Int!, $limit: Int!) {
-    allRecipe (
+    allStrapiRecipe (
       sort: { order: DESC, fields: [published_at] }
       limit: $limit
       skip: $skip

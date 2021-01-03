@@ -56,7 +56,7 @@ typings/
 
 # gatsby files
 .cache/
-public
+packages/blog/public
 
 # Mac files
 .DS_Store
@@ -73,9 +73,5 @@ data.json
 .idea
 
 packages/core/cypress/videos
-packages/core/cypress/fixtures/recipes
 
 test-results
-
-puppeteer/screenshots/diff/
-puppeteer/screenshots/current/

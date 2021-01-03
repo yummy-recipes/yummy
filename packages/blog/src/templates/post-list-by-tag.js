@@ -13,7 +13,7 @@ export default function PostListByTagPage({data, pageContext, location}) {
   return (
     <Page>
       <PostListContent
-        allRecipesData={data.allRecipe}
+        allRecipesData={data.allStrapiRecipe}
         pageInfo={pageInfo}
         location={location}
       />
@@ -23,8 +23,8 @@ export default function PostListByTagPage({data, pageContext, location}) {
 
 export const pageQuery = graphql`
   query blogListByTagQuery($tag: String!, $skip: Int!, $limit: Int!) {
-    allRecipe (
-      filter: { tags: { in: [$tag] } }
+    allStrapiRecipe (
+      filter: { tags: { elemMatch: { slug: { in: [$tag] } } } }
       sort: { order: DESC, fields: [published_at] }
       limit: $limit
       skip: $skip
