@@ -99,7 +99,7 @@ jobs:
             ${{ runner.os }}-yarn-
       - run: yarn install --frozen-lockfile
       - run: yarn lerna run build --scope=@yummy/cms --stream
-      - uses: webfactory/ssh-agent@v0.2.0
+      - uses: webfactory/ssh-agent@v0.4.1
         with:
           ssh-private-key: ${{ secrets.DOKKU_DEPLOY_KEY }}
       - run: echo 'ertrzyiks.me,104.236.224.189 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNfW9tfAr21CQlapt944WeYOaSftTQB3Ly/Tm/1ZeXYEI08w9v9FEXRG2E+Sj/EDHimklHLlCwWCPMqMYFMQsMg=' >> ~/.ssh/known_hosts
