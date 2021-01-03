@@ -2,7 +2,7 @@ FROM node:12
 
 ENV PORT=80 NODE_ENV=production
 WORKDIR /usr/src/app
-COPY ./yarn.lock ./packages/cms/package.json ./
+COPY ./yarn.lock ./yarnrc ./packages/cms/package.json ./
 
 RUN yarn install
 
