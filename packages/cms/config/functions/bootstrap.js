@@ -25,6 +25,8 @@ async function findOrCreateTag(name) {
 }
 
 async function importRecipe(slug, category, content, coverPath, gallery) {
+  console.log(` - recipe ${slug}`)
+
   const [_, configString, ...rest] = content.split('---')
 
   const markdown = rest.join('---')
@@ -94,12 +96,17 @@ function getGallery(category, slug) {
 async function importByCategory(slug) {
   const category = await strapi.services.category.findOne({ slug })
 
-  fs.readdir('../../../yummy-content/recipes/' + slug, async (err, files) => {
-    for (const file of files) {
-      const content = fs.readFileSync('../../../yummy-content/recipes/' + slug + '/' + file + '/index.md')
-      const gallery = await getGallery(slug, file)
-      await importRecipe(file, category, content.toString(), '../../../yummy-content/recipes/' + slug + '/' + file + '/cover.jpg', gallery)
-    }
+  console.log(`IMPORTING ${slug}`)
+  return new Promise(resolve => {
+    fs.readdir('../../../yummy-content/recipes/' + slug, async (err, files) => {
+      for (const file of files) {
+        const content = fs.readFileSync('../../../yummy-content/recipes/' + slug + '/' + file + '/index.md')
+        const gallery = await getGallery(slug, file)
+        await importRecipe(file, category, content.toString(), '../../../yummy-content/recipes/' + slug + '/' + file + '/cover.jpg', gallery)
+      }
+
+      resolve()
+    })
   })
 }
 
