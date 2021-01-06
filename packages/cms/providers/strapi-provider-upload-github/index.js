@@ -14,8 +14,6 @@ const MyOctokit = Octokit.plugin(throttling).plugin(retry)
 
 module.exports = {
   init(providerOptions) {
-    // init your provider if necessary
-
     const octokit = new MyOctokit({
       auth: providerOptions.personalAccessToken,
       request: { retries: 10 },
