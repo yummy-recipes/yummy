@@ -24392,7 +24392,7 @@ strapi-provider-email-sendmail@3.4.1:
     sendmail "^1.6.1"
     strapi-utils "3.4.1"
 
-"strapi-provider-upload-github@file:packages/cms/providers/strapi-provider-upload-github":
+"strapi-provider-upload-github@file:./packages/cms/providers/strapi-provider-upload-github":
   version "1.0.0"
   dependencies:
     "@octokit/core" "^3.2.4"
