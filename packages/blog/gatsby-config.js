@@ -15,7 +15,11 @@ const sourcePlugins = [
       apiURL: process.env.API_URL || 'http://localhost:1337',
       contentTypes: ['recipe', 'category', 'tag', 'article'],
       singleTypes: [],
-      queryLimit: 1000
+      queryLimit: 1000,
+      loginData: {
+        identifier: process.env.API_USER_EMAIL || '',
+        password: process.env.API_USER_PASSWORD || ''
+      }
     }
   },
   {
