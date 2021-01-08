@@ -17,8 +17,8 @@ const sourcePlugins = [
       singleTypes: [],
       queryLimit: 1000,
       loginData: {
-        identifier: process.env.API_USER_EMAIL,
-        password: process.env.API_USER_PASSWORD,
+        identifier: process.env.API_USER_EMAIL || '',
+        password: process.env.API_USER_PASSWORD || ''
       }
     }
   },
