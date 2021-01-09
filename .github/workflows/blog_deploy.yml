@@ -1,6 +1,6 @@
 name: Blog deploy
 
-on: [repository_dispatch, workflow_dispatch]
+on: [push]
 
 jobs:
   build:
@@ -21,7 +21,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - run: yarn install --frozen-lockfile
-        working-directory: app
       - name: Build project
         run: for i in {1..3}; do yarn lerna run --scope @yummy/blog build && break; done
         env:
@@ -29,22 +28,19 @@ jobs:
           API_URL: https://api.kuchnia-yummy.pl
           API_USER_EMAIL: bot@ertrzyiks.me
           API_USER_PASSWORD: ${{ secrets.STRAPI_BOT_USER_PASSWORD }}
-        working-directory: app
       - uses: actions/upload-artifact@v2
         with:
           name: public
-          path: app/packages/blog/public/
+          path: packages/blog/public/
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    if: github.ref == 'refs/heads/master'
     steps:
       - uses: actions/download-artifact@v2
         with:
           name: public
-          path: app/packages/blog/public/
-      - uses: webfactory/ssh-agent@v0.2.0
+      - uses: webfactory/ssh-agent@v0.4.1
         with:
           ssh-private-key: ${{ secrets.DOKKU_DEPLOY_KEY }}
       - run: echo 'ertrzyiks.me,104.236.224.189 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNfW9tfAr21CQlapt944WeYOaSftTQB3Ly/Tm/1ZeXYEI08w9v9FEXRG2E+Sj/EDHimklHLlCwWCPMqMYFMQsMg=' >> ~/.ssh/known_hosts
@@ -56,4 +52,3 @@ jobs:
           git add .
           git commit -m 'Update'
           git push dokku master --force
-        working-directory: app/packages/blog/public
