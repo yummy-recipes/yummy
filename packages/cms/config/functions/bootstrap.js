@@ -169,7 +169,7 @@ module.exports = async () => {
   const numberOfRecipes = await strapi.services.recipe.count()
 
   if (numberOfRecipes === 0) {
-    if (process.env.NODE_ENV === 'test') {
+    if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
       await setupTestFixtures()
     }
   }

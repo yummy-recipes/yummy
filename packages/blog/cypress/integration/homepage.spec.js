@@ -26,7 +26,7 @@ context('Homepage', () => {
 
   it('allows to search', () => {
     cy.get('input[type="text"]').type('Koktajl C', {force: true})
-    cy.get('header [role="option"]').contains('Koktajl C').click({force: true})
+    cy.get('header .testid-menu-option').contains('Koktajl C').click({force: true})
 
     cy.location().should(loc => {
       expect(loc.pathname).to.eq('/koktajle/koktajl-c')
@@ -35,19 +35,19 @@ context('Homepage', () => {
 
   it('remembers the search', () => {
     cy.get('input[type="text"]').type('Koktajl C', {force: true})
-    cy.get('header [role="option"]').contains('Koktajl C').click({force: true})
+    cy.get('header .testid-menu-option').contains('Koktajl C').click({force: true})
 
     cy.visit('/')
 
     cy.get('input[type="text"]').type('Zupa B', {force: true})
-    cy.get('header [role="option"]').contains('Zupa B').click({force: true})
+    cy.get('header .testid-menu-option').contains('Zupa B').click({force: true})
 
     cy.visit('/')
     // Click doesn't work, see:
     // https://github.com/cypress-io/cypress/issues/1486
     cy.get('input[type="text"]').type('a{backspace}', {force: true})
 
-    cy.get('header [role="option"]:nth-child(1)').should('contain', 'Zupa B')
-    cy.get('header [role="option"]:nth-child(2)').should('contain', 'Koktajl C')
+    cy.get('header .testid-menu-option:nth-child(1)').should('contain', 'Zupa B')
+    cy.get('header .testid-menu-option:nth-child(2)').should('contain', 'Koktajl C')
   })
 })
