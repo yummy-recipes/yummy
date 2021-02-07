@@ -24,6 +24,12 @@
   "bugs": {
     "url": "https://github.com/yummy-recipes/yummy/issues"
   },
+  "peerDependencies": {
+    "gatsby": "^2.3.29"
+  },
+  "dependencies": {
+    "gatsby-source-filesystem": "^2.0.21"
+  },
   "devDependencies": {
     "@yummy/eslint-config-core": "^0.0.0",
     "eslint": "^6.8.0"
