@@ -12,7 +12,7 @@ import Tag from '../../components/tag'
 import Gallery from '../../components/gallery'
 
 export default function PostPage({data}) {
-  const { strapiRecipe: recipe, gallery } = data
+  const { strapiRecipe: recipe } = data
 
   const Tags = (recipe.tags || []).map(tag => {
     return <Tag name={tag.name} key={tag.slug} className={postStyles.post_tag} />
