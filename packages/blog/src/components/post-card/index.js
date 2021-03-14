@@ -5,7 +5,7 @@ import TimeToPrepare from '../time_to_prepare'
 import { ReactComponent as ChevronRight } from '../icons/chevron-right.svg'
 import { ReactComponent as VegetarianMark } from '../icons/vegetarian_mark.svg'
 
-import styles from './post-card.module.sass'
+import * as styles from './post-card.module.sass'
 
 export default function PostCard({post, className, criticalImage}) {
 

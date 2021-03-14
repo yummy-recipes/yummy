@@ -1,8 +1,8 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import transparent from '../components/button/button.transparent.module.sass'
-import transparentNoBorder from '../components/button/button.transparent-noborder.module.sass'
+import * as transparent from '../components/button/button.transparent.module.sass'
+import * as transparentNoBorder from '../components/button/button.transparent-noborder.module.sass'
 
 storiesOf('Button', module)
   .add('transparent', () => (

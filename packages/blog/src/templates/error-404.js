@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './error.module.sass'
+import * as styles from './error.module.sass'
 
 export default function Error404() {
   return (

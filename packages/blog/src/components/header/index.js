@@ -3,7 +3,7 @@ import Navbar from '../navbar'
 import Searchbar from '../searchbar'
 import {ReactComponent as Logo} from '../icons/logo.svg'
 import { Link } from 'gatsby'
-import styles from './header.module.sass'
+import * as styles from './header.module.sass'
 
 export default class Header extends React.Component {
   state = {

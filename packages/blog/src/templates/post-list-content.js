@@ -2,7 +2,7 @@ import React from 'react'
 import PostCard from '../components/post-card'
 import Paginator from '../components/paginator'
 
-import styles from './page.module.sass'
+import * as styles from './page.module.sass'
 
 export default function PostListContent({allRecipesData, pageInfo, location}) {
   const Posts = allRecipesData.edges
