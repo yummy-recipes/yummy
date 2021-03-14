@@ -31,8 +31,6 @@ export default class Gallery extends Component {
       return null
     }
 
-    console.log({ images })
-
     const GalleryImages = images.map((img, ndx) => {
       return (
         <button className={styles.image_wrapper} type="button" onClick={() => {
