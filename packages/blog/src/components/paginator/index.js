@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { calculatePages } from '../../utils/paginationHelper';
 import { paginationElementTypes } from '../../utils/paginationConsts';
-import styles from './paginator.module.sass'
-import buttonStyles from '../button/button.transparent-noborder.module.sass'
+import * as styles from './paginator.module.sass'
+import * as buttonStyles from '../button/button.transparent-noborder.module.sass'
 import { ReactComponent as ChevronLeft } from '../icons/chevron-left.svg'
 import { ReactComponent as ChevronRight } from '../icons/chevron-right.svg'
 
@@ -34,6 +34,8 @@ function PaginationLinkElement({ elementType, pageNumber, subsectionPath, elemen
     ? [styles.page_nav_item, styles.current_page].join(' ')
     : styles.page_nav_item
 
+  const testId = elementType === paginationElementTypes.CURRENT_PAGE ? 'current_page' : undefined
+
   let elementContent
   switch (elementType) {
     case paginationElementTypes.PAGE:
@@ -55,7 +57,7 @@ function PaginationLinkElement({ elementType, pageNumber, subsectionPath, elemen
     : `ellipsis-${elementIndex}`
 
   return (
-    <li className={listItemStyles} key={elementKey}>
+    <li className={listItemStyles} key={elementKey} data-testid={testId}>
       { elementContent }
     </li>
   )

@@ -16,6 +16,10 @@
   "dependencies": {
     "lerna": "^3.20.2"
   },
+  "resolutions": {
+    "graphql": "^15.5.0",
+    "graphql-compose": "^7.25.0"
+  },
   "scripts": {
     "postinstall": "lerna bootstrap",
     "bootstrap": "lerna bootstrap",

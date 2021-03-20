@@ -2,7 +2,7 @@ import React from 'react'
 import BlogPostCard from '../components/blog-post-card'
 import Paginator from '../components/paginator'
 
-import styles from './page.module.sass'
+import * as styles from './page.module.sass'
 
 export default function BlogPostListContent({allPostsData, pageInfo, location}) {
 

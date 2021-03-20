@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { ReactComponent as Logo } from '../icons/logo_simple.svg'
 import { ReactComponent as MenuBarsIcon } from '../icons/menu_bars.svg'
 import { ReactComponent as MenuCloseIcon } from '../icons/menu_close.svg'
-import styles from './navbar.module.sass'
+import * as styles from './navbar.module.sass'
 
 function titleize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);

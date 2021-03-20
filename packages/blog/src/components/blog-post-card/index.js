@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { ReactComponent as ChevronRight } from '../icons/chevron-right.svg'
 
-import styles from './blog-post-card.module.sass'
+import * as styles from './blog-post-card.module.sass'
 
 export default function BlogPostCard({post}) {
 

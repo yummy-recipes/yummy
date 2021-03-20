@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Img from 'gatsby-image'
-import styles from './gallery.module.sass'
+import * as styles from './gallery.module.sass'
 import Loadable from 'react-loadable'
 import 'react-image-lightbox/style.css';
 import { getPrevImgUrl, getNextImgUrl, getPrevPhotoIndex, getNextPhotoIndex } from '../../utils/galleryBrowserHelper'

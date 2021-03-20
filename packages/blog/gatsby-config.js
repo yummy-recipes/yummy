@@ -147,7 +147,7 @@ module.exports = {
         icon: 'src/components/layout/assets/android-chrome-192x192.png',
       },
     },
-    'gatsby-plugin-sass',
+      { resolve: 'gatsby-plugin-sass', options: { sassOptions: { indentedSyntax: true }}},
     'gatsby-plugin-eslint'
   ],
   )
