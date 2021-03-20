@@ -53,7 +53,7 @@ describe('<Paginator>', () => {
     expect(getByText('3').getAttribute('href')).toEqual('/strony/3')
     expect(getByText('4').getAttribute('href')).toEqual('/strony/4')
     expect(getByText('5').getAttribute('href')).toBeNull()
-    expect(getByText('5').getAttribute('class')).toEqual('page_nav_item current_page')
+    expect(getByText('5').getAttribute('data-testid')).toEqual('current_page')
     expect(getByText('6').getAttribute('href')).toEqual('/strony/6')
   })
 

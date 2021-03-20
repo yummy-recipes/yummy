@@ -34,6 +34,8 @@ function PaginationLinkElement({ elementType, pageNumber, subsectionPath, elemen
     ? [styles.page_nav_item, styles.current_page].join(' ')
     : styles.page_nav_item
 
+  const testId = elementType === paginationElementTypes.CURRENT_PAGE ? 'current_page' : undefined
+
   let elementContent
   switch (elementType) {
     case paginationElementTypes.PAGE:
@@ -55,7 +57,7 @@ function PaginationLinkElement({ elementType, pageNumber, subsectionPath, elemen
     : `ellipsis-${elementIndex}`
 
   return (
-    <li className={listItemStyles} key={elementKey}>
+    <li className={listItemStyles} key={elementKey} data-testid={testId}>
       { elementContent }
     </li>
   )
