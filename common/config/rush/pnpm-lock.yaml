@@ -49,6 +49,7 @@ dependencies:
   fuse.js: 3.6.1
   gatsby: 3.2.1_81fb497ac458e01d68b1f278f9ec9284
   gatsby-image: 3.2.0
+  gatsby-link: 3.2.0_react-dom@16.14.0
   gatsby-plugin-fathom: 2.1.0_gatsby@3.2.1
   gatsby-plugin-feed: 3.2.0_gatsby@3.2.1+react-dom@16.14.0
   gatsby-plugin-manifest: 3.2.0_gatsby@3.2.1
@@ -58,6 +59,7 @@ dependencies:
   gatsby-plugin-svgr: 3.0.0-beta.0_@svgr+webpack@5.5.0+gatsby@3.2.1
   gatsby-plugin-typography: 3.2.0_a364e3a7727768584c30da2c8c9ad6ef
   gatsby-plugin-webpack-bundle-analyzer: 1.0.5_gatsby@3.2.1
+  gatsby-react-router-scroll: 4.2.0_react-dom@16.14.0
   gatsby-source-strapi: 0.0.12_gatsby@3.2.1
   gatsby-transformer-remark: 3.2.0_gatsby@3.2.1
   gatsby-transformer-sharp: 3.2.0_857920743e5dbecb22d9093737b403f3
@@ -13087,6 +13089,37 @@ packages:
       react-dom: ^16.9.0 || ^17.0.0
     resolution:
       integrity: sha512-LyANWBIuMnxivSNF7pnHc0S3mDNMaHNGSacnMynpHw9kVZuu03xi+DnzEqkzon/hgl+yRgQOtganGZgHTHzYFw==
+  /gatsby-link/3.2.0_react-dom@16.14.0:
+    dependencies:
+      '@babel/runtime': 7.13.10
+      '@types/reach__router': 1.3.7
+      prop-types: 15.7.2
+      react-dom: 16.14.0
+    dev: false
+    engines:
+      node: '>=12.13.0'
+    peerDependencies:
+      '@gatsbyjs/reach-router': ^1.3.5
+      react: ^16.9.0 || ^17.0.0
+      react-dom: ^16.9.0 || ^17.0.0
+    resolution:
+      integrity: sha512-LyANWBIuMnxivSNF7pnHc0S3mDNMaHNGSacnMynpHw9kVZuu03xi+DnzEqkzon/hgl+yRgQOtganGZgHTHzYFw==
+  /gatsby-link/3.2.0_react-dom@16.14.0+react@16.14.0:
+    dependencies:
+      '@babel/runtime': 7.13.10
+      '@types/reach__router': 1.3.7
+      prop-types: 15.7.2
+      react: 16.14.0
+      react-dom: 16.14.0_react@16.14.0
+    dev: false
+    engines:
+      node: '>=12.13.0'
+    peerDependencies:
+      '@gatsbyjs/reach-router': ^1.3.5
+      react: ^16.9.0 || ^17.0.0
+      react-dom: ^16.9.0 || ^17.0.0
+    resolution:
+      integrity: sha512-LyANWBIuMnxivSNF7pnHc0S3mDNMaHNGSacnMynpHw9kVZuu03xi+DnzEqkzon/hgl+yRgQOtganGZgHTHzYFw==
   /gatsby-node-helpers/0.3.0:
     dependencies:
       json-stringify-safe: 5.0.1
@@ -13390,6 +13423,33 @@ packages:
     dependencies:
       '@babel/runtime': 7.13.10
       '@gatsbyjs/reach-router': 1.3.6_react-dom@16.14.0+react@16.14.0
+      react: 16.14.0
+      react-dom: 16.14.0_react@16.14.0
+    dev: false
+    engines:
+      node: '>=12.13.0'
+    peerDependencies:
+      '@gatsbyjs/reach-router': ^1.3.5
+      react: ^16.9.0 || ^17.0.0
+      react-dom: ^16.9.0 || ^17.0.0
+    resolution:
+      integrity: sha512-n3KF1wNkWR6S5ZpFdXCEu4JP9xntyZNW2S/B8kumna7r2zclJBOiQWJWTopb7rEMgC/uY+RQRFHgyweaYSqIqQ==
+  /gatsby-react-router-scroll/4.2.0_react-dom@16.14.0:
+    dependencies:
+      '@babel/runtime': 7.13.10
+      react-dom: 16.14.0
+    dev: false
+    engines:
+      node: '>=12.13.0'
+    peerDependencies:
+      '@gatsbyjs/reach-router': ^1.3.5
+      react: ^16.9.0 || ^17.0.0
+      react-dom: ^16.9.0 || ^17.0.0
+    resolution:
+      integrity: sha512-n3KF1wNkWR6S5ZpFdXCEu4JP9xntyZNW2S/B8kumna7r2zclJBOiQWJWTopb7rEMgC/uY+RQRFHgyweaYSqIqQ==
+  /gatsby-react-router-scroll/4.2.0_react-dom@16.14.0+react@16.14.0:
+    dependencies:
+      '@babel/runtime': 7.13.10
       react: 16.14.0
       react-dom: 16.14.0_react@16.14.0
     dev: false
@@ -28980,6 +29040,7 @@ packages:
       fuse.js: 3.6.1
       gatsby: 3.2.1_ba9df7af368d738fabaa59fd06183545
       gatsby-image: 3.2.0
+      gatsby-link: 3.2.0_react-dom@16.14.0+react@16.14.0
       gatsby-plugin-eslint: 3.0.0_4ea28b299dfda4efd52807a3b2b4960b
       gatsby-plugin-fathom: 2.1.0_gatsby@3.2.1+react@16.14.0
       gatsby-plugin-feed: 3.2.0_f5625b6252d7d66369346dbdc3bfc308
@@ -28990,6 +29051,7 @@ packages:
       gatsby-plugin-svgr: 3.0.0-beta.0_@svgr+webpack@5.5.0+gatsby@3.2.1
       gatsby-plugin-typography: 3.2.0_4ad9cce30edc7f0647d6b166deb73bc7
       gatsby-plugin-webpack-bundle-analyzer: 1.0.5_gatsby@3.2.1
+      gatsby-react-router-scroll: 4.2.0_react-dom@16.14.0+react@16.14.0
       gatsby-source-filesystem: 3.2.0_gatsby@3.2.1
       gatsby-source-strapi: 0.0.12_gatsby@3.2.1
       gatsby-transformer-remark: 3.2.0_gatsby@3.2.1
@@ -29026,7 +29088,7 @@ packages:
       eslint-plugin-jest: '*'
       eslint-plugin-testing-library: '*'
     resolution:
-      integrity: sha512-1cDO0g3dUTmOjnprljGvbZDO8wJIZbyfNnGh9tMfPvzyG3KgL/l1ZeF1QO/V3tPlynIE0ZCUZsCkahTLu3DgMg==
+      integrity: sha512-hk+330A2CCXsn8WwGfqzFoi+yPSuwYuhV7BLcPZILDRbpEvP43qV6uCCw9LAYiwRNY8NxLInnnK2a8u4uKlzOg==
       tarball: file:projects/blog.tgz
     version: 0.0.0
   file:projects/cms.tgz:
@@ -29215,6 +29277,7 @@ packages:
       integrity: sha512-j1UG6wrsjYLqKjxEinktdCKoa6A6xmqWyOUzc7Baon0lc3V7vVRocrS7F0LZBCISTq12gvaP/70+JoQV7KclvA==
       tarball: file:projects/visual-regression.tgz
     version: 0.0.0
+registry: ''
 specifiers:
   '@babel/core': ^7.3.4
   '@babel/preset-env': ^7.3.4
@@ -29266,6 +29329,7 @@ specifiers:
   fuse.js: ^3.3.0
   gatsby: ^3.0.4
   gatsby-image: ^3.0.0
+  gatsby-link: ^3.0.0
   gatsby-plugin-fathom: ^2.1.0
   gatsby-plugin-feed: ^3.0.0
   gatsby-plugin-manifest: ^3.0.0
@@ -29275,6 +29339,7 @@ specifiers:
   gatsby-plugin-svgr: ^3.0.0-beta.0
   gatsby-plugin-typography: ^3.0.0
   gatsby-plugin-webpack-bundle-analyzer: ^1.0.5
+  gatsby-react-router-scroll: ^4.2.0
   gatsby-source-strapi: ^0.0.12
   gatsby-transformer-remark: ^3.0.0
   gatsby-transformer-sharp: ^3.0.0
