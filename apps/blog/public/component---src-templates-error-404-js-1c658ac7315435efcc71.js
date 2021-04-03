@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{ID13:function(n,t,e){"use strict";e.r(t),e.d(t,"default",(function(){return i}));var o=e("q1tI"),a=e.n(o),r=e("W5jw"),u=e.n(r);function i(){return a.a.createElement("div",{className:u.a.layout},"Było i nie ma :(")}},W5jw:function(n,t,e){n.exports={layout:"error-module--layout--3zrw2"}}}]);
+//# sourceMappingURL=component---src-templates-error-404-js-1c658ac7315435efcc71.js.map
