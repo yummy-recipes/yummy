@@ -14,6 +14,7 @@
     "lib"
   ],
   "scripts": {
+    "build": "",
     "lint": "eslint *.js 'lib/**/*.js'"
   },
   "publishConfig": {
@@ -23,7 +24,6 @@
     "type": "git",
     "url": "git+https://github.com/yummy-recipes/yummy.git"
   },
-  "scripts": {},
   "bugs": {
     "url": "https://github.com/yummy-recipes/yummy/issues"
   },

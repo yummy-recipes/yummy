@@ -24,6 +24,7 @@
     "url": "https://github.com/yummy-recipes/yummy/issues"
   },
   "scripts": {
+    "build": "",
     "lint": "eslint lib/**/*.js"
   },
   "devDependencies": {

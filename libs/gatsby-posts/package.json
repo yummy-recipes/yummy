@@ -21,6 +21,7 @@
     "url": "git+https://github.com/yummy-recipes/yummy.git"
   },
   "scripts": {
+    "build": "",
     "lint": "eslint *.js"
   },
   "bugs": {
