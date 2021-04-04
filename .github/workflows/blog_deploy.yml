@@ -13,7 +13,7 @@ jobs:
           node-version: '14.x'
       - run: node common/scripts/install-run-rush.js install
       - name: Build project
-        run: for i in {1..3}; do rush build --to blog && break; done
+        run: for i in {1..3}; do node common/scripts/install-run-rush.js build --to blog && break; done
         env:
           NODE_OPTIONS: --max_old_space_size=4096
           API_URL: https://api.kuchnia-yummy.pl
