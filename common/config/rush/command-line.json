@@ -177,6 +177,15 @@
     },
     {
       "commandKind": "bulk",
+      "name": "start:cypress",
+      "summary": "Start for cypress tests",
+      "description": "",
+      "enableParallelism": true,
+      "ignoreMissingScript": true,
+      "allowWarningsInSuccessfulBuild": true
+    },
+    {
+      "commandKind": "bulk",
       "name": "test:e2e:ci",
       "summary": "Run cypress tests",
       "description": "",

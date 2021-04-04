@@ -504,6 +504,10 @@
     {
       "packageName": "strapi-provider-upload-github",
       "projectFolder": "libs/strapi-provider-upload-github"
+    },
+    {
+      "packageName": "e2e",
+      "projectFolder": "tools/e2e"
     }
   ]
 }
