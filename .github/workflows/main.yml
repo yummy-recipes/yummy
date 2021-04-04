@@ -16,7 +16,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ~/.pnpm-store
-          key: ${{ runner.os }}-node${{ matrix.node-version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       - run: node common/scripts/install-run-rush.js install
       - run: node common/scripts/install-run-rush.js test
@@ -33,7 +33,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ~/.pnpm-store
-          key: ${{ runner.os }}-node${{ matrix.node-version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
       - run: node common/scripts/install-run-rush.js install
       - run: node common/scripts/install-run-rush.js test:e2e:ci --only e2e -v
       - name: Upload cypress screenshots
@@ -42,12 +42,6 @@ jobs:
         with:
           name: cypress
           path: apps/blog/cypress/screenshots
-      - name: Upload cms log
-        uses: actions/upload-artifact@v1
-        if: failure()
-        with:
-          name: cypress
-          path: apps/cms/cms.build.error.log
 
   visual:
     runs-on: ubuntu-latest
@@ -61,9 +55,9 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ~/.pnpm-store
-          key: ${{ runner.os }}-node${{ matrix.node-version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
       - run: node common/scripts/install-run-rush.js install
-      - run: node common/scripts/install-run-rush.js test:visual --only e2e
+      - run: node common/scripts/install-run-rush.js test:visual --only e2e -v
       - name: Upload visual comparison results
         uses: actions/upload-artifact@v1
         if: failure()
