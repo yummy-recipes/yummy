@@ -1,7 +1,7 @@
 {
   "baseUrl": "http://localhost:8001/",
   "video": false,
-  "reporter": "../../node_modules/mocha-junit-reporter",
+  "reporter": "mocha-junit-reporter",
   "reporterOptions": {
     "mochaFile": "test-results/cypress/junit.xml"
   }

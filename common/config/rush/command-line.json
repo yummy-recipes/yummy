@@ -202,6 +202,7 @@
       "description": "",
       "enableParallelism": true,
       "ignoreMissingScript": true,
+      "allowWarningsInSuccessfulBuild": true,
       "safeForSimultaneousRushProcesses": true
     },
     {
@@ -211,6 +212,7 @@
       "description": "",
       "enableParallelism": true,
       "ignoreMissingScript": true,
+      "allowWarningsInSuccessfulBuild": true,
       "safeForSimultaneousRushProcesses": true
     },
     {
@@ -220,6 +222,7 @@
       "description": "",
       "enableParallelism": true,
       "ignoreMissingScript": true,
+      "allowWarningsInSuccessfulBuild": true,
       "safeForSimultaneousRushProcesses": true
     },
     {
@@ -229,6 +232,7 @@
       "description": "",
       "enableParallelism": true,
       "ignoreMissingScript": true,
+      "allowWarningsInSuccessfulBuild": true,
       "safeForSimultaneousRushProcesses": true
     },
     {
@@ -238,6 +242,7 @@
       "description": "",
       "enableParallelism": true,
       "ignoreMissingScript": true,
+      "allowWarningsInSuccessfulBuild": true,
       "safeForSimultaneousRushProcesses": true
     },
     {
@@ -247,6 +252,7 @@
       "description": "",
       "enableParallelism": true,
       "ignoreMissingScript": true,
+      "allowWarningsInSuccessfulBuild": true,
       "safeForSimultaneousRushProcesses": true
     },
     {
@@ -256,6 +262,7 @@
       "description": "",
       "enableParallelism": true,
       "ignoreMissingScript": true,
+      "allowWarningsInSuccessfulBuild": true,
       "safeForSimultaneousRushProcesses": true
     },
     {
@@ -265,6 +272,7 @@
       "description": "",
       "enableParallelism": true,
       "ignoreMissingScript": true,
+      "allowWarningsInSuccessfulBuild": true,
       "safeForSimultaneousRushProcesses": true
     }
   ],
