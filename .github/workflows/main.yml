@@ -35,7 +35,7 @@ jobs:
           path: ~/.pnpm-store
           key: ${{ runner.os }}-node${{ matrix.node-version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
       - run: node common/scripts/install-run-rush.js install
-      - run: node common/scripts/install-run-rush.js test:e2e:ci
+      - run: node common/scripts/install-run-rush.js test:e2e:ci --only e2e
       - name: Upload cypress screenshots
         uses: actions/upload-artifact@v1
         if: failure()
@@ -57,7 +57,7 @@ jobs:
           path: ~/.pnpm-store
           key: ${{ runner.os }}-node${{ matrix.node-version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
       - run: node common/scripts/install-run-rush.js install
-      - run: node common/scripts/install-run-rush.js test:visual
+      - run: node common/scripts/install-run-rush.js test:visual --only e2e
       - name: Upload visual comparison results
         uses: actions/upload-artifact@v1
         if: failure()

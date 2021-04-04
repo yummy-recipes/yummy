@@ -182,7 +182,17 @@
       "description": "",
       "enableParallelism": true,
       "ignoreMissingScript": true,
-      "allowWarningsInSuccessfulBuild": true
+      "allowWarningsInSuccessfulBuild": true,
+      "safeForSimultaneousRushProcesses": true
+    },
+    {
+      "commandKind": "bulk",
+      "name": "test:e2e",
+      "summary": "Run cypress tests",
+      "description": "",
+      "enableParallelism": true,
+      "ignoreMissingScript": true,
+      "safeForSimultaneousRushProcesses": true
     },
     {
       "commandKind": "bulk",
@@ -190,7 +200,44 @@
       "summary": "Run cypress tests",
       "description": "",
       "enableParallelism": true,
-      "ignoreMissingScript": true
+      "ignoreMissingScript": true,
+      "safeForSimultaneousRushProcesses": true
+    },
+    {
+      "commandKind": "bulk",
+      "name": "test:cypress:start:cms",
+      "summary": "Run cypress tests",
+      "description": "",
+      "enableParallelism": true,
+      "ignoreMissingScript": true,
+      "safeForSimultaneousRushProcesses": true
+    },
+    {
+      "commandKind": "bulk",
+      "name": "test:cypress:start:blog",
+      "summary": "Run cypress tests",
+      "description": "",
+      "enableParallelism": true,
+      "ignoreMissingScript": true,
+      "safeForSimultaneousRushProcesses": true
+    },
+    {
+      "commandKind": "bulk",
+      "name": "cy:open",
+      "summary": "Run cypress tests",
+      "description": "",
+      "enableParallelism": true,
+      "ignoreMissingScript": true,
+      "safeForSimultaneousRushProcesses": true
+    },
+    {
+      "commandKind": "bulk",
+      "name": "cy:run",
+      "summary": "Run cypress tests",
+      "description": "",
+      "enableParallelism": true,
+      "ignoreMissingScript": true,
+      "safeForSimultaneousRushProcesses": true
     },
     {
       "commandKind": "bulk",
@@ -198,7 +245,17 @@
       "summary": "Run cypress tests",
       "description": "",
       "enableParallelism": true,
-      "ignoreMissingScript": true
+      "ignoreMissingScript": true,
+      "safeForSimultaneousRushProcesses": true
+    },
+    {
+      "commandKind": "bulk",
+      "name": "pup:run",
+      "summary": "Run cypress tests",
+      "description": "",
+      "enableParallelism": true,
+      "ignoreMissingScript": true,
+      "safeForSimultaneousRushProcesses": true
     }
   ],
   /**

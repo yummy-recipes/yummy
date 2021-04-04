@@ -1,15 +1,16 @@
 {
   "name": "e2e",
+  "version": "1.0.0",
   "scripts": {
     "test:cypress:start:cms": "rush start:cypress --only=cms",
     "test:cypress:start:blog": "rush start:cypress --only=blog",
-    "test:cypress:start:blog:ci": "rush start:cypress:ci --only=@blog",
+    "test:cypress:start:blog:ci": "rush start:cypress:ci --only=blog",
     "test:cypress:open": "lerna run cy:open --stream",
     "test:cypress:run": "lerna run cy:run --stream",
-    "test:e2e": "start-server-and-test 'start-server-and-test \"test:cypress:start:cms\" 1338 \"test:cypress:start:blog\"' '8001' 'test:cypress:open'",
-    "test:e2e:ci": "start-server-and-test 'start-server-and-test \"test:cypress:start:cms\" 1338 \"test:cypress:start:blog:ci\"' '8001' 'test:cypress:run'",
-    "test:visual:run": "lerna run pup:run --stream",
-    "test:visual": "start-server-and-test 'start-server-and-test \"test:cypress:start:cms\" 1338 \"test:cypress:start:blog:ci\"' '8001' 'test:visual:run'",
+    "test:e2e": "start-server-and-test 'start-server-and-test \"test:cypress:start:cms\" 1338 \"test:cypress:start:blog\"' '8001' 'rush cy:open'",
+    "test:e2e:ci": "start-server-and-test 'start-server-and-test \"rushx test:cypress:start:cms\" 1338 \"rushx test:cypress:start:blog:ci\"' '8001' 'rush cy:run'",
+    "test:visual:run": "rush pup:run --only blog",
+    "test:visual": "start-server-and-test 'start-server-and-test \"rushx test:cypress:start:cms\" 1338 \"rushx test:cypress:start:blog:ci\"' '8001' 'rushx test:visual:run'",
     "test:visual:update": "UPDATE_SNAPSHOTS=true yarn test:visual"
   },
   "dependencies": {
