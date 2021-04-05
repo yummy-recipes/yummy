@@ -73,6 +73,5 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          repository: yummy-recipes/yummy
+          token: ${{ secrets.MY_GITHUB_TOKEN }}
           event-type: deploy

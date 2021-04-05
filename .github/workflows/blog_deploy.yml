@@ -27,7 +27,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: public
-          path: packages/blog/public/
+          path: apps/blog/public/
 
   deploy-blog:
     runs-on: ubuntu-latest
