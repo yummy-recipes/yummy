@@ -168,6 +168,15 @@
     // }
     {
       "commandKind": "bulk",
+      "name": "build:prod",
+      "summary": "Build production bundle",
+      "description": "",
+      "enableParallelism": true,
+      "ignoreMissingScript": true,
+      "allowWarningsInSuccessfulBuild": true
+    },
+    {
+      "commandKind": "bulk",
       "name": "test",
       "summary": "Run init tests",
       "description": "",
