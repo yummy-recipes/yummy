@@ -18,7 +18,7 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
       - run: node common/scripts/install-run-rush.js install
       - name: Build project
-        run: for i in {1..3}; do node common/scripts/install-run-rush.js build --to blog && break; done
+        run: for i in {1..3}; do node common/scripts/install-run-rush.js build:prod --to blog && break; done
         env:
           NODE_OPTIONS: --max_old_space_size=4096
           API_URL: https://api.kuchnia-yummy.pl
@@ -48,3 +48,21 @@ jobs:
           git add .
           git commit -m 'Update'
           git push dokku master --force
+
+  build-cms:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.action == 'full-release' }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - name: Cache .pnpm-store
+        uses: actions/cache@v1
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+      - run: node common/scripts/install-run-rush.js install
+      - run: node common/scripts/install-run-rush.js build --only cms
+      - run: node common/scripts/install-run-rush.js deploy
+      - run: cp -r apps/cms/build common/deploy/apps/cms

@@ -74,4 +74,4 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.MY_GITHUB_TOKEN }}
-          event-type: deploy
+          event-type: full-release

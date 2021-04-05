@@ -98,6 +98,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "build": "gatsby build",
+    "build:prod": "gatsby build",
     "start:cypress": "API_URL=http://localhost:1338 gatsby develop --port 8001",
     "start:cypress:ci": "API_URL=http://localhost:1338 gatsby build && gatsby serve --port 8001",
     "deploy": "bash -x ./scripts/deploy.sh",
