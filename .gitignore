@@ -4,6 +4,15 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Yarn 3 zero-install
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
 # Runtime data
 *.pid
 *.seed
@@ -57,12 +66,5 @@ jspm_packages/
 
 # OS X temporary files
 .DS_Store
-
-# Rush temporary files
-common/deploy/
-common/temp/
-common/autoinstallers/*/.npmrc
-**/.rush/temp/
-
 
 apps/blog/.cache
