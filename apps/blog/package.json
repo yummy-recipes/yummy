@@ -12,7 +12,7 @@
     "test": "__tests__"
   },
   "installConfig": {
-    "hoistingLimits": "workspaces"
+    "hoistingLimits": "dependencies"
   },
   "files": [
     "lib"

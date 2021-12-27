@@ -11,7 +11,7 @@
     "blog": "yarn workspace blog",
     "cms": "yarn workspace cms",
     "test:ci": "yarn workspaces foreach run test",
-    "test:e2e:ci": "echo OK",
-    "test:visual:ci": "echo OK"
+    "test:e2e:ci": "yarn workspace e2e test:e2e:ci",
+    "test:visual:ci": "yarn workspace e2e test:visual"
   }
 }

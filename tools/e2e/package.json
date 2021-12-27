@@ -2,13 +2,13 @@
   "name": "e2e",
   "version": "1.0.0",
   "scripts": {
-    "test:cypress:start:cms": "rush start:cypress --only=cms -v",
-    "test:cypress:start:blog": "rush start:cypress --only=blog -v",
-    "test:cypress:start:blog:ci": "rush start:cypress:ci --only=blog -v",
-    "test:e2e": "start-server-and-test 'start-server-and-test \"test:cypress:start:cms\" 1338 \"test:cypress:start:blog\"' '8001' 'rush cy:open --only=blog -v'",
-    "test:e2e:ci": "start-server-and-test 'start-server-and-test \"rushx test:cypress:start:cms\" 1338 \"rushx test:cypress:start:blog:ci\"' '8001' 'rush cy:run --only=blog -v'",
+    "test:cypress:start:cms": "yarn workspace cms start:cypress",
+    "test:cypress:start:blog": "yarn workspace blog start:cypress",
+    "test:cypress:start:blog:ci": "yarn workspace blog start:cypress:ci",
+    "test:e2e": "start-server-and-test 'start-server-and-test \"test:cypress:start:cms\" 1338 \"test:cypress:start:blog\"' '8001' 'yarn workspace blog cy:open'",
+    "test:e2e:ci": "start-server-and-test 'start-server-and-test \"yarn test:cypress:start:cms\" 1338 \"yarn test:cypress:start:blog:ci\"' '8001' 'yarn workspace blog cy:run'",
     "test:visual:run": "rush pup:run --only blog -v",
-    "test:visual": "start-server-and-test 'start-server-and-test \"rushx test:cypress:start:cms\" 1338 \"rushx test:cypress:start:blog:ci\"' '8001' 'rushx test:visual:run'",
+    "test:visual": "start-server-and-test 'start-server-and-test \"yarn test:cypress:start:cms\" 1338 \"yarn test:cypress:start:blog:ci\"' '8001' 'yarn test:visual:run'",
     "test:visual:update": "UPDATE_SNAPSHOTS=true rush test:visual"
   },
   "dependencies": {
