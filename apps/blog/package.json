@@ -75,6 +75,7 @@
     "eslint": "^7.19.0",
     "eslint-loader": "^2.1.2",
     "identity-obj-proxy": "^3.0.0",
+    "jest-junit": "13.0.0",
     "mkdirp": "^0.5.1",
     "mocha": "^5.2.0",
     "mocha-junit-reporter": "^1.18.0",
