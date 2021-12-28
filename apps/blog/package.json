@@ -12,7 +12,7 @@
     "test": "__tests__"
   },
   "installConfig": {
-    "hoistingLimits": "dependencies"
+    "hoistingLimits": "workspaces"
   },
   "files": [
     "lib"
@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "@svgr/webpack": "^5.5.0",
-    "@yummy/core": "workspace:^",
     "@yummy/gatsby-categories": "workspace:^",
     "@yummy/gatsby-pages": "workspace:^",
     "@yummy/gatsby-posts": "workspace:^",
@@ -51,8 +50,6 @@
     "gatsby-transformer-remark": "^3.0.0",
     "gatsby-transformer-sharp": "^3.0.0",
     "hygen": "^4.0.7",
-    "jest": "^25.1.0",
-    "jsdom": "^13.2.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
@@ -66,16 +63,12 @@
     "underscore.string": "^3.3.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
     "@storybook/addon-actions": "^6.1.21",
     "@storybook/addon-links": "^6.1.21",
     "@storybook/addons": "^6.1.21",
     "@storybook/react": "^6.1.21",
     "@yummy/eslint-config-core": "0.0.0",
     "babel-loader": "^8.0.5",
-    "babel-plugin-dynamic-import-node": "^2.3.0",
-    "babel-preset-gatsby": "^0.1.7",
     "blink-diff": "^1.0.13",
     "cypress": "^3.2.0",
     "cypress-testing-library": "^2.3.6",
@@ -98,8 +91,6 @@
     "serve": "gatsby serve",
     "start": "yarn develop",
     "lint": "eslint *.js 'src/**/*.js'",
-    "test": "jest",
-    "test:watch": "jest --watch",
     "build": "gatsby build",
     "build:prod": "gatsby build",
     "start:cypress": "API_URL=http://localhost:1338 gatsby develop --port 8001",

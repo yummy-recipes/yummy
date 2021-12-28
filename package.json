@@ -10,8 +10,16 @@
   "scripts": {
     "blog": "yarn workspace blog",
     "cms": "yarn workspace cms",
-    "test:ci": "yarn workspaces foreach run test",
+    "test:ci": "jest",
     "test:e2e:ci": "yarn workspace e2e test:e2e:ci",
     "test:visual:ci": "yarn workspace e2e test:visual"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.3.4",
+    "babel-jest": "^27.4.5",
+    "babel-plugin-dynamic-import-node": "^2.3.0",
+    "babel-preset-gatsby": "^2.4.0",
+    "jest": "^27.4.5"
   }
 }
