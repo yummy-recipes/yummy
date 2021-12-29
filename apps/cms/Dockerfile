@@ -4,7 +4,7 @@ ENV PORT=80 NODE_ENV=production
 WORKDIR /usr/src/app
 COPY . ./
 
-RUN node create-links.js create
+RUN yarn install --immutable --immutable-cache
 
 WORKDIR /usr/src/app/apps/cms
 

@@ -11,14 +11,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14.x'
-      - name: Cache .pnpm-store
-        uses: actions/cache@v1
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
-      - run: node common/scripts/install-run-rush.js install
+      - run: yarn install --immutable --immutable-cache
       - name: Build project
-        run: for i in {1..3}; do node common/scripts/install-run-rush.js build:prod --to blog && break; done
+        run: for i in {1..3}; do yarn workspace blog build:prod && break; done
         env:
           NODE_OPTIONS: --max_old_space_size=4096
           API_URL: https://api.kuchnia-yummy.pl
@@ -49,7 +44,7 @@ jobs:
           git commit -m 'Update'
           git push dokku master --force
 
-  build-cms:
+  build-and-deploy-cms:
     runs-on: ubuntu-latest
     if: ${{ github.event.action == 'full-release' }}
     steps:
@@ -57,12 +52,17 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14.x'
-      - name: Cache .pnpm-store
-        uses: actions/cache@v1
+      - run: yarn install --immutable --immutable-cache
+      - run: yarn cms build
+      - uses: webfactory/ssh-agent@v0.4.1
         with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
-      - run: node common/scripts/install-run-rush.js install
-      - run: node common/scripts/install-run-rush.js build --only cms
-      - run: node common/scripts/install-run-rush.js deploy
-      - run: cp -r apps/cms/build common/deploy/apps/cms
+          ssh-private-key: ${{ secrets.DOKKU_DEPLOY_KEY }}
+      - run: echo 'ertrzyiks.me,104.236.224.189 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNfW9tfAr21CQlapt944WeYOaSftTQB3Ly/Tm/1ZeXYEI08w9v9FEXRG2E+Sj/EDHimklHLlCwWCPMqMYFMQsMg=' >> ~/.ssh/known_hosts
+      - run: |
+        git config --global user.email "deploy-bot@ertrzyiks.me"
+        git config --global user.name "Deploy Bot"
+        git remote add dokku dokku@ertrzyiks.me:yummy-api
+        git add .
+        git add --force apps/cms/build
+        git commit -m 'Update'
+        git push dokku master --force

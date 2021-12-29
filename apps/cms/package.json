@@ -10,6 +10,9 @@
     "strapi": "strapi",
     "start:cypress": "rm -fr .tmp/test && NODE_ENV=test PORT=1338 BROWSER=false DATABASE_FILENAME=.tmp/test/data.db strapi start"
   },
+  "installConfig": {
+    "hoistingLimits": "workspaces"
+  },
   "dependencies": {
     "@octokit/core": "^3.2.4",
     "@octokit/plugin-retry": "^3.0.6",
