@@ -150,7 +150,7 @@ async function setupTestFixtures() {
 }
 
 module.exports = async () => {
-  const roleToRead = process.env.NODE_ENV === 'test' ? 'public' : 'authenticated'
+  const roleToRead = process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development' ? 'public' : 'authenticated'
   await enableRead(roleToRead)
   await updateUploadSettings()
 
