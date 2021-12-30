@@ -2,6 +2,9 @@
   "name": "yummy-monorepo",
   "private": true,
   "packageManager": "yarn@3.1.1",
+  "engines": {
+    "node": "14"
+  },
   "workspaces": [
     "apps/*",
     "libs/*",
