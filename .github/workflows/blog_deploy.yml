@@ -49,6 +49,8 @@ jobs:
     if: ${{ github.event.action == 'full-release' }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v1
         with:
           node-version: '14.x'
