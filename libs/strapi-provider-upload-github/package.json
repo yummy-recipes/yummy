@@ -1,9 +1,6 @@
 {
   "name": "strapi-provider-upload-github",
   "version": "1.0.0",
-  "scripts": {
-    "build": ""
-  },
   "dependencies": {
     "@octokit/core": "^3.2.4",
     "@octokit/plugin-retry": "^3.0.6",

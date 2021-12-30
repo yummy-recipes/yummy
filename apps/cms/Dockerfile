@@ -4,7 +4,9 @@ ENV PORT=80 NODE_ENV=production
 WORKDIR /usr/src/app
 COPY . ./
 
-RUN yarn install --immutable --immutable-cache
+RUN yarn --version
+RUN cat package.json
+RUN yarn install --immutable --immutable-cache --offline
 
 WORKDIR /usr/src/app/apps/cms
 
