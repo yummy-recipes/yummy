@@ -32,7 +32,7 @@
     "strapi-plugin-graphql": "3.4.1",
     "strapi-plugin-upload": "3.4.1",
     "strapi-plugin-users-permissions": "3.4.1",
-    "strapi-provider-upload-github": "1.0.0",
+    "strapi-provider-upload-github": "workspace:^",
     "strapi-utils": "3.4.1",
     "yaml": "^1.10.0"
   },

@@ -9990,7 +9990,7 @@ __metadata:
     strapi-plugin-graphql: 3.4.1
     strapi-plugin-upload: 3.4.1
     strapi-plugin-users-permissions: 3.4.1
-    strapi-provider-upload-github: 1.0.0
+    strapi-provider-upload-github: "workspace:^"
     strapi-utils: 3.4.1
     yaml: ^1.10.0
   languageName: unknown
@@ -30053,7 +30053,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strapi-provider-upload-github@1.0.0, strapi-provider-upload-github@workspace:libs/strapi-provider-upload-github":
+"strapi-provider-upload-github@workspace:^, strapi-provider-upload-github@workspace:libs/strapi-provider-upload-github":
   version: 0.0.0-use.local
   resolution: "strapi-provider-upload-github@workspace:libs/strapi-provider-upload-github"
   dependencies:
