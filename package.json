@@ -24,5 +24,6 @@
     "babel-plugin-dynamic-import-node": "^2.3.0",
     "babel-preset-gatsby": "^2.4.0",
     "jest": "^27.4.5"
-  }
+  },
+  "cacheDirectories": []
 }

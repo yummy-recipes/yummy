@@ -29048,7 +29048,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"slugify@npm:^1.4.4, slugify@npm:^1.4.6":
+"slugify@npm:^1.4.4, slugify@npm:^1.4.6, slugify@npm:^1.6.4":
   version: 1.6.4
   resolution: "slugify@npm:1.6.4"
   checksum: b72baa37e2d9a389032633f3a9c51f8727827dcd1790a3e7f75e43986b0f1da9feba8004d615543b009d096e416688328995717303f243e1536dc417ed23ccc1
@@ -30060,6 +30060,7 @@ __metadata:
     "@octokit/core": ^3.2.4
     "@octokit/plugin-retry": ^3.0.6
     "@octokit/plugin-throttling": ^3.3.4
+    slugify: ^1.6.4
   languageName: unknown
   linkType: soft
 
