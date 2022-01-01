@@ -1,11 +1,36 @@
-name: Blog deploy
+name: Full deploy
 
 on: [repository_dispatch, workflow_dispatch]
 
 jobs:
+  build-and-deploy-cms:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - run: yarn install --immutable --immutable-cache
+      - run: yarn cms build
+      - uses: webfactory/ssh-agent@v0.4.1
+        with:
+          ssh-private-key: ${{ secrets.DOKKU_DEPLOY_KEY }}
+      - run: echo '167.71.190.115 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEYg+BGxM8IdEoQ8fx7aDoclC0eNXSpI6l/QkLRMF/cvjJcSCk4kz/4LEkSU8eXFawp8IX/yNOyV11sJZtCVBCs=' >> ~/.ssh/known_hosts
+      - run: |
+          git config --global user.email "deploy-bot@ertrzyiks.me"
+          git config --global user.name "Deploy Bot"
+          git remote add dokku dokku@167.71.190.115:yummy-api
+          echo "web: yarn workspace cms start:prod" > Procfile
+          git add .
+          git add --force apps/cms/build
+          git commit -m 'Update'
+          git push dokku master --force
+
   build-blog:
     runs-on: ubuntu-latest
-    if: ${{ github.event.action == 'deploy_blog' }}
+    needs: [build-and-deploy-cms]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
