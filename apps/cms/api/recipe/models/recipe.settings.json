@@ -56,13 +56,15 @@
     },
     "category": {
       "via": "recipes",
-      "model": "category"
+      "model": "category",
+      "required": true
     },
     "tags": {
       "via": "recipes",
       "collection": "tag"
     },
     "seo": {
+      "required": true,
       "type": "component",
       "repeatable": false,
       "component": "seo.description"
