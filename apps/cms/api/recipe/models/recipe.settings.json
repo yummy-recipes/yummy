@@ -56,7 +56,8 @@
     },
     "category": {
       "via": "recipes",
-      "model": "category"
+      "model": "category",
+      "required": true
     },
     "tags": {
       "via": "recipes",
