@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { ReactComponent as ChevronRight } from '../icons/chevron-right.svg'
+import ChevronRight from '../icons/ChevronRight'
 
 import * as styles from './blog-post-card.module.sass'
 

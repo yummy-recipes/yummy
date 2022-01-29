@@ -73,7 +73,6 @@ module.exports = {
   plugins: dynamicPlugins.concat([
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    'gatsby-plugin-svgr',
     {
       'resolve': 'gatsby-transformer-remark',
       'options': {
@@ -147,7 +146,13 @@ module.exports = {
         icon: 'src/components/layout/assets/android-chrome-192x192.png',
       },
     },
-      { resolve: 'gatsby-plugin-sass', options: { sassOptions: { indentedSyntax: true }}},
+      {
+        resolve: 'gatsby-plugin-sass',
+        options: {
+          cssLoaderOptions: { importLoaders: 1, modules: true },
+          sassOptions: { indentedSyntax: true }
+        }
+      },
     'gatsby-plugin-eslint'
   ],
   )

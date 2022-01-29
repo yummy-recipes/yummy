@@ -21,7 +21,6 @@
     "registry": "https://registry.yarnpkg.com"
   },
   "dependencies": {
-    "@svgr/webpack": "^5.5.0",
     "@yummy/gatsby-categories": "workspace:^",
     "@yummy/gatsby-pages": "workspace:^",
     "@yummy/gatsby-posts": "workspace:^",
@@ -42,7 +41,6 @@
     "gatsby-plugin-react-helmet": "^4.0.0",
     "gatsby-plugin-sass": "^4.0.2",
     "gatsby-plugin-sharp": "^3.0.1",
-    "gatsby-plugin-svgr": "^3.0.0-beta.0",
     "gatsby-plugin-typography": "^3.0.0",
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
     "gatsby-source-filesystem": "^3.0.0",
@@ -63,13 +61,17 @@
     "underscore.string": "^3.3.5"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.1.21",
-    "@storybook/addon-links": "^6.1.21",
-    "@storybook/addons": "^6.1.21",
-    "@storybook/react": "^6.1.21",
+    "@storybook/addon-actions": "^6.4.16",
+    "@storybook/addon-links": "^6.4.16",
+    "@storybook/addons": "^6.4.16",
+    "@storybook/builder-webpack5": "^6.4.16",
+    "@storybook/manager-webpack5": "^6.4.16",
+    "@storybook/react": "^6.4.16",
+    "@svgr/cli": "^6.2.1",
     "@yummy/eslint-config-core": "0.0.0",
     "babel-loader": "^8.0.5",
     "blink-diff": "^1.0.13",
+    "chromatic": "^6.4.2",
     "cypress": "^3.2.0",
     "cypress-testing-library": "^2.3.6",
     "eslint": "^7.19.0",
@@ -82,7 +84,8 @@
     "puppeteer": "^1.13.0",
     "react-test-renderer": "^16.8.2",
     "start-server-and-test": "^1.7.11",
-    "webpack": "^5.25.0"
+    "svgo": "^2.8.0",
+    "webpack": "^5.67.0"
   },
   "optionalDependencies": {
     "fsevents": "^2.2.1"
@@ -103,6 +106,7 @@
     "pup:run": "node puppeteer/index.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "new-recipe": "hygen recipe new"
+    "new-recipe": "hygen recipe new",
+    "icons": "yarn svgr src/components/icons --out-dir src/components/icons"
   }
 }

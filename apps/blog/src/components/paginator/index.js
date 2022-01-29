@@ -4,8 +4,8 @@ import { calculatePages } from '../../utils/paginationHelper';
 import { paginationElementTypes } from '../../utils/paginationConsts';
 import * as styles from './paginator.module.sass'
 import * as buttonStyles from '../button/button.transparent-noborder.module.sass'
-import { ReactComponent as ChevronLeft } from '../icons/chevron-left.svg'
-import { ReactComponent as ChevronRight } from '../icons/chevron-right.svg'
+import ChevronLeft from '../icons/ChevronLeft'
+import ChevronRight from '../icons/ChevronRight'
 
 const removeTrailingSlash = (path) => path.replace(/\/$/, '')
 const removePageNumberSegment = (path) => path.replace(/\/strony\/\d+$/, '')
