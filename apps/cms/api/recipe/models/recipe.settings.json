@@ -63,6 +63,7 @@
       "collection": "tag"
     },
     "seo": {
+      "required": true,
       "type": "component",
       "repeatable": false,
       "component": "seo.description"
