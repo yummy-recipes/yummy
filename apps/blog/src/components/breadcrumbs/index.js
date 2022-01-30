@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Logo from '../icons/LogoSimple'
-import * as styles from './breadcrumbs.module.sass'
+import * as styles from './breadcrumbs.module.css'
 
 export default function Breadcrumbs({ subsectionName, subsectionSlug }) {
   return (
