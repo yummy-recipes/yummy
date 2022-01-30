@@ -45,21 +45,28 @@
   }
 }
 
-.breadcrumbHomepage_text {
+.breadcrumbHomepageText {
   display: block;
 }
 
-  /*+media('<tablet')*/
-  /*  display: none*/
+@media tablet-down {
+  .breadcrumbHomepageText {
+    display: none;
+  }
+}
 
-.breadcrumbHomepage_logo {
+.breadcrumbHomepageLogo {
   display: none;
 }
 
-  /*+media('<tablet')*/
-  /*  display: block*/
+@media tablet-down {
+  .breadcrumbHomepageLogo {
+    display: block;
+  }
 
-  /*  .svgLogo*/
-  /*    height: 34px*/
-  /*    vertical-align: middle*/
-  /*    margin-bottom: 3px*/
+  .breadcrumbHomepageLogo .svgLogo {
+    height: 34px;
+    vertical-align: middle;
+    margin-bottom: 3px;
+  }
+}
