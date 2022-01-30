@@ -1,5 +1,5 @@
 import React from 'react'
-import { ReactComponent as Timer } from '../icons/timer.svg'
+import Timer from '../icons/Timer'
 import * as styles from './time_to_prepare.module.sass'
 
 export default function TimeToPrepare({children}) {

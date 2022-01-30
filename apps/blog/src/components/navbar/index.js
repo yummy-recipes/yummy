@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { ReactComponent as Logo } from '../icons/logo_simple.svg'
-import { ReactComponent as MenuBarsIcon } from '../icons/menu_bars.svg'
-import { ReactComponent as MenuCloseIcon } from '../icons/menu_close.svg'
+import Logo from '../icons/LogoSimple'
+import MenuBarsIcon from '../icons/MenuBars'
+import MenuCloseIcon from '../icons/MenuClose'
 import * as styles from './navbar.module.sass'
 
 function titleize(string) {

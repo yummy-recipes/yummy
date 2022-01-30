@@ -1,5 +1,5 @@
 import React from 'react'
-import { ReactComponent as MagnifierIcon } from '../icons/magnifier.svg'
+import MagnifierIcon from '../icons/Magnifier'
 import {default as ReactSelect} from 'react-select/lib/Async'
 import { components } from 'react-select'
 
