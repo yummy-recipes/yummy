@@ -19,7 +19,7 @@ export default class Header extends React.Component {
     const { alreadyMounted } = this.state
 
     const headerStyles = isSingleRecipe
-      ? [styles.header, styles.single_post].join(' ')
+      ? [styles.header, styles.singlePost].join(' ')
       : styles.header
 
     return (
@@ -31,7 +31,7 @@ export default class Header extends React.Component {
         {
           fullVersion !== false
             && [
-              <Link to='/' className={styles.logo_link} key={'logo'}>
+              <Link to='/' className={styles.logoLink} key={'logo'}>
                 <Logo className={styles.logo}/>
               </Link>,
               <Searchbar forceVisibility={alreadyMounted} className={styles.searchbar} key={'searchbar'}/>
@@ -41,8 +41,8 @@ export default class Header extends React.Component {
         {
           subsection
             && (
-              <div className={styles.subsection_heading_wrapper}>
-                <h2 className={styles.subsection_heading}>{subsection}</h2>
+              <div className={styles.subsectionHeadingWrapper}>
+                <h2 className={styles.subsectionHeading}>{subsection}</h2>
               </div>
             )
         }

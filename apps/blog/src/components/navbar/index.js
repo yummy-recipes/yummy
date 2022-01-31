@@ -46,29 +46,29 @@ export default class Navbar extends React.Component {
 
   render() {
     const categoryMenuClass = this.state.menuOpen
-      ? [styles.navbar_categories, styles.expanded].join(' ')
-      : styles.navbar_categories
+      ? [styles.navbarCategories, styles.expanded].join(' ')
+      : styles.navbarCategories
 
     const overlay = this.state.menuOpen ? (
-        <div className={styles.navbar_menu_overlay} onClick={this.handleMenuCloseClick} />)
+        <div className={styles.navbarMenuOverlay} onClick={this.handleMenuCloseClick} />)
       : null;
 
     const {hasHomepageLink, categories} = this.props
 
     return (
       <nav className={styles.navbar}>
-        <button className={[styles.navbar_menu_icon, this.state.menuOpen ? styles.hidden : ''].join(' ')}
+        <button className={[styles.navbarMenuIcon, this.state.menuOpen ? styles.hidden : ''].join(' ')}
            aria-label="Open category menu"
            onClick={this.handleMenuOpenClick}>
           <span aria-hidden="true">
-            <MenuBarsIcon className={styles.icon_menu} />
+            <MenuBarsIcon className={styles.iconMenu} />
           </span>
         </button>
-        <button className={[styles.navbar_menu_icon, this.state.menuOpen ? '' : styles.hidden].join(' ')}
+        <button className={[styles.navbarMenuIcon, this.state.menuOpen ? '' : styles.hidden].join(' ')}
            aria-label="Close category menu"
            onClick={this.handleMenuCloseClick}>
           <span aria-hidden="true">
-            <MenuCloseIcon className={styles.icon_menu} />
+            <MenuCloseIcon className={styles.iconMenu} />
           </span>
         </button>
         <div className={categoryMenuClass}>
@@ -78,7 +78,7 @@ export default class Navbar extends React.Component {
             <Link
               to={'/'}
               key={'homepage'}
-              className={styles.navbar_logo_link}
+              className={styles.navbarLogoLink}
               onClick={this.handleMenuCloseClick}
             >
               <Logo/>
@@ -89,7 +89,7 @@ export default class Navbar extends React.Component {
            <Link
                to={`/${slug}`}
                key={slug}
-               className={styles.navbar_link}
+               className={styles.navbarLink}
                onClick={this.handleMenuCloseClick}
              >
              {titleize(name)}

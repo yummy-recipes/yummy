@@ -31,15 +31,15 @@ const generatePagePath = (subsectionPath, pageNumber) => {
 
 function PaginationLinkElement({ elementType, pageNumber, subsectionPath, elementIndex }) {
   const listItemStyles = elementType === paginationElementTypes.CURRENT_PAGE
-    ? [styles.page_nav_item, styles.current_page].join(' ')
-    : styles.page_nav_item
+    ? [styles.pageNavItem, styles.currentPage].join(' ')
+    : styles.pageNavItem
 
   const testId = elementType === paginationElementTypes.CURRENT_PAGE ? 'current_page' : undefined
 
   let elementContent
   switch (elementType) {
     case paginationElementTypes.PAGE:
-      elementContent = <Link className={styles.page_link} to={generatePagePath(subsectionPath, pageNumber)}>{pageNumber}</Link>
+      elementContent = <Link className={styles.pageLink} to={generatePagePath(subsectionPath, pageNumber)}>{pageNumber}</Link>
       break;
     case paginationElementTypes.CURRENT_PAGE:
       elementContent = pageNumber
@@ -102,7 +102,7 @@ export default function Paginator ({currentPage, totalPages, currentPath}) {
         </Link>
       }
 
-      <ol className={styles.page_list}>
+      <ol className={styles.pageList}>
         { pages }
       </ol>
 

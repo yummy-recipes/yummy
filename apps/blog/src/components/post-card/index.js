@@ -11,7 +11,7 @@ export default function PostCard({post, className, criticalImage}) {
 
   return (
     <Link to={`/${post.category.slug}/${post.slug}`} className={[styles.card, className].join(' ')}>
-      <div className={styles.cover_link}>
+      <div className={styles.coverLink}>
         {post.cover && (
           <Img
             fluid={post.cover.childImageSharp.fluid}
@@ -35,7 +35,7 @@ export default function PostCard({post, className, criticalImage}) {
         <TimeToPrepare>{post.preparationTime}</TimeToPrepare>
         {
           post.tags.indexOf('wegetariańskie') !== -1
-            && <VegetarianMark className={styles.vegetarian_icon} />
+            && <VegetarianMark className={styles.vegetarianIcon} />
         }
       </div>
 
