@@ -1,0 +1,17 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "scripts": {
+    "test:cypress:start:cms": "yarn workspace cms start:cypress",
+    "test:cypress:start:blog": "yarn workspace blog start:cypress",
+    "test:cypress:start:blog:ci": "yarn workspace blog start:cypress:ci",
+    "test:e2e": "start-server-and-test 'start-server-and-test \"test:cypress:start:cms\" 1338 \"test:cypress:start:blog\"' '8001' 'yarn workspace blog cy:open'",
+    "test:e2e:ci": "start-server-and-test 'start-server-and-test \"yarn test:cypress:start:cms\" 1338 \"yarn test:cypress:start:blog:ci\"' '8001' 'yarn workspace blog cy:run'",
+    "test:visual:run": "yarn workspace blog pup:run",
+    "test:visual": "start-server-and-test 'start-server-and-test \"yarn test:cypress:start:cms\" 1338 \"yarn test:cypress:start:blog:ci\"' '8001' 'yarn test:visual:run'",
+    "test:visual:update": "UPDATE_SNAPSHOTS=true yarn test:visual"
+  },
+  "dependencies": {
+    "start-server-and-test": "^1.12.1"
+  }
+}
