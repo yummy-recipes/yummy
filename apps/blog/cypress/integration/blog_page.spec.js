@@ -7,12 +7,12 @@ context('Blog', () => {
     cy.get('a[class*=card]').should('have.length', 2)
 
     cy.get('a[class*=card]:first').should($card => {
-      expect($card.find('span[class*=content_category]')).to.contain('blog')
-      expect($card.find('h2[class*=content_title]')).to.contain('A second demo')
-      expect($card.find('span[class*=date_published]')).to.contain('22 maj 2019')
-      expect($card.find('div[class*=content_summary] p')).to.contain('Salami ground')
-      expect($card.find('div[class*=content_summary] p').text().length).to.eq(237)
-      expect($card.find('span[class*=show_more]')).to.contain('Czytaj dalej')
+      expect($card.find('span[class*=contentCategory]')).to.contain('blog')
+      expect($card.find('h2[class*=contentTitle]')).to.contain('A second demo')
+      expect($card.find('span[class*=datePublished]')).to.contain('22 maj 2019')
+      expect($card.find('div[class*=contentSummary] p')).to.contain('Salami ground')
+      expect($card.find('div[class*=contentSummary] p').text().length).to.eq(237)
+      expect($card.find('span[class*=showMore]')).to.contain('Czytaj dalej')
     })
   })
 
@@ -23,10 +23,10 @@ context('Blog', () => {
     cy.get('div[class*=post_intro]').should($post => {
       expect($post.find('ol[class*=breadcrumbs] li:first')).to.contain('Strona Główna')
       expect($post.find('ol[class*=breadcrumbs] li:last')).to.contain('blog')
-      expect($post.find('h1[class*=post_title]')).to.contain('A second demo')
-      expect($post.find('span[class*=date_published]')).to.contain('22 maj 2019')
-      expect($post.find('div[class*=post_headline] p')).to.contain('Salami ground')
-      expect($post.find('div[class*=post_headline] p').text().length).to.eq(237)
+      expect($post.find('h1[class*=postTitle]')).to.contain('A second demo')
+      expect($post.find('span[class*=datePublished]')).to.contain('22 maj 2019')
+      expect($post.find('div[class*=postHeadline] p')).to.contain('Salami ground')
+      expect($post.find('div[class*=postHeadline] p').text().length).to.eq(237)
     })
 
     cy.get('div[class*=post_body]').should($post => {
