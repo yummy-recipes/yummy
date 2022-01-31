@@ -15,7 +15,7 @@ export default function PostPage({data}) {
   const { strapiRecipe: recipe } = data
 
   const Tags = (recipe.tags || []).map(tag => {
-    return <Tag name={tag.name} key={tag.slug} className={postStyles.post_tag} />
+    return <Tag name={tag.name} key={tag.slug} className={postStyles.postTag} />
   })
 
   return <Page>
@@ -34,7 +34,7 @@ export default function PostPage({data}) {
       <section className={pageStyles.main}>
         <article className={postStyles.post}>
           <div className={postStyles.post_intro}>
-            <div className={postStyles.post_preamble}>
+            <div className={postStyles.postPreamble}>
               <Breadcrumbs subsectionName={recipe.category.name} subsectionSlug={recipe.category.slug}/>
               <TimeToPrepare>{recipe.preparationTime}</TimeToPrepare>
             </div>
@@ -43,7 +43,7 @@ export default function PostPage({data}) {
 
             <div className={postStyles.post_headline} dangerouslySetInnerHTML={{ __html: recipe.parsedHeadline.childMarkdownRemark.html }}></div>
 
-            <div className={postStyles.post_tags}>
+            <div className={postStyles.postTags}>
               {Tags}
             </div>
           </div>
@@ -53,17 +53,17 @@ export default function PostPage({data}) {
               <Img
               fluid = {recipe.cover.childImageSharp.fluid}
               alt = {'Photography of the food from the recipe.'}
-              className = {postStyles.cover_image}
+              className = {postStyles.coverImage}
               />
             }
 
           <div className={postStyles.post_body}>
             <div
-              className={postStyles.post_ingredients}
+              className={postStyles.postIngredients}
               dangerouslySetInnerHTML={{ __html: recipe.parsedIngredients.childMarkdownRemark.html }}
             />
             <div
-              className={postStyles.post_directions}
+              className={postStyles.postDirections}
               dangerouslySetInnerHTML={{ __html: recipe.parsedDirections.childMarkdownRemark.html }}
             />
           </div>

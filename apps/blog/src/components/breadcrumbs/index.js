@@ -6,15 +6,15 @@ import * as styles from './breadcrumbs.module.sass'
 export default function Breadcrumbs({ subsectionName, subsectionSlug }) {
   return (
     <ol className={styles.breadcrumbs}>
-      <li className={styles.breadcrumb_item}>
-        <Link to="/" className={styles.breadcrumb_link}>
-          <span className={styles.breadcrumb_homepage_text}>Strona Główna</span>
-          <span className={styles.breadcrumb_homepage_logo}>
-            <Logo className={styles.svg_logo} />
+      <li className={styles.breadcrumbItem}>
+        <Link to="/" className={styles.breadcrumbLink}>
+          <span className={styles.breadcrumbHomepageText}>Strona Główna</span>
+          <span className={styles.breadcrumbHomepageLogo}>
+            <Logo className={styles.svgLogo} />
           </span>
         </Link>
       </li>
-      <li className={styles.breadcrumb_item}><Link to={`/${subsectionSlug}`} className={styles.breadcrumb_link}>{subsectionName}</Link></li>
+      <li className={styles.breadcrumbItem}><Link to={`/${subsectionSlug}`} className={styles.breadcrumbLink}>{subsectionName}</Link></li>
     </ol>
   )
 }

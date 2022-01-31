@@ -8,20 +8,20 @@ export default function BlogPostCard({post}) {
 
   return (
     <Link to={`/blog/${post.slug}`} className={styles.card}>
-      <div className={styles.content_header}>
-        <span className={styles.content_category}>blog</span>
-        <h2 className={styles.content_title}>
+      <div className={styles.contentHeader}>
+        <span className={styles.contentCategory}>blog</span>
+        <h2 className={styles.contentTitle}>
           {post.title}
         </h2>
-        <span className={styles.date_published}>
+        <span className={styles.datePublished}>
           {post.published_at}
         </span>
-        <div className={styles.content_summary} dangerouslySetInnerHTML={ {__html: post.parsedHeadline.childMarkdownRemark.html } } />
+        <div className={styles.contentSummary} dangerouslySetInnerHTML={ {__html: post.parsedHeadline.childMarkdownRemark.html } } />
       </div>
 
-      <span className={styles.show_more}>
+      <span className={styles.showMore}>
         Czytaj dalej
-        <ChevronRight className={styles.show_more_icon}/>
+        <ChevronRight className={styles.showMoreIcon}/>
       </span>
     </Link>
   )

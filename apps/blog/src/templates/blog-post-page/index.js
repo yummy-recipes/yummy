@@ -30,21 +30,21 @@ export default function BlogPostPage({data}) {
         <section className={pageStyles.main}>
           <article className={postStyles.post}>
 
-            <div className={postStyles.post_intro}>
-              <div className={postStyles.post_navigation}>
+            <div className={postStyles.postIntro}>
+              <div className={postStyles.postNavigation}>
                 <Breadcrumbs subsectionName='blog' subsectionSlug='blog'/>
               </div>
 
-              <h1 className={postStyles.post_title}>{post.title}</h1>
+              <h1 className={postStyles.postTitle}>{post.title}</h1>
 
               {/*TODO: can be a component since it's used on both pages*/}
-              <span className={postStyles.date_published}>
+              <span className={postStyles.datePublished}>
                 {post.published_at}
               </span>
 
-              <div className={postStyles.post_headline} dangerouslySetInnerHTML={{ __html: post.parsedHeadline.childMarkdownRemark.html }}></div>
+              <div className={postStyles.postHeadline} dangerouslySetInnerHTML={{ __html: post.parsedHeadline.childMarkdownRemark.html }}></div>
             </div>
-            <div className={postStyles.post_body}>
+            <div className={postStyles.postBody}>
               <div dangerouslySetInnerHTML={{ __html: post.parsedContent.childMarkdownRemark.html }}></div>
             </div>
           </article>

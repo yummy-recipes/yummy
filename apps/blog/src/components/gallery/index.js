@@ -33,7 +33,7 @@ export default class Gallery extends Component {
 
     const GalleryImages = images.map((img, ndx) => {
       return (
-        <button className={styles.image_wrapper} type="button" onClick={() => {
+        <button className={styles.imageWrapper} type="button" onClick={() => {
           this.setState({
             isLightboxOpen: true,
             photoIndex: ndx
@@ -42,7 +42,7 @@ export default class Gallery extends Component {
           <Img
             fluid={img.childImageSharp.small}
             alt={'Picture of the dish'}
-            className={styles.gallery_image}
+            className={styles.galleryImage}
             key={ndx}
           />
         </button>
@@ -52,8 +52,8 @@ export default class Gallery extends Component {
     const imgSources = images.map(img => img.childImageSharp.large.src)
 
     return (
-      <div className={styles.gallery_container}>
-        <h2 className={styles.gallery_header}>Galeria</h2>
+      <div className={styles.galleryContainer}>
+        <h2 className={styles.galleryHeader}>Galeria</h2>
         <div className={styles.gallery}>
           {GalleryImages}
         </div>
