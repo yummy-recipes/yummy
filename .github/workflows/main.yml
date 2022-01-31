@@ -32,23 +32,6 @@ jobs:
           name: cypress
           path: apps/blog/cypress/screenshots
 
-  visual:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
-      - run: yarn install --immutable --immutable-cache
-      - run: yarn test:visual:ci
-      - name: Upload visual comparison results
-        uses: actions/upload-artifact@v1
-        if: failure()
-        with:
-          name: visual
-          path: apps/blog/puppeteer/screenshots
-
   deploy:
     runs-on: ubuntu-latest
     needs: [test, e2e]

@@ -7883,7 +7883,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yummy/visual-regression@workspace:^, @yummy/visual-regression@workspace:libs/visual-regression":
+"@yummy/visual-regression@workspace:libs/visual-regression":
   version: 0.0.0-use.local
   resolution: "@yummy/visual-regression@workspace:libs/visual-regression"
   dependencies:
@@ -9985,7 +9985,6 @@ __metadata:
     "@yummy/gatsby-recipes": "workspace:^"
     "@yummy/gatsby-search-data": "workspace:^"
     "@yummy/gatsby-source-fixtures": "workspace:^"
-    "@yummy/visual-regression": "workspace:^"
     babel-loader: ^8.0.5
     blink-diff: ^1.0.13
     chromatic: ^6.4.2
@@ -13837,14 +13836,6 @@ __metadata:
   checksum: d77be45cb72d79a429c64d8f8f7603fea681d182fb795459a3d4afa608faad9a923378a7e80c6855f465263e1983140b6fc3682bd0213228b8cd7906ab4b934d
   languageName: node
   linkType: hard
-
-"e2e@workspace:tools/e2e":
-  version: 0.0.0-use.local
-  resolution: "e2e@workspace:tools/e2e"
-  dependencies:
-    start-server-and-test: ^1.12.1
-  languageName: unknown
-  linkType: soft
 
 "ecc-jsbn@npm:~0.1.1":
   version: 0.1.2
@@ -31106,7 +31097,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"start-server-and-test@npm:^1.12.1, start-server-and-test@npm:^1.7.11":
+"start-server-and-test@npm:^1.7.11":
   version: 1.14.0
   resolution: "start-server-and-test@npm:1.14.0"
   dependencies:
