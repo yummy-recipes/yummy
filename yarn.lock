@@ -13837,6 +13837,14 @@ __metadata:
   languageName: node
   linkType: hard
 
+"e2e@workspace:tools/e2e":
+  version: 0.0.0-use.local
+  resolution: "e2e@workspace:tools/e2e"
+  dependencies:
+    start-server-and-test: ^1.12.1
+  languageName: unknown
+  linkType: soft
+
 "ecc-jsbn@npm:~0.1.1":
   version: 0.1.2
   resolution: "ecc-jsbn@npm:0.1.2"
@@ -31097,7 +31105,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"start-server-and-test@npm:^1.7.11":
+"start-server-and-test@npm:^1.12.1, start-server-and-test@npm:^1.7.11":
   version: 1.14.0
   resolution: "start-server-and-test@npm:1.14.0"
   dependencies:
