@@ -3,8 +3,6 @@ import { Link } from 'gatsby'
 import Logo from '../icons/LogoSimple'
 import * as styles from './breadcrumbs.module.sass'
 
-console.log({ styles })
-
 export default function Breadcrumbs({ subsectionName, subsectionSlug }) {
   return (
     <ol className={styles.breadcrumbs}>
