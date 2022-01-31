@@ -20,7 +20,7 @@ context('Blog', () => {
     cy.get('a[class*=card]:first').click({force: true})
     cy.wait(500)
 
-    cy.get('div[class*=post_intro]').should($post => {
+    cy.get('div[class*=postIntro]').should($post => {
       expect($post.find('ol[class*=breadcrumbs] li:first')).to.contain('Strona Główna')
       expect($post.find('ol[class*=breadcrumbs] li:last')).to.contain('blog')
       expect($post.find('h1[class*=postTitle]')).to.contain('A second demo')
@@ -29,7 +29,7 @@ context('Blog', () => {
       expect($post.find('div[class*=postHeadline] p').text().length).to.eq(237)
     })
 
-    cy.get('div[class*=post_body]').should($post => {
+    cy.get('div[class*=postBody]').should($post => {
       expect($post.find('p')).to.have.length(5)
       expect($post.find('p')).to.contain('Spicy jalapeno bacon')
       expect($post.find('p').text().length).to.eq(100)
