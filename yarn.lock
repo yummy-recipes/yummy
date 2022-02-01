@@ -7883,7 +7883,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yummy/visual-regression@workspace:^, @yummy/visual-regression@workspace:libs/visual-regression":
+"@yummy/visual-regression@workspace:libs/visual-regression":
   version: 0.0.0-use.local
   resolution: "@yummy/visual-regression@workspace:libs/visual-regression"
   dependencies:
@@ -9985,7 +9985,6 @@ __metadata:
     "@yummy/gatsby-recipes": "workspace:^"
     "@yummy/gatsby-search-data": "workspace:^"
     "@yummy/gatsby-source-fixtures": "workspace:^"
-    "@yummy/visual-regression": "workspace:^"
     babel-loader: ^8.0.5
     blink-diff: ^1.0.13
     chromatic: ^6.4.2
