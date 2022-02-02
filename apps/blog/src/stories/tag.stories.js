@@ -1,9 +1,10 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
 
 import Tag from '../components/tag'
 
-storiesOf('Tag', module)
-  .add('default', () => (
-    <Tag name="Sample Tag" />
-  ))
+export default {
+  title: 'Tag',
+  component: Tag
+}
+
+export const Primary = () => <Tag name="Sample Tag" />
