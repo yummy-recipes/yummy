@@ -17,3 +17,6 @@ window.___navigate = pathname => {
   action("NavigateTo:")(pathname)
 }
 
+export const parameters = {
+  chromatic: { viewports: [360, 1200] }
+}
