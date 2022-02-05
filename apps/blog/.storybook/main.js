@@ -15,6 +15,21 @@ module.exports = {
       require.resolve("babel-plugin-remove-graphql-queries")
     )
 
+    // Replace default css loader
+    config.module.rules[3].use = [
+      require.resolve('style-loader'), // creates style nodes from JS strings
+      { // css modules support
+        loader: require.resolve('css-loader'),
+        options: {
+          esModule: true,
+          importLoaders: 1,
+          modules: {
+            namedExport: true
+          }
+        },
+      }
+    ]
+
     config.module.rules.push({
       test: /\.sass$/,
       use: [
