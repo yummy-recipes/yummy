@@ -21,9 +21,9 @@ export default function PostCard({post, className, criticalImage}) {
         )}
       </div>
 
-      <div className={styles.content_header}>
-        <span className={styles.content_category}>{post.category.name}</span>
-        <h2 className={styles.content_title}>
+      <div className={styles.contentHeader}>
+        <span className={styles.contentCategory}>{post.category.name}</span>
+        <h2 className={styles.contentTitle}>
           {post.title}
         </h2>
         <div className={styles.content_summary} dangerouslySetInnerHTML={ {__html: post.parsedHeadline.childMarkdownRemark.html} }></div>
@@ -39,9 +39,9 @@ export default function PostCard({post, className, criticalImage}) {
         }
       </div>
 
-      <span className={styles.show_more}>
+      <span className={styles.showMore}>
         Pokaż przepis
-        <ChevronRight className={styles.show_more_icon}/>
+        <ChevronRight className={styles.showMoreIcon}/>
       </span>
   </Link>
   )
