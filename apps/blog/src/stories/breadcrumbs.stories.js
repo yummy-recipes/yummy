@@ -7,4 +7,4 @@ export default {
   component: Breadcrumbs
 }
 
-const Primary = () => <Breadcrumbs subsectionName="desery" subsectionSlug="desery" />
+export const Primary = () => <Breadcrumbs subsectionName="desery" subsectionSlug="desery" />

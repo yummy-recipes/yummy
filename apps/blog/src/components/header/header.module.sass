@@ -1,5 +1,4 @@
 @import '../media'
-@import '../polka-dot'
 @import '../colors'
 
 .header
@@ -37,7 +36,6 @@
 
 @supports (clip-path: polygon(0% 0%, 100% 100%))
   .header:after
-    +polka-dot
     color: rgba(255, 255, 255, 0.2)
     content: ""
     top: 0
