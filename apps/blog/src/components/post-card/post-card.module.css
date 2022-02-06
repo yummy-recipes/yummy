@@ -1,5 +1,5 @@
 @value colors: '../palette.css';
-@value grey1, grey2, grey5, grey6, white from colors;
+@value blue, grey1, grey2, grey5, grey6, white from colors;
 
 .card {
   --box-shadow-color: grey2;
