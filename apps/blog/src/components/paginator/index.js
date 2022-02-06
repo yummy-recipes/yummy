@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { calculatePages } from '../../utils/paginationHelper';
 import { paginationElementTypes } from '../../utils/paginationConsts';
-import * as styles from './paginator.module.sass'
-import * as buttonStyles from '../button/button.transparent-noborder.module.sass'
+import * as styles from './paginator.module.css'
+import * as buttonStyles from '../button/button.transparent-noborder.module.css'
 import ChevronLeft from '../icons/ChevronLeft'
 import ChevronRight from '../icons/ChevronRight'
 

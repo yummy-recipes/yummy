@@ -1,0 +1,20 @@
+@value colors: '../palette.css';
+@value grey1, grey5 from colors;
+
+html, body {
+  background-color: grey1;
+}
+
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background-color: grey5;
+  }
+}
+
+#gatsby-noscript {
+  display: block;
+  margin: 0;
+  padding: 10px;
+  background-color: #333;
+  color: #e98500;
+}

@@ -33,15 +33,15 @@ export default function PostPage({data}) {
 
       <section className={pageStyles.main}>
         <article className={postStyles.post}>
-          <div className={postStyles.post_intro}>
+          <div className={postStyles.postIntro}>
             <div className={postStyles.postPreamble}>
               <Breadcrumbs subsectionName={recipe.category.name} subsectionSlug={recipe.category.slug}/>
               <TimeToPrepare>{recipe.preparationTime}</TimeToPrepare>
             </div>
 
-            <h1 className={postStyles.post_title}>{recipe.title}</h1>
+            <h1 className={postStyles.postTitle}>{recipe.title}</h1>
 
-            <div className={postStyles.post_headline} dangerouslySetInnerHTML={{ __html: recipe.parsedHeadline.childMarkdownRemark.html }}></div>
+            <div className={postStyles.postHeadline} dangerouslySetInnerHTML={{ __html: recipe.parsedHeadline.childMarkdownRemark.html }}></div>
 
             <div className={postStyles.postTags}>
               {Tags}
@@ -57,7 +57,7 @@ export default function PostPage({data}) {
               />
             }
 
-          <div className={postStyles.post_body}>
+          <div className={postStyles.postBody}>
             <div
               className={postStyles.postIngredients}
               dangerouslySetInnerHTML={{ __html: recipe.parsedIngredients.childMarkdownRemark.html }}

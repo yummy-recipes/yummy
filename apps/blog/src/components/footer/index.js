@@ -1,5 +1,5 @@
 import React from 'react'
-import * as styles from './footer.module.sass'
+import * as styles from './footer.module.css'
 
 export default function Footer({className}) {
   return <footer className={[styles.footer, className].join(' ')}>

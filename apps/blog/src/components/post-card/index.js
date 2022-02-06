@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import ChevronRight from '../icons/ChevronRight'
 
-import * as styles from './post-card.module.sass'
+import * as styles from './post-card.module.css'
 
 export default function PostCard({ href, className, children }) {
   return (

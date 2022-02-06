@@ -1,0 +1,105 @@
+@value breakpoints: '../breakpoints.css';
+@value tablet-down, tablet-up from breakpoints;
+@value colors: '../palette.css';
+@value blue from colors;
+
+.paginator {
+  margin-bottom: 35px;
+  position: relative;
+  text-align: center;
+}
+
+.icon {
+  height: 15px;
+  vertical-align: baseline;
+  position: relative;
+  bottom: -2px;
+  transform: scale(1.3);
+  margin: 0 4px;
+}
+
+.pageList {
+  font-size: 14px;
+  padding: 13px 20px;
+  width: 100%;
+  margin: 0;
+}
+
+@media tablet-up {
+  .pageList {
+    width: auto;
+  }
+}
+
+.nav {
+  margin-bottom: 12px;
+}
+
+@media tablet-up {
+  .nav {
+    position: absolute;
+    margin-bottom: 0;
+  }
+}
+
+.prev {
+  composes: nav;
+  left: 0;
+  float: left;
+  margin-right: 12px;
+}
+
+@media tablet-down {
+  .prev {
+    margin-right: 0;
+  }
+
+  .prev .link_text {
+    display: none;
+  }
+}
+
+.next {
+  composes: nav;
+  right: 0;
+  float: right;
+  margin-left: 12px;
+}
+
+@media tablet-down {
+  .next {
+    margin-left: 0;
+  }
+
+  .next link_text {
+    display: none;
+  }
+}
+
+.pageNavItem {
+  display: inline;
+  padding: 0 10px;
+  list-style: none;
+}
+
+@media tablet-down {
+  .pageNavItem {
+    padding: 0 7px;
+  }
+}
+
+.pageLink {
+  color: blue;
+  text-decoration: none;
+}
+
+.pageLink:visited,
+.pageLink:hover,
+.pageLink:active {
+  color: blue;
+  text-decoration: none;
+}
+
+.currentPage {
+  font-weight: 500;
+}

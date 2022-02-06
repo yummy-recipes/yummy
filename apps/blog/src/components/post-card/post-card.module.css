@@ -1,0 +1,63 @@
+@value colors: '../palette.css';
+@value grey1, grey2, grey5, grey6, white from colors;
+
+.card {
+  --box-shadow-color: grey2;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 1px 2px 3px grey2;
+  box-shadow: 1px 2px 3px var(--box-shadow-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-decoration: none;
+  color: grey6;
+  /* Fixes border radius overflow: hidden glitch in Safari */
+  transform: translateZ(0);
+}
+
+.card:active {
+  box-shadow: 2px 3px 5px grey2;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card:active {
+    --box-shadow-color: grey4;
+    background-color: grey5;
+    color: grey1;
+  }
+}
+
+.content {
+  display: flex;
+}
+
+.showMore {
+  background: blue;
+  color: white;
+  display: inline-block;
+  padding: 6px 15px;
+  text-decoration: none;
+  font-size: 16px;
+  width: 100%;
+  padding: 12px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media (prefers-color-scheme: dark) {
+  .showMore {
+    color: grey6;
+  }
+}
+
+.showMoreIcon {
+  height: 15px;
+  vertical-align: baseline;
+  position: relative;
+  bottom: -2px;
+  transform: scale(1.3);
+  margin-left: 4px;
+  transition: transform 200ms;
+}
+

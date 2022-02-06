@@ -1,0 +1,45 @@
+@value tablet-up from '../breakpoints.css';
+
+.galleryContainer {
+  margin-top: 0px;
+  padding-bottom: 38px;
+}
+
+@media tablet-up {
+  .galleryContainer {
+    margin-top: 20px;
+  }
+}
+
+.galleryHeader {
+  font-weight: 500;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.galleryImage {
+  height: 135px;
+  width: 135px;
+  margin: 0px 10px 10px 0px;
+}
+
+@media tablet-up {
+  .galleryImage {
+    height: 200px;
+    width: 200px;
+    margin: 0px 20px 20px 0px;
+  }
+}
+
+.imageWrapper {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}

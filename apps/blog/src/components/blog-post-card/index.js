@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import ChevronRight from '../icons/ChevronRight'
-
-import * as styles from './blog-post-card.module.sass'
+import * as styles from './blog-post-card.module.css'
 
 export default function BlogPostCard({post}) {
 
