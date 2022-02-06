@@ -2,10 +2,10 @@ import React, {useState, useEffect} from 'react'
 import Header from '../header'
 import Footer from '../footer'
 import SiteCategories from '../site_categories'
-import Searchbar from "../searchbar";
+import Searchbar from '../searchbar'
 
-import './layout.sass'
-import * as styles from "./layout.module.sass";
+import './layout.css'
+import * as styles from './layout.module.css'
 
 const HeaderWithCategories = ({fullVersion, subsection, isSingleRecipe}) => {
   const [alreadyMounted, setAlreadyMounted] = useState(false)

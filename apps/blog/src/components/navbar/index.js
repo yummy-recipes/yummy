@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import Logo from '../icons/LogoSimple'
 import MenuBarsIcon from '../icons/MenuBars'
 import MenuCloseIcon from '../icons/MenuClose'
-import * as styles from './navbar.module.sass'
+import * as styles from './navbar.module.css'
 
 function titleize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);

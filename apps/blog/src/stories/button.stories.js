@@ -1,7 +1,7 @@
 import React from 'react'
 
-import * as transparent from '../components/button/button.transparent.module.sass'
-import * as transparentNoBorder from '../components/button/button.transparent-noborder.module.sass'
+import * as transparent from '../components/button/button.transparent.module.css'
+import * as transparentNoBorder from '../components/button/button.transparent-noborder.module.css'
 
 export default {
   title: 'Button'

@@ -12,7 +12,7 @@ export default function BlogPostListContent({allPostsData, pageInfo, location}) 
         <BlogPostCard
           key={edge.node.id}
           post={edge.node}
-          className={styles.single_post}
+          className={styles.singlePost}
           criticalImage={index < 3}
         />
       )
