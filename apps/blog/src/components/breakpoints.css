@@ -1,5 +1,11 @@
+@value desktop-down: (max-width: 979px);
+@value desktop-up: (min-width: 980px);
+
 @value tablet-down: (max-width: 767px);
 @value tablet-up: (min-width: 768px);
 
 @value phone-l-down: (max-width: 479px);
 @value phone-l-up: (min-width: 480px);
+
+@value phone-down: (max-width: 319px);
+@value phone-up: (min-width: 320px);

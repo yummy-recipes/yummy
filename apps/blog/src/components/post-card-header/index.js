@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as styles from './post-card-header.module.sass'
+import * as styles from './post-card-header.module.css'
 
 const PostCardHeader = ({ title, categoryName, html }) => {
   return (

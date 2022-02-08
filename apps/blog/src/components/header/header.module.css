@@ -1,0 +1,125 @@
+@value breakpoints: '../breakpoints.css';
+@value phone-l-up, tablet-up from breakpoints;
+@value colors: '../palette.css';
+@value brand-orange, grey6 from colors;
+@value line-color: rgba(255, 255, 255, 0.75);
+
+.header {
+  background-color: brand-orange;
+  position: relative;
+}
+
+.singlePost {
+  padding-bottom: 40px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  max-height: 80px;
+  opacity: 0.8;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+@media phone-l-up {
+  .logo {
+    max-height: 100px;
+  }
+}
+
+@media tablet-up {
+  .logo {
+    max-height: 140px;
+  }
+}
+
+.logoLink {
+  display: block;
+  width: 300px;
+  margin: auto;
+}
+
+@supports (clip-path: polygon(0% 0%, 100% 100%)) {
+  .header:after {
+    color: rgba(255, 255, 255, 0.2);
+    content: "";
+    top: 0;
+  }
+}
+
+@supports (border-left: 100vw solid transparent) {
+  .header:before {
+    content: "";
+    height: 0;
+    display: block;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-top: 50px solid brand-orange;
+    border-left: 100vw solid transparent;
+    bottom: -50px;
+  }
+}
+
+@media tablet-up {
+  @supports (border-left: 100vw solid transparent) {
+    .header:before {
+      border-top-width: 130px;
+      bottom: -130px;
+    }
+  }
+}
+
+.subsectionHeadingWrapper {
+  padding-bottom: 30px;
+  max-width: 1220px;
+  margin: 0 auto;
+}
+
+@media tablet-up {
+  .subsectionHeadingWrapper {
+    padding-bottom: 50px;
+  }
+}
+
+.subsectionHeading {
+  font-size: 40px;
+  text-transform: uppercase;
+  color: grey6;
+  padding: 50px 10px 16px 10px;
+  letter-spacing: 0.15em;
+  font-weight: 400;
+  hyphens: auto;
+}
+
+.subsectionHeading:after {
+  content: '';
+  background: linear-gradient(to bottom, line-color, line-color 10%, transparent 10%, transparent 90%, line-color 90%, line-color);
+  background-size: 100% 5px;
+  height: 5px;
+  width: 100%;
+  position: absolute;
+  bottom: 48px;
+  left: 0;
+}
+
+@media phone-l-up {
+  .subsectionHeading {
+    padding: 50px 22px 16px 22px;
+  }
+}
+
+@media tablet-up {
+  .subsectionHeading {
+    bottom: 68px;
+  }
+}
+

@@ -1,0 +1,27 @@
+@value breakpoints: '../breakpoints.css';
+@value tablet-up from breakpoints;
+@value colors: '../palette.css';
+@value grey5 from colors;
+
+.logo {
+  display: block;
+  margin: 50px auto 0;
+  max-width: 120px;
+  width: 50%;
+}
+
+@media tablet-up {
+  .logo {
+    margin-top: 82px;
+  }
+}
+
+.section {
+  margin: 50px 0
+}
+
+.title {
+  color: grey5;
+  font-size: 15px;
+  letter-spacing: 2px;
+}

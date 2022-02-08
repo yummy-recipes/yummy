@@ -1,0 +1,36 @@
+@value colors: '../palette.css';
+@value grey1, grey2, grey4, grey6 from colors;
+
+.contentHeader {
+  margin: 20px 20px 0;
+}
+
+.contentCategory {
+  font-size: 16px;
+  color: grey4;
+  text-transform: uppercase;
+}
+
+@media (prefers-color-scheme: dark) {
+  .contentCategory {
+    color: grey2;
+  }
+}
+
+.contentTitle {
+  color: grey6;
+  font-size: 28px;
+  text-decoration: none;
+  margin: 12px 0;
+  font-weight: 500;
+}
+
+@media (prefers-color-scheme: dark) {
+  .contentTitle {
+    color: grey1;
+  }
+}
+
+.contentSummary {
+  margin: 20px 0;
+}

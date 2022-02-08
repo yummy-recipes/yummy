@@ -1,7 +1,7 @@
 import React, {createRef} from 'react'
 import { navigate } from 'gatsby'
 import Select from '../select'
-import * as styles from './searchbar.module.sass'
+import * as styles from './searchbar.module.css'
 import {RecentSearchesCache, LocalStorageClient} from './recent'
 
 const loadLocalSearch = () => import('./local_search')

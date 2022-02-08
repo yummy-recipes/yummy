@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../navbar'
 import Logo from '../icons/Logo'
 import { Link } from 'gatsby'
-import * as styles from './header.module.sass'
+import * as styles from './header.module.css'
 
 const Header = ({ fullVersion, subsection, isSingleRecipe, categories, children }) => {
   const headerStyles = isSingleRecipe
