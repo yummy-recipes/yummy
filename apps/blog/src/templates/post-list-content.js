@@ -5,7 +5,7 @@ import PostCardHeader from '../components/post-card-header'
 import PostCardSeparator from '../components/post-card-separator'
 import PostCardAttributes from '../components/post-card-attributes'
 import Paginator from '../components/paginator'
-import * as styles from './page.module.sass'
+import * as styles from './page.module.css'
 
 export default function PostListContent({allRecipesData, pageInfo, location}) {
   const Posts = allRecipesData.edges

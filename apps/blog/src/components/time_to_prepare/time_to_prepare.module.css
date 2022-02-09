@@ -1,0 +1,42 @@
+@value breakpoints: '../breakpoints.css';
+@value phone-l-down from breakpoints;
+@value colors: '../palette.css';
+@value black, grey1 from colors;
+
+.timeBox {
+  display: flex;
+  align-items: baseline;
+}
+
+@media phone-l-down {
+  .timeBox {
+    font-size: 14px
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .timeBox {
+    color: grey1;
+  }
+}
+
+.icon {
+  color: black;
+  height: 20px;
+  vertical-align: baseline;
+  position: relative;
+  bottom: -4px;
+  margin-right: 6px;
+}
+
+@media phone-l-down {
+  .icon {
+    height: 18px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .icon {
+    color: grey1;
+  }
+}

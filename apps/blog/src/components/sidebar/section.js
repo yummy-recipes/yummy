@@ -1,5 +1,5 @@
 import React from 'react'
-import * as styles from './sidebar.module.sass'
+import * as styles from './sidebar.module.css'
 
 export default function SidebarSection({title, children}) {
   return <div className={styles.section}>

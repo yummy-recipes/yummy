@@ -1,7 +1,7 @@
 import Img from 'gatsby-image'
 import React from 'react'
 
-import * as styles from './post-card-cover.module.sass'
+import * as styles from './post-card-cover.module.css'
 
 const PostCardCover = ({ fluid, criticalImage }) => {
   return (

@@ -1,0 +1,160 @@
+@value breakpoints: '../../components/breakpoints.css';
+@value tablet-up, phone-l from breakpoints;
+@value colors: '../../components/palette.css';
+@value grey1, grey2, grey3, grey5, white from colors;
+
+@value hPaddingDesktop: 40px;
+@value hPaddingDesktopNegative: -40px;
+@value hPaddingMobile: 25px;
+@value hPaddingNegativeMobile: -25px;
+
+.post {
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 1px 2px 3px grey2;
+  padding: 30px hPaddingMobile;
+  margin-bottom: 32px;
+}
+
+@media tablet-up {
+  .post {
+    padding: 30px hPaddingDesktop;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .post {
+    background-color: grey5;
+    color: grey1;
+  }
+}
+
+.postBody {
+  display: flex;
+  padding-top: 32px;
+  padding-bottom: 24px;
+  flex-direction: column;
+}
+
+@media phone-l-up {
+  .postBody {
+    padding: 38px 0;
+  }
+}
+
+@media tablet-up {
+  .postBody {
+    flex-direction: row;
+  }
+}
+
+.postIntro > h1 {
+  font-weight: 500;
+}
+
+.postPreamble {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.postHeadline {
+  margin-bottom: 1.45em;
+}
+
+.postIngredients {
+  flex: 1;
+  min-width: 250px;
+}
+
+@media tablet-up {
+  .postIngredients {
+    border-right: 1px solid grey3;
+    padding-right: 40px;
+  }
+}
+
+.postIngredients > h2 {
+  font-weight: 500;
+}
+
+
+.postIngredients > h3 {
+  font-weight: 500;
+  margin-top: 1.45rem;
+}
+
+.postIngredients > ul li:last-child {
+  margin-bottom: 0;
+}
+
+.postDirections {
+  flex: 3;
+  margin-top: 32px;
+}
+
+.postDirections > h2,
+.postDirections > h3 {
+  font-weight: 500;
+}
+
+@media tablet-up {
+  .postDirections {
+    padding-left: 40px;
+    margin-top: 0;
+  }
+}
+
+.postTitle {
+  font-size: 36px;
+  margin-top: 6px;
+}
+
+@media tablet-up {
+  .postTitle {
+    font-size: 48px;
+  }
+}
+
+.postTags {
+  margin-bottom: 15px;
+}
+
+.postTag {
+  margin-right: 8px;
+  margin-bottom: 15px;
+}
+
+.footer {
+  border-top: 1px solid grey1;
+  padding-top: 20px;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  height: 300px;
+}
+
+.pageBlock {
+  position: relative;
+  z-index: 1;
+}
+
+.wrapper {
+  composes: pageBlock;
+  background: grey1;
+}
+
+.coverImage {
+  margin: 0 hPaddingNegativeMobile;
+  height: 200px;
+}
+
+@media tablet-up {
+  .coverImage {
+    margin: 0 hPaddingDesktopNegative;
+    height: 300px;
+  }
+}

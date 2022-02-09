@@ -6,8 +6,8 @@ import Breadcrumbs from '../../components/breadcrumbs'
 
 import SiteMetadata from '../../components/site_metadata'
 
-import * as pageStyles from '../page.module.sass'
-import * as postStyles from './blog-post.module.sass'
+import * as pageStyles from '../page.module.css'
+import * as postStyles from './blog-post.module.css'
 
 export default function BlogPostPage({data}) {
   const { strapiArticle: post } = data
