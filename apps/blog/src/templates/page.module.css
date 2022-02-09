@@ -1,4 +1,4 @@
-@value breakpoints: '../../components/breakpoints.css';
+@value breakpoints: '../components/breakpoints.css';
 @value tablet-up, phone-l from breakpoints;
 
 .layout {
