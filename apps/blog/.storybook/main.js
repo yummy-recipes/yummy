@@ -1,7 +1,7 @@
 module.exports = {
-  stories: ['../src/stories/*.js'],
+  stories: ['../src/stories/*.jsx'],
   core: {
-    builder: 'webpack5',
+    builder: 'storybook-builder-vite',
   },
   addons: [
     '@storybook/addon-actions',
