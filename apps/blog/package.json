@@ -63,6 +63,7 @@
     "@storybook/addon-actions": "^6.4.16",
     "@storybook/addon-links": "^6.4.16",
     "@storybook/addons": "^6.4.16",
+    "@storybook/builder-webpack5": "^6.4.16",
     "@storybook/manager-webpack5": "^6.4.16",
     "@storybook/react": "^6.4.16",
     "@svgr/cli": "^6.2.1",
@@ -104,7 +105,7 @@
     "minideploy": "bash -x ./scripts/mini_deploy.sh",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "ENV=USE_VITE_BUILDER=true start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "new-recipe": "hygen recipe new",
     "icons": "yarn svgr src/components/icons --out-dir src/components/icons --ext jsx"
