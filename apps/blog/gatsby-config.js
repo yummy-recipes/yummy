@@ -13,7 +13,7 @@ const sourcePlugins = [
     resolve: 'gatsby-source-strapi',
     options: {
       apiURL: process.env.API_URL || 'http://localhost:1337',
-      contentTypes: ['recipe', 'category', 'tag', 'article'],
+      collectionTypes: ['recipe', 'category', 'tag', 'article'],
       singleTypes: [],
       queryLimit: 1000,
       loginData: {

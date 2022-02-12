@@ -25,12 +25,14 @@ describe('PostPage', () => {
       parsedDirections: {childMarkdownRemark: {html: 'Lorem ipsum'}},
       gallery: [],
       cover: {
-        childImageSharp: {
-          fluid: {
-            aspectRatio: 1,
-            src: '/cover.jpg',
-            srcSet: '',
-            sizes: ''
+        image: {
+          childImageSharp: {
+            fluid: {
+              aspectRatio: 1,
+              src: '/cover.jpg',
+              srcSet: '',
+              sizes: ''
+            }
           }
         }
       }

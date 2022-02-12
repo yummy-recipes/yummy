@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react'
 
 const SvgLogo = (props) => (
   <svg viewBox="0 0 267 125" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -23,6 +23,6 @@ const SvgLogo = (props) => (
       <path d="M108.132 66.407c-.3 26.456-21.847 47.81-48.382 47.81a48.262 48.262 0 0 1-15.674-2.598l-1.97 3.977-.37.744a53.476 53.476 0 0 0 18.009 3.103c29.424 0 53.315-23.698 53.615-53.041v-.555c0-18.841-9.727-35.41-24.431-44.962l-2 4.047-.334.674c12.985 8.674 21.537 23.458 21.532 40.241 0 .185.005.37.005.555v.005z" />
     </g>
   </svg>
-);
+)
 
-export default SvgLogo;
+export default SvgLogo
