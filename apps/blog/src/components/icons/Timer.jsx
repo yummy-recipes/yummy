@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react'
 
 const SvgTimer = (props) => (
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -8,6 +8,6 @@ const SvgTimer = (props) => (
       fill="currentColor"
     />
   </svg>
-);
+)
 
-export default SvgTimer;
+export default SvgTimer

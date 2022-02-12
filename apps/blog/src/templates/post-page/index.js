@@ -24,7 +24,7 @@ export default function PostPage({data}) {
         <Helmet>
           <title>{recipe.seo.htmlTitle || recipe.title}</title>
           <meta name='description' content={recipe.seo.htmlDescription || recipe.title}/>
-          {recipe.cover && <meta property='og:image' content={siteUrl + recipe.cover.childImageSharp.fluid.src} />}
+          {recipe.cover && <meta property='og:image' content={siteUrl + recipe.cover.image.childImageSharp.fluid.src} />}
           <meta property='og:type' content='article' />
           <meta property='article:section' content={recipe.category.name} />
           {(recipe.tags || []).map((tag, index) => <meta property='article:tag' content={tag.name} key={index}/>)}
@@ -51,7 +51,7 @@ export default function PostPage({data}) {
             {
               recipe.cover &&
               <Img
-              fluid = {recipe.cover.childImageSharp.fluid}
+              fluid = {recipe.cover.image.childImageSharp.fluid}
               alt = {'Photography of the food from the recipe.'}
               className = {postStyles.coverImage}
               />
@@ -103,9 +103,11 @@ export const pageQuery = graphql`
         slug
       }
       cover {
-        childImageSharp {
-          fluid(maxWidth: 2000, traceSVG: { color: "#e98500" }) {
-            ...GatsbyImageSharpFluid_tracedSVG
+        image {
+          childImageSharp {
+            fluid(maxWidth: 2000, traceSVG: { color: "#e98500" }) {
+              ...GatsbyImageSharpFluid_tracedSVG
+            }
           }
         }
       }

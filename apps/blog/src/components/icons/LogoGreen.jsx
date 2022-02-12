@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react'
 
 const SvgLogoGreen = (props) => (
   <svg viewBox="0 0 268 344" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -52,6 +52,6 @@ const SvgLogoGreen = (props) => (
       />
     </g>
   </svg>
-);
+)
 
-export default SvgLogoGreen;
+export default SvgLogoGreen

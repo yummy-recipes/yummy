@@ -19,7 +19,7 @@ export default function PostListContent({allRecipesData, pageInfo, location}) {
         >
           {post.cover &&
             <PostCardCover
-              fluid={post.cover.childImageSharp.fluid}
+              fluid={post.cover.image.childImageSharp.fluid}
               criticalImage={index < 3}
             />
           }

@@ -42,9 +42,11 @@ fragment postForList on StrapiRecipe {
   preparationTime
   published_at(formatString: "D MMM YYYY", locale: "pl")
   cover {
-    childImageSharp {
-      fluid(maxWidth: 1000, traceSVG: { color: "#ec973b" }) {
-        ...GatsbyImageSharpFluid_tracedSVG
+    image {
+      childImageSharp {
+        fluid(maxWidth: 1000, traceSVG: { color: "#ec973b" }) {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
       }
     }
   }

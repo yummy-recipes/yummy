@@ -5,6 +5,21 @@ exports.createResolvers = ({ createResolvers, createNodeId, cache, actions, stor
   const { createNode } = actions
   const apiUrl = process.env.API_URL || 'http://localhost:1337'
   const resolvers = {
+    StrapiRecipeCover: {
+      image: {
+        type: 'File',
+        resolve: (source, args, context, info) => {
+          return createRemoteFileNode({
+            url: source.url.startsWith('/') ? `${apiUrl}${source.url}` : source.url,
+            store,
+            cache,
+            createNode,
+            createNodeId,
+            reporter,
+          })
+        }
+      }
+    },
     StrapiRecipeGallery: {
       image: {
         type: 'File',
