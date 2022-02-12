@@ -46,7 +46,6 @@
     "gatsby-source-strapi": "^0.0.12",
     "gatsby-transformer-remark": "^3.2.0",
     "gatsby-transformer-sharp": "^3.14.0",
-    "hygen": "^4.0.7",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
@@ -60,6 +59,7 @@
     "underscore.string": "^3.3.5"
   },
   "devDependencies": {
+    "@mdx-js/react": "^2.0.0",
     "@storybook/addon-actions": "^6.4.16",
     "@storybook/addon-links": "^6.4.16",
     "@storybook/addons": "^6.4.16",
@@ -83,8 +83,10 @@
     "puppeteer": "^1.13.0",
     "react-test-renderer": "^16.8.2",
     "start-server-and-test": "^1.7.11",
+    "storybook-builder-vite": "^0.1.15",
     "style-loader": "^3.3.1",
     "svgo": "^2.8.0",
+    "vite": "^2.8.1",
     "webpack": "^5.67.0"
   },
   "optionalDependencies": {
@@ -103,9 +105,9 @@
     "minideploy": "bash -x ./scripts/mini_deploy.sh",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "ENV=USE_VITE_BUILDER=true start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "new-recipe": "hygen recipe new",
-    "icons": "yarn svgr src/components/icons --out-dir src/components/icons"
+    "icons": "yarn svgr src/components/icons --out-dir src/components/icons --ext jsx"
   }
 }
