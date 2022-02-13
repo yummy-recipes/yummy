@@ -3,7 +3,7 @@
   "private": true,
   "packageManager": "yarn@3.1.1",
   "engines": {
-    "node": ">14.10.0"
+    "node": "16.x"
   },
   "workspaces": [
     "apps/*",
