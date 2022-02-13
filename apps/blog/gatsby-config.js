@@ -47,21 +47,9 @@ const typographyPlugins = process.env.GATSBY_SOURCE === 'test' ? [
   }
 ]
 
-// Enable analytics on in production
-const analyticsPlugins = process.env.GATSBY_SOURCE === 'test' ? [] : [
-  {
-    resolve: 'gatsby-plugin-fathom',
-    options: {
-      trackingUrl: 'fathom.ertrzyiks.me',
-      siteId: 'YSCGJ'
-    }
-  }
-]
-
 const dynamicPlugins = localPlugins
   .concat(sourcePlugins)
   .concat(typographyPlugins)
-  .concat(analyticsPlugins)
 
 module.exports = {
   siteMetadata: {
@@ -146,13 +134,6 @@ module.exports = {
         icon: 'src/components/layout/assets/android-chrome-192x192.png',
       },
     },
-      {
-        resolve: 'gatsby-plugin-sass',
-        options: {
-          cssLoaderOptions: { importLoaders: 1, modules: true },
-          sassOptions: { indentedSyntax: true }
-        }
-      },
     'gatsby-plugin-eslint'
   ],
   )
