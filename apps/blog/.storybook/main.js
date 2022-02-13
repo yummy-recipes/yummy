@@ -32,31 +32,6 @@ module.exports = {
       }
     ]
 
-    config.module.rules.push({
-      test: /\.sass$/,
-      use: [
-        require.resolve('style-loader'), // creates style nodes from JS strings
-        { // css modules support
-          loader: require.resolve('css-loader'),
-          options: {
-            esModule: true,
-            importLoaders: 1,
-            modules: {
-              namedExport: true
-            }
-          },
-        },
-        {
-          loader: require.resolve('sass-loader'),
-          options: {
-            sassOptions:{
-              indentedSyntax: true
-            }
-          }
-        }
-      ]
-    })
-
     return config
   }
 }
