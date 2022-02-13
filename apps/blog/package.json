@@ -54,7 +54,6 @@
     "react-select": "2.4.4",
     "react-testing-library": "^6.0.0",
     "react-typography": "^0.16.18",
-    "sass": "^1.32.8",
     "typography": "^0.16.19",
     "underscore.string": "^3.3.5"
   },
