@@ -22,7 +22,7 @@ const HeaderWithCategories = ({fullVersion, subsection, isSingleRecipe}) => {
         subsection={subsection}
         isSingleRecipe={isSingleRecipe}
       >
-        <Searchbar forceVisibility={alreadyMounted} className={styles.searchbar}/>
+        {isSingleRecipe ? null : <Searchbar forceVisibility={alreadyMounted} className={styles.searchbar}/>}
       </Header>
     }/>
   )

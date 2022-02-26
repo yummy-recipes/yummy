@@ -33,29 +33,31 @@ export default function PostPage({data}) {
 
       <section className={pageStyles.main}>
         <article className={postStyles.post}>
+          <h1 className={postStyles.postTitle}>{recipe.title}</h1>
+
+          <div className={postStyles.postHeadline} dangerouslySetInnerHTML={{ __html: recipe.parsedHeadline.childMarkdownRemark.html }}></div>
+
+          {
+            recipe.cover &&
+            <Img
+              fluid = {recipe.cover.image.childImageSharp.fluid}
+              alt = {'Photography of the food from the recipe.'}
+              className = {postStyles.coverImage}
+            />
+          }
+
           <div className={postStyles.postIntro}>
             <div className={postStyles.postPreamble}>
               <Breadcrumbs subsectionName={recipe.category.name} subsectionSlug={recipe.category.slug}/>
               <TimeToPrepare>{recipe.preparationTime}</TimeToPrepare>
             </div>
 
-            <h1 className={postStyles.postTitle}>{recipe.title}</h1>
-
-            <div className={postStyles.postHeadline} dangerouslySetInnerHTML={{ __html: recipe.parsedHeadline.childMarkdownRemark.html }}></div>
-
             <div className={postStyles.postTags}>
               {Tags}
             </div>
           </div>
 
-            {
-              recipe.cover &&
-              <Img
-              fluid = {recipe.cover.image.childImageSharp.fluid}
-              alt = {'Photography of the food from the recipe.'}
-              className = {postStyles.coverImage}
-              />
-            }
+
 
           <div className={postStyles.postBody}>
             <div
