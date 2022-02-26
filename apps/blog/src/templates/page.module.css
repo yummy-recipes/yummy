@@ -4,7 +4,7 @@
 .layout {
   display: flex;
   flex-direction: column;
-  max-width: 1220px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 10px;
   position: relative;
@@ -30,8 +30,8 @@
   .posts {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-column-gap: 15px;
-    grid-row-gap: 50px;
+    grid-column-gap: 32px;
+    grid-row-gap: 32px;
     margin-bottom: 50px;
   }
 }
@@ -80,17 +80,17 @@
   }
 }
 
-.blogBosts {
+.blogPosts {
   display: flex;
   flex-wrap: wrap;
 }
 
 @supports (display: grid) {
-  .blogBosts {
+  .blogPosts {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-column-gap: 15px;
-    grid-row-gap: 40px;
+    grid-column-gap: 32px;
+    grid-row-gap: 32px;
     margin-bottom: 50px;
   }
 }

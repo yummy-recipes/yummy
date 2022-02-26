@@ -28,11 +28,6 @@ export default function PostListContent({allRecipesData, pageInfo, location}) {
             categoryName={post.category.name}
             html={post.parsedHeadline.childMarkdownRemark.html}
           />
-          <PostCardSeparator />
-          <PostCardAttributes
-            preparationTime={post.preparationTime}
-            tags={post.tags}
-          />
         </PostCard>
       )
     })

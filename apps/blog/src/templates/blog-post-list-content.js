@@ -21,7 +21,7 @@ export default function BlogPostListContent({allPostsData, pageInfo, location}) 
   return (
     <div className={styles.layout}>
       <section className={styles.main}>
-        <div className={styles.blogBosts}>
+        <div className={styles.blogPosts}>
           {BlogPosts}
         </div>
         <Paginator currentPage={pageInfo.currentPage} totalPages={pageInfo.totalPages} currentPath={location.pathname} />
