@@ -8,6 +8,6 @@ context('Tag page', () => {
     cy.wait(500)
     cy.get('a').contains('Woda').click()
     cy.wait(500)
-    cy.get('section').contains('a', 'Pokaż przepis').parent().find('a').should('have.length', 9)
+    cy.get('section').contains('a', 'Nagłówek').parent().find('a').should('have.length', 9)
   })
 })
