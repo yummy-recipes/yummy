@@ -4,13 +4,9 @@ import Logo from '../icons/Logo'
 import { Link } from 'gatsby'
 import * as styles from './header.module.css'
 
-const Header = ({ fullVersion, subsection, isSingleRecipe, categories, children }) => {
-  const headerStyles = isSingleRecipe
-    ? [styles.header, styles.singlePost].join(' ')
-    : styles.header
-
+const Header = ({ fullVersion, subsection, categories, children }) => {
   return (
-    <header className={headerStyles}>
+    <header className={styles.header}>
       <div className={styles.navbar}>
         <Navbar categories={categories} hasHomepageLink={fullVersion === false}/>
       </div>

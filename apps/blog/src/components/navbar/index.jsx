@@ -74,16 +74,14 @@ export default class Navbar extends React.Component {
         <div className={categoryMenuClass}>
           {overlay}
 
-          {hasHomepageLink &&
-            <Link
-              to={'/'}
-              key={'homepage'}
-              className={styles.navbarLogoLink}
-              onClick={this.handleMenuCloseClick}
-            >
-              <Logo/>
-            </Link>
-          }
+          <Link
+            to={'/'}
+            key={'homepage'}
+            className={styles.navbarLogoLink}
+            onClick={this.handleMenuCloseClick}
+          >
+            Wszystkie
+          </Link>
 
           {categories.map(({slug, name}) =>
            <Link
