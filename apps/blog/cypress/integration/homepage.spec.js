@@ -4,7 +4,7 @@ context('Homepage', () => {
   })
 
   it('renders properly', () => {
-    cy.get('header nav a').should('have.length', 5)
+    cy.get('header nav a').should('have.length', 6)
 
     cy.get('section').contains('Desery J').should($card => {
       expect($card.find('h2')).to.contain('Desery J')
