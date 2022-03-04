@@ -9,7 +9,6 @@ context('Homepage', () => {
     cy.get('section').contains('Desery J').should($card => {
       expect($card.find('h2')).to.contain('Desery J')
       expect($card.find('p')).to.contain('Nagłówek')
-      expect($card.find('span')).to.contain('Desery')
     })
 
     cy.get('a').contains('Następna').should('be.visible')
