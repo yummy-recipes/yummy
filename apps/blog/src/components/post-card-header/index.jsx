@@ -2,10 +2,9 @@ import React from 'react'
 
 import * as styles from './post-card-header.module.css'
 
-const PostCardHeader = ({ title, categoryName, html }) => {
+const PostCardHeader = ({ title, html }) => {
   return (
     <div className={styles.contentHeader}>
-      <span className={styles.contentCategory}>{categoryName}</span>
       <h2 className={styles.contentTitle}>
         {title}
       </h2>

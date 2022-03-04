@@ -77,7 +77,7 @@ export default class Navbar extends React.Component {
           <Link
             to={'/'}
             key={'homepage'}
-            className={styles.navbarLogoLink}
+            className={styles.navbarLink}
             onClick={this.handleMenuCloseClick}
           >
             Wszystkie
