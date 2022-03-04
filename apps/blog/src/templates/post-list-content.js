@@ -25,7 +25,6 @@ export default function PostListContent({allRecipesData, pageInfo, location}) {
           }
           <PostCardHeader
             title={post.title}
-            categoryName={post.category.name}
             html={post.parsedHeadline.childMarkdownRemark.html}
           />
         </PostCard>

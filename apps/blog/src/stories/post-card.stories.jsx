@@ -19,7 +19,6 @@ export const Primary = () => (
 
     <PostCardHeader
       title='Test'
-      categoryName='Zupy'
       html='Summary'
     />
 

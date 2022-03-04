@@ -1,14 +1,11 @@
 @value colors: '../palette.css';
 @value grey1, grey5 from colors;
 
-html, body {
-  background-color: grey1;
-}
 
-@media (prefers-color-scheme: dark) {
-  html, body {
-    background-color: grey5;
-  }
+
+html, body {
+  background-color: var(--background);
+  color: var(--text-color);
 }
 
 #gatsby-noscript {

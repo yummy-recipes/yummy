@@ -1,0 +1,42 @@
+:root {
+    --background: #fefefe;
+    --text-color: #333;
+    --link-text-color: #333;
+    --link-text-color-hover: #333;
+
+    --menu-text-color: #565656;
+    --menu-text-color-hover: #333;
+    --menu-text-size: 16px;
+
+    --post-card-text-color: #333;
+    --post-card-text-background: var(--background);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #333;
+        --text-color: #fefefe;
+        --link-text-color: #333;
+        --link-text-color-hover: #333;
+
+        --menu-text-color: #ccc;
+        --menu-text-color-hover: #dedede;
+
+        --post-card-text-color: var(--text-color);
+        --post-card-background: var(--background);
+    }
+}
+
+@value background: var(--background);
+@value textColor: var(--text-color);
+
+@value linkTextColor: var(--link-text-color);
+@value linkTextColorHover: var(--link-text-color-hover);
+
+@value menuTextColor: var(--menu-text-color);
+@value menuTextColorHover: var(--menu-text-color-hover);
+@value menuTextSize: var(--menu-text-size);
+
+@value postCardTextColor: var(--post-card-text-color);
+@value postCardBackground: var(--post-card-background);
+

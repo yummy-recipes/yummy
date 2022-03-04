@@ -1,6 +1,8 @@
 @value tablet-down from '../breakpoints.css';
 @value colors: '../palette.css';
+@value tokens: '../tokens.css';
 @value grey4, grey6, orange1, orange2, orange3 from colors;
+@value menuTextColor, menuTextSize, menuTextColorHover from tokens;
 
 .navbar {
   padding: 3px 6px;
@@ -47,9 +49,9 @@
 }
 
 .navbarLink {
-  color: grey6;
+  color: menuTextColor;
   display: inline-block;
-  font-size: 16px;
+  font-size: menuTextSize;
   font-weight: 600;
   margin: 0 6px;
   padding: 20px 8px;
@@ -59,6 +61,7 @@
 
 .navbarLink:hover {
   text-decoration: underline;
+  color: menuTextColorHover;
 }
 
 .navbarLink:active {
