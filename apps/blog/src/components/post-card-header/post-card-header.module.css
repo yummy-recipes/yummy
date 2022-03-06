@@ -1,24 +1,17 @@
-@value colors: '../palette.css';
 @value tokens: '../tokens.css';
-@value grey1, grey2, grey4, grey6 from colors;
-@value postCardTextColor from tokens;
+@value fontSize, colorText from tokens;
 
 .contentHeader {
+  font-size: fontSize;
   margin: 20px 20px 0;
 }
 
 .contentTitle {
-  color: grey6;
-  font-size: 28px;
+  color: colorText;
+  font-size: fontSize;
   text-decoration: none;
   margin: 12px 0;
   font-weight: 500;
-}
-
-@media (prefers-color-scheme: dark) {
-  .contentTitle {
-    color: postCardTextColor;
-  }
 }
 
 .contentSummary {

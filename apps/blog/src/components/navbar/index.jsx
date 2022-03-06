@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Logo from '../icons/LogoSimple'
 import MenuBarsIcon from '../icons/MenuBars'
 import MenuCloseIcon from '../icons/MenuClose'
 import * as styles from './navbar.module.css'
@@ -53,7 +52,7 @@ export default class Navbar extends React.Component {
         <div className={styles.navbarMenuOverlay} onClick={this.handleMenuCloseClick} />)
       : null;
 
-    const {hasHomepageLink, categories} = this.props
+    const {categories} = this.props
 
     return (
       <nav className={styles.navbar}>

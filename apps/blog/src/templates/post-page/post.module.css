@@ -1,15 +1,14 @@
 @value breakpoints: '../../components/breakpoints.css';
 @value tablet-up, phone-l from breakpoints;
-@value colors: '../../components/palette.css';
-@value grey1, grey2, grey3, grey5, white from colors;
+@value tokens: '../../components/tokens.css';
+@value colorBorder, colorBorderProminent, colorBackground, colorText, fontSizeProminent, fontWeight, fontSizeProminent, colorBackgroundProminent from tokens;
 
 @value hPaddingDesktop: 40px;
-@value hPaddingDesktopNegative: -40px;
 @value hPaddingMobile: 25px;
-@value hPaddingNegativeMobile: -25px;
 
 .post {
-  background-color: white;
+  background-color: colorBackground;
+  color: colorText;
   padding: 30px hPaddingMobile;
   margin-bottom: 32px;
 }
@@ -17,13 +16,6 @@
 @media tablet-up {
   .post {
     padding: 30px hPaddingDesktop;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .post {
-    background-color: grey5;
-    color: grey1;
   }
 }
 
@@ -71,7 +63,7 @@
 
 @media tablet-up {
   .postIngredients {
-    border-right: 1px solid grey3;
+    border-right: 1px solid colorBorderProminent;
     padding-right: 40px;
   }
 }
@@ -107,7 +99,9 @@
 }
 
 .postTitle {
-  font-size: 36px;
+  color: colorText;
+  font-weight: fontWeight;
+  font-size: fontSizeProminent;
   margin-top: 6px;
 }
 
@@ -127,7 +121,7 @@
 }
 
 .footer {
-  border-top: 1px solid grey1;
+  border-top: 1px solid colorBorder;
   padding-top: 20px;
 }
 
@@ -144,17 +138,15 @@
 
 .wrapper {
   composes: pageBlock;
-  background: grey1;
+  background: colorBackgroundProminent;
 }
 
 .coverImage {
-  margin: 0 hPaddingNegativeMobile;
   height: 300px;
 }
 
 @media tablet-up {
   .coverImage {
-    margin: 0 hPaddingDesktopNegative;
     height: 500px;
   }
 }

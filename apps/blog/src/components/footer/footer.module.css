@@ -1,10 +1,10 @@
 @value tablet-up from '../breakpoints.css';
 @value colors: '../palette.css';
-@value blue, grey1, grey5, brand-orange, orange3 from colors;
+@value tokens: '../tokens.css';
+@value colorBorder from tokens;
 
 .footer {
-  border-top: 1px solid grey1;
-  color: grey5;
+  border-top: 1px solid colorBorder;
   margin-top: 50px;
   padding: 50px 0;
   position: relative;
@@ -20,5 +20,4 @@
 .inner {
   padding: 0 20px;
   position: relative;
-  z-index: 1;
 }

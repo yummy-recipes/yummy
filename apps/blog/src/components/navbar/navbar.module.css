@@ -2,7 +2,7 @@
 @value colors: '../palette.css';
 @value tokens: '../tokens.css';
 @value grey4, grey6, orange1, orange2, orange3 from colors;
-@value menuTextColor, menuTextSize, menuTextColorHover from tokens;
+@value colorNavigation, colorNavigationHover, colorNavigationActive, fontSizeNavigation from tokens;
 
 .navbar {
   padding: 3px 6px;
@@ -49,9 +49,9 @@
 }
 
 .navbarLink {
-  color: menuTextColor;
+  color: colorNavigation;
   display: inline-block;
-  font-size: menuTextSize;
+  font-size: fontSizeNavigation;
   font-weight: 600;
   margin: 0 6px;
   padding: 20px 8px;
@@ -61,11 +61,11 @@
 
 .navbarLink:hover {
   text-decoration: underline;
-  color: menuTextColorHover;
+  color: colorNavigationHover;
 }
 
 .navbarLink:active {
-  color: grey4;
+  color: colorNavigationActive;
 }
 
 @media tablet-down {
