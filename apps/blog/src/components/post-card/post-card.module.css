@@ -1,6 +1,4 @@
-@value colors: '../palette.css';
 @value tokens: '../tokens.css';
-@value blue, grey1, grey2, grey5, grey6, white from colors;
 @value colorBackground, colorText from tokens;
 
 .card {

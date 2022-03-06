@@ -1,9 +1,9 @@
-@value colors: '../palette.css';
-@value grey1, grey5 from colors;
+@value tokens: '../tokens.css';
+@value colorBackground, colorText from tokens;
 
 html, body {
-  background-color: var(--color-background);
-  color: var(--color-text);
+  background-color: colorBackground;
+  color: colorText;
 }
 
 #gatsby-noscript {
