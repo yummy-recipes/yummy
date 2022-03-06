@@ -2,8 +2,6 @@ import React from 'react'
 import PostCard from '../components/post-card'
 import PostCardCover from '../components/post-card-cover'
 import PostCardHeader from '../components/post-card-header'
-import PostCardSeparator from '../components/post-card-separator'
-import PostCardAttributes from '../components/post-card-attributes'
 import Paginator from '../components/paginator'
 import * as styles from './page.module.css'
 

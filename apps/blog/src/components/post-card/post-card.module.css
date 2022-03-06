@@ -1,15 +1,15 @@
 @value colors: '../palette.css';
 @value tokens: '../tokens.css';
 @value blue, grey1, grey2, grey5, grey6, white from colors;
-@value postCardTextColor, postCardBackground from tokens;
+@value colorBackground, colorText from tokens;
 
 .card {
-  background: postCardBackground;
+  background: colorBackground;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   text-decoration: none;
-  color: postCardTextColor;
+  color: colorText;
 }
 
 .content {

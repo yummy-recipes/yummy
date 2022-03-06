@@ -1,42 +1,50 @@
 :root {
-    --background: #fefefe;
-    --text-color: #333;
-    --link-text-color: #333;
-    --link-text-color-hover: #333;
+    --color-background: #fefefe;
+    --color-background-prominent: #ddd;
+    --color-text: #333;
+    --color-border: #ddd;
+    --color-border-prominent: #b6a99b;
 
-    --menu-text-color: #565656;
-    --menu-text-color-hover: #333;
-    --menu-text-size: 16px;
+    --font-size: 16px;
+    --font-size-prominent: 36px;
+    --font-size-navigation: var(--font-size);
 
-    --post-card-text-color: #333;
-    --post-card-text-background: var(--background);
+    --font-weight: 300;
+
+    --color-action: #333;
+    --color-action-hover: #333;
+    --color-navigation: #565656;
+    --color-navigation-hover: #333;
+    --color-navigation-active: #111;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --background: #333;
-        --text-color: #fefefe;
-        --link-text-color: #333;
-        --link-text-color-hover: #333;
+        --color-background: #333;
+        --color-text: #fefefe;
 
-        --menu-text-color: #ccc;
-        --menu-text-color-hover: #dedede;
+        --color-action: #333;
+        --color-action-hover: #333;
 
-        --post-card-text-color: var(--text-color);
-        --post-card-background: var(--background);
+        --color-navigation: #ccc;
+        --color-navigation-hover: #dedede;
     }
 }
 
-@value background: var(--background);
-@value textColor: var(--text-color);
+@value colorBackground: var(--color-background);
+@value colorBackgroundProminent: var(--color-background-prominent);
+@value colorText: var(--color-text);
+@value colorBorder: var(--color-border);
+@value colorBorderProminent: var(--color-border-prominent);
 
-@value linkTextColor: var(--link-text-color);
-@value linkTextColorHover: var(--link-text-color-hover);
+@value fontSize: var(--font-size);
+@value fontSizeProminent: var(--font-size-prominent);
+@value fontSizeNavigation: var(--font-size-navigation);
 
-@value menuTextColor: var(--menu-text-color);
-@value menuTextColorHover: var(--menu-text-color-hover);
-@value menuTextSize: var(--menu-text-size);
+@value fontWeight: var(--font-weight);
 
-@value postCardTextColor: var(--post-card-text-color);
-@value postCardBackground: var(--post-card-background);
-
+@value colorAction: var(--color-action);
+@value colorActionHover: var(--color-action-hover);
+@value colorNavigation: var(--color-navigation);
+@value colorNavigationHover: var(--color-navigation-hover);
+@value colorNavigationActive: var(--color-navigation-active);
