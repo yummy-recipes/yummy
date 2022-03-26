@@ -21,6 +21,9 @@
     "registry": "https://registry.yarnpkg.com"
   },
   "dependencies": {
+    "@graphql-codegen/cli": "^2.6.2",
+    "@graphql-codegen/near-operation-file-preset": "^2.2.9",
+    "@graphql-codegen/typescript-operations": "^2.3.5",
     "@yummy/gatsby-categories": "workspace:^",
     "@yummy/gatsby-pages": "workspace:^",
     "@yummy/gatsby-posts": "workspace:^",
@@ -44,6 +47,7 @@
     "gatsby-source-strapi": "^1.0.3",
     "gatsby-transformer-remark": "^5.7.0",
     "gatsby-transformer-sharp": "^4.7.0",
+    "graphql-codegen-factories": "^1.0.0-beta.1",
     "hygen": "^4.0.7",
     "prettier": "^2.5.1",
     "react": "^16.5.1",
@@ -58,6 +62,9 @@
     "underscore.string": "^3.3.5"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "2.6.2",
+    "@graphql-codegen/introspection": "2.1.1",
+    "@graphql-codegen/typescript": "^2.4.8",
     "@mdx-js/react": "^2.0.0",
     "@storybook/addon-actions": "^6.4.16",
     "@storybook/addon-links": "^6.4.16",
@@ -107,6 +114,8 @@
     "storybook": "ENV=USE_VITE_BUILDER=true start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "new-recipe": "hygen recipe new",
-    "icons": "yarn svgr src/components/icons --out-dir src/components/icons --ext jsx"
+    "icons": "yarn svgr src/components/icons --out-dir src/components/icons --ext jsx",
+    "codegen:schema": "graphql-codegen --config codegen.schema.yml",
+    "codegen": "graphql-codegen --config codegen.yml"
   }
 }

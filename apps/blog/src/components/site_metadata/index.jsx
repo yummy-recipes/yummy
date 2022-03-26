@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 export default function SiteMetadata({render}) {
   return <StaticQuery query={graphql`
-    { site {
+    query LoadSiteMetadata{ site {
       siteMetadata {
         siteUrl
       }

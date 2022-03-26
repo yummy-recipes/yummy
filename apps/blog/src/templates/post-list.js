@@ -25,15 +25,15 @@ export const query = graphql`
 fragment postForList on StrapiRecipe {
   id
   title
-  parsedHeadline { 
+  parsedHeadline {
     childMarkdownRemark {
       html
     }
   }
   slug
   tags {
-    name 
-    slug  
+    name
+    slug
   }
   category {
     name
