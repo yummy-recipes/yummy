@@ -15,7 +15,9 @@
     "cms": "yarn workspace cms",
     "test:ci": "jest",
     "test:e2e:ci": "yarn workspace e2e test:e2e:ci",
-    "test:visual:ci": "yarn workspace e2e test:visual"
+    "test:visual:ci": "yarn workspace e2e test:visual",
+    "postinstall": "husky install",
+    "pre-commit": "lint-staged"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
@@ -23,7 +25,13 @@
     "babel-jest": "^27.4.5",
     "babel-plugin-dynamic-import-node": "^2.3.0",
     "babel-preset-gatsby": "^2.4.0",
-    "jest": "^27.4.5"
+    "husky": "^7.0.0",
+    "jest": "^27.4.5",
+    "lint-staged": "^12.3.7",
+    "prettier": "^2.6.2"
   },
-  "cacheDirectories": []
+  "cacheDirectories": [],
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": "prettier --write"
+  }
 }
