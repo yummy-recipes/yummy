@@ -1,0 +1,17 @@
+overwrite: true
+schema: "graphql/schema.json"
+documents:
+  - "src/**/*.{js,jsx}"
+  - ./node_modules/gatsby*/!(node_modules)/**/*.js
+generates:
+  ./src/types.ts:
+    plugins:
+      - typescript
+  ./src/:
+    preset: near-operation-file
+    presetConfig:
+      extension: .generated.ts
+      baseTypesPath: types.ts
+    plugins:
+      - typescript-operations
+      - graphql-codegen-factories/operations

@@ -4,10 +4,10 @@ import { graphql } from 'gatsby'
 import Page from './page'
 import PostListContent from './post-list-content'
 
-export default function PostListByTagPage({data, pageContext, location}) {
+export default function PostListByTagPage({ data, pageContext, location }) {
   const pageInfo = {
     currentPage: pageContext.currentPage,
-    totalPages: pageContext.totalPages
+    totalPages: pageContext.totalPages,
   }
 
   return (
@@ -23,7 +23,7 @@ export default function PostListByTagPage({data, pageContext, location}) {
 
 export const pageQuery = graphql`
   query blogListByTagQuery($tag: String!, $skip: Int!, $limit: Int!) {
-    allStrapiRecipe (
+    allStrapiRecipe(
       filter: { tags: { elemMatch: { slug: { in: [$tag] } } } }
       sort: { order: DESC, fields: [published_at] }
       limit: $limit

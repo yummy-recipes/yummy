@@ -77,16 +77,16 @@ export default function PostPage({data}) {
 }
 
 export const pageQuery = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     strapiRecipe(slug: { eq: $slug }) {
       seo {
         htmlTitle
         htmlDescription
-      }  
+      }
       parsedHeadline {
         childMarkdownRemark {
           html
-        }    
+        }
       }
       parsedDirections {
         childMarkdownRemark {
