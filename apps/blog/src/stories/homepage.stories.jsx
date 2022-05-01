@@ -15,7 +15,7 @@ export default {
 
 export const Primary = () => (
   <PostListPage
-    data={createBlogListQueryQueryMock()}
+    data={createBlogListQueryQueryMock({})}
     pageContext={{
       currentPage: 1,
       totalPages: 10,
