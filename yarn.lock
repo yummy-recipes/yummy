@@ -11130,7 +11130,8 @@ __metadata:
     gatsby-source-strapi: ^1.0.3
     gatsby-transformer-remark: ^5.7.0
     gatsby-transformer-sharp: ^4.7.0
-    graphql-codegen-factories: ^1.0.0-beta.2
+    graphql: ^16.4.0
+    graphql-codegen-factories: ^1.0.0-beta.4
     identity-obj-proxy: ^3.0.0
     jest-junit: 13.0.0
     mkdirp: ^0.5.1
@@ -18980,16 +18981,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-codegen-factories@npm:^1.0.0-beta.2":
-  version: 1.0.0-beta.2
-  resolution: "graphql-codegen-factories@npm:1.0.0-beta.2"
+"graphql-codegen-factories@npm:^1.0.0-beta.4":
+  version: 1.0.0-beta.4
+  resolution: "graphql-codegen-factories@npm:1.0.0-beta.4"
   dependencies:
     "@graphql-codegen/plugin-helpers": ^2.4.2
     "@graphql-codegen/visitor-plugin-common": ^2.7.4
     change-case-all: ^1.0.14
   peerDependencies:
     graphql: ^16.3.0
-  checksum: 21a28899130f50a05ae25719194c93d62db94d5f21100972e7b705ea3788c919452a7c3aa75d8caab291bcdade3a5713f3b1cfe3e1097523988bed9c0c394e9f
+  checksum: 005aa7110cf263ee52bf633d53acc6d205f03a0ac1f78c0b02435ca81255d6fc9fd449420418584e529ccbfb89c112afa913eaa8f13650c0432c54685f341ecf
   languageName: node
   linkType: hard
 
@@ -19240,6 +19241,13 @@ __metadata:
   version: 15.8.0
   resolution: "graphql@npm:15.8.0"
   checksum: 423325271db8858428641b9aca01699283d1fe5b40ef6d4ac622569ecca927019fce8196208b91dd1d8eb8114f00263fe661d241d0eb40c10e5bfd650f86ec5e
+  languageName: node
+  linkType: hard
+
+"graphql@npm:^16.4.0":
+  version: 16.4.0
+  resolution: "graphql@npm:16.4.0"
+  checksum: 8cac2c466891b6c6ace2fa3807f93815dea53cbec372998c139e796a321a6882c2324cc605e5f9aa45356890239aa9e731a04d8c59ec524db82bd18fb48aafee
   languageName: node
   linkType: hard
 

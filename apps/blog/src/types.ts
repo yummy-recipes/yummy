@@ -1,85 +1,86 @@
-export type Maybe<T> = T | null;
-export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type Maybe<T> = T | null
+export type InputMaybe<T> = Maybe<T>
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K]
+}
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>
+}
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>
+}
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: string;
-  String: string;
-  Boolean: boolean;
-  Int: number;
-  Float: number;
+  ID: string
+  String: string
+  Boolean: boolean
+  Int: number
+  Float: number
   /** A date string, such as 2007-12-03, compliant with the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
-  Date: any;
+  Date: any
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
-  JSON: any;
-};
+  JSON: any
+}
 
 export type AvifOptions = {
-  lossless?: InputMaybe<Scalars['Boolean']>;
-  quality?: InputMaybe<Scalars['Int']>;
-  speed?: InputMaybe<Scalars['Int']>;
-};
+  lossless?: InputMaybe<Scalars['Boolean']>
+  quality?: InputMaybe<Scalars['Int']>
+  speed?: InputMaybe<Scalars['Int']>
+}
 
 export type BlogPostPart = Node & {
-  __typename?: 'BlogPostPart';
+  __typename?: 'BlogPostPart'
   /** Returns the first child node of type MarkdownRemark or null if there are no children of given type on this node */
-  childMarkdownRemark?: Maybe<MarkdownRemark>;
-  children: Array<Node>;
+  childMarkdownRemark?: Maybe<MarkdownRemark>
+  children: Array<Node>
   /** Returns all children nodes filtered by type MarkdownRemark */
-  childrenMarkdownRemark?: Maybe<Array<Maybe<MarkdownRemark>>>;
-  id: Scalars['ID'];
-  internal: Internal;
-  parent?: Maybe<Node>;
-};
+  childrenMarkdownRemark?: Maybe<Array<Maybe<MarkdownRemark>>>
+  id: Scalars['ID']
+  internal: Internal
+  parent?: Maybe<Node>
+}
 
 export type BlogPostPartConnection = {
-  __typename?: 'BlogPostPartConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<BlogPostPartEdge>;
-  group: Array<BlogPostPartGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<BlogPostPart>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'BlogPostPartConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<BlogPostPartEdge>
+  group: Array<BlogPostPartGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<BlogPostPart>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type BlogPostPartConnectionDistinctArgs = {
-  field: BlogPostPartFieldsEnum;
-};
-
+  field: BlogPostPartFieldsEnum
+}
 
 export type BlogPostPartConnectionGroupArgs = {
-  field: BlogPostPartFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: BlogPostPartFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type BlogPostPartConnectionMaxArgs = {
-  field: BlogPostPartFieldsEnum;
-};
-
+  field: BlogPostPartFieldsEnum
+}
 
 export type BlogPostPartConnectionMinArgs = {
-  field: BlogPostPartFieldsEnum;
-};
-
+  field: BlogPostPartFieldsEnum
+}
 
 export type BlogPostPartConnectionSumArgs = {
-  field: BlogPostPartFieldsEnum;
-};
+  field: BlogPostPartFieldsEnum
+}
 
 export type BlogPostPartEdge = {
-  __typename?: 'BlogPostPartEdge';
-  next?: Maybe<BlogPostPart>;
-  node: BlogPostPart;
-  previous?: Maybe<BlogPostPart>;
-};
+  __typename?: 'BlogPostPartEdge'
+  next?: Maybe<BlogPostPart>
+  node: BlogPostPart
+  previous?: Maybe<BlogPostPart>
+}
 
 export enum BlogPostPartFieldsEnum {
   ChildMarkdownRemarkChildren = 'childMarkdownRemark___children',
@@ -274,233 +275,216 @@ export enum BlogPostPartFieldsEnum {
   ParentParentInternalOwner = 'parent___parent___internal___owner',
   ParentParentInternalType = 'parent___parent___internal___type',
   ParentParentParentChildren = 'parent___parent___parent___children',
-  ParentParentParentId = 'parent___parent___parent___id'
+  ParentParentParentId = 'parent___parent___parent___id',
 }
 
 export type BlogPostPartFilterInput = {
-  childMarkdownRemark?: InputMaybe<MarkdownRemarkFilterInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  childrenMarkdownRemark?: InputMaybe<MarkdownRemarkFilterListInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-};
+  childMarkdownRemark?: InputMaybe<MarkdownRemarkFilterInput>
+  children?: InputMaybe<NodeFilterListInput>
+  childrenMarkdownRemark?: InputMaybe<MarkdownRemarkFilterListInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  parent?: InputMaybe<NodeFilterInput>
+}
 
 export type BlogPostPartGroupConnection = {
-  __typename?: 'BlogPostPartGroupConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<BlogPostPartEdge>;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-  group: Array<BlogPostPartGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<BlogPostPart>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'BlogPostPartGroupConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<BlogPostPartEdge>
+  field: Scalars['String']
+  fieldValue?: Maybe<Scalars['String']>
+  group: Array<BlogPostPartGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<BlogPostPart>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type BlogPostPartGroupConnectionDistinctArgs = {
-  field: BlogPostPartFieldsEnum;
-};
-
+  field: BlogPostPartFieldsEnum
+}
 
 export type BlogPostPartGroupConnectionGroupArgs = {
-  field: BlogPostPartFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: BlogPostPartFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type BlogPostPartGroupConnectionMaxArgs = {
-  field: BlogPostPartFieldsEnum;
-};
-
+  field: BlogPostPartFieldsEnum
+}
 
 export type BlogPostPartGroupConnectionMinArgs = {
-  field: BlogPostPartFieldsEnum;
-};
-
+  field: BlogPostPartFieldsEnum
+}
 
 export type BlogPostPartGroupConnectionSumArgs = {
-  field: BlogPostPartFieldsEnum;
-};
+  field: BlogPostPartFieldsEnum
+}
 
 export type BlogPostPartSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<BlogPostPartFieldsEnum>>>;
-  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
-};
+  fields?: InputMaybe<Array<InputMaybe<BlogPostPartFieldsEnum>>>
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
 
 export type BlurredOptions = {
   /** Force the output format for the low-res preview. Default is to use the same format as the input. You should rarely need to change this */
-  toFormat?: InputMaybe<ImageFormat>;
+  toFormat?: InputMaybe<ImageFormat>
   /** Width of the generated low-res preview. Default is 20px */
-  width?: InputMaybe<Scalars['Int']>;
-};
+  width?: InputMaybe<Scalars['Int']>
+}
 
 export type BooleanQueryOperatorInput = {
-  eq?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
-  ne?: InputMaybe<Scalars['Boolean']>;
-  nin?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
-};
+  eq?: InputMaybe<Scalars['Boolean']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>
+  ne?: InputMaybe<Scalars['Boolean']>
+  nin?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>
+}
 
 export type DateQueryOperatorInput = {
-  eq?: InputMaybe<Scalars['Date']>;
-  gt?: InputMaybe<Scalars['Date']>;
-  gte?: InputMaybe<Scalars['Date']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
-  lt?: InputMaybe<Scalars['Date']>;
-  lte?: InputMaybe<Scalars['Date']>;
-  ne?: InputMaybe<Scalars['Date']>;
-  nin?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
-};
+  eq?: InputMaybe<Scalars['Date']>
+  gt?: InputMaybe<Scalars['Date']>
+  gte?: InputMaybe<Scalars['Date']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>
+  lt?: InputMaybe<Scalars['Date']>
+  lte?: InputMaybe<Scalars['Date']>
+  ne?: InputMaybe<Scalars['Date']>
+  nin?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>
+}
 
 export type Directory = Node & {
-  __typename?: 'Directory';
-  absolutePath: Scalars['String'];
-  accessTime: Scalars['Date'];
-  atime: Scalars['Date'];
-  atimeMs: Scalars['Float'];
-  base: Scalars['String'];
-  birthTime: Scalars['Date'];
+  __typename?: 'Directory'
+  absolutePath: Scalars['String']
+  accessTime: Scalars['Date']
+  atime: Scalars['Date']
+  atimeMs: Scalars['Float']
+  base: Scalars['String']
+  birthTime: Scalars['Date']
   /** @deprecated Use `birthTime` instead */
-  birthtime?: Maybe<Scalars['Date']>;
+  birthtime?: Maybe<Scalars['Date']>
   /** @deprecated Use `birthTime` instead */
-  birthtimeMs?: Maybe<Scalars['Float']>;
-  changeTime: Scalars['Date'];
-  children: Array<Node>;
-  ctime: Scalars['Date'];
-  ctimeMs: Scalars['Float'];
-  dev: Scalars['Int'];
-  dir: Scalars['String'];
-  ext: Scalars['String'];
-  extension: Scalars['String'];
-  gid: Scalars['Int'];
-  id: Scalars['ID'];
-  ino: Scalars['Float'];
-  internal: Internal;
-  mode: Scalars['Int'];
-  modifiedTime: Scalars['Date'];
-  mtime: Scalars['Date'];
-  mtimeMs: Scalars['Float'];
-  name: Scalars['String'];
-  nlink: Scalars['Int'];
-  parent?: Maybe<Node>;
-  prettySize: Scalars['String'];
-  rdev: Scalars['Int'];
-  relativeDirectory: Scalars['String'];
-  relativePath: Scalars['String'];
-  root: Scalars['String'];
-  size: Scalars['Int'];
-  sourceInstanceName: Scalars['String'];
-  uid: Scalars['Int'];
-};
-
+  birthtimeMs?: Maybe<Scalars['Float']>
+  changeTime: Scalars['Date']
+  children: Array<Node>
+  ctime: Scalars['Date']
+  ctimeMs: Scalars['Float']
+  dev: Scalars['Int']
+  dir: Scalars['String']
+  ext: Scalars['String']
+  extension: Scalars['String']
+  gid: Scalars['Int']
+  id: Scalars['ID']
+  ino: Scalars['Float']
+  internal: Internal
+  mode: Scalars['Int']
+  modifiedTime: Scalars['Date']
+  mtime: Scalars['Date']
+  mtimeMs: Scalars['Float']
+  name: Scalars['String']
+  nlink: Scalars['Int']
+  parent?: Maybe<Node>
+  prettySize: Scalars['String']
+  rdev: Scalars['Int']
+  relativeDirectory: Scalars['String']
+  relativePath: Scalars['String']
+  root: Scalars['String']
+  size: Scalars['Int']
+  sourceInstanceName: Scalars['String']
+  uid: Scalars['Int']
+}
 
 export type DirectoryAccessTimeArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type DirectoryAtimeArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type DirectoryBirthTimeArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type DirectoryChangeTimeArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type DirectoryCtimeArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type DirectoryModifiedTimeArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type DirectoryMtimeArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type DirectoryConnection = {
-  __typename?: 'DirectoryConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<DirectoryEdge>;
-  group: Array<DirectoryGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<Directory>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'DirectoryConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<DirectoryEdge>
+  group: Array<DirectoryGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<Directory>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type DirectoryConnectionDistinctArgs = {
-  field: DirectoryFieldsEnum;
-};
-
+  field: DirectoryFieldsEnum
+}
 
 export type DirectoryConnectionGroupArgs = {
-  field: DirectoryFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: DirectoryFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type DirectoryConnectionMaxArgs = {
-  field: DirectoryFieldsEnum;
-};
-
+  field: DirectoryFieldsEnum
+}
 
 export type DirectoryConnectionMinArgs = {
-  field: DirectoryFieldsEnum;
-};
-
+  field: DirectoryFieldsEnum
+}
 
 export type DirectoryConnectionSumArgs = {
-  field: DirectoryFieldsEnum;
-};
+  field: DirectoryFieldsEnum
+}
 
 export type DirectoryEdge = {
-  __typename?: 'DirectoryEdge';
-  next?: Maybe<Directory>;
-  node: Directory;
-  previous?: Maybe<Directory>;
-};
+  __typename?: 'DirectoryEdge'
+  next?: Maybe<Directory>
+  node: Directory
+  previous?: Maybe<Directory>
+}
 
 export enum DirectoryFieldsEnum {
   AbsolutePath = 'absolutePath',
@@ -619,250 +603,233 @@ export enum DirectoryFieldsEnum {
   Root = 'root',
   Size = 'size',
   SourceInstanceName = 'sourceInstanceName',
-  Uid = 'uid'
+  Uid = 'uid',
 }
 
 export type DirectoryFilterInput = {
-  absolutePath?: InputMaybe<StringQueryOperatorInput>;
-  accessTime?: InputMaybe<DateQueryOperatorInput>;
-  atime?: InputMaybe<DateQueryOperatorInput>;
-  atimeMs?: InputMaybe<FloatQueryOperatorInput>;
-  base?: InputMaybe<StringQueryOperatorInput>;
-  birthTime?: InputMaybe<DateQueryOperatorInput>;
-  birthtime?: InputMaybe<DateQueryOperatorInput>;
-  birthtimeMs?: InputMaybe<FloatQueryOperatorInput>;
-  changeTime?: InputMaybe<DateQueryOperatorInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  ctime?: InputMaybe<DateQueryOperatorInput>;
-  ctimeMs?: InputMaybe<FloatQueryOperatorInput>;
-  dev?: InputMaybe<IntQueryOperatorInput>;
-  dir?: InputMaybe<StringQueryOperatorInput>;
-  ext?: InputMaybe<StringQueryOperatorInput>;
-  extension?: InputMaybe<StringQueryOperatorInput>;
-  gid?: InputMaybe<IntQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  ino?: InputMaybe<FloatQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  mode?: InputMaybe<IntQueryOperatorInput>;
-  modifiedTime?: InputMaybe<DateQueryOperatorInput>;
-  mtime?: InputMaybe<DateQueryOperatorInput>;
-  mtimeMs?: InputMaybe<FloatQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  nlink?: InputMaybe<IntQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  prettySize?: InputMaybe<StringQueryOperatorInput>;
-  rdev?: InputMaybe<IntQueryOperatorInput>;
-  relativeDirectory?: InputMaybe<StringQueryOperatorInput>;
-  relativePath?: InputMaybe<StringQueryOperatorInput>;
-  root?: InputMaybe<StringQueryOperatorInput>;
-  size?: InputMaybe<IntQueryOperatorInput>;
-  sourceInstanceName?: InputMaybe<StringQueryOperatorInput>;
-  uid?: InputMaybe<IntQueryOperatorInput>;
-};
+  absolutePath?: InputMaybe<StringQueryOperatorInput>
+  accessTime?: InputMaybe<DateQueryOperatorInput>
+  atime?: InputMaybe<DateQueryOperatorInput>
+  atimeMs?: InputMaybe<FloatQueryOperatorInput>
+  base?: InputMaybe<StringQueryOperatorInput>
+  birthTime?: InputMaybe<DateQueryOperatorInput>
+  birthtime?: InputMaybe<DateQueryOperatorInput>
+  birthtimeMs?: InputMaybe<FloatQueryOperatorInput>
+  changeTime?: InputMaybe<DateQueryOperatorInput>
+  children?: InputMaybe<NodeFilterListInput>
+  ctime?: InputMaybe<DateQueryOperatorInput>
+  ctimeMs?: InputMaybe<FloatQueryOperatorInput>
+  dev?: InputMaybe<IntQueryOperatorInput>
+  dir?: InputMaybe<StringQueryOperatorInput>
+  ext?: InputMaybe<StringQueryOperatorInput>
+  extension?: InputMaybe<StringQueryOperatorInput>
+  gid?: InputMaybe<IntQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  ino?: InputMaybe<FloatQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  mode?: InputMaybe<IntQueryOperatorInput>
+  modifiedTime?: InputMaybe<DateQueryOperatorInput>
+  mtime?: InputMaybe<DateQueryOperatorInput>
+  mtimeMs?: InputMaybe<FloatQueryOperatorInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  nlink?: InputMaybe<IntQueryOperatorInput>
+  parent?: InputMaybe<NodeFilterInput>
+  prettySize?: InputMaybe<StringQueryOperatorInput>
+  rdev?: InputMaybe<IntQueryOperatorInput>
+  relativeDirectory?: InputMaybe<StringQueryOperatorInput>
+  relativePath?: InputMaybe<StringQueryOperatorInput>
+  root?: InputMaybe<StringQueryOperatorInput>
+  size?: InputMaybe<IntQueryOperatorInput>
+  sourceInstanceName?: InputMaybe<StringQueryOperatorInput>
+  uid?: InputMaybe<IntQueryOperatorInput>
+}
 
 export type DirectoryGroupConnection = {
-  __typename?: 'DirectoryGroupConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<DirectoryEdge>;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-  group: Array<DirectoryGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<Directory>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'DirectoryGroupConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<DirectoryEdge>
+  field: Scalars['String']
+  fieldValue?: Maybe<Scalars['String']>
+  group: Array<DirectoryGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<Directory>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type DirectoryGroupConnectionDistinctArgs = {
-  field: DirectoryFieldsEnum;
-};
-
+  field: DirectoryFieldsEnum
+}
 
 export type DirectoryGroupConnectionGroupArgs = {
-  field: DirectoryFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: DirectoryFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type DirectoryGroupConnectionMaxArgs = {
-  field: DirectoryFieldsEnum;
-};
-
+  field: DirectoryFieldsEnum
+}
 
 export type DirectoryGroupConnectionMinArgs = {
-  field: DirectoryFieldsEnum;
-};
-
+  field: DirectoryFieldsEnum
+}
 
 export type DirectoryGroupConnectionSumArgs = {
-  field: DirectoryFieldsEnum;
-};
+  field: DirectoryFieldsEnum
+}
 
 export type DirectorySortInput = {
-  fields?: InputMaybe<Array<InputMaybe<DirectoryFieldsEnum>>>;
-  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
-};
+  fields?: InputMaybe<Array<InputMaybe<DirectoryFieldsEnum>>>
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
 
 export type DuotoneGradient = {
-  highlight: Scalars['String'];
-  opacity?: InputMaybe<Scalars['Int']>;
-  shadow: Scalars['String'];
-};
+  highlight: Scalars['String']
+  opacity?: InputMaybe<Scalars['Int']>
+  shadow: Scalars['String']
+}
 
 export type File = Node & {
-  __typename?: 'File';
-  absolutePath: Scalars['String'];
-  accessTime: Scalars['Date'];
-  atime: Scalars['Date'];
-  atimeMs: Scalars['Float'];
-  base: Scalars['String'];
-  birthTime: Scalars['Date'];
+  __typename?: 'File'
+  absolutePath: Scalars['String']
+  accessTime: Scalars['Date']
+  atime: Scalars['Date']
+  atimeMs: Scalars['Float']
+  base: Scalars['String']
+  birthTime: Scalars['Date']
   /** @deprecated Use `birthTime` instead */
-  birthtime?: Maybe<Scalars['Date']>;
+  birthtime?: Maybe<Scalars['Date']>
   /** @deprecated Use `birthTime` instead */
-  birthtimeMs?: Maybe<Scalars['Float']>;
-  blksize?: Maybe<Scalars['Int']>;
-  blocks?: Maybe<Scalars['Int']>;
-  changeTime: Scalars['Date'];
+  birthtimeMs?: Maybe<Scalars['Float']>
+  blksize?: Maybe<Scalars['Int']>
+  blocks?: Maybe<Scalars['Int']>
+  changeTime: Scalars['Date']
   /** Returns the first child node of type ImageSharp or null if there are no children of given type on this node */
-  childImageSharp?: Maybe<ImageSharp>;
-  children: Array<Node>;
+  childImageSharp?: Maybe<ImageSharp>
+  children: Array<Node>
   /** Returns all children nodes filtered by type ImageSharp */
-  childrenImageSharp?: Maybe<Array<Maybe<ImageSharp>>>;
-  ctime: Scalars['Date'];
-  ctimeMs: Scalars['Float'];
-  dev: Scalars['Int'];
-  dir: Scalars['String'];
-  ext: Scalars['String'];
-  extension: Scalars['String'];
-  gid: Scalars['Int'];
-  id: Scalars['ID'];
-  ino: Scalars['Float'];
-  internal: Internal;
-  mode: Scalars['Int'];
-  modifiedTime: Scalars['Date'];
-  mtime: Scalars['Date'];
-  mtimeMs: Scalars['Float'];
-  name: Scalars['String'];
-  nlink: Scalars['Int'];
-  parent?: Maybe<Node>;
-  prettySize: Scalars['String'];
-  rdev: Scalars['Int'];
-  relativeDirectory: Scalars['String'];
-  relativePath: Scalars['String'];
-  root: Scalars['String'];
-  size: Scalars['Int'];
-  sourceInstanceName: Scalars['String'];
-  uid: Scalars['Int'];
-  url?: Maybe<Scalars['String']>;
-};
-
+  childrenImageSharp?: Maybe<Array<Maybe<ImageSharp>>>
+  ctime: Scalars['Date']
+  ctimeMs: Scalars['Float']
+  dev: Scalars['Int']
+  dir: Scalars['String']
+  ext: Scalars['String']
+  extension: Scalars['String']
+  gid: Scalars['Int']
+  id: Scalars['ID']
+  ino: Scalars['Float']
+  internal: Internal
+  mode: Scalars['Int']
+  modifiedTime: Scalars['Date']
+  mtime: Scalars['Date']
+  mtimeMs: Scalars['Float']
+  name: Scalars['String']
+  nlink: Scalars['Int']
+  parent?: Maybe<Node>
+  prettySize: Scalars['String']
+  rdev: Scalars['Int']
+  relativeDirectory: Scalars['String']
+  relativePath: Scalars['String']
+  root: Scalars['String']
+  size: Scalars['Int']
+  sourceInstanceName: Scalars['String']
+  uid: Scalars['Int']
+  url?: Maybe<Scalars['String']>
+}
 
 export type FileAccessTimeArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type FileAtimeArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type FileBirthTimeArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type FileChangeTimeArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type FileCtimeArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type FileModifiedTimeArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type FileMtimeArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type FileConnection = {
-  __typename?: 'FileConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<FileEdge>;
-  group: Array<FileGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<File>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'FileConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<FileEdge>
+  group: Array<FileGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<File>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type FileConnectionDistinctArgs = {
-  field: FileFieldsEnum;
-};
-
+  field: FileFieldsEnum
+}
 
 export type FileConnectionGroupArgs = {
-  field: FileFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: FileFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type FileConnectionMaxArgs = {
-  field: FileFieldsEnum;
-};
-
+  field: FileFieldsEnum
+}
 
 export type FileConnectionMinArgs = {
-  field: FileFieldsEnum;
-};
-
+  field: FileFieldsEnum
+}
 
 export type FileConnectionSumArgs = {
-  field: FileFieldsEnum;
-};
+  field: FileFieldsEnum
+}
 
 export type FileEdge = {
-  __typename?: 'FileEdge';
-  next?: Maybe<File>;
-  node: File;
-  previous?: Maybe<File>;
-};
+  __typename?: 'FileEdge'
+  next?: Maybe<File>
+  node: File
+  previous?: Maybe<File>
+}
 
 export enum FileFieldsEnum {
   AbsolutePath = 'absolutePath',
@@ -1125,109 +1092,104 @@ export enum FileFieldsEnum {
   Size = 'size',
   SourceInstanceName = 'sourceInstanceName',
   Uid = 'uid',
-  Url = 'url'
+  Url = 'url',
 }
 
 export type FileFilterInput = {
-  absolutePath?: InputMaybe<StringQueryOperatorInput>;
-  accessTime?: InputMaybe<DateQueryOperatorInput>;
-  atime?: InputMaybe<DateQueryOperatorInput>;
-  atimeMs?: InputMaybe<FloatQueryOperatorInput>;
-  base?: InputMaybe<StringQueryOperatorInput>;
-  birthTime?: InputMaybe<DateQueryOperatorInput>;
-  birthtime?: InputMaybe<DateQueryOperatorInput>;
-  birthtimeMs?: InputMaybe<FloatQueryOperatorInput>;
-  blksize?: InputMaybe<IntQueryOperatorInput>;
-  blocks?: InputMaybe<IntQueryOperatorInput>;
-  changeTime?: InputMaybe<DateQueryOperatorInput>;
-  childImageSharp?: InputMaybe<ImageSharpFilterInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  childrenImageSharp?: InputMaybe<ImageSharpFilterListInput>;
-  ctime?: InputMaybe<DateQueryOperatorInput>;
-  ctimeMs?: InputMaybe<FloatQueryOperatorInput>;
-  dev?: InputMaybe<IntQueryOperatorInput>;
-  dir?: InputMaybe<StringQueryOperatorInput>;
-  ext?: InputMaybe<StringQueryOperatorInput>;
-  extension?: InputMaybe<StringQueryOperatorInput>;
-  gid?: InputMaybe<IntQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  ino?: InputMaybe<FloatQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  mode?: InputMaybe<IntQueryOperatorInput>;
-  modifiedTime?: InputMaybe<DateQueryOperatorInput>;
-  mtime?: InputMaybe<DateQueryOperatorInput>;
-  mtimeMs?: InputMaybe<FloatQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  nlink?: InputMaybe<IntQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  prettySize?: InputMaybe<StringQueryOperatorInput>;
-  rdev?: InputMaybe<IntQueryOperatorInput>;
-  relativeDirectory?: InputMaybe<StringQueryOperatorInput>;
-  relativePath?: InputMaybe<StringQueryOperatorInput>;
-  root?: InputMaybe<StringQueryOperatorInput>;
-  size?: InputMaybe<IntQueryOperatorInput>;
-  sourceInstanceName?: InputMaybe<StringQueryOperatorInput>;
-  uid?: InputMaybe<IntQueryOperatorInput>;
-  url?: InputMaybe<StringQueryOperatorInput>;
-};
+  absolutePath?: InputMaybe<StringQueryOperatorInput>
+  accessTime?: InputMaybe<DateQueryOperatorInput>
+  atime?: InputMaybe<DateQueryOperatorInput>
+  atimeMs?: InputMaybe<FloatQueryOperatorInput>
+  base?: InputMaybe<StringQueryOperatorInput>
+  birthTime?: InputMaybe<DateQueryOperatorInput>
+  birthtime?: InputMaybe<DateQueryOperatorInput>
+  birthtimeMs?: InputMaybe<FloatQueryOperatorInput>
+  blksize?: InputMaybe<IntQueryOperatorInput>
+  blocks?: InputMaybe<IntQueryOperatorInput>
+  changeTime?: InputMaybe<DateQueryOperatorInput>
+  childImageSharp?: InputMaybe<ImageSharpFilterInput>
+  children?: InputMaybe<NodeFilterListInput>
+  childrenImageSharp?: InputMaybe<ImageSharpFilterListInput>
+  ctime?: InputMaybe<DateQueryOperatorInput>
+  ctimeMs?: InputMaybe<FloatQueryOperatorInput>
+  dev?: InputMaybe<IntQueryOperatorInput>
+  dir?: InputMaybe<StringQueryOperatorInput>
+  ext?: InputMaybe<StringQueryOperatorInput>
+  extension?: InputMaybe<StringQueryOperatorInput>
+  gid?: InputMaybe<IntQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  ino?: InputMaybe<FloatQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  mode?: InputMaybe<IntQueryOperatorInput>
+  modifiedTime?: InputMaybe<DateQueryOperatorInput>
+  mtime?: InputMaybe<DateQueryOperatorInput>
+  mtimeMs?: InputMaybe<FloatQueryOperatorInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  nlink?: InputMaybe<IntQueryOperatorInput>
+  parent?: InputMaybe<NodeFilterInput>
+  prettySize?: InputMaybe<StringQueryOperatorInput>
+  rdev?: InputMaybe<IntQueryOperatorInput>
+  relativeDirectory?: InputMaybe<StringQueryOperatorInput>
+  relativePath?: InputMaybe<StringQueryOperatorInput>
+  root?: InputMaybe<StringQueryOperatorInput>
+  size?: InputMaybe<IntQueryOperatorInput>
+  sourceInstanceName?: InputMaybe<StringQueryOperatorInput>
+  uid?: InputMaybe<IntQueryOperatorInput>
+  url?: InputMaybe<StringQueryOperatorInput>
+}
 
 export type FileGroupConnection = {
-  __typename?: 'FileGroupConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<FileEdge>;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-  group: Array<FileGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<File>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'FileGroupConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<FileEdge>
+  field: Scalars['String']
+  fieldValue?: Maybe<Scalars['String']>
+  group: Array<FileGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<File>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type FileGroupConnectionDistinctArgs = {
-  field: FileFieldsEnum;
-};
-
+  field: FileFieldsEnum
+}
 
 export type FileGroupConnectionGroupArgs = {
-  field: FileFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: FileFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type FileGroupConnectionMaxArgs = {
-  field: FileFieldsEnum;
-};
-
+  field: FileFieldsEnum
+}
 
 export type FileGroupConnectionMinArgs = {
-  field: FileFieldsEnum;
-};
-
+  field: FileFieldsEnum
+}
 
 export type FileGroupConnectionSumArgs = {
-  field: FileFieldsEnum;
-};
+  field: FileFieldsEnum
+}
 
 export type FileSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<FileFieldsEnum>>>;
-  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
-};
+  fields?: InputMaybe<Array<InputMaybe<FileFieldsEnum>>>
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
 
 export type FloatQueryOperatorInput = {
-  eq?: InputMaybe<Scalars['Float']>;
-  gt?: InputMaybe<Scalars['Float']>;
-  gte?: InputMaybe<Scalars['Float']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  lt?: InputMaybe<Scalars['Float']>;
-  lte?: InputMaybe<Scalars['Float']>;
-  ne?: InputMaybe<Scalars['Float']>;
-  nin?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-};
+  eq?: InputMaybe<Scalars['Float']>
+  gt?: InputMaybe<Scalars['Float']>
+  gte?: InputMaybe<Scalars['Float']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>
+  lt?: InputMaybe<Scalars['Float']>
+  lte?: InputMaybe<Scalars['Float']>
+  ne?: InputMaybe<Scalars['Float']>
+  nin?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>
+}
 
 export enum ImageCropFocus {
   Attention = 'ATTENTION',
@@ -1240,7 +1202,7 @@ export enum ImageCropFocus {
   South = 'SOUTH',
   Southeast = 'SOUTHEAST',
   Southwest = 'SOUTHWEST',
-  West = 'WEST'
+  West = 'WEST',
 }
 
 export enum ImageFit {
@@ -1248,7 +1210,7 @@ export enum ImageFit {
   Cover = 'COVER',
   Fill = 'FILL',
   Inside = 'INSIDE',
-  Outside = 'OUTSIDE'
+  Outside = 'OUTSIDE',
 }
 
 export enum ImageFormat {
@@ -1257,174 +1219,165 @@ export enum ImageFormat {
   Jpg = 'JPG',
   NoChange = 'NO_CHANGE',
   Png = 'PNG',
-  Webp = 'WEBP'
+  Webp = 'WEBP',
 }
 
 export enum ImageLayout {
   Constrained = 'CONSTRAINED',
   Fixed = 'FIXED',
-  FullWidth = 'FULL_WIDTH'
+  FullWidth = 'FULL_WIDTH',
 }
 
 export enum ImagePlaceholder {
   Blurred = 'BLURRED',
   DominantColor = 'DOMINANT_COLOR',
   None = 'NONE',
-  TracedSvg = 'TRACED_SVG'
+  TracedSvg = 'TRACED_SVG',
 }
 
 export type ImageSharp = Node & {
-  __typename?: 'ImageSharp';
-  children: Array<Node>;
-  fixed?: Maybe<ImageSharpFixed>;
-  fluid?: Maybe<ImageSharpFluid>;
-  gatsbyImageData: Scalars['JSON'];
-  id: Scalars['ID'];
-  internal: Internal;
-  original?: Maybe<ImageSharpOriginal>;
-  parent?: Maybe<Node>;
-  resize?: Maybe<ImageSharpResize>;
-};
-
+  __typename?: 'ImageSharp'
+  children: Array<Node>
+  fixed?: Maybe<ImageSharpFixed>
+  fluid?: Maybe<ImageSharpFluid>
+  gatsbyImageData: Scalars['JSON']
+  id: Scalars['ID']
+  internal: Internal
+  original?: Maybe<ImageSharpOriginal>
+  parent?: Maybe<Node>
+  resize?: Maybe<ImageSharpResize>
+}
 
 export type ImageSharpFixedArgs = {
-  background?: InputMaybe<Scalars['String']>;
-  base64Width?: InputMaybe<Scalars['Int']>;
-  cropFocus?: InputMaybe<ImageCropFocus>;
-  duotone?: InputMaybe<DuotoneGradient>;
-  fit?: InputMaybe<ImageFit>;
-  grayscale?: InputMaybe<Scalars['Boolean']>;
-  height?: InputMaybe<Scalars['Int']>;
-  jpegProgressive?: InputMaybe<Scalars['Boolean']>;
-  jpegQuality?: InputMaybe<Scalars['Int']>;
-  pngCompressionSpeed?: InputMaybe<Scalars['Int']>;
-  pngQuality?: InputMaybe<Scalars['Int']>;
-  quality?: InputMaybe<Scalars['Int']>;
-  rotate?: InputMaybe<Scalars['Int']>;
-  toFormat?: InputMaybe<ImageFormat>;
-  toFormatBase64?: InputMaybe<ImageFormat>;
-  traceSVG?: InputMaybe<Potrace>;
-  trim?: InputMaybe<Scalars['Float']>;
-  webpQuality?: InputMaybe<Scalars['Int']>;
-  width?: InputMaybe<Scalars['Int']>;
-};
-
+  background?: InputMaybe<Scalars['String']>
+  base64Width?: InputMaybe<Scalars['Int']>
+  cropFocus?: InputMaybe<ImageCropFocus>
+  duotone?: InputMaybe<DuotoneGradient>
+  fit?: InputMaybe<ImageFit>
+  grayscale?: InputMaybe<Scalars['Boolean']>
+  height?: InputMaybe<Scalars['Int']>
+  jpegProgressive?: InputMaybe<Scalars['Boolean']>
+  jpegQuality?: InputMaybe<Scalars['Int']>
+  pngCompressionSpeed?: InputMaybe<Scalars['Int']>
+  pngQuality?: InputMaybe<Scalars['Int']>
+  quality?: InputMaybe<Scalars['Int']>
+  rotate?: InputMaybe<Scalars['Int']>
+  toFormat?: InputMaybe<ImageFormat>
+  toFormatBase64?: InputMaybe<ImageFormat>
+  traceSVG?: InputMaybe<Potrace>
+  trim?: InputMaybe<Scalars['Float']>
+  webpQuality?: InputMaybe<Scalars['Int']>
+  width?: InputMaybe<Scalars['Int']>
+}
 
 export type ImageSharpFluidArgs = {
-  background?: InputMaybe<Scalars['String']>;
-  base64Width?: InputMaybe<Scalars['Int']>;
-  cropFocus?: InputMaybe<ImageCropFocus>;
-  duotone?: InputMaybe<DuotoneGradient>;
-  fit?: InputMaybe<ImageFit>;
-  grayscale?: InputMaybe<Scalars['Boolean']>;
-  jpegProgressive?: InputMaybe<Scalars['Boolean']>;
-  jpegQuality?: InputMaybe<Scalars['Int']>;
-  maxHeight?: InputMaybe<Scalars['Int']>;
-  maxWidth?: InputMaybe<Scalars['Int']>;
-  pngCompressionSpeed?: InputMaybe<Scalars['Int']>;
-  pngQuality?: InputMaybe<Scalars['Int']>;
-  quality?: InputMaybe<Scalars['Int']>;
-  rotate?: InputMaybe<Scalars['Int']>;
-  sizes?: InputMaybe<Scalars['String']>;
-  srcSetBreakpoints?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  toFormat?: InputMaybe<ImageFormat>;
-  toFormatBase64?: InputMaybe<ImageFormat>;
-  traceSVG?: InputMaybe<Potrace>;
-  trim?: InputMaybe<Scalars['Float']>;
-  webpQuality?: InputMaybe<Scalars['Int']>;
-};
-
+  background?: InputMaybe<Scalars['String']>
+  base64Width?: InputMaybe<Scalars['Int']>
+  cropFocus?: InputMaybe<ImageCropFocus>
+  duotone?: InputMaybe<DuotoneGradient>
+  fit?: InputMaybe<ImageFit>
+  grayscale?: InputMaybe<Scalars['Boolean']>
+  jpegProgressive?: InputMaybe<Scalars['Boolean']>
+  jpegQuality?: InputMaybe<Scalars['Int']>
+  maxHeight?: InputMaybe<Scalars['Int']>
+  maxWidth?: InputMaybe<Scalars['Int']>
+  pngCompressionSpeed?: InputMaybe<Scalars['Int']>
+  pngQuality?: InputMaybe<Scalars['Int']>
+  quality?: InputMaybe<Scalars['Int']>
+  rotate?: InputMaybe<Scalars['Int']>
+  sizes?: InputMaybe<Scalars['String']>
+  srcSetBreakpoints?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>
+  toFormat?: InputMaybe<ImageFormat>
+  toFormatBase64?: InputMaybe<ImageFormat>
+  traceSVG?: InputMaybe<Potrace>
+  trim?: InputMaybe<Scalars['Float']>
+  webpQuality?: InputMaybe<Scalars['Int']>
+}
 
 export type ImageSharpGatsbyImageDataArgs = {
-  aspectRatio?: InputMaybe<Scalars['Float']>;
-  avifOptions?: InputMaybe<AvifOptions>;
-  backgroundColor?: InputMaybe<Scalars['String']>;
-  blurredOptions?: InputMaybe<BlurredOptions>;
-  breakpoints?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  formats?: InputMaybe<Array<InputMaybe<ImageFormat>>>;
-  height?: InputMaybe<Scalars['Int']>;
-  jpgOptions?: InputMaybe<JpgOptions>;
-  layout?: InputMaybe<ImageLayout>;
-  outputPixelDensities?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  placeholder?: InputMaybe<ImagePlaceholder>;
-  pngOptions?: InputMaybe<PngOptions>;
-  quality?: InputMaybe<Scalars['Int']>;
-  sizes?: InputMaybe<Scalars['String']>;
-  tracedSVGOptions?: InputMaybe<Potrace>;
-  transformOptions?: InputMaybe<TransformOptions>;
-  webpOptions?: InputMaybe<WebPOptions>;
-  width?: InputMaybe<Scalars['Int']>;
-};
-
+  aspectRatio?: InputMaybe<Scalars['Float']>
+  avifOptions?: InputMaybe<AvifOptions>
+  backgroundColor?: InputMaybe<Scalars['String']>
+  blurredOptions?: InputMaybe<BlurredOptions>
+  breakpoints?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>
+  formats?: InputMaybe<Array<InputMaybe<ImageFormat>>>
+  height?: InputMaybe<Scalars['Int']>
+  jpgOptions?: InputMaybe<JpgOptions>
+  layout?: InputMaybe<ImageLayout>
+  outputPixelDensities?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>
+  placeholder?: InputMaybe<ImagePlaceholder>
+  pngOptions?: InputMaybe<PngOptions>
+  quality?: InputMaybe<Scalars['Int']>
+  sizes?: InputMaybe<Scalars['String']>
+  tracedSVGOptions?: InputMaybe<Potrace>
+  transformOptions?: InputMaybe<TransformOptions>
+  webpOptions?: InputMaybe<WebPOptions>
+  width?: InputMaybe<Scalars['Int']>
+}
 
 export type ImageSharpResizeArgs = {
-  background?: InputMaybe<Scalars['String']>;
-  base64?: InputMaybe<Scalars['Boolean']>;
-  cropFocus?: InputMaybe<ImageCropFocus>;
-  duotone?: InputMaybe<DuotoneGradient>;
-  fit?: InputMaybe<ImageFit>;
-  grayscale?: InputMaybe<Scalars['Boolean']>;
-  height?: InputMaybe<Scalars['Int']>;
-  jpegProgressive?: InputMaybe<Scalars['Boolean']>;
-  jpegQuality?: InputMaybe<Scalars['Int']>;
-  pngCompressionLevel?: InputMaybe<Scalars['Int']>;
-  pngCompressionSpeed?: InputMaybe<Scalars['Int']>;
-  pngQuality?: InputMaybe<Scalars['Int']>;
-  quality?: InputMaybe<Scalars['Int']>;
-  rotate?: InputMaybe<Scalars['Int']>;
-  toFormat?: InputMaybe<ImageFormat>;
-  traceSVG?: InputMaybe<Potrace>;
-  trim?: InputMaybe<Scalars['Float']>;
-  webpQuality?: InputMaybe<Scalars['Int']>;
-  width?: InputMaybe<Scalars['Int']>;
-};
+  background?: InputMaybe<Scalars['String']>
+  base64?: InputMaybe<Scalars['Boolean']>
+  cropFocus?: InputMaybe<ImageCropFocus>
+  duotone?: InputMaybe<DuotoneGradient>
+  fit?: InputMaybe<ImageFit>
+  grayscale?: InputMaybe<Scalars['Boolean']>
+  height?: InputMaybe<Scalars['Int']>
+  jpegProgressive?: InputMaybe<Scalars['Boolean']>
+  jpegQuality?: InputMaybe<Scalars['Int']>
+  pngCompressionLevel?: InputMaybe<Scalars['Int']>
+  pngCompressionSpeed?: InputMaybe<Scalars['Int']>
+  pngQuality?: InputMaybe<Scalars['Int']>
+  quality?: InputMaybe<Scalars['Int']>
+  rotate?: InputMaybe<Scalars['Int']>
+  toFormat?: InputMaybe<ImageFormat>
+  traceSVG?: InputMaybe<Potrace>
+  trim?: InputMaybe<Scalars['Float']>
+  webpQuality?: InputMaybe<Scalars['Int']>
+  width?: InputMaybe<Scalars['Int']>
+}
 
 export type ImageSharpConnection = {
-  __typename?: 'ImageSharpConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<ImageSharpEdge>;
-  group: Array<ImageSharpGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<ImageSharp>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'ImageSharpConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<ImageSharpEdge>
+  group: Array<ImageSharpGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<ImageSharp>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type ImageSharpConnectionDistinctArgs = {
-  field: ImageSharpFieldsEnum;
-};
-
+  field: ImageSharpFieldsEnum
+}
 
 export type ImageSharpConnectionGroupArgs = {
-  field: ImageSharpFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: ImageSharpFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type ImageSharpConnectionMaxArgs = {
-  field: ImageSharpFieldsEnum;
-};
-
+  field: ImageSharpFieldsEnum
+}
 
 export type ImageSharpConnectionMinArgs = {
-  field: ImageSharpFieldsEnum;
-};
-
+  field: ImageSharpFieldsEnum
+}
 
 export type ImageSharpConnectionSumArgs = {
-  field: ImageSharpFieldsEnum;
-};
+  field: ImageSharpFieldsEnum
+}
 
 export type ImageSharpEdge = {
-  __typename?: 'ImageSharpEdge';
-  next?: Maybe<ImageSharp>;
-  node: ImageSharp;
-  previous?: Maybe<ImageSharp>;
-};
+  __typename?: 'ImageSharpEdge'
+  next?: Maybe<ImageSharp>
+  node: ImageSharp
+  previous?: Maybe<ImageSharp>
+}
 
 export enum ImageSharpFieldsEnum {
   Children = 'children',
@@ -1544,232 +1497,227 @@ export enum ImageSharpFieldsEnum {
   ResizeOriginalName = 'resize___originalName',
   ResizeSrc = 'resize___src',
   ResizeTracedSvg = 'resize___tracedSVG',
-  ResizeWidth = 'resize___width'
+  ResizeWidth = 'resize___width',
 }
 
 export type ImageSharpFilterInput = {
-  children?: InputMaybe<NodeFilterListInput>;
-  fixed?: InputMaybe<ImageSharpFixedFilterInput>;
-  fluid?: InputMaybe<ImageSharpFluidFilterInput>;
-  gatsbyImageData?: InputMaybe<JsonQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  original?: InputMaybe<ImageSharpOriginalFilterInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  resize?: InputMaybe<ImageSharpResizeFilterInput>;
-};
+  children?: InputMaybe<NodeFilterListInput>
+  fixed?: InputMaybe<ImageSharpFixedFilterInput>
+  fluid?: InputMaybe<ImageSharpFluidFilterInput>
+  gatsbyImageData?: InputMaybe<JsonQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  original?: InputMaybe<ImageSharpOriginalFilterInput>
+  parent?: InputMaybe<NodeFilterInput>
+  resize?: InputMaybe<ImageSharpResizeFilterInput>
+}
 
 export type ImageSharpFilterListInput = {
-  elemMatch?: InputMaybe<ImageSharpFilterInput>;
-};
+  elemMatch?: InputMaybe<ImageSharpFilterInput>
+}
 
 export type ImageSharpFixed = {
-  __typename?: 'ImageSharpFixed';
-  aspectRatio?: Maybe<Scalars['Float']>;
-  base64?: Maybe<Scalars['String']>;
-  height: Scalars['Float'];
-  originalName?: Maybe<Scalars['String']>;
-  src: Scalars['String'];
-  srcSet: Scalars['String'];
-  srcSetWebp?: Maybe<Scalars['String']>;
-  srcWebp?: Maybe<Scalars['String']>;
-  tracedSVG?: Maybe<Scalars['String']>;
-  width: Scalars['Float'];
-};
+  __typename?: 'ImageSharpFixed'
+  aspectRatio?: Maybe<Scalars['Float']>
+  base64?: Maybe<Scalars['String']>
+  height: Scalars['Float']
+  originalName?: Maybe<Scalars['String']>
+  src: Scalars['String']
+  srcSet: Scalars['String']
+  srcSetWebp?: Maybe<Scalars['String']>
+  srcWebp?: Maybe<Scalars['String']>
+  tracedSVG?: Maybe<Scalars['String']>
+  width: Scalars['Float']
+}
 
 export type ImageSharpFixedFilterInput = {
-  aspectRatio?: InputMaybe<FloatQueryOperatorInput>;
-  base64?: InputMaybe<StringQueryOperatorInput>;
-  height?: InputMaybe<FloatQueryOperatorInput>;
-  originalName?: InputMaybe<StringQueryOperatorInput>;
-  src?: InputMaybe<StringQueryOperatorInput>;
-  srcSet?: InputMaybe<StringQueryOperatorInput>;
-  srcSetWebp?: InputMaybe<StringQueryOperatorInput>;
-  srcWebp?: InputMaybe<StringQueryOperatorInput>;
-  tracedSVG?: InputMaybe<StringQueryOperatorInput>;
-  width?: InputMaybe<FloatQueryOperatorInput>;
-};
+  aspectRatio?: InputMaybe<FloatQueryOperatorInput>
+  base64?: InputMaybe<StringQueryOperatorInput>
+  height?: InputMaybe<FloatQueryOperatorInput>
+  originalName?: InputMaybe<StringQueryOperatorInput>
+  src?: InputMaybe<StringQueryOperatorInput>
+  srcSet?: InputMaybe<StringQueryOperatorInput>
+  srcSetWebp?: InputMaybe<StringQueryOperatorInput>
+  srcWebp?: InputMaybe<StringQueryOperatorInput>
+  tracedSVG?: InputMaybe<StringQueryOperatorInput>
+  width?: InputMaybe<FloatQueryOperatorInput>
+}
 
 export type ImageSharpFluid = {
-  __typename?: 'ImageSharpFluid';
-  aspectRatio: Scalars['Float'];
-  base64?: Maybe<Scalars['String']>;
-  originalImg?: Maybe<Scalars['String']>;
-  originalName?: Maybe<Scalars['String']>;
-  presentationHeight: Scalars['Int'];
-  presentationWidth: Scalars['Int'];
-  sizes: Scalars['String'];
-  src: Scalars['String'];
-  srcSet: Scalars['String'];
-  srcSetWebp?: Maybe<Scalars['String']>;
-  srcWebp?: Maybe<Scalars['String']>;
-  tracedSVG?: Maybe<Scalars['String']>;
-};
+  __typename?: 'ImageSharpFluid'
+  aspectRatio: Scalars['Float']
+  base64?: Maybe<Scalars['String']>
+  originalImg?: Maybe<Scalars['String']>
+  originalName?: Maybe<Scalars['String']>
+  presentationHeight: Scalars['Int']
+  presentationWidth: Scalars['Int']
+  sizes: Scalars['String']
+  src: Scalars['String']
+  srcSet: Scalars['String']
+  srcSetWebp?: Maybe<Scalars['String']>
+  srcWebp?: Maybe<Scalars['String']>
+  tracedSVG?: Maybe<Scalars['String']>
+}
 
 export type ImageSharpFluidFilterInput = {
-  aspectRatio?: InputMaybe<FloatQueryOperatorInput>;
-  base64?: InputMaybe<StringQueryOperatorInput>;
-  originalImg?: InputMaybe<StringQueryOperatorInput>;
-  originalName?: InputMaybe<StringQueryOperatorInput>;
-  presentationHeight?: InputMaybe<IntQueryOperatorInput>;
-  presentationWidth?: InputMaybe<IntQueryOperatorInput>;
-  sizes?: InputMaybe<StringQueryOperatorInput>;
-  src?: InputMaybe<StringQueryOperatorInput>;
-  srcSet?: InputMaybe<StringQueryOperatorInput>;
-  srcSetWebp?: InputMaybe<StringQueryOperatorInput>;
-  srcWebp?: InputMaybe<StringQueryOperatorInput>;
-  tracedSVG?: InputMaybe<StringQueryOperatorInput>;
-};
+  aspectRatio?: InputMaybe<FloatQueryOperatorInput>
+  base64?: InputMaybe<StringQueryOperatorInput>
+  originalImg?: InputMaybe<StringQueryOperatorInput>
+  originalName?: InputMaybe<StringQueryOperatorInput>
+  presentationHeight?: InputMaybe<IntQueryOperatorInput>
+  presentationWidth?: InputMaybe<IntQueryOperatorInput>
+  sizes?: InputMaybe<StringQueryOperatorInput>
+  src?: InputMaybe<StringQueryOperatorInput>
+  srcSet?: InputMaybe<StringQueryOperatorInput>
+  srcSetWebp?: InputMaybe<StringQueryOperatorInput>
+  srcWebp?: InputMaybe<StringQueryOperatorInput>
+  tracedSVG?: InputMaybe<StringQueryOperatorInput>
+}
 
 export type ImageSharpGroupConnection = {
-  __typename?: 'ImageSharpGroupConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<ImageSharpEdge>;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-  group: Array<ImageSharpGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<ImageSharp>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'ImageSharpGroupConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<ImageSharpEdge>
+  field: Scalars['String']
+  fieldValue?: Maybe<Scalars['String']>
+  group: Array<ImageSharpGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<ImageSharp>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type ImageSharpGroupConnectionDistinctArgs = {
-  field: ImageSharpFieldsEnum;
-};
-
+  field: ImageSharpFieldsEnum
+}
 
 export type ImageSharpGroupConnectionGroupArgs = {
-  field: ImageSharpFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: ImageSharpFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type ImageSharpGroupConnectionMaxArgs = {
-  field: ImageSharpFieldsEnum;
-};
-
+  field: ImageSharpFieldsEnum
+}
 
 export type ImageSharpGroupConnectionMinArgs = {
-  field: ImageSharpFieldsEnum;
-};
-
+  field: ImageSharpFieldsEnum
+}
 
 export type ImageSharpGroupConnectionSumArgs = {
-  field: ImageSharpFieldsEnum;
-};
+  field: ImageSharpFieldsEnum
+}
 
 export type ImageSharpOriginal = {
-  __typename?: 'ImageSharpOriginal';
-  height?: Maybe<Scalars['Float']>;
-  src?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Float']>;
-};
+  __typename?: 'ImageSharpOriginal'
+  height?: Maybe<Scalars['Float']>
+  src?: Maybe<Scalars['String']>
+  width?: Maybe<Scalars['Float']>
+}
 
 export type ImageSharpOriginalFilterInput = {
-  height?: InputMaybe<FloatQueryOperatorInput>;
-  src?: InputMaybe<StringQueryOperatorInput>;
-  width?: InputMaybe<FloatQueryOperatorInput>;
-};
+  height?: InputMaybe<FloatQueryOperatorInput>
+  src?: InputMaybe<StringQueryOperatorInput>
+  width?: InputMaybe<FloatQueryOperatorInput>
+}
 
 export type ImageSharpResize = {
-  __typename?: 'ImageSharpResize';
-  aspectRatio?: Maybe<Scalars['Float']>;
-  height?: Maybe<Scalars['Int']>;
-  originalName?: Maybe<Scalars['String']>;
-  src?: Maybe<Scalars['String']>;
-  tracedSVG?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Int']>;
-};
+  __typename?: 'ImageSharpResize'
+  aspectRatio?: Maybe<Scalars['Float']>
+  height?: Maybe<Scalars['Int']>
+  originalName?: Maybe<Scalars['String']>
+  src?: Maybe<Scalars['String']>
+  tracedSVG?: Maybe<Scalars['String']>
+  width?: Maybe<Scalars['Int']>
+}
 
 export type ImageSharpResizeFilterInput = {
-  aspectRatio?: InputMaybe<FloatQueryOperatorInput>;
-  height?: InputMaybe<IntQueryOperatorInput>;
-  originalName?: InputMaybe<StringQueryOperatorInput>;
-  src?: InputMaybe<StringQueryOperatorInput>;
-  tracedSVG?: InputMaybe<StringQueryOperatorInput>;
-  width?: InputMaybe<IntQueryOperatorInput>;
-};
+  aspectRatio?: InputMaybe<FloatQueryOperatorInput>
+  height?: InputMaybe<IntQueryOperatorInput>
+  originalName?: InputMaybe<StringQueryOperatorInput>
+  src?: InputMaybe<StringQueryOperatorInput>
+  tracedSVG?: InputMaybe<StringQueryOperatorInput>
+  width?: InputMaybe<IntQueryOperatorInput>
+}
 
 export type ImageSharpSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<ImageSharpFieldsEnum>>>;
-  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
-};
+  fields?: InputMaybe<Array<InputMaybe<ImageSharpFieldsEnum>>>
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
 
 export type IntQueryOperatorInput = {
-  eq?: InputMaybe<Scalars['Int']>;
-  gt?: InputMaybe<Scalars['Int']>;
-  gte?: InputMaybe<Scalars['Int']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  lt?: InputMaybe<Scalars['Int']>;
-  lte?: InputMaybe<Scalars['Int']>;
-  ne?: InputMaybe<Scalars['Int']>;
-  nin?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-};
+  eq?: InputMaybe<Scalars['Int']>
+  gt?: InputMaybe<Scalars['Int']>
+  gte?: InputMaybe<Scalars['Int']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>
+  lt?: InputMaybe<Scalars['Int']>
+  lte?: InputMaybe<Scalars['Int']>
+  ne?: InputMaybe<Scalars['Int']>
+  nin?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>
+}
 
 export type Internal = {
-  __typename?: 'Internal';
-  content?: Maybe<Scalars['String']>;
-  contentDigest: Scalars['String'];
-  description?: Maybe<Scalars['String']>;
-  fieldOwners?: Maybe<Array<Maybe<Scalars['String']>>>;
-  ignoreType?: Maybe<Scalars['Boolean']>;
-  mediaType?: Maybe<Scalars['String']>;
-  owner: Scalars['String'];
-  type: Scalars['String'];
-};
+  __typename?: 'Internal'
+  content?: Maybe<Scalars['String']>
+  contentDigest: Scalars['String']
+  description?: Maybe<Scalars['String']>
+  fieldOwners?: Maybe<Array<Maybe<Scalars['String']>>>
+  ignoreType?: Maybe<Scalars['Boolean']>
+  mediaType?: Maybe<Scalars['String']>
+  owner: Scalars['String']
+  type: Scalars['String']
+}
 
 export type InternalFilterInput = {
-  content?: InputMaybe<StringQueryOperatorInput>;
-  contentDigest?: InputMaybe<StringQueryOperatorInput>;
-  description?: InputMaybe<StringQueryOperatorInput>;
-  fieldOwners?: InputMaybe<StringQueryOperatorInput>;
-  ignoreType?: InputMaybe<BooleanQueryOperatorInput>;
-  mediaType?: InputMaybe<StringQueryOperatorInput>;
-  owner?: InputMaybe<StringQueryOperatorInput>;
-  type?: InputMaybe<StringQueryOperatorInput>;
-};
+  content?: InputMaybe<StringQueryOperatorInput>
+  contentDigest?: InputMaybe<StringQueryOperatorInput>
+  description?: InputMaybe<StringQueryOperatorInput>
+  fieldOwners?: InputMaybe<StringQueryOperatorInput>
+  ignoreType?: InputMaybe<BooleanQueryOperatorInput>
+  mediaType?: InputMaybe<StringQueryOperatorInput>
+  owner?: InputMaybe<StringQueryOperatorInput>
+  type?: InputMaybe<StringQueryOperatorInput>
+}
 
 export type JpgOptions = {
-  progressive?: InputMaybe<Scalars['Boolean']>;
-  quality?: InputMaybe<Scalars['Int']>;
-};
+  progressive?: InputMaybe<Scalars['Boolean']>
+  quality?: InputMaybe<Scalars['Int']>
+}
 
 export type JsonQueryOperatorInput = {
-  eq?: InputMaybe<Scalars['JSON']>;
-  glob?: InputMaybe<Scalars['JSON']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
-  ne?: InputMaybe<Scalars['JSON']>;
-  nin?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
-  regex?: InputMaybe<Scalars['JSON']>;
-};
+  eq?: InputMaybe<Scalars['JSON']>
+  glob?: InputMaybe<Scalars['JSON']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>
+  ne?: InputMaybe<Scalars['JSON']>
+  nin?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>
+  regex?: InputMaybe<Scalars['JSON']>
+}
 
 export enum MarkdownExcerptFormats {
   Html = 'HTML',
   Markdown = 'MARKDOWN',
-  Plain = 'PLAIN'
+  Plain = 'PLAIN',
 }
 
 export type MarkdownHeading = {
-  __typename?: 'MarkdownHeading';
-  depth?: Maybe<Scalars['Int']>;
-  id?: Maybe<Scalars['String']>;
-  value?: Maybe<Scalars['String']>;
-};
+  __typename?: 'MarkdownHeading'
+  depth?: Maybe<Scalars['Int']>
+  id?: Maybe<Scalars['String']>
+  value?: Maybe<Scalars['String']>
+}
 
 export type MarkdownHeadingFilterInput = {
-  depth?: InputMaybe<IntQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  value?: InputMaybe<StringQueryOperatorInput>;
-};
+  depth?: InputMaybe<IntQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  value?: InputMaybe<StringQueryOperatorInput>
+}
 
 export type MarkdownHeadingFilterListInput = {
-  elemMatch?: InputMaybe<MarkdownHeadingFilterInput>;
-};
+  elemMatch?: InputMaybe<MarkdownHeadingFilterInput>
+}
 
 export enum MarkdownHeadingLevels {
   H1 = 'h1',
@@ -1777,99 +1725,90 @@ export enum MarkdownHeadingLevels {
   H3 = 'h3',
   H4 = 'h4',
   H5 = 'h5',
-  H6 = 'h6'
+  H6 = 'h6',
 }
 
 export type MarkdownRemark = Node & {
-  __typename?: 'MarkdownRemark';
-  children: Array<Node>;
-  excerpt?: Maybe<Scalars['String']>;
-  excerptAst?: Maybe<Scalars['JSON']>;
-  frontmatter?: Maybe<MarkdownRemarkFrontmatter>;
-  headings?: Maybe<Array<Maybe<MarkdownHeading>>>;
-  html?: Maybe<Scalars['String']>;
-  htmlAst?: Maybe<Scalars['JSON']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  parent?: Maybe<Node>;
-  rawMarkdownBody?: Maybe<Scalars['String']>;
-  tableOfContents?: Maybe<Scalars['String']>;
-  timeToRead?: Maybe<Scalars['Int']>;
-  wordCount?: Maybe<MarkdownWordCount>;
-};
-
+  __typename?: 'MarkdownRemark'
+  children: Array<Node>
+  excerpt?: Maybe<Scalars['String']>
+  excerptAst?: Maybe<Scalars['JSON']>
+  frontmatter?: Maybe<MarkdownRemarkFrontmatter>
+  headings?: Maybe<Array<Maybe<MarkdownHeading>>>
+  html?: Maybe<Scalars['String']>
+  htmlAst?: Maybe<Scalars['JSON']>
+  id: Scalars['ID']
+  internal: Internal
+  parent?: Maybe<Node>
+  rawMarkdownBody?: Maybe<Scalars['String']>
+  tableOfContents?: Maybe<Scalars['String']>
+  timeToRead?: Maybe<Scalars['Int']>
+  wordCount?: Maybe<MarkdownWordCount>
+}
 
 export type MarkdownRemarkExcerptArgs = {
-  format?: InputMaybe<MarkdownExcerptFormats>;
-  pruneLength?: InputMaybe<Scalars['Int']>;
-  truncate?: InputMaybe<Scalars['Boolean']>;
-};
-
+  format?: InputMaybe<MarkdownExcerptFormats>
+  pruneLength?: InputMaybe<Scalars['Int']>
+  truncate?: InputMaybe<Scalars['Boolean']>
+}
 
 export type MarkdownRemarkExcerptAstArgs = {
-  pruneLength?: InputMaybe<Scalars['Int']>;
-  truncate?: InputMaybe<Scalars['Boolean']>;
-};
-
+  pruneLength?: InputMaybe<Scalars['Int']>
+  truncate?: InputMaybe<Scalars['Boolean']>
+}
 
 export type MarkdownRemarkHeadingsArgs = {
-  depth?: InputMaybe<MarkdownHeadingLevels>;
-};
-
+  depth?: InputMaybe<MarkdownHeadingLevels>
+}
 
 export type MarkdownRemarkTableOfContentsArgs = {
-  absolute?: InputMaybe<Scalars['Boolean']>;
-  heading?: InputMaybe<Scalars['String']>;
-  maxDepth?: InputMaybe<Scalars['Int']>;
-  pathToSlugField?: InputMaybe<Scalars['String']>;
-};
+  absolute?: InputMaybe<Scalars['Boolean']>
+  heading?: InputMaybe<Scalars['String']>
+  maxDepth?: InputMaybe<Scalars['Int']>
+  pathToSlugField?: InputMaybe<Scalars['String']>
+}
 
 export type MarkdownRemarkConnection = {
-  __typename?: 'MarkdownRemarkConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<MarkdownRemarkEdge>;
-  group: Array<MarkdownRemarkGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<MarkdownRemark>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'MarkdownRemarkConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<MarkdownRemarkEdge>
+  group: Array<MarkdownRemarkGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<MarkdownRemark>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type MarkdownRemarkConnectionDistinctArgs = {
-  field: MarkdownRemarkFieldsEnum;
-};
-
+  field: MarkdownRemarkFieldsEnum
+}
 
 export type MarkdownRemarkConnectionGroupArgs = {
-  field: MarkdownRemarkFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: MarkdownRemarkFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type MarkdownRemarkConnectionMaxArgs = {
-  field: MarkdownRemarkFieldsEnum;
-};
-
+  field: MarkdownRemarkFieldsEnum
+}
 
 export type MarkdownRemarkConnectionMinArgs = {
-  field: MarkdownRemarkFieldsEnum;
-};
-
+  field: MarkdownRemarkFieldsEnum
+}
 
 export type MarkdownRemarkConnectionSumArgs = {
-  field: MarkdownRemarkFieldsEnum;
-};
+  field: MarkdownRemarkFieldsEnum
+}
 
 export type MarkdownRemarkEdge = {
-  __typename?: 'MarkdownRemarkEdge';
-  next?: Maybe<MarkdownRemark>;
-  node: MarkdownRemark;
-  previous?: Maybe<MarkdownRemark>;
-};
+  __typename?: 'MarkdownRemarkEdge'
+  next?: Maybe<MarkdownRemark>
+  node: MarkdownRemark
+  previous?: Maybe<MarkdownRemark>
+}
 
 export enum MarkdownRemarkFieldsEnum {
   Children = 'children',
@@ -1972,145 +1911,140 @@ export enum MarkdownRemarkFieldsEnum {
   TimeToRead = 'timeToRead',
   WordCountParagraphs = 'wordCount___paragraphs',
   WordCountSentences = 'wordCount___sentences',
-  WordCountWords = 'wordCount___words'
+  WordCountWords = 'wordCount___words',
 }
 
 export type MarkdownRemarkFilterInput = {
-  children?: InputMaybe<NodeFilterListInput>;
-  excerpt?: InputMaybe<StringQueryOperatorInput>;
-  excerptAst?: InputMaybe<JsonQueryOperatorInput>;
-  frontmatter?: InputMaybe<MarkdownRemarkFrontmatterFilterInput>;
-  headings?: InputMaybe<MarkdownHeadingFilterListInput>;
-  html?: InputMaybe<StringQueryOperatorInput>;
-  htmlAst?: InputMaybe<JsonQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  rawMarkdownBody?: InputMaybe<StringQueryOperatorInput>;
-  tableOfContents?: InputMaybe<StringQueryOperatorInput>;
-  timeToRead?: InputMaybe<IntQueryOperatorInput>;
-  wordCount?: InputMaybe<MarkdownWordCountFilterInput>;
-};
+  children?: InputMaybe<NodeFilterListInput>
+  excerpt?: InputMaybe<StringQueryOperatorInput>
+  excerptAst?: InputMaybe<JsonQueryOperatorInput>
+  frontmatter?: InputMaybe<MarkdownRemarkFrontmatterFilterInput>
+  headings?: InputMaybe<MarkdownHeadingFilterListInput>
+  html?: InputMaybe<StringQueryOperatorInput>
+  htmlAst?: InputMaybe<JsonQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  parent?: InputMaybe<NodeFilterInput>
+  rawMarkdownBody?: InputMaybe<StringQueryOperatorInput>
+  tableOfContents?: InputMaybe<StringQueryOperatorInput>
+  timeToRead?: InputMaybe<IntQueryOperatorInput>
+  wordCount?: InputMaybe<MarkdownWordCountFilterInput>
+}
 
 export type MarkdownRemarkFilterListInput = {
-  elemMatch?: InputMaybe<MarkdownRemarkFilterInput>;
-};
+  elemMatch?: InputMaybe<MarkdownRemarkFilterInput>
+}
 
 export type MarkdownRemarkFrontmatter = {
-  __typename?: 'MarkdownRemarkFrontmatter';
-  title?: Maybe<Scalars['String']>;
-};
+  __typename?: 'MarkdownRemarkFrontmatter'
+  title?: Maybe<Scalars['String']>
+}
 
 export type MarkdownRemarkFrontmatterFilterInput = {
-  title?: InputMaybe<StringQueryOperatorInput>;
-};
+  title?: InputMaybe<StringQueryOperatorInput>
+}
 
 export type MarkdownRemarkGroupConnection = {
-  __typename?: 'MarkdownRemarkGroupConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<MarkdownRemarkEdge>;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-  group: Array<MarkdownRemarkGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<MarkdownRemark>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'MarkdownRemarkGroupConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<MarkdownRemarkEdge>
+  field: Scalars['String']
+  fieldValue?: Maybe<Scalars['String']>
+  group: Array<MarkdownRemarkGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<MarkdownRemark>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type MarkdownRemarkGroupConnectionDistinctArgs = {
-  field: MarkdownRemarkFieldsEnum;
-};
-
+  field: MarkdownRemarkFieldsEnum
+}
 
 export type MarkdownRemarkGroupConnectionGroupArgs = {
-  field: MarkdownRemarkFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: MarkdownRemarkFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type MarkdownRemarkGroupConnectionMaxArgs = {
-  field: MarkdownRemarkFieldsEnum;
-};
-
+  field: MarkdownRemarkFieldsEnum
+}
 
 export type MarkdownRemarkGroupConnectionMinArgs = {
-  field: MarkdownRemarkFieldsEnum;
-};
-
+  field: MarkdownRemarkFieldsEnum
+}
 
 export type MarkdownRemarkGroupConnectionSumArgs = {
-  field: MarkdownRemarkFieldsEnum;
-};
+  field: MarkdownRemarkFieldsEnum
+}
 
 export type MarkdownRemarkSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<MarkdownRemarkFieldsEnum>>>;
-  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
-};
+  fields?: InputMaybe<Array<InputMaybe<MarkdownRemarkFieldsEnum>>>
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
 
 export type MarkdownWordCount = {
-  __typename?: 'MarkdownWordCount';
-  paragraphs?: Maybe<Scalars['Int']>;
-  sentences?: Maybe<Scalars['Int']>;
-  words?: Maybe<Scalars['Int']>;
-};
+  __typename?: 'MarkdownWordCount'
+  paragraphs?: Maybe<Scalars['Int']>
+  sentences?: Maybe<Scalars['Int']>
+  words?: Maybe<Scalars['Int']>
+}
 
 export type MarkdownWordCountFilterInput = {
-  paragraphs?: InputMaybe<IntQueryOperatorInput>;
-  sentences?: InputMaybe<IntQueryOperatorInput>;
-  words?: InputMaybe<IntQueryOperatorInput>;
-};
+  paragraphs?: InputMaybe<IntQueryOperatorInput>
+  sentences?: InputMaybe<IntQueryOperatorInput>
+  words?: InputMaybe<IntQueryOperatorInput>
+}
 
 /** Node Interface */
 export type Node = {
-  children: Array<Node>;
-  id: Scalars['ID'];
-  internal: Internal;
-  parent?: Maybe<Node>;
-};
+  children: Array<Node>
+  id: Scalars['ID']
+  internal: Internal
+  parent?: Maybe<Node>
+}
 
 export type NodeFilterInput = {
-  children?: InputMaybe<NodeFilterListInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-};
+  children?: InputMaybe<NodeFilterListInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  parent?: InputMaybe<NodeFilterInput>
+}
 
 export type NodeFilterListInput = {
-  elemMatch?: InputMaybe<NodeFilterInput>;
-};
+  elemMatch?: InputMaybe<NodeFilterInput>
+}
 
 export type PngOptions = {
-  compressionSpeed?: InputMaybe<Scalars['Int']>;
-  quality?: InputMaybe<Scalars['Int']>;
-};
+  compressionSpeed?: InputMaybe<Scalars['Int']>
+  quality?: InputMaybe<Scalars['Int']>
+}
 
 export type PageInfo = {
-  __typename?: 'PageInfo';
-  currentPage: Scalars['Int'];
-  hasNextPage: Scalars['Boolean'];
-  hasPreviousPage: Scalars['Boolean'];
-  itemCount: Scalars['Int'];
-  pageCount: Scalars['Int'];
-  perPage?: Maybe<Scalars['Int']>;
-  totalCount: Scalars['Int'];
-};
+  __typename?: 'PageInfo'
+  currentPage: Scalars['Int']
+  hasNextPage: Scalars['Boolean']
+  hasPreviousPage: Scalars['Boolean']
+  itemCount: Scalars['Int']
+  pageCount: Scalars['Int']
+  perPage?: Maybe<Scalars['Int']>
+  totalCount: Scalars['Int']
+}
 
 export type Potrace = {
-  alphaMax?: InputMaybe<Scalars['Float']>;
-  background?: InputMaybe<Scalars['String']>;
-  blackOnWhite?: InputMaybe<Scalars['Boolean']>;
-  color?: InputMaybe<Scalars['String']>;
-  optCurve?: InputMaybe<Scalars['Boolean']>;
-  optTolerance?: InputMaybe<Scalars['Float']>;
-  threshold?: InputMaybe<Scalars['Int']>;
-  turdSize?: InputMaybe<Scalars['Float']>;
-  turnPolicy?: InputMaybe<PotraceTurnPolicy>;
-};
+  alphaMax?: InputMaybe<Scalars['Float']>
+  background?: InputMaybe<Scalars['String']>
+  blackOnWhite?: InputMaybe<Scalars['Boolean']>
+  color?: InputMaybe<Scalars['String']>
+  optCurve?: InputMaybe<Scalars['Boolean']>
+  optTolerance?: InputMaybe<Scalars['Float']>
+  threshold?: InputMaybe<Scalars['Int']>
+  turdSize?: InputMaybe<Scalars['Float']>
+  turnPolicy?: InputMaybe<PotraceTurnPolicy>
+}
 
 export enum PotraceTurnPolicy {
   TurnpolicyBlack = 'TURNPOLICY_BLACK',
@@ -2118,514 +2052,477 @@ export enum PotraceTurnPolicy {
   TurnpolicyMajority = 'TURNPOLICY_MAJORITY',
   TurnpolicyMinority = 'TURNPOLICY_MINORITY',
   TurnpolicyRight = 'TURNPOLICY_RIGHT',
-  TurnpolicyWhite = 'TURNPOLICY_WHITE'
+  TurnpolicyWhite = 'TURNPOLICY_WHITE',
 }
 
 export type Query = {
-  __typename?: 'Query';
-  allBlogPostPart: BlogPostPartConnection;
-  allDirectory: DirectoryConnection;
-  allFile: FileConnection;
-  allImageSharp: ImageSharpConnection;
-  allMarkdownRemark: MarkdownRemarkConnection;
-  allRecipeCategory: RecipeCategoryConnection;
-  allRecipePart: RecipePartConnection;
-  allSite: SiteConnection;
-  allSiteBuildMetadata: SiteBuildMetadataConnection;
-  allSiteFunction: SiteFunctionConnection;
-  allSitePage: SitePageConnection;
-  allSitePlugin: SitePluginConnection;
-  allStrapiArticle: StrapiArticleConnection;
-  allStrapiCategory: StrapiCategoryConnection;
-  allStrapiRecipe: StrapiRecipeConnection;
-  allStrapiTag: StrapiTagConnection;
-  blogPostPart?: Maybe<BlogPostPart>;
-  directory?: Maybe<Directory>;
-  file?: Maybe<File>;
-  imageSharp?: Maybe<ImageSharp>;
-  markdownRemark?: Maybe<MarkdownRemark>;
-  recipeCategory?: Maybe<RecipeCategory>;
-  recipePart?: Maybe<RecipePart>;
-  site?: Maybe<Site>;
-  siteBuildMetadata?: Maybe<SiteBuildMetadata>;
-  siteFunction?: Maybe<SiteFunction>;
-  sitePage?: Maybe<SitePage>;
-  sitePlugin?: Maybe<SitePlugin>;
-  strapiArticle?: Maybe<StrapiArticle>;
-  strapiCategory?: Maybe<StrapiCategory>;
-  strapiRecipe?: Maybe<StrapiRecipe>;
-  strapiTag?: Maybe<StrapiTag>;
-};
-
+  __typename?: 'Query'
+  allBlogPostPart: BlogPostPartConnection
+  allDirectory: DirectoryConnection
+  allFile: FileConnection
+  allImageSharp: ImageSharpConnection
+  allMarkdownRemark: MarkdownRemarkConnection
+  allRecipeCategory: RecipeCategoryConnection
+  allRecipePart: RecipePartConnection
+  allSite: SiteConnection
+  allSiteBuildMetadata: SiteBuildMetadataConnection
+  allSiteFunction: SiteFunctionConnection
+  allSitePage: SitePageConnection
+  allSitePlugin: SitePluginConnection
+  allStrapiArticle: StrapiArticleConnection
+  allStrapiCategory: StrapiCategoryConnection
+  allStrapiRecipe: StrapiRecipeConnection
+  allStrapiTag: StrapiTagConnection
+  blogPostPart?: Maybe<BlogPostPart>
+  directory?: Maybe<Directory>
+  file?: Maybe<File>
+  imageSharp?: Maybe<ImageSharp>
+  markdownRemark?: Maybe<MarkdownRemark>
+  recipeCategory?: Maybe<RecipeCategory>
+  recipePart?: Maybe<RecipePart>
+  site?: Maybe<Site>
+  siteBuildMetadata?: Maybe<SiteBuildMetadata>
+  siteFunction?: Maybe<SiteFunction>
+  sitePage?: Maybe<SitePage>
+  sitePlugin?: Maybe<SitePlugin>
+  strapiArticle?: Maybe<StrapiArticle>
+  strapiCategory?: Maybe<StrapiCategory>
+  strapiRecipe?: Maybe<StrapiRecipe>
+  strapiTag?: Maybe<StrapiTag>
+}
 
 export type QueryAllBlogPostPartArgs = {
-  filter?: InputMaybe<BlogPostPartFilterInput>;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  sort?: InputMaybe<BlogPostPartSortInput>;
-};
-
+  filter?: InputMaybe<BlogPostPartFilterInput>
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+  sort?: InputMaybe<BlogPostPartSortInput>
+}
 
 export type QueryAllDirectoryArgs = {
-  filter?: InputMaybe<DirectoryFilterInput>;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  sort?: InputMaybe<DirectorySortInput>;
-};
-
+  filter?: InputMaybe<DirectoryFilterInput>
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+  sort?: InputMaybe<DirectorySortInput>
+}
 
 export type QueryAllFileArgs = {
-  filter?: InputMaybe<FileFilterInput>;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  sort?: InputMaybe<FileSortInput>;
-};
-
+  filter?: InputMaybe<FileFilterInput>
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+  sort?: InputMaybe<FileSortInput>
+}
 
 export type QueryAllImageSharpArgs = {
-  filter?: InputMaybe<ImageSharpFilterInput>;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  sort?: InputMaybe<ImageSharpSortInput>;
-};
-
+  filter?: InputMaybe<ImageSharpFilterInput>
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+  sort?: InputMaybe<ImageSharpSortInput>
+}
 
 export type QueryAllMarkdownRemarkArgs = {
-  filter?: InputMaybe<MarkdownRemarkFilterInput>;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  sort?: InputMaybe<MarkdownRemarkSortInput>;
-};
-
+  filter?: InputMaybe<MarkdownRemarkFilterInput>
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+  sort?: InputMaybe<MarkdownRemarkSortInput>
+}
 
 export type QueryAllRecipeCategoryArgs = {
-  filter?: InputMaybe<RecipeCategoryFilterInput>;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  sort?: InputMaybe<RecipeCategorySortInput>;
-};
-
+  filter?: InputMaybe<RecipeCategoryFilterInput>
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+  sort?: InputMaybe<RecipeCategorySortInput>
+}
 
 export type QueryAllRecipePartArgs = {
-  filter?: InputMaybe<RecipePartFilterInput>;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  sort?: InputMaybe<RecipePartSortInput>;
-};
-
+  filter?: InputMaybe<RecipePartFilterInput>
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+  sort?: InputMaybe<RecipePartSortInput>
+}
 
 export type QueryAllSiteArgs = {
-  filter?: InputMaybe<SiteFilterInput>;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  sort?: InputMaybe<SiteSortInput>;
-};
-
+  filter?: InputMaybe<SiteFilterInput>
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+  sort?: InputMaybe<SiteSortInput>
+}
 
 export type QueryAllSiteBuildMetadataArgs = {
-  filter?: InputMaybe<SiteBuildMetadataFilterInput>;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  sort?: InputMaybe<SiteBuildMetadataSortInput>;
-};
-
+  filter?: InputMaybe<SiteBuildMetadataFilterInput>
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+  sort?: InputMaybe<SiteBuildMetadataSortInput>
+}
 
 export type QueryAllSiteFunctionArgs = {
-  filter?: InputMaybe<SiteFunctionFilterInput>;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  sort?: InputMaybe<SiteFunctionSortInput>;
-};
-
+  filter?: InputMaybe<SiteFunctionFilterInput>
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+  sort?: InputMaybe<SiteFunctionSortInput>
+}
 
 export type QueryAllSitePageArgs = {
-  filter?: InputMaybe<SitePageFilterInput>;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  sort?: InputMaybe<SitePageSortInput>;
-};
-
+  filter?: InputMaybe<SitePageFilterInput>
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+  sort?: InputMaybe<SitePageSortInput>
+}
 
 export type QueryAllSitePluginArgs = {
-  filter?: InputMaybe<SitePluginFilterInput>;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  sort?: InputMaybe<SitePluginSortInput>;
-};
-
+  filter?: InputMaybe<SitePluginFilterInput>
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+  sort?: InputMaybe<SitePluginSortInput>
+}
 
 export type QueryAllStrapiArticleArgs = {
-  filter?: InputMaybe<StrapiArticleFilterInput>;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  sort?: InputMaybe<StrapiArticleSortInput>;
-};
-
+  filter?: InputMaybe<StrapiArticleFilterInput>
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+  sort?: InputMaybe<StrapiArticleSortInput>
+}
 
 export type QueryAllStrapiCategoryArgs = {
-  filter?: InputMaybe<StrapiCategoryFilterInput>;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  sort?: InputMaybe<StrapiCategorySortInput>;
-};
-
+  filter?: InputMaybe<StrapiCategoryFilterInput>
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+  sort?: InputMaybe<StrapiCategorySortInput>
+}
 
 export type QueryAllStrapiRecipeArgs = {
-  filter?: InputMaybe<StrapiRecipeFilterInput>;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  sort?: InputMaybe<StrapiRecipeSortInput>;
-};
-
+  filter?: InputMaybe<StrapiRecipeFilterInput>
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+  sort?: InputMaybe<StrapiRecipeSortInput>
+}
 
 export type QueryAllStrapiTagArgs = {
-  filter?: InputMaybe<StrapiTagFilterInput>;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  sort?: InputMaybe<StrapiTagSortInput>;
-};
-
+  filter?: InputMaybe<StrapiTagFilterInput>
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+  sort?: InputMaybe<StrapiTagSortInput>
+}
 
 export type QueryBlogPostPartArgs = {
-  childMarkdownRemark?: InputMaybe<MarkdownRemarkFilterInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  childrenMarkdownRemark?: InputMaybe<MarkdownRemarkFilterListInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-};
-
+  childMarkdownRemark?: InputMaybe<MarkdownRemarkFilterInput>
+  children?: InputMaybe<NodeFilterListInput>
+  childrenMarkdownRemark?: InputMaybe<MarkdownRemarkFilterListInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  parent?: InputMaybe<NodeFilterInput>
+}
 
 export type QueryDirectoryArgs = {
-  absolutePath?: InputMaybe<StringQueryOperatorInput>;
-  accessTime?: InputMaybe<DateQueryOperatorInput>;
-  atime?: InputMaybe<DateQueryOperatorInput>;
-  atimeMs?: InputMaybe<FloatQueryOperatorInput>;
-  base?: InputMaybe<StringQueryOperatorInput>;
-  birthTime?: InputMaybe<DateQueryOperatorInput>;
-  birthtime?: InputMaybe<DateQueryOperatorInput>;
-  birthtimeMs?: InputMaybe<FloatQueryOperatorInput>;
-  changeTime?: InputMaybe<DateQueryOperatorInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  ctime?: InputMaybe<DateQueryOperatorInput>;
-  ctimeMs?: InputMaybe<FloatQueryOperatorInput>;
-  dev?: InputMaybe<IntQueryOperatorInput>;
-  dir?: InputMaybe<StringQueryOperatorInput>;
-  ext?: InputMaybe<StringQueryOperatorInput>;
-  extension?: InputMaybe<StringQueryOperatorInput>;
-  gid?: InputMaybe<IntQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  ino?: InputMaybe<FloatQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  mode?: InputMaybe<IntQueryOperatorInput>;
-  modifiedTime?: InputMaybe<DateQueryOperatorInput>;
-  mtime?: InputMaybe<DateQueryOperatorInput>;
-  mtimeMs?: InputMaybe<FloatQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  nlink?: InputMaybe<IntQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  prettySize?: InputMaybe<StringQueryOperatorInput>;
-  rdev?: InputMaybe<IntQueryOperatorInput>;
-  relativeDirectory?: InputMaybe<StringQueryOperatorInput>;
-  relativePath?: InputMaybe<StringQueryOperatorInput>;
-  root?: InputMaybe<StringQueryOperatorInput>;
-  size?: InputMaybe<IntQueryOperatorInput>;
-  sourceInstanceName?: InputMaybe<StringQueryOperatorInput>;
-  uid?: InputMaybe<IntQueryOperatorInput>;
-};
-
+  absolutePath?: InputMaybe<StringQueryOperatorInput>
+  accessTime?: InputMaybe<DateQueryOperatorInput>
+  atime?: InputMaybe<DateQueryOperatorInput>
+  atimeMs?: InputMaybe<FloatQueryOperatorInput>
+  base?: InputMaybe<StringQueryOperatorInput>
+  birthTime?: InputMaybe<DateQueryOperatorInput>
+  birthtime?: InputMaybe<DateQueryOperatorInput>
+  birthtimeMs?: InputMaybe<FloatQueryOperatorInput>
+  changeTime?: InputMaybe<DateQueryOperatorInput>
+  children?: InputMaybe<NodeFilterListInput>
+  ctime?: InputMaybe<DateQueryOperatorInput>
+  ctimeMs?: InputMaybe<FloatQueryOperatorInput>
+  dev?: InputMaybe<IntQueryOperatorInput>
+  dir?: InputMaybe<StringQueryOperatorInput>
+  ext?: InputMaybe<StringQueryOperatorInput>
+  extension?: InputMaybe<StringQueryOperatorInput>
+  gid?: InputMaybe<IntQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  ino?: InputMaybe<FloatQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  mode?: InputMaybe<IntQueryOperatorInput>
+  modifiedTime?: InputMaybe<DateQueryOperatorInput>
+  mtime?: InputMaybe<DateQueryOperatorInput>
+  mtimeMs?: InputMaybe<FloatQueryOperatorInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  nlink?: InputMaybe<IntQueryOperatorInput>
+  parent?: InputMaybe<NodeFilterInput>
+  prettySize?: InputMaybe<StringQueryOperatorInput>
+  rdev?: InputMaybe<IntQueryOperatorInput>
+  relativeDirectory?: InputMaybe<StringQueryOperatorInput>
+  relativePath?: InputMaybe<StringQueryOperatorInput>
+  root?: InputMaybe<StringQueryOperatorInput>
+  size?: InputMaybe<IntQueryOperatorInput>
+  sourceInstanceName?: InputMaybe<StringQueryOperatorInput>
+  uid?: InputMaybe<IntQueryOperatorInput>
+}
 
 export type QueryFileArgs = {
-  absolutePath?: InputMaybe<StringQueryOperatorInput>;
-  accessTime?: InputMaybe<DateQueryOperatorInput>;
-  atime?: InputMaybe<DateQueryOperatorInput>;
-  atimeMs?: InputMaybe<FloatQueryOperatorInput>;
-  base?: InputMaybe<StringQueryOperatorInput>;
-  birthTime?: InputMaybe<DateQueryOperatorInput>;
-  birthtime?: InputMaybe<DateQueryOperatorInput>;
-  birthtimeMs?: InputMaybe<FloatQueryOperatorInput>;
-  blksize?: InputMaybe<IntQueryOperatorInput>;
-  blocks?: InputMaybe<IntQueryOperatorInput>;
-  changeTime?: InputMaybe<DateQueryOperatorInput>;
-  childImageSharp?: InputMaybe<ImageSharpFilterInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  childrenImageSharp?: InputMaybe<ImageSharpFilterListInput>;
-  ctime?: InputMaybe<DateQueryOperatorInput>;
-  ctimeMs?: InputMaybe<FloatQueryOperatorInput>;
-  dev?: InputMaybe<IntQueryOperatorInput>;
-  dir?: InputMaybe<StringQueryOperatorInput>;
-  ext?: InputMaybe<StringQueryOperatorInput>;
-  extension?: InputMaybe<StringQueryOperatorInput>;
-  gid?: InputMaybe<IntQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  ino?: InputMaybe<FloatQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  mode?: InputMaybe<IntQueryOperatorInput>;
-  modifiedTime?: InputMaybe<DateQueryOperatorInput>;
-  mtime?: InputMaybe<DateQueryOperatorInput>;
-  mtimeMs?: InputMaybe<FloatQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  nlink?: InputMaybe<IntQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  prettySize?: InputMaybe<StringQueryOperatorInput>;
-  rdev?: InputMaybe<IntQueryOperatorInput>;
-  relativeDirectory?: InputMaybe<StringQueryOperatorInput>;
-  relativePath?: InputMaybe<StringQueryOperatorInput>;
-  root?: InputMaybe<StringQueryOperatorInput>;
-  size?: InputMaybe<IntQueryOperatorInput>;
-  sourceInstanceName?: InputMaybe<StringQueryOperatorInput>;
-  uid?: InputMaybe<IntQueryOperatorInput>;
-  url?: InputMaybe<StringQueryOperatorInput>;
-};
-
+  absolutePath?: InputMaybe<StringQueryOperatorInput>
+  accessTime?: InputMaybe<DateQueryOperatorInput>
+  atime?: InputMaybe<DateQueryOperatorInput>
+  atimeMs?: InputMaybe<FloatQueryOperatorInput>
+  base?: InputMaybe<StringQueryOperatorInput>
+  birthTime?: InputMaybe<DateQueryOperatorInput>
+  birthtime?: InputMaybe<DateQueryOperatorInput>
+  birthtimeMs?: InputMaybe<FloatQueryOperatorInput>
+  blksize?: InputMaybe<IntQueryOperatorInput>
+  blocks?: InputMaybe<IntQueryOperatorInput>
+  changeTime?: InputMaybe<DateQueryOperatorInput>
+  childImageSharp?: InputMaybe<ImageSharpFilterInput>
+  children?: InputMaybe<NodeFilterListInput>
+  childrenImageSharp?: InputMaybe<ImageSharpFilterListInput>
+  ctime?: InputMaybe<DateQueryOperatorInput>
+  ctimeMs?: InputMaybe<FloatQueryOperatorInput>
+  dev?: InputMaybe<IntQueryOperatorInput>
+  dir?: InputMaybe<StringQueryOperatorInput>
+  ext?: InputMaybe<StringQueryOperatorInput>
+  extension?: InputMaybe<StringQueryOperatorInput>
+  gid?: InputMaybe<IntQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  ino?: InputMaybe<FloatQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  mode?: InputMaybe<IntQueryOperatorInput>
+  modifiedTime?: InputMaybe<DateQueryOperatorInput>
+  mtime?: InputMaybe<DateQueryOperatorInput>
+  mtimeMs?: InputMaybe<FloatQueryOperatorInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  nlink?: InputMaybe<IntQueryOperatorInput>
+  parent?: InputMaybe<NodeFilterInput>
+  prettySize?: InputMaybe<StringQueryOperatorInput>
+  rdev?: InputMaybe<IntQueryOperatorInput>
+  relativeDirectory?: InputMaybe<StringQueryOperatorInput>
+  relativePath?: InputMaybe<StringQueryOperatorInput>
+  root?: InputMaybe<StringQueryOperatorInput>
+  size?: InputMaybe<IntQueryOperatorInput>
+  sourceInstanceName?: InputMaybe<StringQueryOperatorInput>
+  uid?: InputMaybe<IntQueryOperatorInput>
+  url?: InputMaybe<StringQueryOperatorInput>
+}
 
 export type QueryImageSharpArgs = {
-  children?: InputMaybe<NodeFilterListInput>;
-  fixed?: InputMaybe<ImageSharpFixedFilterInput>;
-  fluid?: InputMaybe<ImageSharpFluidFilterInput>;
-  gatsbyImageData?: InputMaybe<JsonQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  original?: InputMaybe<ImageSharpOriginalFilterInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  resize?: InputMaybe<ImageSharpResizeFilterInput>;
-};
-
+  children?: InputMaybe<NodeFilterListInput>
+  fixed?: InputMaybe<ImageSharpFixedFilterInput>
+  fluid?: InputMaybe<ImageSharpFluidFilterInput>
+  gatsbyImageData?: InputMaybe<JsonQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  original?: InputMaybe<ImageSharpOriginalFilterInput>
+  parent?: InputMaybe<NodeFilterInput>
+  resize?: InputMaybe<ImageSharpResizeFilterInput>
+}
 
 export type QueryMarkdownRemarkArgs = {
-  children?: InputMaybe<NodeFilterListInput>;
-  excerpt?: InputMaybe<StringQueryOperatorInput>;
-  excerptAst?: InputMaybe<JsonQueryOperatorInput>;
-  frontmatter?: InputMaybe<MarkdownRemarkFrontmatterFilterInput>;
-  headings?: InputMaybe<MarkdownHeadingFilterListInput>;
-  html?: InputMaybe<StringQueryOperatorInput>;
-  htmlAst?: InputMaybe<JsonQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  rawMarkdownBody?: InputMaybe<StringQueryOperatorInput>;
-  tableOfContents?: InputMaybe<StringQueryOperatorInput>;
-  timeToRead?: InputMaybe<IntQueryOperatorInput>;
-  wordCount?: InputMaybe<MarkdownWordCountFilterInput>;
-};
-
+  children?: InputMaybe<NodeFilterListInput>
+  excerpt?: InputMaybe<StringQueryOperatorInput>
+  excerptAst?: InputMaybe<JsonQueryOperatorInput>
+  frontmatter?: InputMaybe<MarkdownRemarkFrontmatterFilterInput>
+  headings?: InputMaybe<MarkdownHeadingFilterListInput>
+  html?: InputMaybe<StringQueryOperatorInput>
+  htmlAst?: InputMaybe<JsonQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  parent?: InputMaybe<NodeFilterInput>
+  rawMarkdownBody?: InputMaybe<StringQueryOperatorInput>
+  tableOfContents?: InputMaybe<StringQueryOperatorInput>
+  timeToRead?: InputMaybe<IntQueryOperatorInput>
+  wordCount?: InputMaybe<MarkdownWordCountFilterInput>
+}
 
 export type QueryRecipeCategoryArgs = {
-  children?: InputMaybe<NodeFilterListInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  position?: InputMaybe<IntQueryOperatorInput>;
-  slug?: InputMaybe<StringQueryOperatorInput>;
-};
-
+  children?: InputMaybe<NodeFilterListInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  parent?: InputMaybe<NodeFilterInput>
+  position?: InputMaybe<IntQueryOperatorInput>
+  slug?: InputMaybe<StringQueryOperatorInput>
+}
 
 export type QueryRecipePartArgs = {
-  childMarkdownRemark?: InputMaybe<MarkdownRemarkFilterInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  childrenMarkdownRemark?: InputMaybe<MarkdownRemarkFilterListInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-};
-
+  childMarkdownRemark?: InputMaybe<MarkdownRemarkFilterInput>
+  children?: InputMaybe<NodeFilterListInput>
+  childrenMarkdownRemark?: InputMaybe<MarkdownRemarkFilterListInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  parent?: InputMaybe<NodeFilterInput>
+}
 
 export type QuerySiteArgs = {
-  buildTime?: InputMaybe<DateQueryOperatorInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  host?: InputMaybe<StringQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  pathPrefix?: InputMaybe<StringQueryOperatorInput>;
-  polyfill?: InputMaybe<BooleanQueryOperatorInput>;
-  port?: InputMaybe<IntQueryOperatorInput>;
-  siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>;
-  trailingSlash?: InputMaybe<StringQueryOperatorInput>;
-};
-
+  buildTime?: InputMaybe<DateQueryOperatorInput>
+  children?: InputMaybe<NodeFilterListInput>
+  host?: InputMaybe<StringQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  jsxRuntime?: InputMaybe<StringQueryOperatorInput>
+  parent?: InputMaybe<NodeFilterInput>
+  pathPrefix?: InputMaybe<StringQueryOperatorInput>
+  polyfill?: InputMaybe<BooleanQueryOperatorInput>
+  port?: InputMaybe<IntQueryOperatorInput>
+  siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>
+  trailingSlash?: InputMaybe<StringQueryOperatorInput>
+}
 
 export type QuerySiteBuildMetadataArgs = {
-  buildTime?: InputMaybe<DateQueryOperatorInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-};
-
+  buildTime?: InputMaybe<DateQueryOperatorInput>
+  children?: InputMaybe<NodeFilterListInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  parent?: InputMaybe<NodeFilterInput>
+}
 
 export type QuerySiteFunctionArgs = {
-  absoluteCompiledFilePath?: InputMaybe<StringQueryOperatorInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  functionRoute?: InputMaybe<StringQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  matchPath?: InputMaybe<StringQueryOperatorInput>;
-  originalAbsoluteFilePath?: InputMaybe<StringQueryOperatorInput>;
-  originalRelativeFilePath?: InputMaybe<StringQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  pluginName?: InputMaybe<StringQueryOperatorInput>;
-  relativeCompiledFilePath?: InputMaybe<StringQueryOperatorInput>;
-};
-
+  absoluteCompiledFilePath?: InputMaybe<StringQueryOperatorInput>
+  children?: InputMaybe<NodeFilterListInput>
+  functionRoute?: InputMaybe<StringQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  matchPath?: InputMaybe<StringQueryOperatorInput>
+  originalAbsoluteFilePath?: InputMaybe<StringQueryOperatorInput>
+  originalRelativeFilePath?: InputMaybe<StringQueryOperatorInput>
+  parent?: InputMaybe<NodeFilterInput>
+  pluginName?: InputMaybe<StringQueryOperatorInput>
+  relativeCompiledFilePath?: InputMaybe<StringQueryOperatorInput>
+}
 
 export type QuerySitePageArgs = {
-  children?: InputMaybe<NodeFilterListInput>;
-  component?: InputMaybe<StringQueryOperatorInput>;
-  componentChunkName?: InputMaybe<StringQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  internalComponentName?: InputMaybe<StringQueryOperatorInput>;
-  matchPath?: InputMaybe<StringQueryOperatorInput>;
-  pageContext?: InputMaybe<JsonQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  path?: InputMaybe<StringQueryOperatorInput>;
-  pluginCreator?: InputMaybe<SitePluginFilterInput>;
-};
-
+  children?: InputMaybe<NodeFilterListInput>
+  component?: InputMaybe<StringQueryOperatorInput>
+  componentChunkName?: InputMaybe<StringQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  internalComponentName?: InputMaybe<StringQueryOperatorInput>
+  matchPath?: InputMaybe<StringQueryOperatorInput>
+  pageContext?: InputMaybe<JsonQueryOperatorInput>
+  parent?: InputMaybe<NodeFilterInput>
+  path?: InputMaybe<StringQueryOperatorInput>
+  pluginCreator?: InputMaybe<SitePluginFilterInput>
+}
 
 export type QuerySitePluginArgs = {
-  browserAPIs?: InputMaybe<StringQueryOperatorInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  nodeAPIs?: InputMaybe<StringQueryOperatorInput>;
-  packageJson?: InputMaybe<JsonQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  pluginFilepath?: InputMaybe<StringQueryOperatorInput>;
-  pluginOptions?: InputMaybe<JsonQueryOperatorInput>;
-  resolve?: InputMaybe<StringQueryOperatorInput>;
-  ssrAPIs?: InputMaybe<StringQueryOperatorInput>;
-  version?: InputMaybe<StringQueryOperatorInput>;
-};
-
+  browserAPIs?: InputMaybe<StringQueryOperatorInput>
+  children?: InputMaybe<NodeFilterListInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  nodeAPIs?: InputMaybe<StringQueryOperatorInput>
+  packageJson?: InputMaybe<JsonQueryOperatorInput>
+  parent?: InputMaybe<NodeFilterInput>
+  pluginFilepath?: InputMaybe<StringQueryOperatorInput>
+  pluginOptions?: InputMaybe<JsonQueryOperatorInput>
+  resolve?: InputMaybe<StringQueryOperatorInput>
+  ssrAPIs?: InputMaybe<StringQueryOperatorInput>
+  version?: InputMaybe<StringQueryOperatorInput>
+}
 
 export type QueryStrapiArticleArgs = {
-  children?: InputMaybe<NodeFilterListInput>;
-  content?: InputMaybe<StringQueryOperatorInput>;
-  created_at?: InputMaybe<DateQueryOperatorInput>;
-  headline?: InputMaybe<StringQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  published_at?: InputMaybe<DateQueryOperatorInput>;
-  slug?: InputMaybe<StringQueryOperatorInput>;
-  strapiId?: InputMaybe<IntQueryOperatorInput>;
-  title?: InputMaybe<StringQueryOperatorInput>;
-  updated_at?: InputMaybe<DateQueryOperatorInput>;
-};
-
+  children?: InputMaybe<NodeFilterListInput>
+  content?: InputMaybe<StringQueryOperatorInput>
+  created_at?: InputMaybe<DateQueryOperatorInput>
+  headline?: InputMaybe<StringQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  parent?: InputMaybe<NodeFilterInput>
+  published_at?: InputMaybe<DateQueryOperatorInput>
+  slug?: InputMaybe<StringQueryOperatorInput>
+  strapiId?: InputMaybe<IntQueryOperatorInput>
+  title?: InputMaybe<StringQueryOperatorInput>
+  updated_at?: InputMaybe<DateQueryOperatorInput>
+}
 
 export type QueryStrapiCategoryArgs = {
-  children?: InputMaybe<NodeFilterListInput>;
-  created_at?: InputMaybe<DateQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  recipes?: InputMaybe<StrapiCategoryRecipesFilterListInput>;
-  slug?: InputMaybe<StringQueryOperatorInput>;
-  strapiId?: InputMaybe<IntQueryOperatorInput>;
-  updated_at?: InputMaybe<DateQueryOperatorInput>;
-};
-
+  children?: InputMaybe<NodeFilterListInput>
+  created_at?: InputMaybe<DateQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  parent?: InputMaybe<NodeFilterInput>
+  recipes?: InputMaybe<StrapiCategoryRecipesFilterListInput>
+  slug?: InputMaybe<StringQueryOperatorInput>
+  strapiId?: InputMaybe<IntQueryOperatorInput>
+  updated_at?: InputMaybe<DateQueryOperatorInput>
+}
 
 export type QueryStrapiRecipeArgs = {
-  category?: InputMaybe<StrapiRecipeCategoryFilterInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  cover?: InputMaybe<StrapiRecipeCoverFilterInput>;
-  created_at?: InputMaybe<DateQueryOperatorInput>;
-  directions?: InputMaybe<StringQueryOperatorInput>;
-  gallery?: InputMaybe<StrapiRecipeGalleryFilterListInput>;
-  headline?: InputMaybe<StringQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  ingredients?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  preparationTime?: InputMaybe<IntQueryOperatorInput>;
-  published_at?: InputMaybe<DateQueryOperatorInput>;
-  seo?: InputMaybe<StrapiRecipeSeoFilterInput>;
-  slug?: InputMaybe<StringQueryOperatorInput>;
-  strapiId?: InputMaybe<IntQueryOperatorInput>;
-  tags?: InputMaybe<StrapiRecipeTagsFilterListInput>;
-  title?: InputMaybe<StringQueryOperatorInput>;
-  updated_at?: InputMaybe<DateQueryOperatorInput>;
-};
-
+  category?: InputMaybe<StrapiRecipeCategoryFilterInput>
+  children?: InputMaybe<NodeFilterListInput>
+  cover?: InputMaybe<StrapiRecipeCoverFilterInput>
+  created_at?: InputMaybe<DateQueryOperatorInput>
+  directions?: InputMaybe<StringQueryOperatorInput>
+  gallery?: InputMaybe<StrapiRecipeGalleryFilterListInput>
+  headline?: InputMaybe<StringQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  ingredients?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  parent?: InputMaybe<NodeFilterInput>
+  preparationTime?: InputMaybe<IntQueryOperatorInput>
+  published_at?: InputMaybe<DateQueryOperatorInput>
+  seo?: InputMaybe<StrapiRecipeSeoFilterInput>
+  slug?: InputMaybe<StringQueryOperatorInput>
+  strapiId?: InputMaybe<IntQueryOperatorInput>
+  tags?: InputMaybe<StrapiRecipeTagsFilterListInput>
+  title?: InputMaybe<StringQueryOperatorInput>
+  updated_at?: InputMaybe<DateQueryOperatorInput>
+}
 
 export type QueryStrapiTagArgs = {
-  children?: InputMaybe<NodeFilterListInput>;
-  created_at?: InputMaybe<DateQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  recipes?: InputMaybe<StrapiTagRecipesFilterListInput>;
-  slug?: InputMaybe<StringQueryOperatorInput>;
-  strapiId?: InputMaybe<IntQueryOperatorInput>;
-  updated_at?: InputMaybe<DateQueryOperatorInput>;
-};
+  children?: InputMaybe<NodeFilterListInput>
+  created_at?: InputMaybe<DateQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  parent?: InputMaybe<NodeFilterInput>
+  recipes?: InputMaybe<StrapiTagRecipesFilterListInput>
+  slug?: InputMaybe<StringQueryOperatorInput>
+  strapiId?: InputMaybe<IntQueryOperatorInput>
+  updated_at?: InputMaybe<DateQueryOperatorInput>
+}
 
 export type RecipeCategory = Node & {
-  __typename?: 'RecipeCategory';
-  children: Array<Node>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name?: Maybe<Scalars['String']>;
-  parent?: Maybe<Node>;
-  position?: Maybe<Scalars['Int']>;
-  slug?: Maybe<Scalars['String']>;
-};
+  __typename?: 'RecipeCategory'
+  children: Array<Node>
+  id: Scalars['ID']
+  internal: Internal
+  name?: Maybe<Scalars['String']>
+  parent?: Maybe<Node>
+  position?: Maybe<Scalars['Int']>
+  slug?: Maybe<Scalars['String']>
+}
 
 export type RecipeCategoryConnection = {
-  __typename?: 'RecipeCategoryConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<RecipeCategoryEdge>;
-  group: Array<RecipeCategoryGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<RecipeCategory>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'RecipeCategoryConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<RecipeCategoryEdge>
+  group: Array<RecipeCategoryGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<RecipeCategory>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type RecipeCategoryConnectionDistinctArgs = {
-  field: RecipeCategoryFieldsEnum;
-};
-
+  field: RecipeCategoryFieldsEnum
+}
 
 export type RecipeCategoryConnectionGroupArgs = {
-  field: RecipeCategoryFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: RecipeCategoryFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type RecipeCategoryConnectionMaxArgs = {
-  field: RecipeCategoryFieldsEnum;
-};
-
+  field: RecipeCategoryFieldsEnum
+}
 
 export type RecipeCategoryConnectionMinArgs = {
-  field: RecipeCategoryFieldsEnum;
-};
-
+  field: RecipeCategoryFieldsEnum
+}
 
 export type RecipeCategoryConnectionSumArgs = {
-  field: RecipeCategoryFieldsEnum;
-};
+  field: RecipeCategoryFieldsEnum
+}
 
 export type RecipeCategoryEdge = {
-  __typename?: 'RecipeCategoryEdge';
-  next?: Maybe<RecipeCategory>;
-  node: RecipeCategory;
-  previous?: Maybe<RecipeCategory>;
-};
+  __typename?: 'RecipeCategoryEdge'
+  next?: Maybe<RecipeCategory>
+  node: RecipeCategory
+  previous?: Maybe<RecipeCategory>
+}
 
 export enum RecipeCategoryFieldsEnum {
   Children = 'children',
@@ -2716,124 +2613,114 @@ export enum RecipeCategoryFieldsEnum {
   ParentParentParentChildren = 'parent___parent___parent___children',
   ParentParentParentId = 'parent___parent___parent___id',
   Position = 'position',
-  Slug = 'slug'
+  Slug = 'slug',
 }
 
 export type RecipeCategoryFilterInput = {
-  children?: InputMaybe<NodeFilterListInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  position?: InputMaybe<IntQueryOperatorInput>;
-  slug?: InputMaybe<StringQueryOperatorInput>;
-};
+  children?: InputMaybe<NodeFilterListInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  parent?: InputMaybe<NodeFilterInput>
+  position?: InputMaybe<IntQueryOperatorInput>
+  slug?: InputMaybe<StringQueryOperatorInput>
+}
 
 export type RecipeCategoryGroupConnection = {
-  __typename?: 'RecipeCategoryGroupConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<RecipeCategoryEdge>;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-  group: Array<RecipeCategoryGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<RecipeCategory>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'RecipeCategoryGroupConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<RecipeCategoryEdge>
+  field: Scalars['String']
+  fieldValue?: Maybe<Scalars['String']>
+  group: Array<RecipeCategoryGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<RecipeCategory>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type RecipeCategoryGroupConnectionDistinctArgs = {
-  field: RecipeCategoryFieldsEnum;
-};
-
+  field: RecipeCategoryFieldsEnum
+}
 
 export type RecipeCategoryGroupConnectionGroupArgs = {
-  field: RecipeCategoryFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: RecipeCategoryFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type RecipeCategoryGroupConnectionMaxArgs = {
-  field: RecipeCategoryFieldsEnum;
-};
-
+  field: RecipeCategoryFieldsEnum
+}
 
 export type RecipeCategoryGroupConnectionMinArgs = {
-  field: RecipeCategoryFieldsEnum;
-};
-
+  field: RecipeCategoryFieldsEnum
+}
 
 export type RecipeCategoryGroupConnectionSumArgs = {
-  field: RecipeCategoryFieldsEnum;
-};
+  field: RecipeCategoryFieldsEnum
+}
 
 export type RecipeCategorySortInput = {
-  fields?: InputMaybe<Array<InputMaybe<RecipeCategoryFieldsEnum>>>;
-  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
-};
+  fields?: InputMaybe<Array<InputMaybe<RecipeCategoryFieldsEnum>>>
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
 
 export type RecipePart = Node & {
-  __typename?: 'RecipePart';
+  __typename?: 'RecipePart'
   /** Returns the first child node of type MarkdownRemark or null if there are no children of given type on this node */
-  childMarkdownRemark?: Maybe<MarkdownRemark>;
-  children: Array<Node>;
+  childMarkdownRemark?: Maybe<MarkdownRemark>
+  children: Array<Node>
   /** Returns all children nodes filtered by type MarkdownRemark */
-  childrenMarkdownRemark?: Maybe<Array<Maybe<MarkdownRemark>>>;
-  id: Scalars['ID'];
-  internal: Internal;
-  parent?: Maybe<Node>;
-};
+  childrenMarkdownRemark?: Maybe<Array<Maybe<MarkdownRemark>>>
+  id: Scalars['ID']
+  internal: Internal
+  parent?: Maybe<Node>
+}
 
 export type RecipePartConnection = {
-  __typename?: 'RecipePartConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<RecipePartEdge>;
-  group: Array<RecipePartGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<RecipePart>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'RecipePartConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<RecipePartEdge>
+  group: Array<RecipePartGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<RecipePart>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type RecipePartConnectionDistinctArgs = {
-  field: RecipePartFieldsEnum;
-};
-
+  field: RecipePartFieldsEnum
+}
 
 export type RecipePartConnectionGroupArgs = {
-  field: RecipePartFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: RecipePartFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type RecipePartConnectionMaxArgs = {
-  field: RecipePartFieldsEnum;
-};
-
+  field: RecipePartFieldsEnum
+}
 
 export type RecipePartConnectionMinArgs = {
-  field: RecipePartFieldsEnum;
-};
-
+  field: RecipePartFieldsEnum
+}
 
 export type RecipePartConnectionSumArgs = {
-  field: RecipePartFieldsEnum;
-};
+  field: RecipePartFieldsEnum
+}
 
 export type RecipePartEdge = {
-  __typename?: 'RecipePartEdge';
-  next?: Maybe<RecipePart>;
-  node: RecipePart;
-  previous?: Maybe<RecipePart>;
-};
+  __typename?: 'RecipePartEdge'
+  next?: Maybe<RecipePart>
+  node: RecipePart
+  previous?: Maybe<RecipePart>
+}
 
 export enum RecipePartFieldsEnum {
   ChildMarkdownRemarkChildren = 'childMarkdownRemark___children',
@@ -3028,152 +2915,140 @@ export enum RecipePartFieldsEnum {
   ParentParentInternalOwner = 'parent___parent___internal___owner',
   ParentParentInternalType = 'parent___parent___internal___type',
   ParentParentParentChildren = 'parent___parent___parent___children',
-  ParentParentParentId = 'parent___parent___parent___id'
+  ParentParentParentId = 'parent___parent___parent___id',
 }
 
 export type RecipePartFilterInput = {
-  childMarkdownRemark?: InputMaybe<MarkdownRemarkFilterInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  childrenMarkdownRemark?: InputMaybe<MarkdownRemarkFilterListInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-};
+  childMarkdownRemark?: InputMaybe<MarkdownRemarkFilterInput>
+  children?: InputMaybe<NodeFilterListInput>
+  childrenMarkdownRemark?: InputMaybe<MarkdownRemarkFilterListInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  parent?: InputMaybe<NodeFilterInput>
+}
 
 export type RecipePartGroupConnection = {
-  __typename?: 'RecipePartGroupConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<RecipePartEdge>;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-  group: Array<RecipePartGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<RecipePart>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'RecipePartGroupConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<RecipePartEdge>
+  field: Scalars['String']
+  fieldValue?: Maybe<Scalars['String']>
+  group: Array<RecipePartGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<RecipePart>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type RecipePartGroupConnectionDistinctArgs = {
-  field: RecipePartFieldsEnum;
-};
-
+  field: RecipePartFieldsEnum
+}
 
 export type RecipePartGroupConnectionGroupArgs = {
-  field: RecipePartFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: RecipePartFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type RecipePartGroupConnectionMaxArgs = {
-  field: RecipePartFieldsEnum;
-};
-
+  field: RecipePartFieldsEnum
+}
 
 export type RecipePartGroupConnectionMinArgs = {
-  field: RecipePartFieldsEnum;
-};
-
+  field: RecipePartFieldsEnum
+}
 
 export type RecipePartGroupConnectionSumArgs = {
-  field: RecipePartFieldsEnum;
-};
+  field: RecipePartFieldsEnum
+}
 
 export type RecipePartSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<RecipePartFieldsEnum>>>;
-  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
-};
+  fields?: InputMaybe<Array<InputMaybe<RecipePartFieldsEnum>>>
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
 
 export type Site = Node & {
-  __typename?: 'Site';
-  buildTime?: Maybe<Scalars['Date']>;
-  children: Array<Node>;
-  host?: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  jsxRuntime?: Maybe<Scalars['String']>;
-  parent?: Maybe<Node>;
-  pathPrefix?: Maybe<Scalars['String']>;
-  polyfill?: Maybe<Scalars['Boolean']>;
-  port?: Maybe<Scalars['Int']>;
-  siteMetadata?: Maybe<SiteSiteMetadata>;
-  trailingSlash?: Maybe<Scalars['String']>;
-};
-
+  __typename?: 'Site'
+  buildTime?: Maybe<Scalars['Date']>
+  children: Array<Node>
+  host?: Maybe<Scalars['String']>
+  id: Scalars['ID']
+  internal: Internal
+  jsxRuntime?: Maybe<Scalars['String']>
+  parent?: Maybe<Node>
+  pathPrefix?: Maybe<Scalars['String']>
+  polyfill?: Maybe<Scalars['Boolean']>
+  port?: Maybe<Scalars['Int']>
+  siteMetadata?: Maybe<SiteSiteMetadata>
+  trailingSlash?: Maybe<Scalars['String']>
+}
 
 export type SiteBuildTimeArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type SiteBuildMetadata = Node & {
-  __typename?: 'SiteBuildMetadata';
-  buildTime?: Maybe<Scalars['Date']>;
-  children: Array<Node>;
-  id: Scalars['ID'];
-  internal: Internal;
-  parent?: Maybe<Node>;
-};
-
+  __typename?: 'SiteBuildMetadata'
+  buildTime?: Maybe<Scalars['Date']>
+  children: Array<Node>
+  id: Scalars['ID']
+  internal: Internal
+  parent?: Maybe<Node>
+}
 
 export type SiteBuildMetadataBuildTimeArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type SiteBuildMetadataConnection = {
-  __typename?: 'SiteBuildMetadataConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<SiteBuildMetadataEdge>;
-  group: Array<SiteBuildMetadataGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<SiteBuildMetadata>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'SiteBuildMetadataConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<SiteBuildMetadataEdge>
+  group: Array<SiteBuildMetadataGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<SiteBuildMetadata>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type SiteBuildMetadataConnectionDistinctArgs = {
-  field: SiteBuildMetadataFieldsEnum;
-};
-
+  field: SiteBuildMetadataFieldsEnum
+}
 
 export type SiteBuildMetadataConnectionGroupArgs = {
-  field: SiteBuildMetadataFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: SiteBuildMetadataFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type SiteBuildMetadataConnectionMaxArgs = {
-  field: SiteBuildMetadataFieldsEnum;
-};
-
+  field: SiteBuildMetadataFieldsEnum
+}
 
 export type SiteBuildMetadataConnectionMinArgs = {
-  field: SiteBuildMetadataFieldsEnum;
-};
-
+  field: SiteBuildMetadataFieldsEnum
+}
 
 export type SiteBuildMetadataConnectionSumArgs = {
-  field: SiteBuildMetadataFieldsEnum;
-};
+  field: SiteBuildMetadataFieldsEnum
+}
 
 export type SiteBuildMetadataEdge = {
-  __typename?: 'SiteBuildMetadataEdge';
-  next?: Maybe<SiteBuildMetadata>;
-  node: SiteBuildMetadata;
-  previous?: Maybe<SiteBuildMetadata>;
-};
+  __typename?: 'SiteBuildMetadataEdge'
+  next?: Maybe<SiteBuildMetadata>
+  node: SiteBuildMetadata
+  previous?: Maybe<SiteBuildMetadata>
+}
 
 export enum SiteBuildMetadataFieldsEnum {
   BuildTime = 'buildTime',
@@ -3262,110 +3137,100 @@ export enum SiteBuildMetadataFieldsEnum {
   ParentParentInternalOwner = 'parent___parent___internal___owner',
   ParentParentInternalType = 'parent___parent___internal___type',
   ParentParentParentChildren = 'parent___parent___parent___children',
-  ParentParentParentId = 'parent___parent___parent___id'
+  ParentParentParentId = 'parent___parent___parent___id',
 }
 
 export type SiteBuildMetadataFilterInput = {
-  buildTime?: InputMaybe<DateQueryOperatorInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-};
+  buildTime?: InputMaybe<DateQueryOperatorInput>
+  children?: InputMaybe<NodeFilterListInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  parent?: InputMaybe<NodeFilterInput>
+}
 
 export type SiteBuildMetadataGroupConnection = {
-  __typename?: 'SiteBuildMetadataGroupConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<SiteBuildMetadataEdge>;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-  group: Array<SiteBuildMetadataGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<SiteBuildMetadata>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'SiteBuildMetadataGroupConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<SiteBuildMetadataEdge>
+  field: Scalars['String']
+  fieldValue?: Maybe<Scalars['String']>
+  group: Array<SiteBuildMetadataGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<SiteBuildMetadata>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type SiteBuildMetadataGroupConnectionDistinctArgs = {
-  field: SiteBuildMetadataFieldsEnum;
-};
-
+  field: SiteBuildMetadataFieldsEnum
+}
 
 export type SiteBuildMetadataGroupConnectionGroupArgs = {
-  field: SiteBuildMetadataFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: SiteBuildMetadataFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type SiteBuildMetadataGroupConnectionMaxArgs = {
-  field: SiteBuildMetadataFieldsEnum;
-};
-
+  field: SiteBuildMetadataFieldsEnum
+}
 
 export type SiteBuildMetadataGroupConnectionMinArgs = {
-  field: SiteBuildMetadataFieldsEnum;
-};
-
+  field: SiteBuildMetadataFieldsEnum
+}
 
 export type SiteBuildMetadataGroupConnectionSumArgs = {
-  field: SiteBuildMetadataFieldsEnum;
-};
+  field: SiteBuildMetadataFieldsEnum
+}
 
 export type SiteBuildMetadataSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<SiteBuildMetadataFieldsEnum>>>;
-  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
-};
+  fields?: InputMaybe<Array<InputMaybe<SiteBuildMetadataFieldsEnum>>>
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
 
 export type SiteConnection = {
-  __typename?: 'SiteConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<SiteEdge>;
-  group: Array<SiteGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<Site>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'SiteConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<SiteEdge>
+  group: Array<SiteGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<Site>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type SiteConnectionDistinctArgs = {
-  field: SiteFieldsEnum;
-};
-
+  field: SiteFieldsEnum
+}
 
 export type SiteConnectionGroupArgs = {
-  field: SiteFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: SiteFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type SiteConnectionMaxArgs = {
-  field: SiteFieldsEnum;
-};
-
+  field: SiteFieldsEnum
+}
 
 export type SiteConnectionMinArgs = {
-  field: SiteFieldsEnum;
-};
-
+  field: SiteFieldsEnum
+}
 
 export type SiteConnectionSumArgs = {
-  field: SiteFieldsEnum;
-};
+  field: SiteFieldsEnum
+}
 
 export type SiteEdge = {
-  __typename?: 'SiteEdge';
-  next?: Maybe<Site>;
-  node: Site;
-  previous?: Maybe<Site>;
-};
+  __typename?: 'SiteEdge'
+  next?: Maybe<Site>
+  node: Site
+  previous?: Maybe<Site>
+}
 
 export enum SiteFieldsEnum {
   BuildTime = 'buildTime',
@@ -3464,85 +3329,80 @@ export enum SiteFieldsEnum {
   SiteMetadataDescription = 'siteMetadata___description',
   SiteMetadataSiteUrl = 'siteMetadata___siteUrl',
   SiteMetadataTitle = 'siteMetadata___title',
-  TrailingSlash = 'trailingSlash'
+  TrailingSlash = 'trailingSlash',
 }
 
 export type SiteFilterInput = {
-  buildTime?: InputMaybe<DateQueryOperatorInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  host?: InputMaybe<StringQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  pathPrefix?: InputMaybe<StringQueryOperatorInput>;
-  polyfill?: InputMaybe<BooleanQueryOperatorInput>;
-  port?: InputMaybe<IntQueryOperatorInput>;
-  siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>;
-  trailingSlash?: InputMaybe<StringQueryOperatorInput>;
-};
+  buildTime?: InputMaybe<DateQueryOperatorInput>
+  children?: InputMaybe<NodeFilterListInput>
+  host?: InputMaybe<StringQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  jsxRuntime?: InputMaybe<StringQueryOperatorInput>
+  parent?: InputMaybe<NodeFilterInput>
+  pathPrefix?: InputMaybe<StringQueryOperatorInput>
+  polyfill?: InputMaybe<BooleanQueryOperatorInput>
+  port?: InputMaybe<IntQueryOperatorInput>
+  siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>
+  trailingSlash?: InputMaybe<StringQueryOperatorInput>
+}
 
 export type SiteFunction = Node & {
-  __typename?: 'SiteFunction';
-  absoluteCompiledFilePath: Scalars['String'];
-  children: Array<Node>;
-  functionRoute: Scalars['String'];
-  id: Scalars['ID'];
-  internal: Internal;
-  matchPath?: Maybe<Scalars['String']>;
-  originalAbsoluteFilePath: Scalars['String'];
-  originalRelativeFilePath: Scalars['String'];
-  parent?: Maybe<Node>;
-  pluginName: Scalars['String'];
-  relativeCompiledFilePath: Scalars['String'];
-};
+  __typename?: 'SiteFunction'
+  absoluteCompiledFilePath: Scalars['String']
+  children: Array<Node>
+  functionRoute: Scalars['String']
+  id: Scalars['ID']
+  internal: Internal
+  matchPath?: Maybe<Scalars['String']>
+  originalAbsoluteFilePath: Scalars['String']
+  originalRelativeFilePath: Scalars['String']
+  parent?: Maybe<Node>
+  pluginName: Scalars['String']
+  relativeCompiledFilePath: Scalars['String']
+}
 
 export type SiteFunctionConnection = {
-  __typename?: 'SiteFunctionConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<SiteFunctionEdge>;
-  group: Array<SiteFunctionGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<SiteFunction>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'SiteFunctionConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<SiteFunctionEdge>
+  group: Array<SiteFunctionGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<SiteFunction>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type SiteFunctionConnectionDistinctArgs = {
-  field: SiteFunctionFieldsEnum;
-};
-
+  field: SiteFunctionFieldsEnum
+}
 
 export type SiteFunctionConnectionGroupArgs = {
-  field: SiteFunctionFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: SiteFunctionFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type SiteFunctionConnectionMaxArgs = {
-  field: SiteFunctionFieldsEnum;
-};
-
+  field: SiteFunctionFieldsEnum
+}
 
 export type SiteFunctionConnectionMinArgs = {
-  field: SiteFunctionFieldsEnum;
-};
-
+  field: SiteFunctionFieldsEnum
+}
 
 export type SiteFunctionConnectionSumArgs = {
-  field: SiteFunctionFieldsEnum;
-};
+  field: SiteFunctionFieldsEnum
+}
 
 export type SiteFunctionEdge = {
-  __typename?: 'SiteFunctionEdge';
-  next?: Maybe<SiteFunction>;
-  node: SiteFunction;
-  previous?: Maybe<SiteFunction>;
-};
+  __typename?: 'SiteFunctionEdge'
+  next?: Maybe<SiteFunction>
+  node: SiteFunction
+  previous?: Maybe<SiteFunction>
+}
 
 export enum SiteFunctionFieldsEnum {
   AbsoluteCompiledFilePath = 'absoluteCompiledFilePath',
@@ -3637,173 +3497,158 @@ export enum SiteFunctionFieldsEnum {
   ParentParentParentChildren = 'parent___parent___parent___children',
   ParentParentParentId = 'parent___parent___parent___id',
   PluginName = 'pluginName',
-  RelativeCompiledFilePath = 'relativeCompiledFilePath'
+  RelativeCompiledFilePath = 'relativeCompiledFilePath',
 }
 
 export type SiteFunctionFilterInput = {
-  absoluteCompiledFilePath?: InputMaybe<StringQueryOperatorInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  functionRoute?: InputMaybe<StringQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  matchPath?: InputMaybe<StringQueryOperatorInput>;
-  originalAbsoluteFilePath?: InputMaybe<StringQueryOperatorInput>;
-  originalRelativeFilePath?: InputMaybe<StringQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  pluginName?: InputMaybe<StringQueryOperatorInput>;
-  relativeCompiledFilePath?: InputMaybe<StringQueryOperatorInput>;
-};
+  absoluteCompiledFilePath?: InputMaybe<StringQueryOperatorInput>
+  children?: InputMaybe<NodeFilterListInput>
+  functionRoute?: InputMaybe<StringQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  matchPath?: InputMaybe<StringQueryOperatorInput>
+  originalAbsoluteFilePath?: InputMaybe<StringQueryOperatorInput>
+  originalRelativeFilePath?: InputMaybe<StringQueryOperatorInput>
+  parent?: InputMaybe<NodeFilterInput>
+  pluginName?: InputMaybe<StringQueryOperatorInput>
+  relativeCompiledFilePath?: InputMaybe<StringQueryOperatorInput>
+}
 
 export type SiteFunctionGroupConnection = {
-  __typename?: 'SiteFunctionGroupConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<SiteFunctionEdge>;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-  group: Array<SiteFunctionGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<SiteFunction>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'SiteFunctionGroupConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<SiteFunctionEdge>
+  field: Scalars['String']
+  fieldValue?: Maybe<Scalars['String']>
+  group: Array<SiteFunctionGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<SiteFunction>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type SiteFunctionGroupConnectionDistinctArgs = {
-  field: SiteFunctionFieldsEnum;
-};
-
+  field: SiteFunctionFieldsEnum
+}
 
 export type SiteFunctionGroupConnectionGroupArgs = {
-  field: SiteFunctionFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: SiteFunctionFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type SiteFunctionGroupConnectionMaxArgs = {
-  field: SiteFunctionFieldsEnum;
-};
-
+  field: SiteFunctionFieldsEnum
+}
 
 export type SiteFunctionGroupConnectionMinArgs = {
-  field: SiteFunctionFieldsEnum;
-};
-
+  field: SiteFunctionFieldsEnum
+}
 
 export type SiteFunctionGroupConnectionSumArgs = {
-  field: SiteFunctionFieldsEnum;
-};
+  field: SiteFunctionFieldsEnum
+}
 
 export type SiteFunctionSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<SiteFunctionFieldsEnum>>>;
-  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
-};
+  fields?: InputMaybe<Array<InputMaybe<SiteFunctionFieldsEnum>>>
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
 
 export type SiteGroupConnection = {
-  __typename?: 'SiteGroupConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<SiteEdge>;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-  group: Array<SiteGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<Site>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'SiteGroupConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<SiteEdge>
+  field: Scalars['String']
+  fieldValue?: Maybe<Scalars['String']>
+  group: Array<SiteGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<Site>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type SiteGroupConnectionDistinctArgs = {
-  field: SiteFieldsEnum;
-};
-
+  field: SiteFieldsEnum
+}
 
 export type SiteGroupConnectionGroupArgs = {
-  field: SiteFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: SiteFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type SiteGroupConnectionMaxArgs = {
-  field: SiteFieldsEnum;
-};
-
+  field: SiteFieldsEnum
+}
 
 export type SiteGroupConnectionMinArgs = {
-  field: SiteFieldsEnum;
-};
-
+  field: SiteFieldsEnum
+}
 
 export type SiteGroupConnectionSumArgs = {
-  field: SiteFieldsEnum;
-};
+  field: SiteFieldsEnum
+}
 
 export type SitePage = Node & {
-  __typename?: 'SitePage';
-  children: Array<Node>;
-  component: Scalars['String'];
-  componentChunkName: Scalars['String'];
-  id: Scalars['ID'];
-  internal: Internal;
-  internalComponentName: Scalars['String'];
-  matchPath?: Maybe<Scalars['String']>;
-  pageContext?: Maybe<Scalars['JSON']>;
-  parent?: Maybe<Node>;
-  path: Scalars['String'];
-  pluginCreator?: Maybe<SitePlugin>;
-};
+  __typename?: 'SitePage'
+  children: Array<Node>
+  component: Scalars['String']
+  componentChunkName: Scalars['String']
+  id: Scalars['ID']
+  internal: Internal
+  internalComponentName: Scalars['String']
+  matchPath?: Maybe<Scalars['String']>
+  pageContext?: Maybe<Scalars['JSON']>
+  parent?: Maybe<Node>
+  path: Scalars['String']
+  pluginCreator?: Maybe<SitePlugin>
+}
 
 export type SitePageConnection = {
-  __typename?: 'SitePageConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<SitePageEdge>;
-  group: Array<SitePageGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<SitePage>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'SitePageConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<SitePageEdge>
+  group: Array<SitePageGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<SitePage>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type SitePageConnectionDistinctArgs = {
-  field: SitePageFieldsEnum;
-};
-
+  field: SitePageFieldsEnum
+}
 
 export type SitePageConnectionGroupArgs = {
-  field: SitePageFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: SitePageFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type SitePageConnectionMaxArgs = {
-  field: SitePageFieldsEnum;
-};
-
+  field: SitePageFieldsEnum
+}
 
 export type SitePageConnectionMinArgs = {
-  field: SitePageFieldsEnum;
-};
-
+  field: SitePageFieldsEnum
+}
 
 export type SitePageConnectionSumArgs = {
-  field: SitePageFieldsEnum;
-};
+  field: SitePageFieldsEnum
+}
 
 export type SitePageEdge = {
-  __typename?: 'SitePageEdge';
-  next?: Maybe<SitePage>;
-  node: SitePage;
-  previous?: Maybe<SitePage>;
-};
+  __typename?: 'SitePageEdge'
+  next?: Maybe<SitePage>
+  node: SitePage
+  previous?: Maybe<SitePage>
+}
 
 export enum SitePageFieldsEnum {
   Children = 'children',
@@ -3944,133 +3789,123 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptions = 'pluginCreator___pluginOptions',
   PluginCreatorResolve = 'pluginCreator___resolve',
   PluginCreatorSsrApIs = 'pluginCreator___ssrAPIs',
-  PluginCreatorVersion = 'pluginCreator___version'
+  PluginCreatorVersion = 'pluginCreator___version',
 }
 
 export type SitePageFilterInput = {
-  children?: InputMaybe<NodeFilterListInput>;
-  component?: InputMaybe<StringQueryOperatorInput>;
-  componentChunkName?: InputMaybe<StringQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  internalComponentName?: InputMaybe<StringQueryOperatorInput>;
-  matchPath?: InputMaybe<StringQueryOperatorInput>;
-  pageContext?: InputMaybe<JsonQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  path?: InputMaybe<StringQueryOperatorInput>;
-  pluginCreator?: InputMaybe<SitePluginFilterInput>;
-};
+  children?: InputMaybe<NodeFilterListInput>
+  component?: InputMaybe<StringQueryOperatorInput>
+  componentChunkName?: InputMaybe<StringQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  internalComponentName?: InputMaybe<StringQueryOperatorInput>
+  matchPath?: InputMaybe<StringQueryOperatorInput>
+  pageContext?: InputMaybe<JsonQueryOperatorInput>
+  parent?: InputMaybe<NodeFilterInput>
+  path?: InputMaybe<StringQueryOperatorInput>
+  pluginCreator?: InputMaybe<SitePluginFilterInput>
+}
 
 export type SitePageGroupConnection = {
-  __typename?: 'SitePageGroupConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<SitePageEdge>;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-  group: Array<SitePageGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<SitePage>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'SitePageGroupConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<SitePageEdge>
+  field: Scalars['String']
+  fieldValue?: Maybe<Scalars['String']>
+  group: Array<SitePageGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<SitePage>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type SitePageGroupConnectionDistinctArgs = {
-  field: SitePageFieldsEnum;
-};
-
+  field: SitePageFieldsEnum
+}
 
 export type SitePageGroupConnectionGroupArgs = {
-  field: SitePageFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: SitePageFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type SitePageGroupConnectionMaxArgs = {
-  field: SitePageFieldsEnum;
-};
-
+  field: SitePageFieldsEnum
+}
 
 export type SitePageGroupConnectionMinArgs = {
-  field: SitePageFieldsEnum;
-};
-
+  field: SitePageFieldsEnum
+}
 
 export type SitePageGroupConnectionSumArgs = {
-  field: SitePageFieldsEnum;
-};
+  field: SitePageFieldsEnum
+}
 
 export type SitePageSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<SitePageFieldsEnum>>>;
-  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
-};
+  fields?: InputMaybe<Array<InputMaybe<SitePageFieldsEnum>>>
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
 
 export type SitePlugin = Node & {
-  __typename?: 'SitePlugin';
-  browserAPIs?: Maybe<Array<Maybe<Scalars['String']>>>;
-  children: Array<Node>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name?: Maybe<Scalars['String']>;
-  nodeAPIs?: Maybe<Array<Maybe<Scalars['String']>>>;
-  packageJson?: Maybe<Scalars['JSON']>;
-  parent?: Maybe<Node>;
-  pluginFilepath?: Maybe<Scalars['String']>;
-  pluginOptions?: Maybe<Scalars['JSON']>;
-  resolve?: Maybe<Scalars['String']>;
-  ssrAPIs?: Maybe<Array<Maybe<Scalars['String']>>>;
-  version?: Maybe<Scalars['String']>;
-};
+  __typename?: 'SitePlugin'
+  browserAPIs?: Maybe<Array<Maybe<Scalars['String']>>>
+  children: Array<Node>
+  id: Scalars['ID']
+  internal: Internal
+  name?: Maybe<Scalars['String']>
+  nodeAPIs?: Maybe<Array<Maybe<Scalars['String']>>>
+  packageJson?: Maybe<Scalars['JSON']>
+  parent?: Maybe<Node>
+  pluginFilepath?: Maybe<Scalars['String']>
+  pluginOptions?: Maybe<Scalars['JSON']>
+  resolve?: Maybe<Scalars['String']>
+  ssrAPIs?: Maybe<Array<Maybe<Scalars['String']>>>
+  version?: Maybe<Scalars['String']>
+}
 
 export type SitePluginConnection = {
-  __typename?: 'SitePluginConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<SitePluginEdge>;
-  group: Array<SitePluginGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<SitePlugin>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'SitePluginConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<SitePluginEdge>
+  group: Array<SitePluginGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<SitePlugin>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type SitePluginConnectionDistinctArgs = {
-  field: SitePluginFieldsEnum;
-};
-
+  field: SitePluginFieldsEnum
+}
 
 export type SitePluginConnectionGroupArgs = {
-  field: SitePluginFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: SitePluginFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type SitePluginConnectionMaxArgs = {
-  field: SitePluginFieldsEnum;
-};
-
+  field: SitePluginFieldsEnum
+}
 
 export type SitePluginConnectionMinArgs = {
-  field: SitePluginFieldsEnum;
-};
-
+  field: SitePluginFieldsEnum
+}
 
 export type SitePluginConnectionSumArgs = {
-  field: SitePluginFieldsEnum;
-};
+  field: SitePluginFieldsEnum
+}
 
 export type SitePluginEdge = {
-  __typename?: 'SitePluginEdge';
-  next?: Maybe<SitePlugin>;
-  node: SitePlugin;
-  previous?: Maybe<SitePlugin>;
-};
+  __typename?: 'SitePluginEdge'
+  next?: Maybe<SitePlugin>
+  node: SitePlugin
+  previous?: Maybe<SitePlugin>
+}
 
 export enum SitePluginFieldsEnum {
   BrowserApIs = 'browserAPIs',
@@ -4167,185 +4002,172 @@ export enum SitePluginFieldsEnum {
   PluginOptions = 'pluginOptions',
   Resolve = 'resolve',
   SsrApIs = 'ssrAPIs',
-  Version = 'version'
+  Version = 'version',
 }
 
 export type SitePluginFilterInput = {
-  browserAPIs?: InputMaybe<StringQueryOperatorInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  nodeAPIs?: InputMaybe<StringQueryOperatorInput>;
-  packageJson?: InputMaybe<JsonQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  pluginFilepath?: InputMaybe<StringQueryOperatorInput>;
-  pluginOptions?: InputMaybe<JsonQueryOperatorInput>;
-  resolve?: InputMaybe<StringQueryOperatorInput>;
-  ssrAPIs?: InputMaybe<StringQueryOperatorInput>;
-  version?: InputMaybe<StringQueryOperatorInput>;
-};
+  browserAPIs?: InputMaybe<StringQueryOperatorInput>
+  children?: InputMaybe<NodeFilterListInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  nodeAPIs?: InputMaybe<StringQueryOperatorInput>
+  packageJson?: InputMaybe<JsonQueryOperatorInput>
+  parent?: InputMaybe<NodeFilterInput>
+  pluginFilepath?: InputMaybe<StringQueryOperatorInput>
+  pluginOptions?: InputMaybe<JsonQueryOperatorInput>
+  resolve?: InputMaybe<StringQueryOperatorInput>
+  ssrAPIs?: InputMaybe<StringQueryOperatorInput>
+  version?: InputMaybe<StringQueryOperatorInput>
+}
 
 export type SitePluginGroupConnection = {
-  __typename?: 'SitePluginGroupConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<SitePluginEdge>;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-  group: Array<SitePluginGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<SitePlugin>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'SitePluginGroupConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<SitePluginEdge>
+  field: Scalars['String']
+  fieldValue?: Maybe<Scalars['String']>
+  group: Array<SitePluginGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<SitePlugin>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type SitePluginGroupConnectionDistinctArgs = {
-  field: SitePluginFieldsEnum;
-};
-
+  field: SitePluginFieldsEnum
+}
 
 export type SitePluginGroupConnectionGroupArgs = {
-  field: SitePluginFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: SitePluginFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type SitePluginGroupConnectionMaxArgs = {
-  field: SitePluginFieldsEnum;
-};
-
+  field: SitePluginFieldsEnum
+}
 
 export type SitePluginGroupConnectionMinArgs = {
-  field: SitePluginFieldsEnum;
-};
-
+  field: SitePluginFieldsEnum
+}
 
 export type SitePluginGroupConnectionSumArgs = {
-  field: SitePluginFieldsEnum;
-};
+  field: SitePluginFieldsEnum
+}
 
 export type SitePluginSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<SitePluginFieldsEnum>>>;
-  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
-};
+  fields?: InputMaybe<Array<InputMaybe<SitePluginFieldsEnum>>>
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
 
 export type SiteSiteMetadata = {
-  __typename?: 'SiteSiteMetadata';
-  author?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
-  siteUrl?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
-};
+  __typename?: 'SiteSiteMetadata'
+  author?: Maybe<Scalars['String']>
+  description?: Maybe<Scalars['String']>
+  siteUrl?: Maybe<Scalars['String']>
+  title?: Maybe<Scalars['String']>
+}
 
 export type SiteSiteMetadataFilterInput = {
-  author?: InputMaybe<StringQueryOperatorInput>;
-  description?: InputMaybe<StringQueryOperatorInput>;
-  siteUrl?: InputMaybe<StringQueryOperatorInput>;
-  title?: InputMaybe<StringQueryOperatorInput>;
-};
+  author?: InputMaybe<StringQueryOperatorInput>
+  description?: InputMaybe<StringQueryOperatorInput>
+  siteUrl?: InputMaybe<StringQueryOperatorInput>
+  title?: InputMaybe<StringQueryOperatorInput>
+}
 
 export type SiteSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<SiteFieldsEnum>>>;
-  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
-};
+  fields?: InputMaybe<Array<InputMaybe<SiteFieldsEnum>>>
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
 
 export enum SortOrderEnum {
   Asc = 'ASC',
-  Desc = 'DESC'
+  Desc = 'DESC',
 }
 
 export type StrapiArticle = Node & {
-  __typename?: 'StrapiArticle';
-  children: Array<Node>;
-  content?: Maybe<Scalars['String']>;
-  created_at?: Maybe<Scalars['Date']>;
-  headline?: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  parent?: Maybe<Node>;
-  parsedContent?: Maybe<RecipePart>;
-  parsedHeadline?: Maybe<RecipePart>;
-  published_at?: Maybe<Scalars['Date']>;
-  slug?: Maybe<Scalars['String']>;
-  strapiId?: Maybe<Scalars['Int']>;
-  title?: Maybe<Scalars['String']>;
-  updated_at?: Maybe<Scalars['Date']>;
-};
-
+  __typename?: 'StrapiArticle'
+  children: Array<Node>
+  content?: Maybe<Scalars['String']>
+  created_at?: Maybe<Scalars['Date']>
+  headline?: Maybe<Scalars['String']>
+  id: Scalars['ID']
+  internal: Internal
+  parent?: Maybe<Node>
+  parsedContent?: Maybe<RecipePart>
+  parsedHeadline?: Maybe<RecipePart>
+  published_at?: Maybe<Scalars['Date']>
+  slug?: Maybe<Scalars['String']>
+  strapiId?: Maybe<Scalars['Int']>
+  title?: Maybe<Scalars['String']>
+  updated_at?: Maybe<Scalars['Date']>
+}
 
 export type StrapiArticleCreated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiArticlePublished_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiArticleUpdated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiArticleConnection = {
-  __typename?: 'StrapiArticleConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<StrapiArticleEdge>;
-  group: Array<StrapiArticleGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<StrapiArticle>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'StrapiArticleConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<StrapiArticleEdge>
+  group: Array<StrapiArticleGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<StrapiArticle>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type StrapiArticleConnectionDistinctArgs = {
-  field: StrapiArticleFieldsEnum;
-};
-
+  field: StrapiArticleFieldsEnum
+}
 
 export type StrapiArticleConnectionGroupArgs = {
-  field: StrapiArticleFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: StrapiArticleFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type StrapiArticleConnectionMaxArgs = {
-  field: StrapiArticleFieldsEnum;
-};
-
+  field: StrapiArticleFieldsEnum
+}
 
 export type StrapiArticleConnectionMinArgs = {
-  field: StrapiArticleFieldsEnum;
-};
-
+  field: StrapiArticleFieldsEnum
+}
 
 export type StrapiArticleConnectionSumArgs = {
-  field: StrapiArticleFieldsEnum;
-};
+  field: StrapiArticleFieldsEnum
+}
 
 export type StrapiArticleEdge = {
-  __typename?: 'StrapiArticleEdge';
-  next?: Maybe<StrapiArticle>;
-  node: StrapiArticle;
-  previous?: Maybe<StrapiArticle>;
-};
+  __typename?: 'StrapiArticleEdge'
+  next?: Maybe<StrapiArticle>
+  node: StrapiArticle
+  previous?: Maybe<StrapiArticle>
+}
 
 export enum StrapiArticleFieldsEnum {
   Children = 'children',
@@ -4441,147 +4263,135 @@ export enum StrapiArticleFieldsEnum {
   Slug = 'slug',
   StrapiId = 'strapiId',
   Title = 'title',
-  UpdatedAt = 'updated_at'
+  UpdatedAt = 'updated_at',
 }
 
 export type StrapiArticleFilterInput = {
-  children?: InputMaybe<NodeFilterListInput>;
-  content?: InputMaybe<StringQueryOperatorInput>;
-  created_at?: InputMaybe<DateQueryOperatorInput>;
-  headline?: InputMaybe<StringQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  published_at?: InputMaybe<DateQueryOperatorInput>;
-  slug?: InputMaybe<StringQueryOperatorInput>;
-  strapiId?: InputMaybe<IntQueryOperatorInput>;
-  title?: InputMaybe<StringQueryOperatorInput>;
-  updated_at?: InputMaybe<DateQueryOperatorInput>;
-};
+  children?: InputMaybe<NodeFilterListInput>
+  content?: InputMaybe<StringQueryOperatorInput>
+  created_at?: InputMaybe<DateQueryOperatorInput>
+  headline?: InputMaybe<StringQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  parent?: InputMaybe<NodeFilterInput>
+  published_at?: InputMaybe<DateQueryOperatorInput>
+  slug?: InputMaybe<StringQueryOperatorInput>
+  strapiId?: InputMaybe<IntQueryOperatorInput>
+  title?: InputMaybe<StringQueryOperatorInput>
+  updated_at?: InputMaybe<DateQueryOperatorInput>
+}
 
 export type StrapiArticleGroupConnection = {
-  __typename?: 'StrapiArticleGroupConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<StrapiArticleEdge>;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-  group: Array<StrapiArticleGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<StrapiArticle>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'StrapiArticleGroupConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<StrapiArticleEdge>
+  field: Scalars['String']
+  fieldValue?: Maybe<Scalars['String']>
+  group: Array<StrapiArticleGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<StrapiArticle>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type StrapiArticleGroupConnectionDistinctArgs = {
-  field: StrapiArticleFieldsEnum;
-};
-
+  field: StrapiArticleFieldsEnum
+}
 
 export type StrapiArticleGroupConnectionGroupArgs = {
-  field: StrapiArticleFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: StrapiArticleFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type StrapiArticleGroupConnectionMaxArgs = {
-  field: StrapiArticleFieldsEnum;
-};
-
+  field: StrapiArticleFieldsEnum
+}
 
 export type StrapiArticleGroupConnectionMinArgs = {
-  field: StrapiArticleFieldsEnum;
-};
-
+  field: StrapiArticleFieldsEnum
+}
 
 export type StrapiArticleGroupConnectionSumArgs = {
-  field: StrapiArticleFieldsEnum;
-};
+  field: StrapiArticleFieldsEnum
+}
 
 export type StrapiArticleSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<StrapiArticleFieldsEnum>>>;
-  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
-};
+  fields?: InputMaybe<Array<InputMaybe<StrapiArticleFieldsEnum>>>
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
 
 export type StrapiCategory = Node & {
-  __typename?: 'StrapiCategory';
-  children: Array<Node>;
-  created_at?: Maybe<Scalars['Date']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name?: Maybe<Scalars['String']>;
-  parent?: Maybe<Node>;
-  recipes?: Maybe<Array<Maybe<StrapiCategoryRecipes>>>;
-  slug?: Maybe<Scalars['String']>;
-  strapiId?: Maybe<Scalars['Int']>;
-  updated_at?: Maybe<Scalars['Date']>;
-};
-
+  __typename?: 'StrapiCategory'
+  children: Array<Node>
+  created_at?: Maybe<Scalars['Date']>
+  id: Scalars['ID']
+  internal: Internal
+  name?: Maybe<Scalars['String']>
+  parent?: Maybe<Node>
+  recipes?: Maybe<Array<Maybe<StrapiCategoryRecipes>>>
+  slug?: Maybe<Scalars['String']>
+  strapiId?: Maybe<Scalars['Int']>
+  updated_at?: Maybe<Scalars['Date']>
+}
 
 export type StrapiCategoryCreated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiCategoryUpdated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiCategoryConnection = {
-  __typename?: 'StrapiCategoryConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<StrapiCategoryEdge>;
-  group: Array<StrapiCategoryGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<StrapiCategory>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'StrapiCategoryConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<StrapiCategoryEdge>
+  group: Array<StrapiCategoryGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<StrapiCategory>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type StrapiCategoryConnectionDistinctArgs = {
-  field: StrapiCategoryFieldsEnum;
-};
-
+  field: StrapiCategoryFieldsEnum
+}
 
 export type StrapiCategoryConnectionGroupArgs = {
-  field: StrapiCategoryFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: StrapiCategoryFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type StrapiCategoryConnectionMaxArgs = {
-  field: StrapiCategoryFieldsEnum;
-};
-
+  field: StrapiCategoryFieldsEnum
+}
 
 export type StrapiCategoryConnectionMinArgs = {
-  field: StrapiCategoryFieldsEnum;
-};
-
+  field: StrapiCategoryFieldsEnum
+}
 
 export type StrapiCategoryConnectionSumArgs = {
-  field: StrapiCategoryFieldsEnum;
-};
+  field: StrapiCategoryFieldsEnum
+}
 
 export type StrapiCategoryEdge = {
-  __typename?: 'StrapiCategoryEdge';
-  next?: Maybe<StrapiCategory>;
-  node: StrapiCategory;
-  previous?: Maybe<StrapiCategory>;
-};
+  __typename?: 'StrapiCategoryEdge'
+  next?: Maybe<StrapiCategory>
+  node: StrapiCategory
+  previous?: Maybe<StrapiCategory>
+}
 
 export enum StrapiCategoryFieldsEnum {
   Children = 'children',
@@ -4788,528 +4598,504 @@ export enum StrapiCategoryFieldsEnum {
   RecipesUpdatedAt = 'recipes___updated_at',
   Slug = 'slug',
   StrapiId = 'strapiId',
-  UpdatedAt = 'updated_at'
+  UpdatedAt = 'updated_at',
 }
 
 export type StrapiCategoryFilterInput = {
-  children?: InputMaybe<NodeFilterListInput>;
-  created_at?: InputMaybe<DateQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  recipes?: InputMaybe<StrapiCategoryRecipesFilterListInput>;
-  slug?: InputMaybe<StringQueryOperatorInput>;
-  strapiId?: InputMaybe<IntQueryOperatorInput>;
-  updated_at?: InputMaybe<DateQueryOperatorInput>;
-};
+  children?: InputMaybe<NodeFilterListInput>
+  created_at?: InputMaybe<DateQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  parent?: InputMaybe<NodeFilterInput>
+  recipes?: InputMaybe<StrapiCategoryRecipesFilterListInput>
+  slug?: InputMaybe<StringQueryOperatorInput>
+  strapiId?: InputMaybe<IntQueryOperatorInput>
+  updated_at?: InputMaybe<DateQueryOperatorInput>
+}
 
 export type StrapiCategoryGroupConnection = {
-  __typename?: 'StrapiCategoryGroupConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<StrapiCategoryEdge>;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-  group: Array<StrapiCategoryGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<StrapiCategory>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'StrapiCategoryGroupConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<StrapiCategoryEdge>
+  field: Scalars['String']
+  fieldValue?: Maybe<Scalars['String']>
+  group: Array<StrapiCategoryGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<StrapiCategory>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type StrapiCategoryGroupConnectionDistinctArgs = {
-  field: StrapiCategoryFieldsEnum;
-};
-
+  field: StrapiCategoryFieldsEnum
+}
 
 export type StrapiCategoryGroupConnectionGroupArgs = {
-  field: StrapiCategoryFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: StrapiCategoryFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type StrapiCategoryGroupConnectionMaxArgs = {
-  field: StrapiCategoryFieldsEnum;
-};
-
+  field: StrapiCategoryFieldsEnum
+}
 
 export type StrapiCategoryGroupConnectionMinArgs = {
-  field: StrapiCategoryFieldsEnum;
-};
-
+  field: StrapiCategoryFieldsEnum
+}
 
 export type StrapiCategoryGroupConnectionSumArgs = {
-  field: StrapiCategoryFieldsEnum;
-};
+  field: StrapiCategoryFieldsEnum
+}
 
 export type StrapiCategoryRecipes = {
-  __typename?: 'StrapiCategoryRecipes';
-  category?: Maybe<Scalars['Int']>;
-  cover?: Maybe<StrapiCategoryRecipesCover>;
-  created_at?: Maybe<Scalars['Date']>;
-  directions?: Maybe<Scalars['String']>;
-  gallery?: Maybe<Array<Maybe<StrapiCategoryRecipesGallery>>>;
-  headline?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['Int']>;
-  ingredients?: Maybe<Scalars['String']>;
-  preparationTime?: Maybe<Scalars['Int']>;
-  published_at?: Maybe<Scalars['Date']>;
-  seo?: Maybe<StrapiCategoryRecipesSeo>;
-  slug?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
-  updated_at?: Maybe<Scalars['Date']>;
-};
-
+  __typename?: 'StrapiCategoryRecipes'
+  category?: Maybe<Scalars['Int']>
+  cover?: Maybe<StrapiCategoryRecipesCover>
+  created_at?: Maybe<Scalars['Date']>
+  directions?: Maybe<Scalars['String']>
+  gallery?: Maybe<Array<Maybe<StrapiCategoryRecipesGallery>>>
+  headline?: Maybe<Scalars['String']>
+  id?: Maybe<Scalars['Int']>
+  ingredients?: Maybe<Scalars['String']>
+  preparationTime?: Maybe<Scalars['Int']>
+  published_at?: Maybe<Scalars['Date']>
+  seo?: Maybe<StrapiCategoryRecipesSeo>
+  slug?: Maybe<Scalars['String']>
+  title?: Maybe<Scalars['String']>
+  updated_at?: Maybe<Scalars['Date']>
+}
 
 export type StrapiCategoryRecipesCreated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiCategoryRecipesPublished_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiCategoryRecipesUpdated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiCategoryRecipesCover = {
-  __typename?: 'StrapiCategoryRecipesCover';
-  created_at?: Maybe<Scalars['Date']>;
-  ext?: Maybe<Scalars['String']>;
-  formats?: Maybe<StrapiCategoryRecipesCoverFormats>;
-  hash?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Int']>;
-  id?: Maybe<Scalars['Int']>;
-  localFile?: Maybe<File>;
-  mime?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  provider?: Maybe<Scalars['String']>;
-  size?: Maybe<Scalars['Float']>;
-  updated_at?: Maybe<Scalars['Date']>;
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Int']>;
-};
-
+  __typename?: 'StrapiCategoryRecipesCover'
+  created_at?: Maybe<Scalars['Date']>
+  ext?: Maybe<Scalars['String']>
+  formats?: Maybe<StrapiCategoryRecipesCoverFormats>
+  hash?: Maybe<Scalars['String']>
+  height?: Maybe<Scalars['Int']>
+  id?: Maybe<Scalars['Int']>
+  localFile?: Maybe<File>
+  mime?: Maybe<Scalars['String']>
+  name?: Maybe<Scalars['String']>
+  provider?: Maybe<Scalars['String']>
+  size?: Maybe<Scalars['Float']>
+  updated_at?: Maybe<Scalars['Date']>
+  url?: Maybe<Scalars['String']>
+  width?: Maybe<Scalars['Int']>
+}
 
 export type StrapiCategoryRecipesCoverCreated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiCategoryRecipesCoverUpdated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiCategoryRecipesCoverFilterInput = {
-  created_at?: InputMaybe<DateQueryOperatorInput>;
-  ext?: InputMaybe<StringQueryOperatorInput>;
-  formats?: InputMaybe<StrapiCategoryRecipesCoverFormatsFilterInput>;
-  hash?: InputMaybe<StringQueryOperatorInput>;
-  height?: InputMaybe<IntQueryOperatorInput>;
-  id?: InputMaybe<IntQueryOperatorInput>;
-  localFile?: InputMaybe<FileFilterInput>;
-  mime?: InputMaybe<StringQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  provider?: InputMaybe<StringQueryOperatorInput>;
-  size?: InputMaybe<FloatQueryOperatorInput>;
-  updated_at?: InputMaybe<DateQueryOperatorInput>;
-  url?: InputMaybe<StringQueryOperatorInput>;
-  width?: InputMaybe<IntQueryOperatorInput>;
-};
+  created_at?: InputMaybe<DateQueryOperatorInput>
+  ext?: InputMaybe<StringQueryOperatorInput>
+  formats?: InputMaybe<StrapiCategoryRecipesCoverFormatsFilterInput>
+  hash?: InputMaybe<StringQueryOperatorInput>
+  height?: InputMaybe<IntQueryOperatorInput>
+  id?: InputMaybe<IntQueryOperatorInput>
+  localFile?: InputMaybe<FileFilterInput>
+  mime?: InputMaybe<StringQueryOperatorInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  provider?: InputMaybe<StringQueryOperatorInput>
+  size?: InputMaybe<FloatQueryOperatorInput>
+  updated_at?: InputMaybe<DateQueryOperatorInput>
+  url?: InputMaybe<StringQueryOperatorInput>
+  width?: InputMaybe<IntQueryOperatorInput>
+}
 
 export type StrapiCategoryRecipesCoverFormats = {
-  __typename?: 'StrapiCategoryRecipesCoverFormats';
-  thumbnail?: Maybe<StrapiCategoryRecipesCoverFormatsThumbnail>;
-};
+  __typename?: 'StrapiCategoryRecipesCoverFormats'
+  thumbnail?: Maybe<StrapiCategoryRecipesCoverFormatsThumbnail>
+}
 
 export type StrapiCategoryRecipesCoverFormatsFilterInput = {
-  thumbnail?: InputMaybe<StrapiCategoryRecipesCoverFormatsThumbnailFilterInput>;
-};
+  thumbnail?: InputMaybe<StrapiCategoryRecipesCoverFormatsThumbnailFilterInput>
+}
 
 export type StrapiCategoryRecipesCoverFormatsThumbnail = {
-  __typename?: 'StrapiCategoryRecipesCoverFormatsThumbnail';
-  ext?: Maybe<Scalars['String']>;
-  hash?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Int']>;
-  mime?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  size?: Maybe<Scalars['Float']>;
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Int']>;
-};
+  __typename?: 'StrapiCategoryRecipesCoverFormatsThumbnail'
+  ext?: Maybe<Scalars['String']>
+  hash?: Maybe<Scalars['String']>
+  height?: Maybe<Scalars['Int']>
+  mime?: Maybe<Scalars['String']>
+  name?: Maybe<Scalars['String']>
+  size?: Maybe<Scalars['Float']>
+  url?: Maybe<Scalars['String']>
+  width?: Maybe<Scalars['Int']>
+}
 
 export type StrapiCategoryRecipesCoverFormatsThumbnailFilterInput = {
-  ext?: InputMaybe<StringQueryOperatorInput>;
-  hash?: InputMaybe<StringQueryOperatorInput>;
-  height?: InputMaybe<IntQueryOperatorInput>;
-  mime?: InputMaybe<StringQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  size?: InputMaybe<FloatQueryOperatorInput>;
-  url?: InputMaybe<StringQueryOperatorInput>;
-  width?: InputMaybe<IntQueryOperatorInput>;
-};
+  ext?: InputMaybe<StringQueryOperatorInput>
+  hash?: InputMaybe<StringQueryOperatorInput>
+  height?: InputMaybe<IntQueryOperatorInput>
+  mime?: InputMaybe<StringQueryOperatorInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  size?: InputMaybe<FloatQueryOperatorInput>
+  url?: InputMaybe<StringQueryOperatorInput>
+  width?: InputMaybe<IntQueryOperatorInput>
+}
 
 export type StrapiCategoryRecipesFilterInput = {
-  category?: InputMaybe<IntQueryOperatorInput>;
-  cover?: InputMaybe<StrapiCategoryRecipesCoverFilterInput>;
-  created_at?: InputMaybe<DateQueryOperatorInput>;
-  directions?: InputMaybe<StringQueryOperatorInput>;
-  gallery?: InputMaybe<StrapiCategoryRecipesGalleryFilterListInput>;
-  headline?: InputMaybe<StringQueryOperatorInput>;
-  id?: InputMaybe<IntQueryOperatorInput>;
-  ingredients?: InputMaybe<StringQueryOperatorInput>;
-  preparationTime?: InputMaybe<IntQueryOperatorInput>;
-  published_at?: InputMaybe<DateQueryOperatorInput>;
-  seo?: InputMaybe<StrapiCategoryRecipesSeoFilterInput>;
-  slug?: InputMaybe<StringQueryOperatorInput>;
-  title?: InputMaybe<StringQueryOperatorInput>;
-  updated_at?: InputMaybe<DateQueryOperatorInput>;
-};
+  category?: InputMaybe<IntQueryOperatorInput>
+  cover?: InputMaybe<StrapiCategoryRecipesCoverFilterInput>
+  created_at?: InputMaybe<DateQueryOperatorInput>
+  directions?: InputMaybe<StringQueryOperatorInput>
+  gallery?: InputMaybe<StrapiCategoryRecipesGalleryFilterListInput>
+  headline?: InputMaybe<StringQueryOperatorInput>
+  id?: InputMaybe<IntQueryOperatorInput>
+  ingredients?: InputMaybe<StringQueryOperatorInput>
+  preparationTime?: InputMaybe<IntQueryOperatorInput>
+  published_at?: InputMaybe<DateQueryOperatorInput>
+  seo?: InputMaybe<StrapiCategoryRecipesSeoFilterInput>
+  slug?: InputMaybe<StringQueryOperatorInput>
+  title?: InputMaybe<StringQueryOperatorInput>
+  updated_at?: InputMaybe<DateQueryOperatorInput>
+}
 
 export type StrapiCategoryRecipesFilterListInput = {
-  elemMatch?: InputMaybe<StrapiCategoryRecipesFilterInput>;
-};
+  elemMatch?: InputMaybe<StrapiCategoryRecipesFilterInput>
+}
 
 export type StrapiCategoryRecipesGallery = {
-  __typename?: 'StrapiCategoryRecipesGallery';
-  created_at?: Maybe<Scalars['Date']>;
-  ext?: Maybe<Scalars['String']>;
-  formats?: Maybe<StrapiCategoryRecipesGalleryFormats>;
-  hash?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Int']>;
-  id?: Maybe<Scalars['Int']>;
-  localFile?: Maybe<File>;
-  mime?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  provider?: Maybe<Scalars['String']>;
-  size?: Maybe<Scalars['Float']>;
-  updated_at?: Maybe<Scalars['Date']>;
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Int']>;
-};
-
+  __typename?: 'StrapiCategoryRecipesGallery'
+  created_at?: Maybe<Scalars['Date']>
+  ext?: Maybe<Scalars['String']>
+  formats?: Maybe<StrapiCategoryRecipesGalleryFormats>
+  hash?: Maybe<Scalars['String']>
+  height?: Maybe<Scalars['Int']>
+  id?: Maybe<Scalars['Int']>
+  localFile?: Maybe<File>
+  mime?: Maybe<Scalars['String']>
+  name?: Maybe<Scalars['String']>
+  provider?: Maybe<Scalars['String']>
+  size?: Maybe<Scalars['Float']>
+  updated_at?: Maybe<Scalars['Date']>
+  url?: Maybe<Scalars['String']>
+  width?: Maybe<Scalars['Int']>
+}
 
 export type StrapiCategoryRecipesGalleryCreated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiCategoryRecipesGalleryUpdated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiCategoryRecipesGalleryFilterInput = {
-  created_at?: InputMaybe<DateQueryOperatorInput>;
-  ext?: InputMaybe<StringQueryOperatorInput>;
-  formats?: InputMaybe<StrapiCategoryRecipesGalleryFormatsFilterInput>;
-  hash?: InputMaybe<StringQueryOperatorInput>;
-  height?: InputMaybe<IntQueryOperatorInput>;
-  id?: InputMaybe<IntQueryOperatorInput>;
-  localFile?: InputMaybe<FileFilterInput>;
-  mime?: InputMaybe<StringQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  provider?: InputMaybe<StringQueryOperatorInput>;
-  size?: InputMaybe<FloatQueryOperatorInput>;
-  updated_at?: InputMaybe<DateQueryOperatorInput>;
-  url?: InputMaybe<StringQueryOperatorInput>;
-  width?: InputMaybe<IntQueryOperatorInput>;
-};
+  created_at?: InputMaybe<DateQueryOperatorInput>
+  ext?: InputMaybe<StringQueryOperatorInput>
+  formats?: InputMaybe<StrapiCategoryRecipesGalleryFormatsFilterInput>
+  hash?: InputMaybe<StringQueryOperatorInput>
+  height?: InputMaybe<IntQueryOperatorInput>
+  id?: InputMaybe<IntQueryOperatorInput>
+  localFile?: InputMaybe<FileFilterInput>
+  mime?: InputMaybe<StringQueryOperatorInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  provider?: InputMaybe<StringQueryOperatorInput>
+  size?: InputMaybe<FloatQueryOperatorInput>
+  updated_at?: InputMaybe<DateQueryOperatorInput>
+  url?: InputMaybe<StringQueryOperatorInput>
+  width?: InputMaybe<IntQueryOperatorInput>
+}
 
 export type StrapiCategoryRecipesGalleryFilterListInput = {
-  elemMatch?: InputMaybe<StrapiCategoryRecipesGalleryFilterInput>;
-};
+  elemMatch?: InputMaybe<StrapiCategoryRecipesGalleryFilterInput>
+}
 
 export type StrapiCategoryRecipesGalleryFormats = {
-  __typename?: 'StrapiCategoryRecipesGalleryFormats';
-  thumbnail?: Maybe<StrapiCategoryRecipesGalleryFormatsThumbnail>;
-};
+  __typename?: 'StrapiCategoryRecipesGalleryFormats'
+  thumbnail?: Maybe<StrapiCategoryRecipesGalleryFormatsThumbnail>
+}
 
 export type StrapiCategoryRecipesGalleryFormatsFilterInput = {
-  thumbnail?: InputMaybe<StrapiCategoryRecipesGalleryFormatsThumbnailFilterInput>;
-};
+  thumbnail?: InputMaybe<StrapiCategoryRecipesGalleryFormatsThumbnailFilterInput>
+}
 
 export type StrapiCategoryRecipesGalleryFormatsThumbnail = {
-  __typename?: 'StrapiCategoryRecipesGalleryFormatsThumbnail';
-  ext?: Maybe<Scalars['String']>;
-  hash?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Int']>;
-  mime?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  size?: Maybe<Scalars['Float']>;
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Int']>;
-};
+  __typename?: 'StrapiCategoryRecipesGalleryFormatsThumbnail'
+  ext?: Maybe<Scalars['String']>
+  hash?: Maybe<Scalars['String']>
+  height?: Maybe<Scalars['Int']>
+  mime?: Maybe<Scalars['String']>
+  name?: Maybe<Scalars['String']>
+  size?: Maybe<Scalars['Float']>
+  url?: Maybe<Scalars['String']>
+  width?: Maybe<Scalars['Int']>
+}
 
 export type StrapiCategoryRecipesGalleryFormatsThumbnailFilterInput = {
-  ext?: InputMaybe<StringQueryOperatorInput>;
-  hash?: InputMaybe<StringQueryOperatorInput>;
-  height?: InputMaybe<IntQueryOperatorInput>;
-  mime?: InputMaybe<StringQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  size?: InputMaybe<FloatQueryOperatorInput>;
-  url?: InputMaybe<StringQueryOperatorInput>;
-  width?: InputMaybe<IntQueryOperatorInput>;
-};
+  ext?: InputMaybe<StringQueryOperatorInput>
+  hash?: InputMaybe<StringQueryOperatorInput>
+  height?: InputMaybe<IntQueryOperatorInput>
+  mime?: InputMaybe<StringQueryOperatorInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  size?: InputMaybe<FloatQueryOperatorInput>
+  url?: InputMaybe<StringQueryOperatorInput>
+  width?: InputMaybe<IntQueryOperatorInput>
+}
 
 export type StrapiCategoryRecipesSeo = {
-  __typename?: 'StrapiCategoryRecipesSeo';
-  htmlDescription?: Maybe<Scalars['String']>;
-  htmlTitle?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['Int']>;
-};
+  __typename?: 'StrapiCategoryRecipesSeo'
+  htmlDescription?: Maybe<Scalars['String']>
+  htmlTitle?: Maybe<Scalars['String']>
+  id?: Maybe<Scalars['Int']>
+}
 
 export type StrapiCategoryRecipesSeoFilterInput = {
-  htmlDescription?: InputMaybe<StringQueryOperatorInput>;
-  htmlTitle?: InputMaybe<StringQueryOperatorInput>;
-  id?: InputMaybe<IntQueryOperatorInput>;
-};
+  htmlDescription?: InputMaybe<StringQueryOperatorInput>
+  htmlTitle?: InputMaybe<StringQueryOperatorInput>
+  id?: InputMaybe<IntQueryOperatorInput>
+}
 
 export type StrapiCategorySortInput = {
-  fields?: InputMaybe<Array<InputMaybe<StrapiCategoryFieldsEnum>>>;
-  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
-};
+  fields?: InputMaybe<Array<InputMaybe<StrapiCategoryFieldsEnum>>>
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
 
 export type StrapiRecipe = Node & {
-  __typename?: 'StrapiRecipe';
-  category?: Maybe<StrapiRecipeCategory>;
-  children: Array<Node>;
-  cover?: Maybe<StrapiRecipeCover>;
-  created_at?: Maybe<Scalars['Date']>;
-  directions?: Maybe<Scalars['String']>;
-  gallery?: Maybe<Array<Maybe<StrapiRecipeGallery>>>;
-  headline?: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  ingredients?: Maybe<Scalars['String']>;
-  internal: Internal;
-  parent?: Maybe<Node>;
-  parsedDirections?: Maybe<RecipePart>;
-  parsedHeadline?: Maybe<RecipePart>;
-  parsedIngredients?: Maybe<RecipePart>;
-  preparationTime?: Maybe<Scalars['Int']>;
-  published_at?: Maybe<Scalars['Date']>;
-  seo?: Maybe<StrapiRecipeSeo>;
-  slug?: Maybe<Scalars['String']>;
-  strapiId?: Maybe<Scalars['Int']>;
-  tags?: Maybe<Array<Maybe<StrapiRecipeTags>>>;
-  title?: Maybe<Scalars['String']>;
-  updated_at?: Maybe<Scalars['Date']>;
-};
-
+  __typename?: 'StrapiRecipe'
+  category?: Maybe<StrapiRecipeCategory>
+  children: Array<Node>
+  cover?: Maybe<StrapiRecipeCover>
+  created_at?: Maybe<Scalars['Date']>
+  directions?: Maybe<Scalars['String']>
+  gallery?: Maybe<Array<Maybe<StrapiRecipeGallery>>>
+  headline?: Maybe<Scalars['String']>
+  id: Scalars['ID']
+  ingredients?: Maybe<Scalars['String']>
+  internal: Internal
+  parent?: Maybe<Node>
+  parsedDirections?: Maybe<RecipePart>
+  parsedHeadline?: Maybe<RecipePart>
+  parsedIngredients?: Maybe<RecipePart>
+  preparationTime?: Maybe<Scalars['Int']>
+  published_at?: Maybe<Scalars['Date']>
+  seo?: Maybe<StrapiRecipeSeo>
+  slug?: Maybe<Scalars['String']>
+  strapiId?: Maybe<Scalars['Int']>
+  tags?: Maybe<Array<Maybe<StrapiRecipeTags>>>
+  title?: Maybe<Scalars['String']>
+  updated_at?: Maybe<Scalars['Date']>
+}
 
 export type StrapiRecipeCreated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiRecipePublished_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiRecipeUpdated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiRecipeCategory = {
-  __typename?: 'StrapiRecipeCategory';
-  created_at?: Maybe<Scalars['Date']>;
-  id?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  slug?: Maybe<Scalars['String']>;
-  updated_at?: Maybe<Scalars['Date']>;
-};
-
+  __typename?: 'StrapiRecipeCategory'
+  created_at?: Maybe<Scalars['Date']>
+  id?: Maybe<Scalars['Int']>
+  name?: Maybe<Scalars['String']>
+  slug?: Maybe<Scalars['String']>
+  updated_at?: Maybe<Scalars['Date']>
+}
 
 export type StrapiRecipeCategoryCreated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiRecipeCategoryUpdated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiRecipeCategoryFilterInput = {
-  created_at?: InputMaybe<DateQueryOperatorInput>;
-  id?: InputMaybe<IntQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  slug?: InputMaybe<StringQueryOperatorInput>;
-  updated_at?: InputMaybe<DateQueryOperatorInput>;
-};
+  created_at?: InputMaybe<DateQueryOperatorInput>
+  id?: InputMaybe<IntQueryOperatorInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  slug?: InputMaybe<StringQueryOperatorInput>
+  updated_at?: InputMaybe<DateQueryOperatorInput>
+}
 
 export type StrapiRecipeConnection = {
-  __typename?: 'StrapiRecipeConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<StrapiRecipeEdge>;
-  group: Array<StrapiRecipeGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<StrapiRecipe>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'StrapiRecipeConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<StrapiRecipeEdge>
+  group: Array<StrapiRecipeGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<StrapiRecipe>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type StrapiRecipeConnectionDistinctArgs = {
-  field: StrapiRecipeFieldsEnum;
-};
-
+  field: StrapiRecipeFieldsEnum
+}
 
 export type StrapiRecipeConnectionGroupArgs = {
-  field: StrapiRecipeFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: StrapiRecipeFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type StrapiRecipeConnectionMaxArgs = {
-  field: StrapiRecipeFieldsEnum;
-};
-
+  field: StrapiRecipeFieldsEnum
+}
 
 export type StrapiRecipeConnectionMinArgs = {
-  field: StrapiRecipeFieldsEnum;
-};
-
+  field: StrapiRecipeFieldsEnum
+}
 
 export type StrapiRecipeConnectionSumArgs = {
-  field: StrapiRecipeFieldsEnum;
-};
+  field: StrapiRecipeFieldsEnum
+}
 
 export type StrapiRecipeCover = {
-  __typename?: 'StrapiRecipeCover';
-  created_at?: Maybe<Scalars['Date']>;
-  ext?: Maybe<Scalars['String']>;
-  formats?: Maybe<StrapiRecipeCoverFormats>;
-  hash?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Int']>;
-  id?: Maybe<Scalars['Int']>;
-  image?: Maybe<File>;
-  localFile?: Maybe<File>;
-  mime?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  provider?: Maybe<Scalars['String']>;
-  size?: Maybe<Scalars['Float']>;
-  updated_at?: Maybe<Scalars['Date']>;
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Int']>;
-};
-
+  __typename?: 'StrapiRecipeCover'
+  created_at?: Maybe<Scalars['Date']>
+  ext?: Maybe<Scalars['String']>
+  formats?: Maybe<StrapiRecipeCoverFormats>
+  hash?: Maybe<Scalars['String']>
+  height?: Maybe<Scalars['Int']>
+  id?: Maybe<Scalars['Int']>
+  image?: Maybe<File>
+  localFile?: Maybe<File>
+  mime?: Maybe<Scalars['String']>
+  name?: Maybe<Scalars['String']>
+  provider?: Maybe<Scalars['String']>
+  size?: Maybe<Scalars['Float']>
+  updated_at?: Maybe<Scalars['Date']>
+  url?: Maybe<Scalars['String']>
+  width?: Maybe<Scalars['Int']>
+}
 
 export type StrapiRecipeCoverCreated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiRecipeCoverUpdated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiRecipeCoverFilterInput = {
-  created_at?: InputMaybe<DateQueryOperatorInput>;
-  ext?: InputMaybe<StringQueryOperatorInput>;
-  formats?: InputMaybe<StrapiRecipeCoverFormatsFilterInput>;
-  hash?: InputMaybe<StringQueryOperatorInput>;
-  height?: InputMaybe<IntQueryOperatorInput>;
-  id?: InputMaybe<IntQueryOperatorInput>;
-  localFile?: InputMaybe<FileFilterInput>;
-  mime?: InputMaybe<StringQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  provider?: InputMaybe<StringQueryOperatorInput>;
-  size?: InputMaybe<FloatQueryOperatorInput>;
-  updated_at?: InputMaybe<DateQueryOperatorInput>;
-  url?: InputMaybe<StringQueryOperatorInput>;
-  width?: InputMaybe<IntQueryOperatorInput>;
-};
+  created_at?: InputMaybe<DateQueryOperatorInput>
+  ext?: InputMaybe<StringQueryOperatorInput>
+  formats?: InputMaybe<StrapiRecipeCoverFormatsFilterInput>
+  hash?: InputMaybe<StringQueryOperatorInput>
+  height?: InputMaybe<IntQueryOperatorInput>
+  id?: InputMaybe<IntQueryOperatorInput>
+  localFile?: InputMaybe<FileFilterInput>
+  mime?: InputMaybe<StringQueryOperatorInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  provider?: InputMaybe<StringQueryOperatorInput>
+  size?: InputMaybe<FloatQueryOperatorInput>
+  updated_at?: InputMaybe<DateQueryOperatorInput>
+  url?: InputMaybe<StringQueryOperatorInput>
+  width?: InputMaybe<IntQueryOperatorInput>
+}
 
 export type StrapiRecipeCoverFormats = {
-  __typename?: 'StrapiRecipeCoverFormats';
-  thumbnail?: Maybe<StrapiRecipeCoverFormatsThumbnail>;
-};
+  __typename?: 'StrapiRecipeCoverFormats'
+  thumbnail?: Maybe<StrapiRecipeCoverFormatsThumbnail>
+}
 
 export type StrapiRecipeCoverFormatsFilterInput = {
-  thumbnail?: InputMaybe<StrapiRecipeCoverFormatsThumbnailFilterInput>;
-};
+  thumbnail?: InputMaybe<StrapiRecipeCoverFormatsThumbnailFilterInput>
+}
 
 export type StrapiRecipeCoverFormatsThumbnail = {
-  __typename?: 'StrapiRecipeCoverFormatsThumbnail';
-  ext?: Maybe<Scalars['String']>;
-  hash?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Int']>;
-  mime?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  size?: Maybe<Scalars['Float']>;
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Int']>;
-};
+  __typename?: 'StrapiRecipeCoverFormatsThumbnail'
+  ext?: Maybe<Scalars['String']>
+  hash?: Maybe<Scalars['String']>
+  height?: Maybe<Scalars['Int']>
+  mime?: Maybe<Scalars['String']>
+  name?: Maybe<Scalars['String']>
+  size?: Maybe<Scalars['Float']>
+  url?: Maybe<Scalars['String']>
+  width?: Maybe<Scalars['Int']>
+}
 
 export type StrapiRecipeCoverFormatsThumbnailFilterInput = {
-  ext?: InputMaybe<StringQueryOperatorInput>;
-  hash?: InputMaybe<StringQueryOperatorInput>;
-  height?: InputMaybe<IntQueryOperatorInput>;
-  mime?: InputMaybe<StringQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  size?: InputMaybe<FloatQueryOperatorInput>;
-  url?: InputMaybe<StringQueryOperatorInput>;
-  width?: InputMaybe<IntQueryOperatorInput>;
-};
+  ext?: InputMaybe<StringQueryOperatorInput>
+  hash?: InputMaybe<StringQueryOperatorInput>
+  height?: InputMaybe<IntQueryOperatorInput>
+  mime?: InputMaybe<StringQueryOperatorInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  size?: InputMaybe<FloatQueryOperatorInput>
+  url?: InputMaybe<StringQueryOperatorInput>
+  width?: InputMaybe<IntQueryOperatorInput>
+}
 
 export type StrapiRecipeEdge = {
-  __typename?: 'StrapiRecipeEdge';
-  next?: Maybe<StrapiRecipe>;
-  node: StrapiRecipe;
-  previous?: Maybe<StrapiRecipe>;
-};
+  __typename?: 'StrapiRecipeEdge'
+  next?: Maybe<StrapiRecipe>
+  node: StrapiRecipe
+  previous?: Maybe<StrapiRecipe>
+}
 
 export enum StrapiRecipeFieldsEnum {
   CategoryCreatedAt = 'category___created_at',
@@ -5572,292 +5358,276 @@ export enum StrapiRecipeFieldsEnum {
   TagsSlug = 'tags___slug',
   TagsUpdatedAt = 'tags___updated_at',
   Title = 'title',
-  UpdatedAt = 'updated_at'
+  UpdatedAt = 'updated_at',
 }
 
 export type StrapiRecipeFilterInput = {
-  category?: InputMaybe<StrapiRecipeCategoryFilterInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  cover?: InputMaybe<StrapiRecipeCoverFilterInput>;
-  created_at?: InputMaybe<DateQueryOperatorInput>;
-  directions?: InputMaybe<StringQueryOperatorInput>;
-  gallery?: InputMaybe<StrapiRecipeGalleryFilterListInput>;
-  headline?: InputMaybe<StringQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  ingredients?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  preparationTime?: InputMaybe<IntQueryOperatorInput>;
-  published_at?: InputMaybe<DateQueryOperatorInput>;
-  seo?: InputMaybe<StrapiRecipeSeoFilterInput>;
-  slug?: InputMaybe<StringQueryOperatorInput>;
-  strapiId?: InputMaybe<IntQueryOperatorInput>;
-  tags?: InputMaybe<StrapiRecipeTagsFilterListInput>;
-  title?: InputMaybe<StringQueryOperatorInput>;
-  updated_at?: InputMaybe<DateQueryOperatorInput>;
-};
+  category?: InputMaybe<StrapiRecipeCategoryFilterInput>
+  children?: InputMaybe<NodeFilterListInput>
+  cover?: InputMaybe<StrapiRecipeCoverFilterInput>
+  created_at?: InputMaybe<DateQueryOperatorInput>
+  directions?: InputMaybe<StringQueryOperatorInput>
+  gallery?: InputMaybe<StrapiRecipeGalleryFilterListInput>
+  headline?: InputMaybe<StringQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  ingredients?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  parent?: InputMaybe<NodeFilterInput>
+  preparationTime?: InputMaybe<IntQueryOperatorInput>
+  published_at?: InputMaybe<DateQueryOperatorInput>
+  seo?: InputMaybe<StrapiRecipeSeoFilterInput>
+  slug?: InputMaybe<StringQueryOperatorInput>
+  strapiId?: InputMaybe<IntQueryOperatorInput>
+  tags?: InputMaybe<StrapiRecipeTagsFilterListInput>
+  title?: InputMaybe<StringQueryOperatorInput>
+  updated_at?: InputMaybe<DateQueryOperatorInput>
+}
 
 export type StrapiRecipeGallery = {
-  __typename?: 'StrapiRecipeGallery';
-  created_at?: Maybe<Scalars['Date']>;
-  ext?: Maybe<Scalars['String']>;
-  formats?: Maybe<StrapiRecipeGalleryFormats>;
-  hash?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Int']>;
-  id?: Maybe<Scalars['Int']>;
-  image?: Maybe<File>;
-  localFile?: Maybe<File>;
-  mime?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  provider?: Maybe<Scalars['String']>;
-  size?: Maybe<Scalars['Float']>;
-  updated_at?: Maybe<Scalars['Date']>;
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Int']>;
-};
-
+  __typename?: 'StrapiRecipeGallery'
+  created_at?: Maybe<Scalars['Date']>
+  ext?: Maybe<Scalars['String']>
+  formats?: Maybe<StrapiRecipeGalleryFormats>
+  hash?: Maybe<Scalars['String']>
+  height?: Maybe<Scalars['Int']>
+  id?: Maybe<Scalars['Int']>
+  image?: Maybe<File>
+  localFile?: Maybe<File>
+  mime?: Maybe<Scalars['String']>
+  name?: Maybe<Scalars['String']>
+  provider?: Maybe<Scalars['String']>
+  size?: Maybe<Scalars['Float']>
+  updated_at?: Maybe<Scalars['Date']>
+  url?: Maybe<Scalars['String']>
+  width?: Maybe<Scalars['Int']>
+}
 
 export type StrapiRecipeGalleryCreated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiRecipeGalleryUpdated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiRecipeGalleryFilterInput = {
-  created_at?: InputMaybe<DateQueryOperatorInput>;
-  ext?: InputMaybe<StringQueryOperatorInput>;
-  formats?: InputMaybe<StrapiRecipeGalleryFormatsFilterInput>;
-  hash?: InputMaybe<StringQueryOperatorInput>;
-  height?: InputMaybe<IntQueryOperatorInput>;
-  id?: InputMaybe<IntQueryOperatorInput>;
-  localFile?: InputMaybe<FileFilterInput>;
-  mime?: InputMaybe<StringQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  provider?: InputMaybe<StringQueryOperatorInput>;
-  size?: InputMaybe<FloatQueryOperatorInput>;
-  updated_at?: InputMaybe<DateQueryOperatorInput>;
-  url?: InputMaybe<StringQueryOperatorInput>;
-  width?: InputMaybe<IntQueryOperatorInput>;
-};
+  created_at?: InputMaybe<DateQueryOperatorInput>
+  ext?: InputMaybe<StringQueryOperatorInput>
+  formats?: InputMaybe<StrapiRecipeGalleryFormatsFilterInput>
+  hash?: InputMaybe<StringQueryOperatorInput>
+  height?: InputMaybe<IntQueryOperatorInput>
+  id?: InputMaybe<IntQueryOperatorInput>
+  localFile?: InputMaybe<FileFilterInput>
+  mime?: InputMaybe<StringQueryOperatorInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  provider?: InputMaybe<StringQueryOperatorInput>
+  size?: InputMaybe<FloatQueryOperatorInput>
+  updated_at?: InputMaybe<DateQueryOperatorInput>
+  url?: InputMaybe<StringQueryOperatorInput>
+  width?: InputMaybe<IntQueryOperatorInput>
+}
 
 export type StrapiRecipeGalleryFilterListInput = {
-  elemMatch?: InputMaybe<StrapiRecipeGalleryFilterInput>;
-};
+  elemMatch?: InputMaybe<StrapiRecipeGalleryFilterInput>
+}
 
 export type StrapiRecipeGalleryFormats = {
-  __typename?: 'StrapiRecipeGalleryFormats';
-  thumbnail?: Maybe<StrapiRecipeGalleryFormatsThumbnail>;
-};
+  __typename?: 'StrapiRecipeGalleryFormats'
+  thumbnail?: Maybe<StrapiRecipeGalleryFormatsThumbnail>
+}
 
 export type StrapiRecipeGalleryFormatsFilterInput = {
-  thumbnail?: InputMaybe<StrapiRecipeGalleryFormatsThumbnailFilterInput>;
-};
+  thumbnail?: InputMaybe<StrapiRecipeGalleryFormatsThumbnailFilterInput>
+}
 
 export type StrapiRecipeGalleryFormatsThumbnail = {
-  __typename?: 'StrapiRecipeGalleryFormatsThumbnail';
-  ext?: Maybe<Scalars['String']>;
-  hash?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Int']>;
-  mime?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  size?: Maybe<Scalars['Float']>;
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Int']>;
-};
+  __typename?: 'StrapiRecipeGalleryFormatsThumbnail'
+  ext?: Maybe<Scalars['String']>
+  hash?: Maybe<Scalars['String']>
+  height?: Maybe<Scalars['Int']>
+  mime?: Maybe<Scalars['String']>
+  name?: Maybe<Scalars['String']>
+  size?: Maybe<Scalars['Float']>
+  url?: Maybe<Scalars['String']>
+  width?: Maybe<Scalars['Int']>
+}
 
 export type StrapiRecipeGalleryFormatsThumbnailFilterInput = {
-  ext?: InputMaybe<StringQueryOperatorInput>;
-  hash?: InputMaybe<StringQueryOperatorInput>;
-  height?: InputMaybe<IntQueryOperatorInput>;
-  mime?: InputMaybe<StringQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  size?: InputMaybe<FloatQueryOperatorInput>;
-  url?: InputMaybe<StringQueryOperatorInput>;
-  width?: InputMaybe<IntQueryOperatorInput>;
-};
+  ext?: InputMaybe<StringQueryOperatorInput>
+  hash?: InputMaybe<StringQueryOperatorInput>
+  height?: InputMaybe<IntQueryOperatorInput>
+  mime?: InputMaybe<StringQueryOperatorInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  size?: InputMaybe<FloatQueryOperatorInput>
+  url?: InputMaybe<StringQueryOperatorInput>
+  width?: InputMaybe<IntQueryOperatorInput>
+}
 
 export type StrapiRecipeGroupConnection = {
-  __typename?: 'StrapiRecipeGroupConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<StrapiRecipeEdge>;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-  group: Array<StrapiRecipeGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<StrapiRecipe>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'StrapiRecipeGroupConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<StrapiRecipeEdge>
+  field: Scalars['String']
+  fieldValue?: Maybe<Scalars['String']>
+  group: Array<StrapiRecipeGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<StrapiRecipe>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type StrapiRecipeGroupConnectionDistinctArgs = {
-  field: StrapiRecipeFieldsEnum;
-};
-
+  field: StrapiRecipeFieldsEnum
+}
 
 export type StrapiRecipeGroupConnectionGroupArgs = {
-  field: StrapiRecipeFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: StrapiRecipeFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type StrapiRecipeGroupConnectionMaxArgs = {
-  field: StrapiRecipeFieldsEnum;
-};
-
+  field: StrapiRecipeFieldsEnum
+}
 
 export type StrapiRecipeGroupConnectionMinArgs = {
-  field: StrapiRecipeFieldsEnum;
-};
-
+  field: StrapiRecipeFieldsEnum
+}
 
 export type StrapiRecipeGroupConnectionSumArgs = {
-  field: StrapiRecipeFieldsEnum;
-};
+  field: StrapiRecipeFieldsEnum
+}
 
 export type StrapiRecipeSeo = {
-  __typename?: 'StrapiRecipeSeo';
-  htmlDescription?: Maybe<Scalars['String']>;
-  htmlTitle?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['Int']>;
-};
+  __typename?: 'StrapiRecipeSeo'
+  htmlDescription?: Maybe<Scalars['String']>
+  htmlTitle?: Maybe<Scalars['String']>
+  id?: Maybe<Scalars['Int']>
+}
 
 export type StrapiRecipeSeoFilterInput = {
-  htmlDescription?: InputMaybe<StringQueryOperatorInput>;
-  htmlTitle?: InputMaybe<StringQueryOperatorInput>;
-  id?: InputMaybe<IntQueryOperatorInput>;
-};
+  htmlDescription?: InputMaybe<StringQueryOperatorInput>
+  htmlTitle?: InputMaybe<StringQueryOperatorInput>
+  id?: InputMaybe<IntQueryOperatorInput>
+}
 
 export type StrapiRecipeSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<StrapiRecipeFieldsEnum>>>;
-  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
-};
+  fields?: InputMaybe<Array<InputMaybe<StrapiRecipeFieldsEnum>>>
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
 
 export type StrapiRecipeTags = {
-  __typename?: 'StrapiRecipeTags';
-  created_at?: Maybe<Scalars['Date']>;
-  id?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  slug?: Maybe<Scalars['String']>;
-  updated_at?: Maybe<Scalars['Date']>;
-};
-
+  __typename?: 'StrapiRecipeTags'
+  created_at?: Maybe<Scalars['Date']>
+  id?: Maybe<Scalars['Int']>
+  name?: Maybe<Scalars['String']>
+  slug?: Maybe<Scalars['String']>
+  updated_at?: Maybe<Scalars['Date']>
+}
 
 export type StrapiRecipeTagsCreated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiRecipeTagsUpdated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiRecipeTagsFilterInput = {
-  created_at?: InputMaybe<DateQueryOperatorInput>;
-  id?: InputMaybe<IntQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  slug?: InputMaybe<StringQueryOperatorInput>;
-  updated_at?: InputMaybe<DateQueryOperatorInput>;
-};
+  created_at?: InputMaybe<DateQueryOperatorInput>
+  id?: InputMaybe<IntQueryOperatorInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  slug?: InputMaybe<StringQueryOperatorInput>
+  updated_at?: InputMaybe<DateQueryOperatorInput>
+}
 
 export type StrapiRecipeTagsFilterListInput = {
-  elemMatch?: InputMaybe<StrapiRecipeTagsFilterInput>;
-};
+  elemMatch?: InputMaybe<StrapiRecipeTagsFilterInput>
+}
 
 export type StrapiTag = Node & {
-  __typename?: 'StrapiTag';
-  children: Array<Node>;
-  created_at?: Maybe<Scalars['Date']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name?: Maybe<Scalars['String']>;
-  parent?: Maybe<Node>;
-  recipes?: Maybe<Array<Maybe<StrapiTagRecipes>>>;
-  slug?: Maybe<Scalars['String']>;
-  strapiId?: Maybe<Scalars['Int']>;
-  updated_at?: Maybe<Scalars['Date']>;
-};
-
+  __typename?: 'StrapiTag'
+  children: Array<Node>
+  created_at?: Maybe<Scalars['Date']>
+  id: Scalars['ID']
+  internal: Internal
+  name?: Maybe<Scalars['String']>
+  parent?: Maybe<Node>
+  recipes?: Maybe<Array<Maybe<StrapiTagRecipes>>>
+  slug?: Maybe<Scalars['String']>
+  strapiId?: Maybe<Scalars['Int']>
+  updated_at?: Maybe<Scalars['Date']>
+}
 
 export type StrapiTagCreated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiTagUpdated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiTagConnection = {
-  __typename?: 'StrapiTagConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<StrapiTagEdge>;
-  group: Array<StrapiTagGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<StrapiTag>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'StrapiTagConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<StrapiTagEdge>
+  group: Array<StrapiTagGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<StrapiTag>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type StrapiTagConnectionDistinctArgs = {
-  field: StrapiTagFieldsEnum;
-};
-
+  field: StrapiTagFieldsEnum
+}
 
 export type StrapiTagConnectionGroupArgs = {
-  field: StrapiTagFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: StrapiTagFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type StrapiTagConnectionMaxArgs = {
-  field: StrapiTagFieldsEnum;
-};
-
+  field: StrapiTagFieldsEnum
+}
 
 export type StrapiTagConnectionMinArgs = {
-  field: StrapiTagFieldsEnum;
-};
-
+  field: StrapiTagFieldsEnum
+}
 
 export type StrapiTagConnectionSumArgs = {
-  field: StrapiTagFieldsEnum;
-};
+  field: StrapiTagFieldsEnum
+}
 
 export type StrapiTagEdge = {
-  __typename?: 'StrapiTagEdge';
-  next?: Maybe<StrapiTag>;
-  node: StrapiTag;
-  previous?: Maybe<StrapiTag>;
-};
+  __typename?: 'StrapiTagEdge'
+  next?: Maybe<StrapiTag>
+  node: StrapiTag
+  previous?: Maybe<StrapiTag>
+}
 
 export enum StrapiTagFieldsEnum {
   Children = 'children',
@@ -6064,333 +5834,3355 @@ export enum StrapiTagFieldsEnum {
   RecipesUpdatedAt = 'recipes___updated_at',
   Slug = 'slug',
   StrapiId = 'strapiId',
-  UpdatedAt = 'updated_at'
+  UpdatedAt = 'updated_at',
 }
 
 export type StrapiTagFilterInput = {
-  children?: InputMaybe<NodeFilterListInput>;
-  created_at?: InputMaybe<DateQueryOperatorInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  recipes?: InputMaybe<StrapiTagRecipesFilterListInput>;
-  slug?: InputMaybe<StringQueryOperatorInput>;
-  strapiId?: InputMaybe<IntQueryOperatorInput>;
-  updated_at?: InputMaybe<DateQueryOperatorInput>;
-};
+  children?: InputMaybe<NodeFilterListInput>
+  created_at?: InputMaybe<DateQueryOperatorInput>
+  id?: InputMaybe<StringQueryOperatorInput>
+  internal?: InputMaybe<InternalFilterInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  parent?: InputMaybe<NodeFilterInput>
+  recipes?: InputMaybe<StrapiTagRecipesFilterListInput>
+  slug?: InputMaybe<StringQueryOperatorInput>
+  strapiId?: InputMaybe<IntQueryOperatorInput>
+  updated_at?: InputMaybe<DateQueryOperatorInput>
+}
 
 export type StrapiTagGroupConnection = {
-  __typename?: 'StrapiTagGroupConnection';
-  distinct: Array<Scalars['String']>;
-  edges: Array<StrapiTagEdge>;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-  group: Array<StrapiTagGroupConnection>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  nodes: Array<StrapiTag>;
-  pageInfo: PageInfo;
-  sum?: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
-};
-
+  __typename?: 'StrapiTagGroupConnection'
+  distinct: Array<Scalars['String']>
+  edges: Array<StrapiTagEdge>
+  field: Scalars['String']
+  fieldValue?: Maybe<Scalars['String']>
+  group: Array<StrapiTagGroupConnection>
+  max?: Maybe<Scalars['Float']>
+  min?: Maybe<Scalars['Float']>
+  nodes: Array<StrapiTag>
+  pageInfo: PageInfo
+  sum?: Maybe<Scalars['Float']>
+  totalCount: Scalars['Int']
+}
 
 export type StrapiTagGroupConnectionDistinctArgs = {
-  field: StrapiTagFieldsEnum;
-};
-
+  field: StrapiTagFieldsEnum
+}
 
 export type StrapiTagGroupConnectionGroupArgs = {
-  field: StrapiTagFieldsEnum;
-  limit?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
+  field: StrapiTagFieldsEnum
+  limit?: InputMaybe<Scalars['Int']>
+  skip?: InputMaybe<Scalars['Int']>
+}
 
 export type StrapiTagGroupConnectionMaxArgs = {
-  field: StrapiTagFieldsEnum;
-};
-
+  field: StrapiTagFieldsEnum
+}
 
 export type StrapiTagGroupConnectionMinArgs = {
-  field: StrapiTagFieldsEnum;
-};
-
+  field: StrapiTagFieldsEnum
+}
 
 export type StrapiTagGroupConnectionSumArgs = {
-  field: StrapiTagFieldsEnum;
-};
+  field: StrapiTagFieldsEnum
+}
 
 export type StrapiTagRecipes = {
-  __typename?: 'StrapiTagRecipes';
-  category?: Maybe<Scalars['Int']>;
-  cover?: Maybe<StrapiTagRecipesCover>;
-  created_at?: Maybe<Scalars['Date']>;
-  directions?: Maybe<Scalars['String']>;
-  gallery?: Maybe<Array<Maybe<StrapiTagRecipesGallery>>>;
-  headline?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['Int']>;
-  ingredients?: Maybe<Scalars['String']>;
-  preparationTime?: Maybe<Scalars['Int']>;
-  published_at?: Maybe<Scalars['Date']>;
-  seo?: Maybe<StrapiTagRecipesSeo>;
-  slug?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
-  updated_at?: Maybe<Scalars['Date']>;
-};
-
+  __typename?: 'StrapiTagRecipes'
+  category?: Maybe<Scalars['Int']>
+  cover?: Maybe<StrapiTagRecipesCover>
+  created_at?: Maybe<Scalars['Date']>
+  directions?: Maybe<Scalars['String']>
+  gallery?: Maybe<Array<Maybe<StrapiTagRecipesGallery>>>
+  headline?: Maybe<Scalars['String']>
+  id?: Maybe<Scalars['Int']>
+  ingredients?: Maybe<Scalars['String']>
+  preparationTime?: Maybe<Scalars['Int']>
+  published_at?: Maybe<Scalars['Date']>
+  seo?: Maybe<StrapiTagRecipesSeo>
+  slug?: Maybe<Scalars['String']>
+  title?: Maybe<Scalars['String']>
+  updated_at?: Maybe<Scalars['Date']>
+}
 
 export type StrapiTagRecipesCreated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiTagRecipesPublished_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiTagRecipesUpdated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiTagRecipesCover = {
-  __typename?: 'StrapiTagRecipesCover';
-  created_at?: Maybe<Scalars['Date']>;
-  ext?: Maybe<Scalars['String']>;
-  formats?: Maybe<StrapiTagRecipesCoverFormats>;
-  hash?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Int']>;
-  id?: Maybe<Scalars['Int']>;
-  localFile?: Maybe<File>;
-  mime?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  provider?: Maybe<Scalars['String']>;
-  size?: Maybe<Scalars['Float']>;
-  updated_at?: Maybe<Scalars['Date']>;
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Int']>;
-};
-
+  __typename?: 'StrapiTagRecipesCover'
+  created_at?: Maybe<Scalars['Date']>
+  ext?: Maybe<Scalars['String']>
+  formats?: Maybe<StrapiTagRecipesCoverFormats>
+  hash?: Maybe<Scalars['String']>
+  height?: Maybe<Scalars['Int']>
+  id?: Maybe<Scalars['Int']>
+  localFile?: Maybe<File>
+  mime?: Maybe<Scalars['String']>
+  name?: Maybe<Scalars['String']>
+  provider?: Maybe<Scalars['String']>
+  size?: Maybe<Scalars['Float']>
+  updated_at?: Maybe<Scalars['Date']>
+  url?: Maybe<Scalars['String']>
+  width?: Maybe<Scalars['Int']>
+}
 
 export type StrapiTagRecipesCoverCreated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiTagRecipesCoverUpdated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiTagRecipesCoverFilterInput = {
-  created_at?: InputMaybe<DateQueryOperatorInput>;
-  ext?: InputMaybe<StringQueryOperatorInput>;
-  formats?: InputMaybe<StrapiTagRecipesCoverFormatsFilterInput>;
-  hash?: InputMaybe<StringQueryOperatorInput>;
-  height?: InputMaybe<IntQueryOperatorInput>;
-  id?: InputMaybe<IntQueryOperatorInput>;
-  localFile?: InputMaybe<FileFilterInput>;
-  mime?: InputMaybe<StringQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  provider?: InputMaybe<StringQueryOperatorInput>;
-  size?: InputMaybe<FloatQueryOperatorInput>;
-  updated_at?: InputMaybe<DateQueryOperatorInput>;
-  url?: InputMaybe<StringQueryOperatorInput>;
-  width?: InputMaybe<IntQueryOperatorInput>;
-};
+  created_at?: InputMaybe<DateQueryOperatorInput>
+  ext?: InputMaybe<StringQueryOperatorInput>
+  formats?: InputMaybe<StrapiTagRecipesCoverFormatsFilterInput>
+  hash?: InputMaybe<StringQueryOperatorInput>
+  height?: InputMaybe<IntQueryOperatorInput>
+  id?: InputMaybe<IntQueryOperatorInput>
+  localFile?: InputMaybe<FileFilterInput>
+  mime?: InputMaybe<StringQueryOperatorInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  provider?: InputMaybe<StringQueryOperatorInput>
+  size?: InputMaybe<FloatQueryOperatorInput>
+  updated_at?: InputMaybe<DateQueryOperatorInput>
+  url?: InputMaybe<StringQueryOperatorInput>
+  width?: InputMaybe<IntQueryOperatorInput>
+}
 
 export type StrapiTagRecipesCoverFormats = {
-  __typename?: 'StrapiTagRecipesCoverFormats';
-  thumbnail?: Maybe<StrapiTagRecipesCoverFormatsThumbnail>;
-};
+  __typename?: 'StrapiTagRecipesCoverFormats'
+  thumbnail?: Maybe<StrapiTagRecipesCoverFormatsThumbnail>
+}
 
 export type StrapiTagRecipesCoverFormatsFilterInput = {
-  thumbnail?: InputMaybe<StrapiTagRecipesCoverFormatsThumbnailFilterInput>;
-};
+  thumbnail?: InputMaybe<StrapiTagRecipesCoverFormatsThumbnailFilterInput>
+}
 
 export type StrapiTagRecipesCoverFormatsThumbnail = {
-  __typename?: 'StrapiTagRecipesCoverFormatsThumbnail';
-  ext?: Maybe<Scalars['String']>;
-  hash?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Int']>;
-  mime?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  size?: Maybe<Scalars['Float']>;
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Int']>;
-};
+  __typename?: 'StrapiTagRecipesCoverFormatsThumbnail'
+  ext?: Maybe<Scalars['String']>
+  hash?: Maybe<Scalars['String']>
+  height?: Maybe<Scalars['Int']>
+  mime?: Maybe<Scalars['String']>
+  name?: Maybe<Scalars['String']>
+  size?: Maybe<Scalars['Float']>
+  url?: Maybe<Scalars['String']>
+  width?: Maybe<Scalars['Int']>
+}
 
 export type StrapiTagRecipesCoverFormatsThumbnailFilterInput = {
-  ext?: InputMaybe<StringQueryOperatorInput>;
-  hash?: InputMaybe<StringQueryOperatorInput>;
-  height?: InputMaybe<IntQueryOperatorInput>;
-  mime?: InputMaybe<StringQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  size?: InputMaybe<FloatQueryOperatorInput>;
-  url?: InputMaybe<StringQueryOperatorInput>;
-  width?: InputMaybe<IntQueryOperatorInput>;
-};
+  ext?: InputMaybe<StringQueryOperatorInput>
+  hash?: InputMaybe<StringQueryOperatorInput>
+  height?: InputMaybe<IntQueryOperatorInput>
+  mime?: InputMaybe<StringQueryOperatorInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  size?: InputMaybe<FloatQueryOperatorInput>
+  url?: InputMaybe<StringQueryOperatorInput>
+  width?: InputMaybe<IntQueryOperatorInput>
+}
 
 export type StrapiTagRecipesFilterInput = {
-  category?: InputMaybe<IntQueryOperatorInput>;
-  cover?: InputMaybe<StrapiTagRecipesCoverFilterInput>;
-  created_at?: InputMaybe<DateQueryOperatorInput>;
-  directions?: InputMaybe<StringQueryOperatorInput>;
-  gallery?: InputMaybe<StrapiTagRecipesGalleryFilterListInput>;
-  headline?: InputMaybe<StringQueryOperatorInput>;
-  id?: InputMaybe<IntQueryOperatorInput>;
-  ingredients?: InputMaybe<StringQueryOperatorInput>;
-  preparationTime?: InputMaybe<IntQueryOperatorInput>;
-  published_at?: InputMaybe<DateQueryOperatorInput>;
-  seo?: InputMaybe<StrapiTagRecipesSeoFilterInput>;
-  slug?: InputMaybe<StringQueryOperatorInput>;
-  title?: InputMaybe<StringQueryOperatorInput>;
-  updated_at?: InputMaybe<DateQueryOperatorInput>;
-};
+  category?: InputMaybe<IntQueryOperatorInput>
+  cover?: InputMaybe<StrapiTagRecipesCoverFilterInput>
+  created_at?: InputMaybe<DateQueryOperatorInput>
+  directions?: InputMaybe<StringQueryOperatorInput>
+  gallery?: InputMaybe<StrapiTagRecipesGalleryFilterListInput>
+  headline?: InputMaybe<StringQueryOperatorInput>
+  id?: InputMaybe<IntQueryOperatorInput>
+  ingredients?: InputMaybe<StringQueryOperatorInput>
+  preparationTime?: InputMaybe<IntQueryOperatorInput>
+  published_at?: InputMaybe<DateQueryOperatorInput>
+  seo?: InputMaybe<StrapiTagRecipesSeoFilterInput>
+  slug?: InputMaybe<StringQueryOperatorInput>
+  title?: InputMaybe<StringQueryOperatorInput>
+  updated_at?: InputMaybe<DateQueryOperatorInput>
+}
 
 export type StrapiTagRecipesFilterListInput = {
-  elemMatch?: InputMaybe<StrapiTagRecipesFilterInput>;
-};
+  elemMatch?: InputMaybe<StrapiTagRecipesFilterInput>
+}
 
 export type StrapiTagRecipesGallery = {
-  __typename?: 'StrapiTagRecipesGallery';
-  created_at?: Maybe<Scalars['Date']>;
-  ext?: Maybe<Scalars['String']>;
-  formats?: Maybe<StrapiTagRecipesGalleryFormats>;
-  hash?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Int']>;
-  id?: Maybe<Scalars['Int']>;
-  localFile?: Maybe<File>;
-  mime?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  provider?: Maybe<Scalars['String']>;
-  size?: Maybe<Scalars['Float']>;
-  updated_at?: Maybe<Scalars['Date']>;
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Int']>;
-};
-
+  __typename?: 'StrapiTagRecipesGallery'
+  created_at?: Maybe<Scalars['Date']>
+  ext?: Maybe<Scalars['String']>
+  formats?: Maybe<StrapiTagRecipesGalleryFormats>
+  hash?: Maybe<Scalars['String']>
+  height?: Maybe<Scalars['Int']>
+  id?: Maybe<Scalars['Int']>
+  localFile?: Maybe<File>
+  mime?: Maybe<Scalars['String']>
+  name?: Maybe<Scalars['String']>
+  provider?: Maybe<Scalars['String']>
+  size?: Maybe<Scalars['Float']>
+  updated_at?: Maybe<Scalars['Date']>
+  url?: Maybe<Scalars['String']>
+  width?: Maybe<Scalars['Int']>
+}
 
 export type StrapiTagRecipesGalleryCreated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiTagRecipesGalleryUpdated_AtArgs = {
-  difference?: InputMaybe<Scalars['String']>;
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
+  difference?: InputMaybe<Scalars['String']>
+  formatString?: InputMaybe<Scalars['String']>
+  fromNow?: InputMaybe<Scalars['Boolean']>
+  locale?: InputMaybe<Scalars['String']>
+}
 
 export type StrapiTagRecipesGalleryFilterInput = {
-  created_at?: InputMaybe<DateQueryOperatorInput>;
-  ext?: InputMaybe<StringQueryOperatorInput>;
-  formats?: InputMaybe<StrapiTagRecipesGalleryFormatsFilterInput>;
-  hash?: InputMaybe<StringQueryOperatorInput>;
-  height?: InputMaybe<IntQueryOperatorInput>;
-  id?: InputMaybe<IntQueryOperatorInput>;
-  localFile?: InputMaybe<FileFilterInput>;
-  mime?: InputMaybe<StringQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  provider?: InputMaybe<StringQueryOperatorInput>;
-  size?: InputMaybe<FloatQueryOperatorInput>;
-  updated_at?: InputMaybe<DateQueryOperatorInput>;
-  url?: InputMaybe<StringQueryOperatorInput>;
-  width?: InputMaybe<IntQueryOperatorInput>;
-};
+  created_at?: InputMaybe<DateQueryOperatorInput>
+  ext?: InputMaybe<StringQueryOperatorInput>
+  formats?: InputMaybe<StrapiTagRecipesGalleryFormatsFilterInput>
+  hash?: InputMaybe<StringQueryOperatorInput>
+  height?: InputMaybe<IntQueryOperatorInput>
+  id?: InputMaybe<IntQueryOperatorInput>
+  localFile?: InputMaybe<FileFilterInput>
+  mime?: InputMaybe<StringQueryOperatorInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  provider?: InputMaybe<StringQueryOperatorInput>
+  size?: InputMaybe<FloatQueryOperatorInput>
+  updated_at?: InputMaybe<DateQueryOperatorInput>
+  url?: InputMaybe<StringQueryOperatorInput>
+  width?: InputMaybe<IntQueryOperatorInput>
+}
 
 export type StrapiTagRecipesGalleryFilterListInput = {
-  elemMatch?: InputMaybe<StrapiTagRecipesGalleryFilterInput>;
-};
+  elemMatch?: InputMaybe<StrapiTagRecipesGalleryFilterInput>
+}
 
 export type StrapiTagRecipesGalleryFormats = {
-  __typename?: 'StrapiTagRecipesGalleryFormats';
-  thumbnail?: Maybe<StrapiTagRecipesGalleryFormatsThumbnail>;
-};
+  __typename?: 'StrapiTagRecipesGalleryFormats'
+  thumbnail?: Maybe<StrapiTagRecipesGalleryFormatsThumbnail>
+}
 
 export type StrapiTagRecipesGalleryFormatsFilterInput = {
-  thumbnail?: InputMaybe<StrapiTagRecipesGalleryFormatsThumbnailFilterInput>;
-};
+  thumbnail?: InputMaybe<StrapiTagRecipesGalleryFormatsThumbnailFilterInput>
+}
 
 export type StrapiTagRecipesGalleryFormatsThumbnail = {
-  __typename?: 'StrapiTagRecipesGalleryFormatsThumbnail';
-  ext?: Maybe<Scalars['String']>;
-  hash?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Int']>;
-  mime?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  size?: Maybe<Scalars['Float']>;
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Int']>;
-};
+  __typename?: 'StrapiTagRecipesGalleryFormatsThumbnail'
+  ext?: Maybe<Scalars['String']>
+  hash?: Maybe<Scalars['String']>
+  height?: Maybe<Scalars['Int']>
+  mime?: Maybe<Scalars['String']>
+  name?: Maybe<Scalars['String']>
+  size?: Maybe<Scalars['Float']>
+  url?: Maybe<Scalars['String']>
+  width?: Maybe<Scalars['Int']>
+}
 
 export type StrapiTagRecipesGalleryFormatsThumbnailFilterInput = {
-  ext?: InputMaybe<StringQueryOperatorInput>;
-  hash?: InputMaybe<StringQueryOperatorInput>;
-  height?: InputMaybe<IntQueryOperatorInput>;
-  mime?: InputMaybe<StringQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  size?: InputMaybe<FloatQueryOperatorInput>;
-  url?: InputMaybe<StringQueryOperatorInput>;
-  width?: InputMaybe<IntQueryOperatorInput>;
-};
+  ext?: InputMaybe<StringQueryOperatorInput>
+  hash?: InputMaybe<StringQueryOperatorInput>
+  height?: InputMaybe<IntQueryOperatorInput>
+  mime?: InputMaybe<StringQueryOperatorInput>
+  name?: InputMaybe<StringQueryOperatorInput>
+  size?: InputMaybe<FloatQueryOperatorInput>
+  url?: InputMaybe<StringQueryOperatorInput>
+  width?: InputMaybe<IntQueryOperatorInput>
+}
 
 export type StrapiTagRecipesSeo = {
-  __typename?: 'StrapiTagRecipesSeo';
-  htmlDescription?: Maybe<Scalars['String']>;
-  htmlTitle?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['Int']>;
-};
+  __typename?: 'StrapiTagRecipesSeo'
+  htmlDescription?: Maybe<Scalars['String']>
+  htmlTitle?: Maybe<Scalars['String']>
+  id?: Maybe<Scalars['Int']>
+}
 
 export type StrapiTagRecipesSeoFilterInput = {
-  htmlDescription?: InputMaybe<StringQueryOperatorInput>;
-  htmlTitle?: InputMaybe<StringQueryOperatorInput>;
-  id?: InputMaybe<IntQueryOperatorInput>;
-};
+  htmlDescription?: InputMaybe<StringQueryOperatorInput>
+  htmlTitle?: InputMaybe<StringQueryOperatorInput>
+  id?: InputMaybe<IntQueryOperatorInput>
+}
 
 export type StrapiTagSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<StrapiTagFieldsEnum>>>;
-  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
-};
+  fields?: InputMaybe<Array<InputMaybe<StrapiTagFieldsEnum>>>
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
+}
 
 export type StringQueryOperatorInput = {
-  eq?: InputMaybe<Scalars['String']>;
-  glob?: InputMaybe<Scalars['String']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ne?: InputMaybe<Scalars['String']>;
-  nin?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  regex?: InputMaybe<Scalars['String']>;
-};
+  eq?: InputMaybe<Scalars['String']>
+  glob?: InputMaybe<Scalars['String']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+  ne?: InputMaybe<Scalars['String']>
+  nin?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+  regex?: InputMaybe<Scalars['String']>
+}
 
 export type TransformOptions = {
-  cropFocus?: InputMaybe<ImageCropFocus>;
-  duotone?: InputMaybe<DuotoneGradient>;
-  fit?: InputMaybe<ImageFit>;
-  grayscale?: InputMaybe<Scalars['Boolean']>;
-  rotate?: InputMaybe<Scalars['Int']>;
-  trim?: InputMaybe<Scalars['Float']>;
-};
+  cropFocus?: InputMaybe<ImageCropFocus>
+  duotone?: InputMaybe<DuotoneGradient>
+  fit?: InputMaybe<ImageFit>
+  grayscale?: InputMaybe<Scalars['Boolean']>
+  rotate?: InputMaybe<Scalars['Int']>
+  trim?: InputMaybe<Scalars['Float']>
+}
 
 export type WebPOptions = {
-  quality?: InputMaybe<Scalars['Int']>;
-};
+  quality?: InputMaybe<Scalars['Int']>
+}
+
+export function createAvifOptionsMock(
+  props: Partial<AvifOptions>,
+): AvifOptions {
+  return {
+    lossless: null,
+    quality: null,
+    speed: null,
+    ...props,
+  }
+}
+
+export function createBlogPostPartMock(
+  props: Partial<BlogPostPart>,
+): BlogPostPart {
+  return {
+    __typename: 'BlogPostPart',
+    childMarkdownRemark: null,
+    children: [],
+    childrenMarkdownRemark: null,
+    id: '',
+    internal: createInternalMock({}),
+    parent: null,
+    ...props,
+  }
+}
+
+export function createBlogPostPartConnectionMock(
+  props: Partial<BlogPostPartConnection>,
+): BlogPostPartConnection {
+  return {
+    __typename: 'BlogPostPartConnection',
+    distinct: [],
+    edges: [],
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createBlogPostPartEdgeMock(
+  props: Partial<BlogPostPartEdge>,
+): BlogPostPartEdge {
+  return {
+    __typename: 'BlogPostPartEdge',
+    next: null,
+    node: createBlogPostPartMock({}),
+    previous: null,
+    ...props,
+  }
+}
+
+export function createBlogPostPartFilterInputMock(
+  props: Partial<BlogPostPartFilterInput>,
+): BlogPostPartFilterInput {
+  return {
+    childMarkdownRemark: null,
+    children: null,
+    childrenMarkdownRemark: null,
+    id: null,
+    internal: null,
+    parent: null,
+    ...props,
+  }
+}
+
+export function createBlogPostPartGroupConnectionMock(
+  props: Partial<BlogPostPartGroupConnection>,
+): BlogPostPartGroupConnection {
+  return {
+    __typename: 'BlogPostPartGroupConnection',
+    distinct: [],
+    edges: [],
+    field: '',
+    fieldValue: null,
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createBlogPostPartSortInputMock(
+  props: Partial<BlogPostPartSortInput>,
+): BlogPostPartSortInput {
+  return {
+    fields: null,
+    order: null,
+    ...props,
+  }
+}
+
+export function createBlurredOptionsMock(
+  props: Partial<BlurredOptions>,
+): BlurredOptions {
+  return {
+    toFormat: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createBooleanQueryOperatorInputMock(
+  props: Partial<BooleanQueryOperatorInput>,
+): BooleanQueryOperatorInput {
+  return {
+    eq: null,
+    in: null,
+    ne: null,
+    nin: null,
+    ...props,
+  }
+}
+
+export function createDateQueryOperatorInputMock(
+  props: Partial<DateQueryOperatorInput>,
+): DateQueryOperatorInput {
+  return {
+    eq: null,
+    gt: null,
+    gte: null,
+    in: null,
+    lt: null,
+    lte: null,
+    ne: null,
+    nin: null,
+    ...props,
+  }
+}
+
+export function createDirectoryMock(props: Partial<Directory>): Directory {
+  return {
+    __typename: 'Directory',
+    absolutePath: '',
+    accessTime: createDateMock({}),
+    atime: createDateMock({}),
+    atimeMs: 0,
+    base: '',
+    birthTime: createDateMock({}),
+    birthtime: null,
+    birthtimeMs: null,
+    changeTime: createDateMock({}),
+    children: [],
+    ctime: createDateMock({}),
+    ctimeMs: 0,
+    dev: 0,
+    dir: '',
+    ext: '',
+    extension: '',
+    gid: 0,
+    id: '',
+    ino: 0,
+    internal: createInternalMock({}),
+    mode: 0,
+    modifiedTime: createDateMock({}),
+    mtime: createDateMock({}),
+    mtimeMs: 0,
+    name: '',
+    nlink: 0,
+    parent: null,
+    prettySize: '',
+    rdev: 0,
+    relativeDirectory: '',
+    relativePath: '',
+    root: '',
+    size: 0,
+    sourceInstanceName: '',
+    uid: 0,
+    ...props,
+  }
+}
+
+export function createDirectoryConnectionMock(
+  props: Partial<DirectoryConnection>,
+): DirectoryConnection {
+  return {
+    __typename: 'DirectoryConnection',
+    distinct: [],
+    edges: [],
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createDirectoryEdgeMock(
+  props: Partial<DirectoryEdge>,
+): DirectoryEdge {
+  return {
+    __typename: 'DirectoryEdge',
+    next: null,
+    node: createDirectoryMock({}),
+    previous: null,
+    ...props,
+  }
+}
+
+export function createDirectoryFilterInputMock(
+  props: Partial<DirectoryFilterInput>,
+): DirectoryFilterInput {
+  return {
+    absolutePath: null,
+    accessTime: null,
+    atime: null,
+    atimeMs: null,
+    base: null,
+    birthTime: null,
+    birthtime: null,
+    birthtimeMs: null,
+    changeTime: null,
+    children: null,
+    ctime: null,
+    ctimeMs: null,
+    dev: null,
+    dir: null,
+    ext: null,
+    extension: null,
+    gid: null,
+    id: null,
+    ino: null,
+    internal: null,
+    mode: null,
+    modifiedTime: null,
+    mtime: null,
+    mtimeMs: null,
+    name: null,
+    nlink: null,
+    parent: null,
+    prettySize: null,
+    rdev: null,
+    relativeDirectory: null,
+    relativePath: null,
+    root: null,
+    size: null,
+    sourceInstanceName: null,
+    uid: null,
+    ...props,
+  }
+}
+
+export function createDirectoryGroupConnectionMock(
+  props: Partial<DirectoryGroupConnection>,
+): DirectoryGroupConnection {
+  return {
+    __typename: 'DirectoryGroupConnection',
+    distinct: [],
+    edges: [],
+    field: '',
+    fieldValue: null,
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createDirectorySortInputMock(
+  props: Partial<DirectorySortInput>,
+): DirectorySortInput {
+  return {
+    fields: null,
+    order: null,
+    ...props,
+  }
+}
+
+export function createDuotoneGradientMock(
+  props: Partial<DuotoneGradient>,
+): DuotoneGradient {
+  return {
+    highlight: '',
+    opacity: null,
+    shadow: '',
+    ...props,
+  }
+}
+
+export function createFileMock(props: Partial<File>): File {
+  return {
+    __typename: 'File',
+    absolutePath: '',
+    accessTime: createDateMock({}),
+    atime: createDateMock({}),
+    atimeMs: 0,
+    base: '',
+    birthTime: createDateMock({}),
+    birthtime: null,
+    birthtimeMs: null,
+    blksize: null,
+    blocks: null,
+    changeTime: createDateMock({}),
+    childImageSharp: null,
+    children: [],
+    childrenImageSharp: null,
+    ctime: createDateMock({}),
+    ctimeMs: 0,
+    dev: 0,
+    dir: '',
+    ext: '',
+    extension: '',
+    gid: 0,
+    id: '',
+    ino: 0,
+    internal: createInternalMock({}),
+    mode: 0,
+    modifiedTime: createDateMock({}),
+    mtime: createDateMock({}),
+    mtimeMs: 0,
+    name: '',
+    nlink: 0,
+    parent: null,
+    prettySize: '',
+    rdev: 0,
+    relativeDirectory: '',
+    relativePath: '',
+    root: '',
+    size: 0,
+    sourceInstanceName: '',
+    uid: 0,
+    url: null,
+    ...props,
+  }
+}
+
+export function createFileConnectionMock(
+  props: Partial<FileConnection>,
+): FileConnection {
+  return {
+    __typename: 'FileConnection',
+    distinct: [],
+    edges: [],
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createFileEdgeMock(props: Partial<FileEdge>): FileEdge {
+  return {
+    __typename: 'FileEdge',
+    next: null,
+    node: createFileMock({}),
+    previous: null,
+    ...props,
+  }
+}
+
+export function createFileFilterInputMock(
+  props: Partial<FileFilterInput>,
+): FileFilterInput {
+  return {
+    absolutePath: null,
+    accessTime: null,
+    atime: null,
+    atimeMs: null,
+    base: null,
+    birthTime: null,
+    birthtime: null,
+    birthtimeMs: null,
+    blksize: null,
+    blocks: null,
+    changeTime: null,
+    childImageSharp: null,
+    children: null,
+    childrenImageSharp: null,
+    ctime: null,
+    ctimeMs: null,
+    dev: null,
+    dir: null,
+    ext: null,
+    extension: null,
+    gid: null,
+    id: null,
+    ino: null,
+    internal: null,
+    mode: null,
+    modifiedTime: null,
+    mtime: null,
+    mtimeMs: null,
+    name: null,
+    nlink: null,
+    parent: null,
+    prettySize: null,
+    rdev: null,
+    relativeDirectory: null,
+    relativePath: null,
+    root: null,
+    size: null,
+    sourceInstanceName: null,
+    uid: null,
+    url: null,
+    ...props,
+  }
+}
+
+export function createFileGroupConnectionMock(
+  props: Partial<FileGroupConnection>,
+): FileGroupConnection {
+  return {
+    __typename: 'FileGroupConnection',
+    distinct: [],
+    edges: [],
+    field: '',
+    fieldValue: null,
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createFileSortInputMock(
+  props: Partial<FileSortInput>,
+): FileSortInput {
+  return {
+    fields: null,
+    order: null,
+    ...props,
+  }
+}
+
+export function createFloatQueryOperatorInputMock(
+  props: Partial<FloatQueryOperatorInput>,
+): FloatQueryOperatorInput {
+  return {
+    eq: null,
+    gt: null,
+    gte: null,
+    in: null,
+    lt: null,
+    lte: null,
+    ne: null,
+    nin: null,
+    ...props,
+  }
+}
+
+export function createImageSharpMock(props: Partial<ImageSharp>): ImageSharp {
+  return {
+    __typename: 'ImageSharp',
+    children: [],
+    fixed: null,
+    fluid: null,
+    gatsbyImageData: createJsonMock({}),
+    id: '',
+    internal: createInternalMock({}),
+    original: null,
+    parent: null,
+    resize: null,
+    ...props,
+  }
+}
+
+export function createImageSharpConnectionMock(
+  props: Partial<ImageSharpConnection>,
+): ImageSharpConnection {
+  return {
+    __typename: 'ImageSharpConnection',
+    distinct: [],
+    edges: [],
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createImageSharpEdgeMock(
+  props: Partial<ImageSharpEdge>,
+): ImageSharpEdge {
+  return {
+    __typename: 'ImageSharpEdge',
+    next: null,
+    node: createImageSharpMock({}),
+    previous: null,
+    ...props,
+  }
+}
+
+export function createImageSharpFilterInputMock(
+  props: Partial<ImageSharpFilterInput>,
+): ImageSharpFilterInput {
+  return {
+    children: null,
+    fixed: null,
+    fluid: null,
+    gatsbyImageData: null,
+    id: null,
+    internal: null,
+    original: null,
+    parent: null,
+    resize: null,
+    ...props,
+  }
+}
+
+export function createImageSharpFilterListInputMock(
+  props: Partial<ImageSharpFilterListInput>,
+): ImageSharpFilterListInput {
+  return {
+    elemMatch: null,
+    ...props,
+  }
+}
+
+export function createImageSharpFixedMock(
+  props: Partial<ImageSharpFixed>,
+): ImageSharpFixed {
+  return {
+    __typename: 'ImageSharpFixed',
+    aspectRatio: null,
+    base64: null,
+    height: 0,
+    originalName: null,
+    src: '',
+    srcSet: '',
+    srcSetWebp: null,
+    srcWebp: null,
+    tracedSVG: null,
+    width: 0,
+    ...props,
+  }
+}
+
+export function createImageSharpFixedFilterInputMock(
+  props: Partial<ImageSharpFixedFilterInput>,
+): ImageSharpFixedFilterInput {
+  return {
+    aspectRatio: null,
+    base64: null,
+    height: null,
+    originalName: null,
+    src: null,
+    srcSet: null,
+    srcSetWebp: null,
+    srcWebp: null,
+    tracedSVG: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createImageSharpFluidMock(
+  props: Partial<ImageSharpFluid>,
+): ImageSharpFluid {
+  return {
+    __typename: 'ImageSharpFluid',
+    aspectRatio: 0,
+    base64: null,
+    originalImg: null,
+    originalName: null,
+    presentationHeight: 0,
+    presentationWidth: 0,
+    sizes: '',
+    src: '',
+    srcSet: '',
+    srcSetWebp: null,
+    srcWebp: null,
+    tracedSVG: null,
+    ...props,
+  }
+}
+
+export function createImageSharpFluidFilterInputMock(
+  props: Partial<ImageSharpFluidFilterInput>,
+): ImageSharpFluidFilterInput {
+  return {
+    aspectRatio: null,
+    base64: null,
+    originalImg: null,
+    originalName: null,
+    presentationHeight: null,
+    presentationWidth: null,
+    sizes: null,
+    src: null,
+    srcSet: null,
+    srcSetWebp: null,
+    srcWebp: null,
+    tracedSVG: null,
+    ...props,
+  }
+}
+
+export function createImageSharpGroupConnectionMock(
+  props: Partial<ImageSharpGroupConnection>,
+): ImageSharpGroupConnection {
+  return {
+    __typename: 'ImageSharpGroupConnection',
+    distinct: [],
+    edges: [],
+    field: '',
+    fieldValue: null,
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createImageSharpOriginalMock(
+  props: Partial<ImageSharpOriginal>,
+): ImageSharpOriginal {
+  return {
+    __typename: 'ImageSharpOriginal',
+    height: null,
+    src: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createImageSharpOriginalFilterInputMock(
+  props: Partial<ImageSharpOriginalFilterInput>,
+): ImageSharpOriginalFilterInput {
+  return {
+    height: null,
+    src: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createImageSharpResizeMock(
+  props: Partial<ImageSharpResize>,
+): ImageSharpResize {
+  return {
+    __typename: 'ImageSharpResize',
+    aspectRatio: null,
+    height: null,
+    originalName: null,
+    src: null,
+    tracedSVG: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createImageSharpResizeFilterInputMock(
+  props: Partial<ImageSharpResizeFilterInput>,
+): ImageSharpResizeFilterInput {
+  return {
+    aspectRatio: null,
+    height: null,
+    originalName: null,
+    src: null,
+    tracedSVG: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createImageSharpSortInputMock(
+  props: Partial<ImageSharpSortInput>,
+): ImageSharpSortInput {
+  return {
+    fields: null,
+    order: null,
+    ...props,
+  }
+}
+
+export function createIntQueryOperatorInputMock(
+  props: Partial<IntQueryOperatorInput>,
+): IntQueryOperatorInput {
+  return {
+    eq: null,
+    gt: null,
+    gte: null,
+    in: null,
+    lt: null,
+    lte: null,
+    ne: null,
+    nin: null,
+    ...props,
+  }
+}
+
+export function createInternalMock(props: Partial<Internal>): Internal {
+  return {
+    __typename: 'Internal',
+    content: null,
+    contentDigest: '',
+    description: null,
+    fieldOwners: null,
+    ignoreType: null,
+    mediaType: null,
+    owner: '',
+    type: '',
+    ...props,
+  }
+}
+
+export function createInternalFilterInputMock(
+  props: Partial<InternalFilterInput>,
+): InternalFilterInput {
+  return {
+    content: null,
+    contentDigest: null,
+    description: null,
+    fieldOwners: null,
+    ignoreType: null,
+    mediaType: null,
+    owner: null,
+    type: null,
+    ...props,
+  }
+}
+
+export function createJpgOptionsMock(props: Partial<JpgOptions>): JpgOptions {
+  return {
+    progressive: null,
+    quality: null,
+    ...props,
+  }
+}
+
+export function createJsonQueryOperatorInputMock(
+  props: Partial<JsonQueryOperatorInput>,
+): JsonQueryOperatorInput {
+  return {
+    eq: null,
+    glob: null,
+    in: null,
+    ne: null,
+    nin: null,
+    regex: null,
+    ...props,
+  }
+}
+
+export function createMarkdownHeadingMock(
+  props: Partial<MarkdownHeading>,
+): MarkdownHeading {
+  return {
+    __typename: 'MarkdownHeading',
+    depth: null,
+    id: null,
+    value: null,
+    ...props,
+  }
+}
+
+export function createMarkdownHeadingFilterInputMock(
+  props: Partial<MarkdownHeadingFilterInput>,
+): MarkdownHeadingFilterInput {
+  return {
+    depth: null,
+    id: null,
+    value: null,
+    ...props,
+  }
+}
+
+export function createMarkdownHeadingFilterListInputMock(
+  props: Partial<MarkdownHeadingFilterListInput>,
+): MarkdownHeadingFilterListInput {
+  return {
+    elemMatch: null,
+    ...props,
+  }
+}
+
+export function createMarkdownRemarkMock(
+  props: Partial<MarkdownRemark>,
+): MarkdownRemark {
+  return {
+    __typename: 'MarkdownRemark',
+    children: [],
+    excerpt: null,
+    excerptAst: null,
+    frontmatter: null,
+    headings: null,
+    html: null,
+    htmlAst: null,
+    id: '',
+    internal: createInternalMock({}),
+    parent: null,
+    rawMarkdownBody: null,
+    tableOfContents: null,
+    timeToRead: null,
+    wordCount: null,
+    ...props,
+  }
+}
+
+export function createMarkdownRemarkConnectionMock(
+  props: Partial<MarkdownRemarkConnection>,
+): MarkdownRemarkConnection {
+  return {
+    __typename: 'MarkdownRemarkConnection',
+    distinct: [],
+    edges: [],
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createMarkdownRemarkEdgeMock(
+  props: Partial<MarkdownRemarkEdge>,
+): MarkdownRemarkEdge {
+  return {
+    __typename: 'MarkdownRemarkEdge',
+    next: null,
+    node: createMarkdownRemarkMock({}),
+    previous: null,
+    ...props,
+  }
+}
+
+export function createMarkdownRemarkFilterInputMock(
+  props: Partial<MarkdownRemarkFilterInput>,
+): MarkdownRemarkFilterInput {
+  return {
+    children: null,
+    excerpt: null,
+    excerptAst: null,
+    frontmatter: null,
+    headings: null,
+    html: null,
+    htmlAst: null,
+    id: null,
+    internal: null,
+    parent: null,
+    rawMarkdownBody: null,
+    tableOfContents: null,
+    timeToRead: null,
+    wordCount: null,
+    ...props,
+  }
+}
+
+export function createMarkdownRemarkFilterListInputMock(
+  props: Partial<MarkdownRemarkFilterListInput>,
+): MarkdownRemarkFilterListInput {
+  return {
+    elemMatch: null,
+    ...props,
+  }
+}
+
+export function createMarkdownRemarkFrontmatterMock(
+  props: Partial<MarkdownRemarkFrontmatter>,
+): MarkdownRemarkFrontmatter {
+  return {
+    __typename: 'MarkdownRemarkFrontmatter',
+    title: null,
+    ...props,
+  }
+}
+
+export function createMarkdownRemarkFrontmatterFilterInputMock(
+  props: Partial<MarkdownRemarkFrontmatterFilterInput>,
+): MarkdownRemarkFrontmatterFilterInput {
+  return {
+    title: null,
+    ...props,
+  }
+}
+
+export function createMarkdownRemarkGroupConnectionMock(
+  props: Partial<MarkdownRemarkGroupConnection>,
+): MarkdownRemarkGroupConnection {
+  return {
+    __typename: 'MarkdownRemarkGroupConnection',
+    distinct: [],
+    edges: [],
+    field: '',
+    fieldValue: null,
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createMarkdownRemarkSortInputMock(
+  props: Partial<MarkdownRemarkSortInput>,
+): MarkdownRemarkSortInput {
+  return {
+    fields: null,
+    order: null,
+    ...props,
+  }
+}
+
+export function createMarkdownWordCountMock(
+  props: Partial<MarkdownWordCount>,
+): MarkdownWordCount {
+  return {
+    __typename: 'MarkdownWordCount',
+    paragraphs: null,
+    sentences: null,
+    words: null,
+    ...props,
+  }
+}
+
+export function createMarkdownWordCountFilterInputMock(
+  props: Partial<MarkdownWordCountFilterInput>,
+): MarkdownWordCountFilterInput {
+  return {
+    paragraphs: null,
+    sentences: null,
+    words: null,
+    ...props,
+  }
+}
+
+export function createNodeFilterInputMock(
+  props: Partial<NodeFilterInput>,
+): NodeFilterInput {
+  return {
+    children: null,
+    id: null,
+    internal: null,
+    parent: null,
+    ...props,
+  }
+}
+
+export function createNodeFilterListInputMock(
+  props: Partial<NodeFilterListInput>,
+): NodeFilterListInput {
+  return {
+    elemMatch: null,
+    ...props,
+  }
+}
+
+export function createPngOptionsMock(props: Partial<PngOptions>): PngOptions {
+  return {
+    compressionSpeed: null,
+    quality: null,
+    ...props,
+  }
+}
+
+export function createPageInfoMock(props: Partial<PageInfo>): PageInfo {
+  return {
+    __typename: 'PageInfo',
+    currentPage: 0,
+    hasNextPage: false,
+    hasPreviousPage: false,
+    itemCount: 0,
+    pageCount: 0,
+    perPage: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createPotraceMock(props: Partial<Potrace>): Potrace {
+  return {
+    alphaMax: null,
+    background: null,
+    blackOnWhite: null,
+    color: null,
+    optCurve: null,
+    optTolerance: null,
+    threshold: null,
+    turdSize: null,
+    turnPolicy: null,
+    ...props,
+  }
+}
+
+export function createQueryMock(props: Partial<Query>): Query {
+  return {
+    __typename: 'Query',
+    allBlogPostPart: createBlogPostPartConnectionMock({}),
+    allDirectory: createDirectoryConnectionMock({}),
+    allFile: createFileConnectionMock({}),
+    allImageSharp: createImageSharpConnectionMock({}),
+    allMarkdownRemark: createMarkdownRemarkConnectionMock({}),
+    allRecipeCategory: createRecipeCategoryConnectionMock({}),
+    allRecipePart: createRecipePartConnectionMock({}),
+    allSite: createSiteConnectionMock({}),
+    allSiteBuildMetadata: createSiteBuildMetadataConnectionMock({}),
+    allSiteFunction: createSiteFunctionConnectionMock({}),
+    allSitePage: createSitePageConnectionMock({}),
+    allSitePlugin: createSitePluginConnectionMock({}),
+    allStrapiArticle: createStrapiArticleConnectionMock({}),
+    allStrapiCategory: createStrapiCategoryConnectionMock({}),
+    allStrapiRecipe: createStrapiRecipeConnectionMock({}),
+    allStrapiTag: createStrapiTagConnectionMock({}),
+    blogPostPart: null,
+    directory: null,
+    file: null,
+    imageSharp: null,
+    markdownRemark: null,
+    recipeCategory: null,
+    recipePart: null,
+    site: null,
+    siteBuildMetadata: null,
+    siteFunction: null,
+    sitePage: null,
+    sitePlugin: null,
+    strapiArticle: null,
+    strapiCategory: null,
+    strapiRecipe: null,
+    strapiTag: null,
+    ...props,
+  }
+}
+
+export function createRecipeCategoryMock(
+  props: Partial<RecipeCategory>,
+): RecipeCategory {
+  return {
+    __typename: 'RecipeCategory',
+    children: [],
+    id: '',
+    internal: createInternalMock({}),
+    name: null,
+    parent: null,
+    position: null,
+    slug: null,
+    ...props,
+  }
+}
+
+export function createRecipeCategoryConnectionMock(
+  props: Partial<RecipeCategoryConnection>,
+): RecipeCategoryConnection {
+  return {
+    __typename: 'RecipeCategoryConnection',
+    distinct: [],
+    edges: [],
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createRecipeCategoryEdgeMock(
+  props: Partial<RecipeCategoryEdge>,
+): RecipeCategoryEdge {
+  return {
+    __typename: 'RecipeCategoryEdge',
+    next: null,
+    node: createRecipeCategoryMock({}),
+    previous: null,
+    ...props,
+  }
+}
+
+export function createRecipeCategoryFilterInputMock(
+  props: Partial<RecipeCategoryFilterInput>,
+): RecipeCategoryFilterInput {
+  return {
+    children: null,
+    id: null,
+    internal: null,
+    name: null,
+    parent: null,
+    position: null,
+    slug: null,
+    ...props,
+  }
+}
+
+export function createRecipeCategoryGroupConnectionMock(
+  props: Partial<RecipeCategoryGroupConnection>,
+): RecipeCategoryGroupConnection {
+  return {
+    __typename: 'RecipeCategoryGroupConnection',
+    distinct: [],
+    edges: [],
+    field: '',
+    fieldValue: null,
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createRecipeCategorySortInputMock(
+  props: Partial<RecipeCategorySortInput>,
+): RecipeCategorySortInput {
+  return {
+    fields: null,
+    order: null,
+    ...props,
+  }
+}
+
+export function createRecipePartMock(props: Partial<RecipePart>): RecipePart {
+  return {
+    __typename: 'RecipePart',
+    childMarkdownRemark: null,
+    children: [],
+    childrenMarkdownRemark: null,
+    id: '',
+    internal: createInternalMock({}),
+    parent: null,
+    ...props,
+  }
+}
+
+export function createRecipePartConnectionMock(
+  props: Partial<RecipePartConnection>,
+): RecipePartConnection {
+  return {
+    __typename: 'RecipePartConnection',
+    distinct: [],
+    edges: [],
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createRecipePartEdgeMock(
+  props: Partial<RecipePartEdge>,
+): RecipePartEdge {
+  return {
+    __typename: 'RecipePartEdge',
+    next: null,
+    node: createRecipePartMock({}),
+    previous: null,
+    ...props,
+  }
+}
+
+export function createRecipePartFilterInputMock(
+  props: Partial<RecipePartFilterInput>,
+): RecipePartFilterInput {
+  return {
+    childMarkdownRemark: null,
+    children: null,
+    childrenMarkdownRemark: null,
+    id: null,
+    internal: null,
+    parent: null,
+    ...props,
+  }
+}
+
+export function createRecipePartGroupConnectionMock(
+  props: Partial<RecipePartGroupConnection>,
+): RecipePartGroupConnection {
+  return {
+    __typename: 'RecipePartGroupConnection',
+    distinct: [],
+    edges: [],
+    field: '',
+    fieldValue: null,
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createRecipePartSortInputMock(
+  props: Partial<RecipePartSortInput>,
+): RecipePartSortInput {
+  return {
+    fields: null,
+    order: null,
+    ...props,
+  }
+}
+
+export function createSiteMock(props: Partial<Site>): Site {
+  return {
+    __typename: 'Site',
+    buildTime: null,
+    children: [],
+    host: null,
+    id: '',
+    internal: createInternalMock({}),
+    jsxRuntime: null,
+    parent: null,
+    pathPrefix: null,
+    polyfill: null,
+    port: null,
+    siteMetadata: null,
+    trailingSlash: null,
+    ...props,
+  }
+}
+
+export function createSiteBuildMetadataMock(
+  props: Partial<SiteBuildMetadata>,
+): SiteBuildMetadata {
+  return {
+    __typename: 'SiteBuildMetadata',
+    buildTime: null,
+    children: [],
+    id: '',
+    internal: createInternalMock({}),
+    parent: null,
+    ...props,
+  }
+}
+
+export function createSiteBuildMetadataConnectionMock(
+  props: Partial<SiteBuildMetadataConnection>,
+): SiteBuildMetadataConnection {
+  return {
+    __typename: 'SiteBuildMetadataConnection',
+    distinct: [],
+    edges: [],
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createSiteBuildMetadataEdgeMock(
+  props: Partial<SiteBuildMetadataEdge>,
+): SiteBuildMetadataEdge {
+  return {
+    __typename: 'SiteBuildMetadataEdge',
+    next: null,
+    node: createSiteBuildMetadataMock({}),
+    previous: null,
+    ...props,
+  }
+}
+
+export function createSiteBuildMetadataFilterInputMock(
+  props: Partial<SiteBuildMetadataFilterInput>,
+): SiteBuildMetadataFilterInput {
+  return {
+    buildTime: null,
+    children: null,
+    id: null,
+    internal: null,
+    parent: null,
+    ...props,
+  }
+}
+
+export function createSiteBuildMetadataGroupConnectionMock(
+  props: Partial<SiteBuildMetadataGroupConnection>,
+): SiteBuildMetadataGroupConnection {
+  return {
+    __typename: 'SiteBuildMetadataGroupConnection',
+    distinct: [],
+    edges: [],
+    field: '',
+    fieldValue: null,
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createSiteBuildMetadataSortInputMock(
+  props: Partial<SiteBuildMetadataSortInput>,
+): SiteBuildMetadataSortInput {
+  return {
+    fields: null,
+    order: null,
+    ...props,
+  }
+}
+
+export function createSiteConnectionMock(
+  props: Partial<SiteConnection>,
+): SiteConnection {
+  return {
+    __typename: 'SiteConnection',
+    distinct: [],
+    edges: [],
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createSiteEdgeMock(props: Partial<SiteEdge>): SiteEdge {
+  return {
+    __typename: 'SiteEdge',
+    next: null,
+    node: createSiteMock({}),
+    previous: null,
+    ...props,
+  }
+}
+
+export function createSiteFilterInputMock(
+  props: Partial<SiteFilterInput>,
+): SiteFilterInput {
+  return {
+    buildTime: null,
+    children: null,
+    host: null,
+    id: null,
+    internal: null,
+    jsxRuntime: null,
+    parent: null,
+    pathPrefix: null,
+    polyfill: null,
+    port: null,
+    siteMetadata: null,
+    trailingSlash: null,
+    ...props,
+  }
+}
+
+export function createSiteFunctionMock(
+  props: Partial<SiteFunction>,
+): SiteFunction {
+  return {
+    __typename: 'SiteFunction',
+    absoluteCompiledFilePath: '',
+    children: [],
+    functionRoute: '',
+    id: '',
+    internal: createInternalMock({}),
+    matchPath: null,
+    originalAbsoluteFilePath: '',
+    originalRelativeFilePath: '',
+    parent: null,
+    pluginName: '',
+    relativeCompiledFilePath: '',
+    ...props,
+  }
+}
+
+export function createSiteFunctionConnectionMock(
+  props: Partial<SiteFunctionConnection>,
+): SiteFunctionConnection {
+  return {
+    __typename: 'SiteFunctionConnection',
+    distinct: [],
+    edges: [],
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createSiteFunctionEdgeMock(
+  props: Partial<SiteFunctionEdge>,
+): SiteFunctionEdge {
+  return {
+    __typename: 'SiteFunctionEdge',
+    next: null,
+    node: createSiteFunctionMock({}),
+    previous: null,
+    ...props,
+  }
+}
+
+export function createSiteFunctionFilterInputMock(
+  props: Partial<SiteFunctionFilterInput>,
+): SiteFunctionFilterInput {
+  return {
+    absoluteCompiledFilePath: null,
+    children: null,
+    functionRoute: null,
+    id: null,
+    internal: null,
+    matchPath: null,
+    originalAbsoluteFilePath: null,
+    originalRelativeFilePath: null,
+    parent: null,
+    pluginName: null,
+    relativeCompiledFilePath: null,
+    ...props,
+  }
+}
+
+export function createSiteFunctionGroupConnectionMock(
+  props: Partial<SiteFunctionGroupConnection>,
+): SiteFunctionGroupConnection {
+  return {
+    __typename: 'SiteFunctionGroupConnection',
+    distinct: [],
+    edges: [],
+    field: '',
+    fieldValue: null,
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createSiteFunctionSortInputMock(
+  props: Partial<SiteFunctionSortInput>,
+): SiteFunctionSortInput {
+  return {
+    fields: null,
+    order: null,
+    ...props,
+  }
+}
+
+export function createSiteGroupConnectionMock(
+  props: Partial<SiteGroupConnection>,
+): SiteGroupConnection {
+  return {
+    __typename: 'SiteGroupConnection',
+    distinct: [],
+    edges: [],
+    field: '',
+    fieldValue: null,
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createSitePageMock(props: Partial<SitePage>): SitePage {
+  return {
+    __typename: 'SitePage',
+    children: [],
+    component: '',
+    componentChunkName: '',
+    id: '',
+    internal: createInternalMock({}),
+    internalComponentName: '',
+    matchPath: null,
+    pageContext: null,
+    parent: null,
+    path: '',
+    pluginCreator: null,
+    ...props,
+  }
+}
+
+export function createSitePageConnectionMock(
+  props: Partial<SitePageConnection>,
+): SitePageConnection {
+  return {
+    __typename: 'SitePageConnection',
+    distinct: [],
+    edges: [],
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createSitePageEdgeMock(
+  props: Partial<SitePageEdge>,
+): SitePageEdge {
+  return {
+    __typename: 'SitePageEdge',
+    next: null,
+    node: createSitePageMock({}),
+    previous: null,
+    ...props,
+  }
+}
+
+export function createSitePageFilterInputMock(
+  props: Partial<SitePageFilterInput>,
+): SitePageFilterInput {
+  return {
+    children: null,
+    component: null,
+    componentChunkName: null,
+    id: null,
+    internal: null,
+    internalComponentName: null,
+    matchPath: null,
+    pageContext: null,
+    parent: null,
+    path: null,
+    pluginCreator: null,
+    ...props,
+  }
+}
+
+export function createSitePageGroupConnectionMock(
+  props: Partial<SitePageGroupConnection>,
+): SitePageGroupConnection {
+  return {
+    __typename: 'SitePageGroupConnection',
+    distinct: [],
+    edges: [],
+    field: '',
+    fieldValue: null,
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createSitePageSortInputMock(
+  props: Partial<SitePageSortInput>,
+): SitePageSortInput {
+  return {
+    fields: null,
+    order: null,
+    ...props,
+  }
+}
+
+export function createSitePluginMock(props: Partial<SitePlugin>): SitePlugin {
+  return {
+    __typename: 'SitePlugin',
+    browserAPIs: null,
+    children: [],
+    id: '',
+    internal: createInternalMock({}),
+    name: null,
+    nodeAPIs: null,
+    packageJson: null,
+    parent: null,
+    pluginFilepath: null,
+    pluginOptions: null,
+    resolve: null,
+    ssrAPIs: null,
+    version: null,
+    ...props,
+  }
+}
+
+export function createSitePluginConnectionMock(
+  props: Partial<SitePluginConnection>,
+): SitePluginConnection {
+  return {
+    __typename: 'SitePluginConnection',
+    distinct: [],
+    edges: [],
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createSitePluginEdgeMock(
+  props: Partial<SitePluginEdge>,
+): SitePluginEdge {
+  return {
+    __typename: 'SitePluginEdge',
+    next: null,
+    node: createSitePluginMock({}),
+    previous: null,
+    ...props,
+  }
+}
+
+export function createSitePluginFilterInputMock(
+  props: Partial<SitePluginFilterInput>,
+): SitePluginFilterInput {
+  return {
+    browserAPIs: null,
+    children: null,
+    id: null,
+    internal: null,
+    name: null,
+    nodeAPIs: null,
+    packageJson: null,
+    parent: null,
+    pluginFilepath: null,
+    pluginOptions: null,
+    resolve: null,
+    ssrAPIs: null,
+    version: null,
+    ...props,
+  }
+}
+
+export function createSitePluginGroupConnectionMock(
+  props: Partial<SitePluginGroupConnection>,
+): SitePluginGroupConnection {
+  return {
+    __typename: 'SitePluginGroupConnection',
+    distinct: [],
+    edges: [],
+    field: '',
+    fieldValue: null,
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createSitePluginSortInputMock(
+  props: Partial<SitePluginSortInput>,
+): SitePluginSortInput {
+  return {
+    fields: null,
+    order: null,
+    ...props,
+  }
+}
+
+export function createSiteSiteMetadataMock(
+  props: Partial<SiteSiteMetadata>,
+): SiteSiteMetadata {
+  return {
+    __typename: 'SiteSiteMetadata',
+    author: null,
+    description: null,
+    siteUrl: null,
+    title: null,
+    ...props,
+  }
+}
+
+export function createSiteSiteMetadataFilterInputMock(
+  props: Partial<SiteSiteMetadataFilterInput>,
+): SiteSiteMetadataFilterInput {
+  return {
+    author: null,
+    description: null,
+    siteUrl: null,
+    title: null,
+    ...props,
+  }
+}
+
+export function createSiteSortInputMock(
+  props: Partial<SiteSortInput>,
+): SiteSortInput {
+  return {
+    fields: null,
+    order: null,
+    ...props,
+  }
+}
+
+export function createStrapiArticleMock(
+  props: Partial<StrapiArticle>,
+): StrapiArticle {
+  return {
+    __typename: 'StrapiArticle',
+    children: [],
+    content: null,
+    created_at: null,
+    headline: null,
+    id: '',
+    internal: createInternalMock({}),
+    parent: null,
+    parsedContent: null,
+    parsedHeadline: null,
+    published_at: null,
+    slug: null,
+    strapiId: null,
+    title: null,
+    updated_at: null,
+    ...props,
+  }
+}
+
+export function createStrapiArticleConnectionMock(
+  props: Partial<StrapiArticleConnection>,
+): StrapiArticleConnection {
+  return {
+    __typename: 'StrapiArticleConnection',
+    distinct: [],
+    edges: [],
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createStrapiArticleEdgeMock(
+  props: Partial<StrapiArticleEdge>,
+): StrapiArticleEdge {
+  return {
+    __typename: 'StrapiArticleEdge',
+    next: null,
+    node: createStrapiArticleMock({}),
+    previous: null,
+    ...props,
+  }
+}
+
+export function createStrapiArticleFilterInputMock(
+  props: Partial<StrapiArticleFilterInput>,
+): StrapiArticleFilterInput {
+  return {
+    children: null,
+    content: null,
+    created_at: null,
+    headline: null,
+    id: null,
+    internal: null,
+    parent: null,
+    published_at: null,
+    slug: null,
+    strapiId: null,
+    title: null,
+    updated_at: null,
+    ...props,
+  }
+}
+
+export function createStrapiArticleGroupConnectionMock(
+  props: Partial<StrapiArticleGroupConnection>,
+): StrapiArticleGroupConnection {
+  return {
+    __typename: 'StrapiArticleGroupConnection',
+    distinct: [],
+    edges: [],
+    field: '',
+    fieldValue: null,
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createStrapiArticleSortInputMock(
+  props: Partial<StrapiArticleSortInput>,
+): StrapiArticleSortInput {
+  return {
+    fields: null,
+    order: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryMock(
+  props: Partial<StrapiCategory>,
+): StrapiCategory {
+  return {
+    __typename: 'StrapiCategory',
+    children: [],
+    created_at: null,
+    id: '',
+    internal: createInternalMock({}),
+    name: null,
+    parent: null,
+    recipes: null,
+    slug: null,
+    strapiId: null,
+    updated_at: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryConnectionMock(
+  props: Partial<StrapiCategoryConnection>,
+): StrapiCategoryConnection {
+  return {
+    __typename: 'StrapiCategoryConnection',
+    distinct: [],
+    edges: [],
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryEdgeMock(
+  props: Partial<StrapiCategoryEdge>,
+): StrapiCategoryEdge {
+  return {
+    __typename: 'StrapiCategoryEdge',
+    next: null,
+    node: createStrapiCategoryMock({}),
+    previous: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryFilterInputMock(
+  props: Partial<StrapiCategoryFilterInput>,
+): StrapiCategoryFilterInput {
+  return {
+    children: null,
+    created_at: null,
+    id: null,
+    internal: null,
+    name: null,
+    parent: null,
+    recipes: null,
+    slug: null,
+    strapiId: null,
+    updated_at: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryGroupConnectionMock(
+  props: Partial<StrapiCategoryGroupConnection>,
+): StrapiCategoryGroupConnection {
+  return {
+    __typename: 'StrapiCategoryGroupConnection',
+    distinct: [],
+    edges: [],
+    field: '',
+    fieldValue: null,
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryRecipesMock(
+  props: Partial<StrapiCategoryRecipes>,
+): StrapiCategoryRecipes {
+  return {
+    __typename: 'StrapiCategoryRecipes',
+    category: null,
+    cover: null,
+    created_at: null,
+    directions: null,
+    gallery: null,
+    headline: null,
+    id: null,
+    ingredients: null,
+    preparationTime: null,
+    published_at: null,
+    seo: null,
+    slug: null,
+    title: null,
+    updated_at: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryRecipesCoverMock(
+  props: Partial<StrapiCategoryRecipesCover>,
+): StrapiCategoryRecipesCover {
+  return {
+    __typename: 'StrapiCategoryRecipesCover',
+    created_at: null,
+    ext: null,
+    formats: null,
+    hash: null,
+    height: null,
+    id: null,
+    localFile: null,
+    mime: null,
+    name: null,
+    provider: null,
+    size: null,
+    updated_at: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryRecipesCoverFilterInputMock(
+  props: Partial<StrapiCategoryRecipesCoverFilterInput>,
+): StrapiCategoryRecipesCoverFilterInput {
+  return {
+    created_at: null,
+    ext: null,
+    formats: null,
+    hash: null,
+    height: null,
+    id: null,
+    localFile: null,
+    mime: null,
+    name: null,
+    provider: null,
+    size: null,
+    updated_at: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryRecipesCoverFormatsMock(
+  props: Partial<StrapiCategoryRecipesCoverFormats>,
+): StrapiCategoryRecipesCoverFormats {
+  return {
+    __typename: 'StrapiCategoryRecipesCoverFormats',
+    thumbnail: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryRecipesCoverFormatsFilterInputMock(
+  props: Partial<StrapiCategoryRecipesCoverFormatsFilterInput>,
+): StrapiCategoryRecipesCoverFormatsFilterInput {
+  return {
+    thumbnail: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryRecipesCoverFormatsThumbnailMock(
+  props: Partial<StrapiCategoryRecipesCoverFormatsThumbnail>,
+): StrapiCategoryRecipesCoverFormatsThumbnail {
+  return {
+    __typename: 'StrapiCategoryRecipesCoverFormatsThumbnail',
+    ext: null,
+    hash: null,
+    height: null,
+    mime: null,
+    name: null,
+    size: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryRecipesCoverFormatsThumbnailFilterInputMock(
+  props: Partial<StrapiCategoryRecipesCoverFormatsThumbnailFilterInput>,
+): StrapiCategoryRecipesCoverFormatsThumbnailFilterInput {
+  return {
+    ext: null,
+    hash: null,
+    height: null,
+    mime: null,
+    name: null,
+    size: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryRecipesFilterInputMock(
+  props: Partial<StrapiCategoryRecipesFilterInput>,
+): StrapiCategoryRecipesFilterInput {
+  return {
+    category: null,
+    cover: null,
+    created_at: null,
+    directions: null,
+    gallery: null,
+    headline: null,
+    id: null,
+    ingredients: null,
+    preparationTime: null,
+    published_at: null,
+    seo: null,
+    slug: null,
+    title: null,
+    updated_at: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryRecipesFilterListInputMock(
+  props: Partial<StrapiCategoryRecipesFilterListInput>,
+): StrapiCategoryRecipesFilterListInput {
+  return {
+    elemMatch: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryRecipesGalleryMock(
+  props: Partial<StrapiCategoryRecipesGallery>,
+): StrapiCategoryRecipesGallery {
+  return {
+    __typename: 'StrapiCategoryRecipesGallery',
+    created_at: null,
+    ext: null,
+    formats: null,
+    hash: null,
+    height: null,
+    id: null,
+    localFile: null,
+    mime: null,
+    name: null,
+    provider: null,
+    size: null,
+    updated_at: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryRecipesGalleryFilterInputMock(
+  props: Partial<StrapiCategoryRecipesGalleryFilterInput>,
+): StrapiCategoryRecipesGalleryFilterInput {
+  return {
+    created_at: null,
+    ext: null,
+    formats: null,
+    hash: null,
+    height: null,
+    id: null,
+    localFile: null,
+    mime: null,
+    name: null,
+    provider: null,
+    size: null,
+    updated_at: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryRecipesGalleryFilterListInputMock(
+  props: Partial<StrapiCategoryRecipesGalleryFilterListInput>,
+): StrapiCategoryRecipesGalleryFilterListInput {
+  return {
+    elemMatch: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryRecipesGalleryFormatsMock(
+  props: Partial<StrapiCategoryRecipesGalleryFormats>,
+): StrapiCategoryRecipesGalleryFormats {
+  return {
+    __typename: 'StrapiCategoryRecipesGalleryFormats',
+    thumbnail: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryRecipesGalleryFormatsFilterInputMock(
+  props: Partial<StrapiCategoryRecipesGalleryFormatsFilterInput>,
+): StrapiCategoryRecipesGalleryFormatsFilterInput {
+  return {
+    thumbnail: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryRecipesGalleryFormatsThumbnailMock(
+  props: Partial<StrapiCategoryRecipesGalleryFormatsThumbnail>,
+): StrapiCategoryRecipesGalleryFormatsThumbnail {
+  return {
+    __typename: 'StrapiCategoryRecipesGalleryFormatsThumbnail',
+    ext: null,
+    hash: null,
+    height: null,
+    mime: null,
+    name: null,
+    size: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryRecipesGalleryFormatsThumbnailFilterInputMock(
+  props: Partial<StrapiCategoryRecipesGalleryFormatsThumbnailFilterInput>,
+): StrapiCategoryRecipesGalleryFormatsThumbnailFilterInput {
+  return {
+    ext: null,
+    hash: null,
+    height: null,
+    mime: null,
+    name: null,
+    size: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryRecipesSeoMock(
+  props: Partial<StrapiCategoryRecipesSeo>,
+): StrapiCategoryRecipesSeo {
+  return {
+    __typename: 'StrapiCategoryRecipesSeo',
+    htmlDescription: null,
+    htmlTitle: null,
+    id: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategoryRecipesSeoFilterInputMock(
+  props: Partial<StrapiCategoryRecipesSeoFilterInput>,
+): StrapiCategoryRecipesSeoFilterInput {
+  return {
+    htmlDescription: null,
+    htmlTitle: null,
+    id: null,
+    ...props,
+  }
+}
+
+export function createStrapiCategorySortInputMock(
+  props: Partial<StrapiCategorySortInput>,
+): StrapiCategorySortInput {
+  return {
+    fields: null,
+    order: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeMock(
+  props: Partial<StrapiRecipe>,
+): StrapiRecipe {
+  return {
+    __typename: 'StrapiRecipe',
+    category: null,
+    children: [],
+    cover: null,
+    created_at: null,
+    directions: null,
+    gallery: null,
+    headline: null,
+    id: '',
+    ingredients: null,
+    internal: createInternalMock({}),
+    parent: null,
+    parsedDirections: null,
+    parsedHeadline: null,
+    parsedIngredients: null,
+    preparationTime: null,
+    published_at: null,
+    seo: null,
+    slug: null,
+    strapiId: null,
+    tags: null,
+    title: null,
+    updated_at: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeCategoryMock(
+  props: Partial<StrapiRecipeCategory>,
+): StrapiRecipeCategory {
+  return {
+    __typename: 'StrapiRecipeCategory',
+    created_at: null,
+    id: null,
+    name: null,
+    slug: null,
+    updated_at: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeCategoryFilterInputMock(
+  props: Partial<StrapiRecipeCategoryFilterInput>,
+): StrapiRecipeCategoryFilterInput {
+  return {
+    created_at: null,
+    id: null,
+    name: null,
+    slug: null,
+    updated_at: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeConnectionMock(
+  props: Partial<StrapiRecipeConnection>,
+): StrapiRecipeConnection {
+  return {
+    __typename: 'StrapiRecipeConnection',
+    distinct: [],
+    edges: [],
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeCoverMock(
+  props: Partial<StrapiRecipeCover>,
+): StrapiRecipeCover {
+  return {
+    __typename: 'StrapiRecipeCover',
+    created_at: null,
+    ext: null,
+    formats: null,
+    hash: null,
+    height: null,
+    id: null,
+    image: null,
+    localFile: null,
+    mime: null,
+    name: null,
+    provider: null,
+    size: null,
+    updated_at: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeCoverFilterInputMock(
+  props: Partial<StrapiRecipeCoverFilterInput>,
+): StrapiRecipeCoverFilterInput {
+  return {
+    created_at: null,
+    ext: null,
+    formats: null,
+    hash: null,
+    height: null,
+    id: null,
+    localFile: null,
+    mime: null,
+    name: null,
+    provider: null,
+    size: null,
+    updated_at: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeCoverFormatsMock(
+  props: Partial<StrapiRecipeCoverFormats>,
+): StrapiRecipeCoverFormats {
+  return {
+    __typename: 'StrapiRecipeCoverFormats',
+    thumbnail: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeCoverFormatsFilterInputMock(
+  props: Partial<StrapiRecipeCoverFormatsFilterInput>,
+): StrapiRecipeCoverFormatsFilterInput {
+  return {
+    thumbnail: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeCoverFormatsThumbnailMock(
+  props: Partial<StrapiRecipeCoverFormatsThumbnail>,
+): StrapiRecipeCoverFormatsThumbnail {
+  return {
+    __typename: 'StrapiRecipeCoverFormatsThumbnail',
+    ext: null,
+    hash: null,
+    height: null,
+    mime: null,
+    name: null,
+    size: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeCoverFormatsThumbnailFilterInputMock(
+  props: Partial<StrapiRecipeCoverFormatsThumbnailFilterInput>,
+): StrapiRecipeCoverFormatsThumbnailFilterInput {
+  return {
+    ext: null,
+    hash: null,
+    height: null,
+    mime: null,
+    name: null,
+    size: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeEdgeMock(
+  props: Partial<StrapiRecipeEdge>,
+): StrapiRecipeEdge {
+  return {
+    __typename: 'StrapiRecipeEdge',
+    next: null,
+    node: createStrapiRecipeMock({}),
+    previous: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeFilterInputMock(
+  props: Partial<StrapiRecipeFilterInput>,
+): StrapiRecipeFilterInput {
+  return {
+    category: null,
+    children: null,
+    cover: null,
+    created_at: null,
+    directions: null,
+    gallery: null,
+    headline: null,
+    id: null,
+    ingredients: null,
+    internal: null,
+    parent: null,
+    preparationTime: null,
+    published_at: null,
+    seo: null,
+    slug: null,
+    strapiId: null,
+    tags: null,
+    title: null,
+    updated_at: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeGalleryMock(
+  props: Partial<StrapiRecipeGallery>,
+): StrapiRecipeGallery {
+  return {
+    __typename: 'StrapiRecipeGallery',
+    created_at: null,
+    ext: null,
+    formats: null,
+    hash: null,
+    height: null,
+    id: null,
+    image: null,
+    localFile: null,
+    mime: null,
+    name: null,
+    provider: null,
+    size: null,
+    updated_at: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeGalleryFilterInputMock(
+  props: Partial<StrapiRecipeGalleryFilterInput>,
+): StrapiRecipeGalleryFilterInput {
+  return {
+    created_at: null,
+    ext: null,
+    formats: null,
+    hash: null,
+    height: null,
+    id: null,
+    localFile: null,
+    mime: null,
+    name: null,
+    provider: null,
+    size: null,
+    updated_at: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeGalleryFilterListInputMock(
+  props: Partial<StrapiRecipeGalleryFilterListInput>,
+): StrapiRecipeGalleryFilterListInput {
+  return {
+    elemMatch: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeGalleryFormatsMock(
+  props: Partial<StrapiRecipeGalleryFormats>,
+): StrapiRecipeGalleryFormats {
+  return {
+    __typename: 'StrapiRecipeGalleryFormats',
+    thumbnail: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeGalleryFormatsFilterInputMock(
+  props: Partial<StrapiRecipeGalleryFormatsFilterInput>,
+): StrapiRecipeGalleryFormatsFilterInput {
+  return {
+    thumbnail: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeGalleryFormatsThumbnailMock(
+  props: Partial<StrapiRecipeGalleryFormatsThumbnail>,
+): StrapiRecipeGalleryFormatsThumbnail {
+  return {
+    __typename: 'StrapiRecipeGalleryFormatsThumbnail',
+    ext: null,
+    hash: null,
+    height: null,
+    mime: null,
+    name: null,
+    size: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeGalleryFormatsThumbnailFilterInputMock(
+  props: Partial<StrapiRecipeGalleryFormatsThumbnailFilterInput>,
+): StrapiRecipeGalleryFormatsThumbnailFilterInput {
+  return {
+    ext: null,
+    hash: null,
+    height: null,
+    mime: null,
+    name: null,
+    size: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeGroupConnectionMock(
+  props: Partial<StrapiRecipeGroupConnection>,
+): StrapiRecipeGroupConnection {
+  return {
+    __typename: 'StrapiRecipeGroupConnection',
+    distinct: [],
+    edges: [],
+    field: '',
+    fieldValue: null,
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeSeoMock(
+  props: Partial<StrapiRecipeSeo>,
+): StrapiRecipeSeo {
+  return {
+    __typename: 'StrapiRecipeSeo',
+    htmlDescription: null,
+    htmlTitle: null,
+    id: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeSeoFilterInputMock(
+  props: Partial<StrapiRecipeSeoFilterInput>,
+): StrapiRecipeSeoFilterInput {
+  return {
+    htmlDescription: null,
+    htmlTitle: null,
+    id: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeSortInputMock(
+  props: Partial<StrapiRecipeSortInput>,
+): StrapiRecipeSortInput {
+  return {
+    fields: null,
+    order: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeTagsMock(
+  props: Partial<StrapiRecipeTags>,
+): StrapiRecipeTags {
+  return {
+    __typename: 'StrapiRecipeTags',
+    created_at: null,
+    id: null,
+    name: null,
+    slug: null,
+    updated_at: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeTagsFilterInputMock(
+  props: Partial<StrapiRecipeTagsFilterInput>,
+): StrapiRecipeTagsFilterInput {
+  return {
+    created_at: null,
+    id: null,
+    name: null,
+    slug: null,
+    updated_at: null,
+    ...props,
+  }
+}
+
+export function createStrapiRecipeTagsFilterListInputMock(
+  props: Partial<StrapiRecipeTagsFilterListInput>,
+): StrapiRecipeTagsFilterListInput {
+  return {
+    elemMatch: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagMock(props: Partial<StrapiTag>): StrapiTag {
+  return {
+    __typename: 'StrapiTag',
+    children: [],
+    created_at: null,
+    id: '',
+    internal: createInternalMock({}),
+    name: null,
+    parent: null,
+    recipes: null,
+    slug: null,
+    strapiId: null,
+    updated_at: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagConnectionMock(
+  props: Partial<StrapiTagConnection>,
+): StrapiTagConnection {
+  return {
+    __typename: 'StrapiTagConnection',
+    distinct: [],
+    edges: [],
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createStrapiTagEdgeMock(
+  props: Partial<StrapiTagEdge>,
+): StrapiTagEdge {
+  return {
+    __typename: 'StrapiTagEdge',
+    next: null,
+    node: createStrapiTagMock({}),
+    previous: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagFilterInputMock(
+  props: Partial<StrapiTagFilterInput>,
+): StrapiTagFilterInput {
+  return {
+    children: null,
+    created_at: null,
+    id: null,
+    internal: null,
+    name: null,
+    parent: null,
+    recipes: null,
+    slug: null,
+    strapiId: null,
+    updated_at: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagGroupConnectionMock(
+  props: Partial<StrapiTagGroupConnection>,
+): StrapiTagGroupConnection {
+  return {
+    __typename: 'StrapiTagGroupConnection',
+    distinct: [],
+    edges: [],
+    field: '',
+    fieldValue: null,
+    group: [],
+    max: null,
+    min: null,
+    nodes: [],
+    pageInfo: createPageInfoMock({}),
+    sum: null,
+    totalCount: 0,
+    ...props,
+  }
+}
+
+export function createStrapiTagRecipesMock(
+  props: Partial<StrapiTagRecipes>,
+): StrapiTagRecipes {
+  return {
+    __typename: 'StrapiTagRecipes',
+    category: null,
+    cover: null,
+    created_at: null,
+    directions: null,
+    gallery: null,
+    headline: null,
+    id: null,
+    ingredients: null,
+    preparationTime: null,
+    published_at: null,
+    seo: null,
+    slug: null,
+    title: null,
+    updated_at: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagRecipesCoverMock(
+  props: Partial<StrapiTagRecipesCover>,
+): StrapiTagRecipesCover {
+  return {
+    __typename: 'StrapiTagRecipesCover',
+    created_at: null,
+    ext: null,
+    formats: null,
+    hash: null,
+    height: null,
+    id: null,
+    localFile: null,
+    mime: null,
+    name: null,
+    provider: null,
+    size: null,
+    updated_at: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagRecipesCoverFilterInputMock(
+  props: Partial<StrapiTagRecipesCoverFilterInput>,
+): StrapiTagRecipesCoverFilterInput {
+  return {
+    created_at: null,
+    ext: null,
+    formats: null,
+    hash: null,
+    height: null,
+    id: null,
+    localFile: null,
+    mime: null,
+    name: null,
+    provider: null,
+    size: null,
+    updated_at: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagRecipesCoverFormatsMock(
+  props: Partial<StrapiTagRecipesCoverFormats>,
+): StrapiTagRecipesCoverFormats {
+  return {
+    __typename: 'StrapiTagRecipesCoverFormats',
+    thumbnail: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagRecipesCoverFormatsFilterInputMock(
+  props: Partial<StrapiTagRecipesCoverFormatsFilterInput>,
+): StrapiTagRecipesCoverFormatsFilterInput {
+  return {
+    thumbnail: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagRecipesCoverFormatsThumbnailMock(
+  props: Partial<StrapiTagRecipesCoverFormatsThumbnail>,
+): StrapiTagRecipesCoverFormatsThumbnail {
+  return {
+    __typename: 'StrapiTagRecipesCoverFormatsThumbnail',
+    ext: null,
+    hash: null,
+    height: null,
+    mime: null,
+    name: null,
+    size: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagRecipesCoverFormatsThumbnailFilterInputMock(
+  props: Partial<StrapiTagRecipesCoverFormatsThumbnailFilterInput>,
+): StrapiTagRecipesCoverFormatsThumbnailFilterInput {
+  return {
+    ext: null,
+    hash: null,
+    height: null,
+    mime: null,
+    name: null,
+    size: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagRecipesFilterInputMock(
+  props: Partial<StrapiTagRecipesFilterInput>,
+): StrapiTagRecipesFilterInput {
+  return {
+    category: null,
+    cover: null,
+    created_at: null,
+    directions: null,
+    gallery: null,
+    headline: null,
+    id: null,
+    ingredients: null,
+    preparationTime: null,
+    published_at: null,
+    seo: null,
+    slug: null,
+    title: null,
+    updated_at: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagRecipesFilterListInputMock(
+  props: Partial<StrapiTagRecipesFilterListInput>,
+): StrapiTagRecipesFilterListInput {
+  return {
+    elemMatch: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagRecipesGalleryMock(
+  props: Partial<StrapiTagRecipesGallery>,
+): StrapiTagRecipesGallery {
+  return {
+    __typename: 'StrapiTagRecipesGallery',
+    created_at: null,
+    ext: null,
+    formats: null,
+    hash: null,
+    height: null,
+    id: null,
+    localFile: null,
+    mime: null,
+    name: null,
+    provider: null,
+    size: null,
+    updated_at: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagRecipesGalleryFilterInputMock(
+  props: Partial<StrapiTagRecipesGalleryFilterInput>,
+): StrapiTagRecipesGalleryFilterInput {
+  return {
+    created_at: null,
+    ext: null,
+    formats: null,
+    hash: null,
+    height: null,
+    id: null,
+    localFile: null,
+    mime: null,
+    name: null,
+    provider: null,
+    size: null,
+    updated_at: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagRecipesGalleryFilterListInputMock(
+  props: Partial<StrapiTagRecipesGalleryFilterListInput>,
+): StrapiTagRecipesGalleryFilterListInput {
+  return {
+    elemMatch: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagRecipesGalleryFormatsMock(
+  props: Partial<StrapiTagRecipesGalleryFormats>,
+): StrapiTagRecipesGalleryFormats {
+  return {
+    __typename: 'StrapiTagRecipesGalleryFormats',
+    thumbnail: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagRecipesGalleryFormatsFilterInputMock(
+  props: Partial<StrapiTagRecipesGalleryFormatsFilterInput>,
+): StrapiTagRecipesGalleryFormatsFilterInput {
+  return {
+    thumbnail: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagRecipesGalleryFormatsThumbnailMock(
+  props: Partial<StrapiTagRecipesGalleryFormatsThumbnail>,
+): StrapiTagRecipesGalleryFormatsThumbnail {
+  return {
+    __typename: 'StrapiTagRecipesGalleryFormatsThumbnail',
+    ext: null,
+    hash: null,
+    height: null,
+    mime: null,
+    name: null,
+    size: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagRecipesGalleryFormatsThumbnailFilterInputMock(
+  props: Partial<StrapiTagRecipesGalleryFormatsThumbnailFilterInput>,
+): StrapiTagRecipesGalleryFormatsThumbnailFilterInput {
+  return {
+    ext: null,
+    hash: null,
+    height: null,
+    mime: null,
+    name: null,
+    size: null,
+    url: null,
+    width: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagRecipesSeoMock(
+  props: Partial<StrapiTagRecipesSeo>,
+): StrapiTagRecipesSeo {
+  return {
+    __typename: 'StrapiTagRecipesSeo',
+    htmlDescription: null,
+    htmlTitle: null,
+    id: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagRecipesSeoFilterInputMock(
+  props: Partial<StrapiTagRecipesSeoFilterInput>,
+): StrapiTagRecipesSeoFilterInput {
+  return {
+    htmlDescription: null,
+    htmlTitle: null,
+    id: null,
+    ...props,
+  }
+}
+
+export function createStrapiTagSortInputMock(
+  props: Partial<StrapiTagSortInput>,
+): StrapiTagSortInput {
+  return {
+    fields: null,
+    order: null,
+    ...props,
+  }
+}
+
+export function createStringQueryOperatorInputMock(
+  props: Partial<StringQueryOperatorInput>,
+): StringQueryOperatorInput {
+  return {
+    eq: null,
+    glob: null,
+    in: null,
+    ne: null,
+    nin: null,
+    regex: null,
+    ...props,
+  }
+}
+
+export function createTransformOptionsMock(
+  props: Partial<TransformOptions>,
+): TransformOptions {
+  return {
+    cropFocus: null,
+    duotone: null,
+    fit: null,
+    grayscale: null,
+    rotate: null,
+    trim: null,
+    ...props,
+  }
+}
+
+export function createWebPOptionsMock(
+  props: Partial<WebPOptions>,
+): WebPOptions {
+  return {
+    quality: null,
+    ...props,
+  }
+}
