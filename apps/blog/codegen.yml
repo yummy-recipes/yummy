@@ -7,8 +7,11 @@ generates:
   ./src/types.ts:
     plugins:
       - typescript
+      - graphql-codegen-factories/schema
   ./src/:
     preset: near-operation-file
+    config:
+      schemaFactoriesPath: ./src/types.ts
     presetConfig:
       extension: .generated.ts
       baseTypesPath: types.ts
