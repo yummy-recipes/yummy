@@ -6,52 +6,52 @@ export type Unnamed_1_QueryVariables = Types.Exact<{
 }>
 
 export type Unnamed_1_Query = {
-  __typename?: 'Query'
+  __typename: 'Query'
   strapiRecipe?: {
-    __typename?: 'StrapiRecipe'
+    __typename: 'StrapiRecipe'
     slug?: string | null
     title?: string | null
     preparationTime?: number | null
     published_at?: any | null
     seo?: {
-      __typename?: 'StrapiRecipeSeo'
+      __typename: 'StrapiRecipeSeo'
       htmlTitle?: string | null
       htmlDescription?: string | null
     } | null
     parsedHeadline?: {
-      __typename?: 'RecipePart'
+      __typename: 'RecipePart'
       childMarkdownRemark?: {
-        __typename?: 'MarkdownRemark'
+        __typename: 'MarkdownRemark'
         html?: string | null
       } | null
     } | null
     parsedDirections?: {
-      __typename?: 'RecipePart'
+      __typename: 'RecipePart'
       childMarkdownRemark?: {
-        __typename?: 'MarkdownRemark'
+        __typename: 'MarkdownRemark'
         html?: string | null
       } | null
     } | null
     parsedIngredients?: {
-      __typename?: 'RecipePart'
+      __typename: 'RecipePart'
       childMarkdownRemark?: {
-        __typename?: 'MarkdownRemark'
+        __typename: 'MarkdownRemark'
         html?: string | null
       } | null
     } | null
     tags?: Array<{
-      __typename?: 'StrapiRecipeTags'
+      __typename: 'StrapiRecipeTags'
       name?: string | null
       slug?: string | null
     } | null> | null
     cover?: {
-      __typename?: 'StrapiRecipeCover'
+      __typename: 'StrapiRecipeCover'
       image?: {
-        __typename?: 'File'
+        __typename: 'File'
         childImageSharp?: {
-          __typename?: 'ImageSharp'
+          __typename: 'ImageSharp'
           fluid?: {
-            __typename?: 'ImageSharpFluid'
+            __typename: 'ImageSharpFluid'
             tracedSVG?: string | null
             aspectRatio: number
             src: string
@@ -62,13 +62,13 @@ export type Unnamed_1_Query = {
       } | null
     } | null
     gallery?: Array<{
-      __typename?: 'StrapiRecipeGallery'
+      __typename: 'StrapiRecipeGallery'
       image?: {
-        __typename?: 'File'
+        __typename: 'File'
         childImageSharp?: {
-          __typename?: 'ImageSharp'
+          __typename: 'ImageSharp'
           small?: {
-            __typename?: 'ImageSharpFluid'
+            __typename: 'ImageSharpFluid'
             tracedSVG?: string | null
             aspectRatio: number
             src: string
@@ -76,7 +76,7 @@ export type Unnamed_1_Query = {
             sizes: string
           } | null
           large?: {
-            __typename?: 'ImageSharpFluid'
+            __typename: 'ImageSharpFluid'
             tracedSVG?: string | null
             aspectRatio: number
             src: string
@@ -87,9 +87,16 @@ export type Unnamed_1_Query = {
       } | null
     } | null> | null
     category?: {
-      __typename?: 'StrapiRecipeCategory'
+      __typename: 'StrapiRecipeCategory'
       name?: string | null
       slug?: string | null
+    } | null
+  } | null
+  site?: {
+    __typename: 'Site'
+    siteMetadata?: {
+      __typename: 'SiteSiteMetadata'
+      siteUrl?: string | null
     } | null
   } | null
 }
@@ -100,11 +107,74 @@ export function createUnnamed_1_QueryMock(
   switch (props.__typename) {
     case 'Query': {
       const {} = schemaFactories.createQueryMock({})
-      return { strapiRecipe: null, ...props }
+      return {
+        ...createUnnamed_1_QueryMock_Query({}),
+        strapiRecipe: null,
+        ...props,
+      }
     }
     case undefined:
     default:
       return createUnnamed_1_QueryMock({ ...props, __typename: 'Query' })
+  }
+}
+export function createUnnamed_1_QueryMock_Query(
+  props: Partial<Extract<Unnamed_1_Query, { __typename: 'Query' }>>,
+): Extract<Unnamed_1_Query, { __typename: 'Query' }> {
+  switch (props.__typename) {
+    case 'Query': {
+      const {} = schemaFactories.createQueryMock({})
+      return { site: null, ...props }
+    }
+    case undefined:
+    default:
+      return createUnnamed_1_QueryMock_Query({ ...props, __typename: 'Query' })
+  }
+}
+export function createUnnamed_1_QueryMock_Query_site(
+  props: Partial<
+    NonNull<Extract<Unnamed_1_Query, { __typename: 'Query' }>['site']>
+  >,
+): NonNull<Extract<Unnamed_1_Query, { __typename: 'Query' }>['site']> {
+  switch (props.__typename) {
+    case 'Site': {
+      const {} = schemaFactories.createSiteMock({})
+      return { siteMetadata: null, ...props }
+    }
+    case undefined:
+    default:
+      return createUnnamed_1_QueryMock_Query_site({
+        ...props,
+        __typename: 'Site',
+      })
+  }
+}
+export function createUnnamed_1_QueryMock_Query_site_siteMetadata(
+  props: Partial<
+    NonNull<
+      NonNull<
+        Extract<Unnamed_1_Query, { __typename: 'Query' }>['site']
+      >['siteMetadata']
+    >
+  >,
+): NonNull<
+  NonNull<
+    Extract<Unnamed_1_Query, { __typename: 'Query' }>['site']
+  >['siteMetadata']
+> {
+  switch (props.__typename) {
+    case 'SiteSiteMetadata': {
+      const { siteUrl } = schemaFactories.createSiteSiteMetadataMock({
+        siteUrl: props.siteUrl,
+      })
+      return { siteUrl, ...props }
+    }
+    case undefined:
+    default:
+      return createUnnamed_1_QueryMock_Query_site_siteMetadata({
+        ...props,
+        __typename: 'SiteSiteMetadata',
+      })
   }
 }
 export function createUnnamed_1_QueryMock_strapiRecipe(

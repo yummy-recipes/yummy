@@ -4,14 +4,14 @@ import { graphql } from 'gatsby'
 import Page from './page'
 import PostListContent from './post-list-content'
 
-export default function PostListPage({data, pageContext, location}) {
+export default function PostListPage({ data, pageContext, location }) {
   const pageInfo = {
     currentPage: pageContext.currentPage,
-    totalPages: pageContext.totalPages
+    totalPages: pageContext.totalPages,
   }
 
   return (
-    <Page>
+    <Page siteUrl={data.site.siteMetadata.siteUrl}>
       <PostListContent
         allRecipesData={data.allStrapiRecipe}
         pageInfo={pageInfo}
@@ -22,40 +22,43 @@ export default function PostListPage({data, pageContext, location}) {
 }
 
 export const query = graphql`
-fragment postForList on StrapiRecipe {
-  id
-  title
-  parsedHeadline {
-    childMarkdownRemark {
-      html
+  fragment postForList on StrapiRecipe {
+    id
+    title
+    parsedHeadline {
+      childMarkdownRemark {
+        html
+      }
     }
-  }
-  slug
-  tags {
-    name
     slug
-  }
-  category {
-    name
-    slug
-  }
-  preparationTime
-  published_at(formatString: "D MMM YYYY", locale: "pl")
-  cover {
-    image {
-      childImageSharp {
-        fluid(maxWidth: 1000, traceSVG: { color: "#ec973b" }) {
-          ...GatsbyImageSharpFluid_tracedSVG
+    tags {
+      name
+      slug
+    }
+    category {
+      name
+      slug
+    }
+    preparationTime
+    published_at(formatString: "D MMM YYYY", locale: "pl")
+    cover {
+      image {
+        childImageSharp {
+          fluid(maxWidth: 1000, traceSVG: { color: "#ec973b" }) {
+            ...GatsbyImageSharpFluid_tracedSVG
+          }
         }
       }
     }
   }
-}
 `
 
 export const pageQuery = graphql`
   query blogListQuery($skip: Int!, $limit: Int!) {
-    allStrapiRecipe (
+    ...siteMetadata
+    ...allCategories
+
+    allStrapiRecipe(
       sort: { order: DESC, fields: [published_at] }
       limit: $limit
       skip: $skip

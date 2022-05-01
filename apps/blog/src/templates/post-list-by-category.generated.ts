@@ -8,43 +8,43 @@ export type BlogListByCategoryQueryQueryVariables = Types.Exact<{
 }>
 
 export type BlogListByCategoryQueryQuery = {
-  __typename?: 'Query'
+  __typename: 'Query'
   allStrapiRecipe: {
-    __typename?: 'StrapiRecipeConnection'
+    __typename: 'StrapiRecipeConnection'
     edges: Array<{
-      __typename?: 'StrapiRecipeEdge'
+      __typename: 'StrapiRecipeEdge'
       node: {
-        __typename?: 'StrapiRecipe'
+        __typename: 'StrapiRecipe'
         id: string
         title?: string | null
         slug?: string | null
         preparationTime?: number | null
         published_at?: any | null
         parsedHeadline?: {
-          __typename?: 'RecipePart'
+          __typename: 'RecipePart'
           childMarkdownRemark?: {
-            __typename?: 'MarkdownRemark'
+            __typename: 'MarkdownRemark'
             html?: string | null
           } | null
         } | null
         tags?: Array<{
-          __typename?: 'StrapiRecipeTags'
+          __typename: 'StrapiRecipeTags'
           name?: string | null
           slug?: string | null
         } | null> | null
         category?: {
-          __typename?: 'StrapiRecipeCategory'
+          __typename: 'StrapiRecipeCategory'
           name?: string | null
           slug?: string | null
         } | null
         cover?: {
-          __typename?: 'StrapiRecipeCover'
+          __typename: 'StrapiRecipeCover'
           image?: {
-            __typename?: 'File'
+            __typename: 'File'
             childImageSharp?: {
-              __typename?: 'ImageSharp'
+              __typename: 'ImageSharp'
               fluid?: {
-                __typename?: 'ImageSharpFluid'
+                __typename: 'ImageSharpFluid'
                 tracedSVG?: string | null
                 aspectRatio: number
                 src: string
@@ -57,6 +57,13 @@ export type BlogListByCategoryQueryQuery = {
       }
     }>
   }
+  site?: {
+    __typename: 'Site'
+    siteMetadata?: {
+      __typename: 'SiteSiteMetadata'
+      siteUrl?: string | null
+    } | null
+  } | null
 }
 
 export function createBlogListByCategoryQueryQueryMock(
@@ -66,6 +73,7 @@ export function createBlogListByCategoryQueryQueryMock(
     case 'Query': {
       const {} = schemaFactories.createQueryMock({})
       return {
+        ...createBlogListByCategoryQueryQueryMock_Query({}),
         allStrapiRecipe: createBlogListByCategoryQueryQueryMock_allStrapiRecipe(
           {},
         ),
@@ -77,6 +85,74 @@ export function createBlogListByCategoryQueryQueryMock(
       return createBlogListByCategoryQueryQueryMock({
         ...props,
         __typename: 'Query',
+      })
+  }
+}
+export function createBlogListByCategoryQueryQueryMock_Query(
+  props: Partial<
+    Extract<BlogListByCategoryQueryQuery, { __typename: 'Query' }>
+  >,
+): Extract<BlogListByCategoryQueryQuery, { __typename: 'Query' }> {
+  switch (props.__typename) {
+    case 'Query': {
+      const {} = schemaFactories.createQueryMock({})
+      return { site: null, ...props }
+    }
+    case undefined:
+    default:
+      return createBlogListByCategoryQueryQueryMock_Query({
+        ...props,
+        __typename: 'Query',
+      })
+  }
+}
+export function createBlogListByCategoryQueryQueryMock_Query_site(
+  props: Partial<
+    NonNull<
+      Extract<BlogListByCategoryQueryQuery, { __typename: 'Query' }>['site']
+    >
+  >,
+): NonNull<
+  Extract<BlogListByCategoryQueryQuery, { __typename: 'Query' }>['site']
+> {
+  switch (props.__typename) {
+    case 'Site': {
+      const {} = schemaFactories.createSiteMock({})
+      return { siteMetadata: null, ...props }
+    }
+    case undefined:
+    default:
+      return createBlogListByCategoryQueryQueryMock_Query_site({
+        ...props,
+        __typename: 'Site',
+      })
+  }
+}
+export function createBlogListByCategoryQueryQueryMock_Query_site_siteMetadata(
+  props: Partial<
+    NonNull<
+      NonNull<
+        Extract<BlogListByCategoryQueryQuery, { __typename: 'Query' }>['site']
+      >['siteMetadata']
+    >
+  >,
+): NonNull<
+  NonNull<
+    Extract<BlogListByCategoryQueryQuery, { __typename: 'Query' }>['site']
+  >['siteMetadata']
+> {
+  switch (props.__typename) {
+    case 'SiteSiteMetadata': {
+      const { siteUrl } = schemaFactories.createSiteSiteMetadataMock({
+        siteUrl: props.siteUrl,
+      })
+      return { siteUrl, ...props }
+    }
+    case undefined:
+    default:
+      return createBlogListByCategoryQueryQueryMock_Query_site_siteMetadata({
+        ...props,
+        __typename: 'SiteSiteMetadata',
       })
   }
 }

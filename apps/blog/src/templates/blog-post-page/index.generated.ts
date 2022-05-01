@@ -6,25 +6,32 @@ export type Unnamed_1_QueryVariables = Types.Exact<{
 }>
 
 export type Unnamed_1_Query = {
-  __typename?: 'Query'
+  __typename: 'Query'
   strapiArticle?: {
-    __typename?: 'StrapiArticle'
+    __typename: 'StrapiArticle'
     slug?: string | null
     title?: string | null
     published_at?: any | null
     parsedHeadline?: {
-      __typename?: 'RecipePart'
+      __typename: 'RecipePart'
       childMarkdownRemark?: {
-        __typename?: 'MarkdownRemark'
+        __typename: 'MarkdownRemark'
         html?: string | null
       } | null
     } | null
     parsedContent?: {
-      __typename?: 'RecipePart'
+      __typename: 'RecipePart'
       childMarkdownRemark?: {
-        __typename?: 'MarkdownRemark'
+        __typename: 'MarkdownRemark'
         html?: string | null
       } | null
+    } | null
+  } | null
+  site?: {
+    __typename: 'Site'
+    siteMetadata?: {
+      __typename: 'SiteSiteMetadata'
+      siteUrl?: string | null
     } | null
   } | null
 }
@@ -35,11 +42,74 @@ export function createUnnamed_1_QueryMock(
   switch (props.__typename) {
     case 'Query': {
       const {} = schemaFactories.createQueryMock({})
-      return { strapiArticle: null, ...props }
+      return {
+        ...createUnnamed_1_QueryMock_Query({}),
+        strapiArticle: null,
+        ...props,
+      }
     }
     case undefined:
     default:
       return createUnnamed_1_QueryMock({ ...props, __typename: 'Query' })
+  }
+}
+export function createUnnamed_1_QueryMock_Query(
+  props: Partial<Extract<Unnamed_1_Query, { __typename: 'Query' }>>,
+): Extract<Unnamed_1_Query, { __typename: 'Query' }> {
+  switch (props.__typename) {
+    case 'Query': {
+      const {} = schemaFactories.createQueryMock({})
+      return { site: null, ...props }
+    }
+    case undefined:
+    default:
+      return createUnnamed_1_QueryMock_Query({ ...props, __typename: 'Query' })
+  }
+}
+export function createUnnamed_1_QueryMock_Query_site(
+  props: Partial<
+    NonNull<Extract<Unnamed_1_Query, { __typename: 'Query' }>['site']>
+  >,
+): NonNull<Extract<Unnamed_1_Query, { __typename: 'Query' }>['site']> {
+  switch (props.__typename) {
+    case 'Site': {
+      const {} = schemaFactories.createSiteMock({})
+      return { siteMetadata: null, ...props }
+    }
+    case undefined:
+    default:
+      return createUnnamed_1_QueryMock_Query_site({
+        ...props,
+        __typename: 'Site',
+      })
+  }
+}
+export function createUnnamed_1_QueryMock_Query_site_siteMetadata(
+  props: Partial<
+    NonNull<
+      NonNull<
+        Extract<Unnamed_1_Query, { __typename: 'Query' }>['site']
+      >['siteMetadata']
+    >
+  >,
+): NonNull<
+  NonNull<
+    Extract<Unnamed_1_Query, { __typename: 'Query' }>['site']
+  >['siteMetadata']
+> {
+  switch (props.__typename) {
+    case 'SiteSiteMetadata': {
+      const { siteUrl } = schemaFactories.createSiteSiteMetadataMock({
+        siteUrl: props.siteUrl,
+      })
+      return { siteUrl, ...props }
+    }
+    case undefined:
+    default:
+      return createUnnamed_1_QueryMock_Query_site_siteMetadata({
+        ...props,
+        __typename: 'SiteSiteMetadata',
+      })
   }
 }
 export function createUnnamed_1_QueryMock_strapiArticle(

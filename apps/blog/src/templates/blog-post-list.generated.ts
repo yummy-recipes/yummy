@@ -2,15 +2,15 @@ import * as Types from '../types'
 
 import * as schemaFactories from '../types'
 export type BlogPostForListFragment = {
-  __typename?: 'StrapiArticle'
+  __typename: 'StrapiArticle'
   id: string
   title?: string | null
   slug?: string | null
   published_at?: any | null
   parsedHeadline?: {
-    __typename?: 'RecipePart'
+    __typename: 'RecipePart'
     childMarkdownRemark?: {
-      __typename?: 'MarkdownRemark'
+      __typename: 'MarkdownRemark'
       html?: string | null
     } | null
   } | null
@@ -22,27 +22,34 @@ export type BlogPostListQueryQueryVariables = Types.Exact<{
 }>
 
 export type BlogPostListQueryQuery = {
-  __typename?: 'Query'
+  __typename: 'Query'
   allStrapiArticle: {
-    __typename?: 'StrapiArticleConnection'
+    __typename: 'StrapiArticleConnection'
     edges: Array<{
-      __typename?: 'StrapiArticleEdge'
+      __typename: 'StrapiArticleEdge'
       node: {
-        __typename?: 'StrapiArticle'
+        __typename: 'StrapiArticle'
         id: string
         title?: string | null
         slug?: string | null
         published_at?: any | null
         parsedHeadline?: {
-          __typename?: 'RecipePart'
+          __typename: 'RecipePart'
           childMarkdownRemark?: {
-            __typename?: 'MarkdownRemark'
+            __typename: 'MarkdownRemark'
             html?: string | null
           } | null
         } | null
       }
     }>
   }
+  site?: {
+    __typename: 'Site'
+    siteMetadata?: {
+      __typename: 'SiteSiteMetadata'
+      siteUrl?: string | null
+    } | null
+  } | null
 }
 
 export function createBlogPostListQueryQueryMock(
@@ -52,6 +59,7 @@ export function createBlogPostListQueryQueryMock(
     case 'Query': {
       const {} = schemaFactories.createQueryMock({})
       return {
+        ...createBlogPostListQueryQueryMock_Query({}),
         allStrapiArticle: createBlogPostListQueryQueryMock_allStrapiArticle({}),
         ...props,
       }
@@ -59,6 +67,68 @@ export function createBlogPostListQueryQueryMock(
     case undefined:
     default:
       return createBlogPostListQueryQueryMock({ ...props, __typename: 'Query' })
+  }
+}
+export function createBlogPostListQueryQueryMock_Query(
+  props: Partial<Extract<BlogPostListQueryQuery, { __typename: 'Query' }>>,
+): Extract<BlogPostListQueryQuery, { __typename: 'Query' }> {
+  switch (props.__typename) {
+    case 'Query': {
+      const {} = schemaFactories.createQueryMock({})
+      return { site: null, ...props }
+    }
+    case undefined:
+    default:
+      return createBlogPostListQueryQueryMock_Query({
+        ...props,
+        __typename: 'Query',
+      })
+  }
+}
+export function createBlogPostListQueryQueryMock_Query_site(
+  props: Partial<
+    NonNull<Extract<BlogPostListQueryQuery, { __typename: 'Query' }>['site']>
+  >,
+): NonNull<Extract<BlogPostListQueryQuery, { __typename: 'Query' }>['site']> {
+  switch (props.__typename) {
+    case 'Site': {
+      const {} = schemaFactories.createSiteMock({})
+      return { siteMetadata: null, ...props }
+    }
+    case undefined:
+    default:
+      return createBlogPostListQueryQueryMock_Query_site({
+        ...props,
+        __typename: 'Site',
+      })
+  }
+}
+export function createBlogPostListQueryQueryMock_Query_site_siteMetadata(
+  props: Partial<
+    NonNull<
+      NonNull<
+        Extract<BlogPostListQueryQuery, { __typename: 'Query' }>['site']
+      >['siteMetadata']
+    >
+  >,
+): NonNull<
+  NonNull<
+    Extract<BlogPostListQueryQuery, { __typename: 'Query' }>['site']
+  >['siteMetadata']
+> {
+  switch (props.__typename) {
+    case 'SiteSiteMetadata': {
+      const { siteUrl } = schemaFactories.createSiteSiteMetadataMock({
+        siteUrl: props.siteUrl,
+      })
+      return { siteUrl, ...props }
+    }
+    case undefined:
+    default:
+      return createBlogPostListQueryQueryMock_Query_site_siteMetadata({
+        ...props,
+        __typename: 'SiteSiteMetadata',
+      })
   }
 }
 export function createBlogPostListQueryQueryMock_allStrapiArticle(
