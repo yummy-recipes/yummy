@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { graphql } from 'gatsby'
 
 import favicon16 from '../components/layout/assets/favicon-16x16.png'
 import favicon32 from '../components/layout/assets/favicon-32x32.png'

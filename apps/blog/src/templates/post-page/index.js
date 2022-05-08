@@ -7,7 +7,6 @@ import Breadcrumbs from '../../components/breadcrumbs'
 import * as pageStyles from '../page.module.css'
 import * as postStyles from './post.module.css'
 import Page from '../page'
-import SiteMetadata from '../../components/site_metadata'
 import Tag from '../../components/tag'
 import Gallery from '../../components/gallery'
 
@@ -18,33 +17,29 @@ export default function PostPage({ data }) {
     return <Tag name={tag.name} key={tag.slug} className={postStyles.postTag} />
   })
 
+  const siteUrl = data.site.siteMetadata.siteUrl
+
   return (
-    <Page siteUrl={data.site.siteMetadata.siteUrl}>
+    <Page siteUrl={siteUrl}>
       <div className={pageStyles.layout}>
-        <SiteMetadata
-          render={({ siteUrl }) => (
-            <Helmet>
-              <title>{recipe.seo.htmlTitle || recipe.title}</title>
-              <meta
-                name="description"
-                content={recipe.seo.htmlDescription || recipe.title}
-              />
-              {recipe.cover && (
-                <meta
-                  property="og:image"
-                  content={
-                    siteUrl + recipe.cover.image.childImageSharp.fluid.src
-                  }
-                />
-              )}
-              <meta property="og:type" content="article" />
-              <meta property="article:section" content={recipe.category.name} />
-              {(recipe.tags || []).map((tag, index) => (
-                <meta property="article:tag" content={tag.name} key={index} />
-              ))}
-            </Helmet>
+        <Helmet>
+          <title>{recipe.seo.htmlTitle || recipe.title}</title>
+          <meta
+            name="description"
+            content={recipe.seo.htmlDescription || recipe.title}
+          />
+          {recipe.cover && (
+            <meta
+              property="og:image"
+              content={siteUrl + recipe.cover.image.childImageSharp.fluid.src}
+            />
           )}
-        />
+          <meta property="og:type" content="article" />
+          <meta property="article:section" content={recipe.category.name} />
+          {(recipe.tags || []).map((tag, index) => (
+            <meta property="article:tag" content={tag.name} key={index} />
+          ))}
+        </Helmet>
 
         <section className={pageStyles.main}>
           <article className={postStyles.post}>

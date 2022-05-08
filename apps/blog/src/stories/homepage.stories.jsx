@@ -23,17 +23,11 @@ const createRecipe = () =>
       category: {
         slug: 'test',
       },
-      parsedHeadline:
-        createBlogListQueryQueryMock_allStrapiRecipe_edges_node_StrapiRecipe_parsedHeadline(
-          {
-            childMarkdownRemark:
-              createBlogListQueryQueryMock_allStrapiRecipe_edges_node_StrapiRecipe_parsedHeadline_childMarkdownRemark(
-                {
-                  html: 'This is pizza',
-                },
-              ),
-          },
-        ),
+      parsedHeadline: {
+        childMarkdownRemark: {
+          html: 'This is pizza',
+        },
+      },
     }),
   })
 
