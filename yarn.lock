@@ -9090,6 +9090,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.0.8
     eslint-plugin-testing-library: ^3.9.0
     gatsby-plugin-eslint: ^4.0.2
+    graphql: ^16.4.0
   languageName: unknown
   linkType: soft
 

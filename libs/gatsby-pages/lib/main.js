@@ -1,5 +1,5 @@
 const path = require('path')
-const {createPaginated} = require('./common')
+const { createPaginated } = require('./common')
 
 function createMainPage({ actions, graphql }) {
   return graphql(`
@@ -11,8 +11,17 @@ function createMainPage({ actions, graphql }) {
           }
         }
       }
+
+      allRecipeCategory(sort: { fields: [position] }) {
+        edges {
+          node {
+            name
+            slug
+          }
+        }
+      }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
       return Promise.reject(result.errors)
     }
@@ -21,11 +30,16 @@ function createMainPage({ actions, graphql }) {
       actions,
       collection: result.data.allStrapiRecipe.edges,
       baseUrl: '/',
-      component: path.resolve('./src/templates/post-list.js')
+      component: path.resolve('./src/templates/post-list.js'),
+      context: {
+        allCategories: result.data.allRecipeCategory.edges.map(
+          ({ node }) => node,
+        ),
+      },
     })
   })
 }
 
 module.exports = {
-  createMainPage
+  createMainPage,
 }

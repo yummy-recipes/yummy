@@ -12,6 +12,7 @@ generates:
     preset: near-operation-file
     config:
       schemaFactoriesPath: ./src/types.ts
+      nonOptionalTypename: true
     presetConfig:
       extension: .generated.ts
       baseTypesPath: types.ts

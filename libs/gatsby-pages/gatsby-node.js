@@ -7,35 +7,53 @@ const { createMainBlogPage } = require('./lib/blog-main')
 
 exports.createPages = ({ actions, graphql }) => {
   return Promise.resolve()
-    .then(() => createError404Page({ actions }))
+    .then(() => createError404Page({ actions, graphql }))
     .then(() => createMainPage({ actions, graphql }))
     .then(() => createRecipePages({ actions, graphql }))
     .then(() => createTagPages({ actions, graphql }))
     .then(() => createCategoryPages({ actions, graphql }))
     .then(() => createBlogPostPages({ actions, graphql }))
-    .then(() => createMainBlogPage({ actions, graphql}))
+    .then(() => createMainBlogPage({ actions, graphql }))
 }
 
-async function createError404Page({ actions }) {
+async function createError404Page({ actions, graphql }) {
   const { createPage } = actions
+
+  const result = await graphql(`
+    {
+      allRecipeCategory(sort: { fields: [position] }) {
+        edges {
+          node {
+            name
+            slug
+          }
+        }
+      }
+    }
+  `)
+
+  if (result.errors) {
+    return Promise.reject(result.errors)
+  }
 
   createPage({
     path: '/404.html',
     component: path.resolve('./src/templates/error-404.js'),
     context: {
-      fullHeaderVersion: false
-    }
+      fullHeaderVersion: false,
+      allCategories: result.data.allRecipeCategory.edges.map(
+        ({ node }) => node,
+      ),
+    },
   })
 }
 
-async function createBlogPostPages({ actions, graphql}) {
+async function createBlogPostPages({ actions, graphql }) {
   const { createPage } = actions
 
   const result = await graphql(`
     {
-      allStrapiArticle(
-        sort: { order: DESC, fields: [published_at] }
-      ) {
+      allStrapiArticle(sort: { order: DESC, fields: [published_at] }) {
         edges {
           node {
             title
@@ -43,6 +61,15 @@ async function createBlogPostPages({ actions, graphql}) {
             slug
             headline
             content
+          }
+        }
+      }
+
+      allRecipeCategory(sort: { fields: [position] }) {
+        edges {
+          node {
+            name
+            slug
           }
         }
       }
@@ -63,8 +90,11 @@ async function createBlogPostPages({ actions, graphql}) {
       context: {
         slug: node.slug,
         fullHeaderVersion: false,
-        isSingleRecipe: true
-      }
+        isSingleRecipe: true,
+        allCategories: result.data.allRecipeCategory.edges.map(
+          ({ node }) => node,
+        ),
+      },
     })
   })
 }
@@ -74,16 +104,23 @@ async function createRecipePages({ actions, graphql }) {
 
   const result = await graphql(`
     {
-      allStrapiRecipe(
-        sort: { order: DESC, fields: [published_at] }
-      ) {
+      allStrapiRecipe(sort: { order: DESC, fields: [published_at] }) {
         edges {
           node {
             slug
-            
+
             category {
               slug
             }
+          }
+        }
+      }
+
+      allRecipeCategory(sort: { fields: [position] }) {
+        edges {
+          node {
+            name
+            slug
           }
         }
       }
@@ -105,9 +142,12 @@ async function createRecipePages({ actions, graphql }) {
         slug: node.slug,
         fullHeaderVersion: false,
         isSingleRecipe: true,
+        allCategories: result.data.allRecipeCategory.edges.map(
+          ({ node }) => node,
+        ),
         // TODO: fix gallery
-        absolutePathRegex: null
-      }
+        absolutePathRegex: null,
+      },
     })
   })
 }

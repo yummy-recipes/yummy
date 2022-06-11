@@ -5,16 +5,23 @@ import { Helmet } from 'react-helmet'
 import Page from './page'
 import PostListContent from './post-list-content'
 
-export default function PostListByCategoryPage({data, pageContext, location}) {
+export default function PostListByCategoryPage({
+  data,
+  pageContext,
+  location,
+}) {
   const pageInfo = {
     currentPage: pageContext.currentPage,
-    totalPages: pageContext.totalPages
+    totalPages: pageContext.totalPages,
   }
 
   return (
-    <Page>
+    <Page siteUrl={data.site.siteMetadata.siteUrl}>
       <Helmet>
-        <meta name="description" content={`Kolekcja naszych ulubionych przepisów kulinarnych w kategorii: ${pageContext.category}`}></meta>
+        <meta
+          name="description"
+          content={`Kolekcja naszych ulubionych przepisów kulinarnych w kategorii: ${pageContext.category}`}
+        ></meta>
       </Helmet>
 
       <PostListContent
@@ -28,7 +35,10 @@ export default function PostListByCategoryPage({data, pageContext, location}) {
 
 export const pageQuery = graphql`
   query blogListByCategoryQuery($category: String!, $skip: Int!, $limit: Int!) {
-    allStrapiRecipe (
+    ...siteMetadata
+    ...allCategories
+
+    allStrapiRecipe(
       filter: { category: { name: { eq: $category } } }
       sort: { order: DESC, fields: [published_at] }
       limit: $limit

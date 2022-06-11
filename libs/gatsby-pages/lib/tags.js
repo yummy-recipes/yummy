@@ -1,5 +1,5 @@
 const path = require('path')
-const {createPaginated} = require('./common')
+const { createPaginated } = require('./common')
 
 async function createTagPages({ actions, graphql }) {
   const result = await graphql(`
@@ -19,25 +19,41 @@ async function createTagPages({ actions, graphql }) {
     return Promise.reject(result.errors)
   }
 
-  const tags = result.data.allStrapiTag.edges.map(tag => tag.node)
+  const tags = result.data.allStrapiTag.edges.map((tag) => tag.node)
 
-  return Promise.all(tags.map(({ name, slug }) => createTagPage({ tag: name, tagSlug: slug, actions, graphql })))
+  return Promise.all(
+    tags.map(({ name, slug }) =>
+      createTagPage({ tag: name, tagSlug: slug, actions, graphql }),
+    ),
+  )
 }
 
 async function createTagPage({ tag, tagSlug, actions, graphql }) {
-  const result = await graphql(`
-    query ($tag: String!) {
-      allStrapiRecipe(
-        filter: { tags: { elemMatch: { slug: { in: [$tag] } } } }
-      ) {
-        edges {
-          node {
-            id
+  const result = await graphql(
+    `
+      query ($tag: String!) {
+        allStrapiRecipe(
+          filter: { tags: { elemMatch: { slug: { in: [$tag] } } } }
+        ) {
+          edges {
+            node {
+              id
+            }
+          }
+        }
+
+        allRecipeCategory(sort: { fields: [position] }) {
+          edges {
+            node {
+              name
+              slug
+            }
           }
         }
       }
-    }
-  `, {tag: tagSlug})
+    `,
+    { tag: tagSlug },
+  )
 
   if (result.errors) {
     return Promise.reject(result.errors)
@@ -52,11 +68,14 @@ async function createTagPage({ tag, tagSlug, actions, graphql }) {
       slug: tagSlug,
       tag: tag,
       fullHeaderVersion: false,
-      subsection: tag
-    }
+      subsection: tag,
+      allCategories: result.data.allRecipeCategory.edges.map(
+        ({ node }) => node,
+      ),
+    },
   })
 }
 
 module.exports = {
-  createTagPages
+  createTagPages,
 }

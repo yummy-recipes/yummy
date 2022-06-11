@@ -4,14 +4,14 @@ import { graphql } from 'gatsby'
 import Page from './page'
 import BlogPostListContent from './blog-post-list-content'
 
-export default function BlogPostListPage({data, pageContext, location}) {
+export default function BlogPostListPage({ data, pageContext, location }) {
   const pageInfo = {
     currentPage: pageContext.currentPage,
-    totalPages: pageContext.totalPages
+    totalPages: pageContext.totalPages,
   }
 
   return (
-    <Page>
+    <Page siteUrl={data.site.siteMetadata.siteUrl}>
       <BlogPostListContent
         allPostsData={data.allStrapiArticle}
         pageInfo={pageInfo}
@@ -22,22 +22,25 @@ export default function BlogPostListPage({data, pageContext, location}) {
 }
 
 export const query = graphql`
-fragment blogPostForList on StrapiArticle {
-  id
-  title
-  slug
-  published_at(formatString: "D MMM YYYY", locale: "pl")
-  parsedHeadline {
-    childMarkdownRemark {
-      html
-    }  
+  fragment blogPostForList on StrapiArticle {
+    id
+    title
+    slug
+    published_at(formatString: "D MMM YYYY", locale: "pl")
+    parsedHeadline {
+      childMarkdownRemark {
+        html
+      }
+    }
   }
-}
 `
 
 export const pageQuery = graphql`
   query blogPostListQuery($skip: Int!, $limit: Int!) {
-    allStrapiArticle (
+    ...siteMetadata
+    ...allCategories
+
+    allStrapiArticle(
       sort: { order: DESC, fields: [published_at] }
       limit: $limit
       skip: $skip
