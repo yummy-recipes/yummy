@@ -4,8 +4,6 @@ import { Helmet } from 'react-helmet'
 import Page from '../page'
 import Breadcrumbs from '../../components/breadcrumbs'
 
-import SiteMetadata from '../../components/site_metadata'
-
 import * as pageStyles from '../page.module.css'
 import * as postStyles from './blog-post.module.css'
 
@@ -16,18 +14,14 @@ export default function BlogPostPage({ data }) {
   return (
     <Page siteUrl={data.site.siteMetadata.siteUrl}>
       <div className={pageStyles.layout}>
-        <SiteMetadata
-          render={({ siteUrl }) => (
-            <Helmet>
-              <title>{post.html_title}</title>
-              <meta name="description" content={post.html_title} />
-              {/*<meta property='og:image' content={siteUrl + post.featured_image.childImageSharp.fluid.src} />*/}
-              <meta property="og:type" content="article" />
-              <meta property="article:section" content="blog" />
-              {/*{(recipe.tags || []).map((tag, index) => <meta property='article:tag' content={tag} key={index}/>)}*/}
-            </Helmet>
-          )}
-        />
+        <Helmet>
+          <title>{post.html_title}</title>
+          <meta name="description" content={post.html_title} />
+          {/* <meta property='og:image' content={data.site.siteMetadata.siteUrl + post.featured_image.childImageSharp.fluid.src} /> */}
+          <meta property="og:type" content="article" />
+          <meta property="article:section" content="blog" />
+          {/* {(recipe.tags || []).map((tag, index) => <meta property='article:tag' content={tag} key={index}/>)} */}
+        </Helmet>
 
         <section className={pageStyles.main}>
           <article className={postStyles.post}>
