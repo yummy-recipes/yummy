@@ -30,6 +30,7 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
     "eslint-plugin-testing-library": "^3.9.0",
-    "gatsby-plugin-eslint": "^4.0.2"
+    "gatsby-plugin-eslint": "^4.0.2",
+    "graphql": "^16.4.0"
   }
 }

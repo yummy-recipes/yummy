@@ -1,5 +1,5 @@
 const path = require('path')
-const {createPaginated} = require('./common')
+const { createPaginated } = require('./common')
 
 function createMainBlogPage({ actions, graphql }) {
   return graphql(`
@@ -11,8 +11,17 @@ function createMainBlogPage({ actions, graphql }) {
           }
         }
       }
+
+      allRecipeCategory(sort: { fields: [position] }) {
+        edges {
+          node {
+            name
+            slug
+          }
+        }
+      }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
       return Promise.reject(result.errors)
     }
@@ -24,12 +33,15 @@ function createMainBlogPage({ actions, graphql }) {
       component: path.resolve('./src/templates/blog-post-list.js'),
       context: {
         fullHeaderVersion: false,
-        subsection: 'Kulinarne dygresje'
-      }
+        subsection: 'Kulinarne dygresje',
+        allCategories: result.data.allRecipeCategory.edges.map(
+          ({ node }) => node,
+        ),
+      },
     })
   })
 }
 
 module.exports = {
-  createMainBlogPage
+  createMainBlogPage,
 }
