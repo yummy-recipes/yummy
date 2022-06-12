@@ -1,4 +1,4 @@
-const {JSDOM} = require('jsdom')
+const { JSDOM } = require('jsdom')
 
 const localPlugins = [
   '@yummy/gatsby-categories',
@@ -18,34 +18,37 @@ const sourcePlugins = [
       queryLimit: 1000,
       loginData: {
         identifier: process.env.API_USER_EMAIL || '',
-        password: process.env.API_USER_PASSWORD || ''
-      }
-    }
+        password: process.env.API_USER_PASSWORD || '',
+      },
+    },
   },
   {
     resolve: 'gatsby-plugin-webpack-bundle-analyzer',
     options: {
       analyzerPort: 3005,
-      openAnalyzer: false
-    }
-  }
+      openAnalyzer: false,
+    },
+  },
 ]
 
-const typographyPlugins = process.env.GATSBY_SOURCE === 'test' ? [
-  {
-    resolve: 'gatsby-plugin-typography',
-    options: {
-      pathToConfigModule: 'src/utils/typography.fixed_face.js',
-    },
-  }
-] : [
-  {
-    resolve: 'gatsby-plugin-typography',
-    options: {
-      pathToConfigModule: 'src/utils/typography.js',
-    },
-  }
-]
+const typographyPlugins =
+  process.env.GATSBY_SOURCE === 'test'
+    ? [
+        {
+          resolve: 'gatsby-plugin-typography',
+          options: {
+            pathToConfigModule: 'src/utils/typography.fixed_face.js',
+          },
+        },
+      ]
+    : [
+        {
+          resolve: 'gatsby-plugin-typography',
+          options: {
+            pathToConfigModule: 'src/utils/typography.js',
+          },
+        },
+      ]
 
 const dynamicPlugins = localPlugins
   .concat(sourcePlugins)
@@ -54,18 +57,20 @@ const dynamicPlugins = localPlugins
 module.exports = {
   siteMetadata: {
     title: 'Yummy',
-    description: 'Searchable repository of recipes we frequently use and are yummy.',
+    description:
+      'Searchable repository of recipes we frequently use and are yummy.',
     siteUrl: 'https://kuchnia-yummy.pl',
-    author: 'J. M. Derks'
+    author: 'J. M. Derks',
   },
   plugins: dynamicPlugins.concat([
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-postcss',
     {
-      'resolve': 'gatsby-transformer-remark',
-      'options': {
-        'excerpt_separator': '<!-- more -->'
-      }
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        excerpt_separator: '<!-- more -->',
+      },
     },
     'gatsby-plugin-react-helmet',
     {
@@ -85,13 +90,15 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allStrapiRecipe } }) => {
-              return allStrapiRecipe.edges.map(edge => {
+              return allStrapiRecipe.edges.map((edge) => {
                 return {
                   title: edge.node.title,
-                  description: JSDOM.fragment(edge.node.parsedHeadline.childMarkdownRemark.html).textContent,
+                  description: JSDOM.fragment(
+                    edge.node.parsedHeadline.childMarkdownRemark.html,
+                  ).textContent,
                   date: edge.node.published_at,
                   url: site.siteMetadata.siteUrl + edge.node.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.slug
+                  guid: site.siteMetadata.siteUrl + edge.node.slug,
                 }
               })
             },
@@ -103,7 +110,7 @@ module.exports = {
               ) {
                 edges {
                   node {
-                    parsedHeadline { 
+                    parsedHeadline {
                       childMarkdownRemark {
                         html
                       }
@@ -134,7 +141,6 @@ module.exports = {
         icon: 'src/components/layout/assets/android-chrome-192x192.png',
       },
     },
-    'gatsby-plugin-eslint'
-  ],
-  )
+    'gatsby-plugin-eslint',
+  ]),
 }
