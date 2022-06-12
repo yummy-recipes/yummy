@@ -11135,7 +11135,6 @@ __metadata:
     gatsby-plugin-postcss: ^5.16.0
     gatsby-plugin-react-helmet: ^5.7.0
     gatsby-plugin-sharp: ^4.7.0
-    gatsby-plugin-typography: ^4.7.0
     gatsby-plugin-webpack-bundle-analyzer: ^1.0.5
     gatsby-source-filesystem: ^4.7.0
     gatsby-source-strapi: ^1.0.3
@@ -11158,14 +11157,12 @@ __metadata:
     react-select: 2.4.4
     react-test-renderer: ^16.8.2
     react-testing-library: ^6.0.0
-    react-typography: ^0.16.18
     start-server-and-test: ^1.7.11
     storybook-builder-vite: ^0.1.15
     style-loader: ^3.3.1
     svgo: ^2.8.0
     tailwind-config-viewer: ^1.7.1
     tailwindcss: ^3.1.2
-    typography: ^0.16.19
     underscore.string: ^3.3.5
     vite: ^2.8.1
     webpack: ^5.67.0
@@ -12879,17 +12876,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"compass-vertical-rhythm@npm:^1.4.5":
-  version: 1.4.5
-  resolution: "compass-vertical-rhythm@npm:1.4.5"
-  dependencies:
-    convert-css-length: ^1.0.1
-    object-assign: ^4.1.0
-    parse-unit: ^1.0.1
-  checksum: 52d19c8bf1bb6e36299792c5cc81aa635b816aaedbefb67b19bc69e302117406e6a6f2572d44101119155d17c921a97b96e4ae04828ce8145e7fae72a432467c
-  languageName: node
-  linkType: hard
-
 "component-emitter@npm:^1.2.1, component-emitter@npm:~1.3.0":
   version: 1.3.0
   resolution: "component-emitter@npm:1.3.0"
@@ -12996,13 +12982,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"console-polyfill@npm:^0.1.2":
-  version: 0.1.2
-  resolution: "console-polyfill@npm:0.1.2"
-  checksum: b2e060ce7b09544547024dfd28a643cbf3f526a3a3ac56d9b57d3b867b6735810fb2248a934627ab1e95ddb0c2f5eca073f1c1a94ef5b986bc559a8a68ed5840
-  languageName: node
-  linkType: hard
-
 "consolidated-events@npm:^1.1.1 || ^2.0.0":
   version: 2.0.2
   resolution: "consolidated-events@npm:2.0.2"
@@ -13041,16 +13020,6 @@ __metadata:
   version: 1.0.4
   resolution: "content-type@npm:1.0.4"
   checksum: 3d93585fda985d1554eca5ebd251994327608d2e200978fdbfba21c0c679914d5faf266d17027de44b34a72c7b0745b18584ecccaa7e1fdfb6a68ac7114f12e0
-  languageName: node
-  linkType: hard
-
-"convert-css-length@npm:^1.0.1":
-  version: 1.0.2
-  resolution: "convert-css-length@npm:1.0.2"
-  dependencies:
-    console-polyfill: ^0.1.2
-    parse-unit: ^1.0.1
-  checksum: f97ef362a72109c052bb7da87a7c67ec4c2159e2d817d2f86f200f54c78b323e3104d837f38138e91688fddf023dfa288d3d76684e07de152971e14b6fe3315f
   languageName: node
   linkType: hard
 
@@ -18117,21 +18086,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-typography@npm:^4.7.0":
-  version: 4.7.0
-  resolution: "gatsby-plugin-typography@npm:4.7.0"
-  dependencies:
-    "@babel/runtime": ^7.15.4
-  peerDependencies:
-    gatsby: ^4.0.0-next
-    react: ^16.9.0 || ^17.0.0
-    react-dom: ^16.9.0 || ^17.0.0
-    react-typography: ^0.16.1 || ^1.0.0-alpha.0
-    typography: ^0.16.0 || ^1.0.0-alpha.0
-  checksum: 7075e289665a684dd535aa05a088797e6db944e610fadaf8631ef713d1d6e837daddae4b65e787fa5dd9db7d3b0fe65291ddd0c3b8cd1d24847d37a69a652cf8
-  languageName: node
-  linkType: hard
-
 "gatsby-plugin-utils@npm:^3.1.0":
   version: 3.1.0
   resolution: "gatsby-plugin-utils@npm:3.1.0"
@@ -19360,13 +19314,6 @@ __metadata:
     section-matter: ^1.0.0
     strip-bom-string: ^1.0.0
   checksum: 37717bd424344487d655392251ce8d8878a1275ee087003e61208fba3bfd59cbb73a85b2159abf742ae95e23db04964813fdc33ae18b074208428b2528205222
-  languageName: node
-  linkType: hard
-
-"gray-percentage@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "gray-percentage@npm:2.0.0"
-  checksum: 6a6eee98c771aca0574d1fb7ef7a8cc4fb02630cbb674e822d667552d753200a0dd49704c380189f2646e69a002685d1235c00f1fbc6c043c5cc7ef177c112e8
   languageName: node
   linkType: hard
 
@@ -23580,7 +23527,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.isnumber@npm:^3.0.0, lodash.isnumber@npm:^3.0.3":
+"lodash.isnumber@npm:^3.0.3":
   version: 3.0.3
   resolution: "lodash.isnumber@npm:3.0.3"
   checksum: 913784275b565346255e6ae6a6e30b760a0da70abc29f3e1f409081585875105138cda4a429ff02577e1bc0a7ae2a90e0a3079a37f3a04c3d6c5aaa532f4cab2
@@ -23685,7 +23632,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:4.17.21, lodash@npm:^4.1.1, lodash@npm:^4.13.1, lodash@npm:^4.17.10, lodash@npm:^4.17.11, lodash@npm:^4.17.12, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:^4.17.3, lodash@npm:^4.17.4, lodash@npm:^4.7.0, lodash@npm:~4.17.0":
+"lodash@npm:4.17.21, lodash@npm:^4.1.1, lodash@npm:^4.17.10, lodash@npm:^4.17.11, lodash@npm:^4.17.12, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:^4.17.3, lodash@npm:^4.17.4, lodash@npm:^4.7.0, lodash@npm:~4.17.0":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
@@ -25047,15 +24994,6 @@ __metadata:
     _mocha: ./bin/_mocha
     mocha: ./bin/mocha
   checksum: 08d37a9fa0e67141d8e062356a6915402788fb4d7b1ff9cb7311efa140aa3f255c98f6fa64697981d721d3a41f4eb4d9a28fc986f84499456f1978c0ea2d4109
-  languageName: node
-  linkType: hard
-
-"modularscale@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "modularscale@npm:1.0.2"
-  dependencies:
-    lodash.isnumber: ^3.0.0
-  checksum: 2316b302c34e47a65af25122465a2fd1ba0f1857700cac64d689f2c28d1a693f5155ef2b725044ea1de3a6f0ead5e644fa48099d860bfe3a03d301d6e085f161
   languageName: node
   linkType: hard
 
@@ -26816,13 +26754,6 @@ __metadata:
   version: 1.0.2
   resolution: "parse-srcset@npm:1.0.2"
   checksum: 3a0380380c6082021fcce982f0b89fb8a493ce9dfd7d308e5e6d855201e80db8b90438649b31fdd82a3d6089a8ca17dccddaa2b730a718389af4c037b8539ebf
-  languageName: node
-  linkType: hard
-
-"parse-unit@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "parse-unit@npm:1.0.1"
-  checksum: fdd7d2b91a3e536d7835e408caec21345eac6d4ae442d0cfecd5ebb8750c89cfc3ed4cd5da389826313134aedca04e30e52188005b564ec13c212720821731c8
   languageName: node
   linkType: hard
 
@@ -29529,15 +29460,6 @@ __metadata:
     react: ">=16.6.0"
     react-dom: ">=16.6.0"
   checksum: b67bf5b3e86dbab72d658b9a52a3589e5960583ab28c7c66272427d8fe30d4c7de422d5046ae96bd2683cdf80cc3264b2516f5ce80cae1dbe6cf3ca6dda392c5
-  languageName: node
-  linkType: hard
-
-"react-typography@npm:^0.16.18":
-  version: 0.16.20
-  resolution: "react-typography@npm:0.16.20"
-  peerDependencies:
-    react: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: 610f59de95dda917d5c48668b829d2eea4f255f381258663a81717f7360f84574061362b68a1be1c3b519c6b0b1df9659262af07f9b4fe55a95a5b8d372a6234
   languageName: node
   linkType: hard
 
@@ -34420,28 +34342,6 @@ __metadata:
   version: 0.0.6
   resolution: "typedarray@npm:0.0.6"
   checksum: 33b39f3d0e8463985eeaeeacc3cb2e28bc3dfaf2a5ed219628c0b629d5d7b810b0eb2165f9f607c34871d5daa92ba1dc69f49051cf7d578b4cbd26c340b9d1b1
-  languageName: node
-  linkType: hard
-
-"typography-normalize@npm:^0.16.19":
-  version: 0.16.19
-  resolution: "typography-normalize@npm:0.16.19"
-  checksum: a0e23316fefae4dcf8468cd218cba4ff9ae1626bd0c9043c555a3bc7b866a4242bbcef4b9ec6d7ee8d5be371a4285d8009905916c884ab79261cecd749a6d7b6
-  languageName: node
-  linkType: hard
-
-"typography@npm:^0.16.19":
-  version: 0.16.21
-  resolution: "typography@npm:0.16.21"
-  dependencies:
-    compass-vertical-rhythm: ^1.4.5
-    decamelize: ^1.2.0
-    gray-percentage: ^2.0.0
-    lodash: ^4.13.1
-    modularscale: ^1.0.2
-    object-assign: ^4.1.0
-    typography-normalize: ^0.16.19
-  checksum: cad1a696fcd22c104c2a48f7f940facc3d6b7ccde9253b72bf02ffe6350dcb2bb484da9d8934223bdbcec8e4d3b4d0a2badffc3695b74fdf997689e07d772643
   languageName: node
   linkType: hard
 

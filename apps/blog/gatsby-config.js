@@ -31,28 +31,7 @@ const sourcePlugins = [
   },
 ]
 
-const typographyPlugins =
-  process.env.GATSBY_SOURCE === 'test'
-    ? [
-        {
-          resolve: 'gatsby-plugin-typography',
-          options: {
-            pathToConfigModule: 'src/utils/typography.fixed_face.js',
-          },
-        },
-      ]
-    : [
-        {
-          resolve: 'gatsby-plugin-typography',
-          options: {
-            pathToConfigModule: 'src/utils/typography.js',
-          },
-        },
-      ]
-
-const dynamicPlugins = localPlugins
-  .concat(sourcePlugins)
-  .concat(typographyPlugins)
+const dynamicPlugins = localPlugins.concat(sourcePlugins)
 
 module.exports = {
   siteMetadata: {
