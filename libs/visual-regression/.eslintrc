@@ -1,6 +1,0 @@
-{
-  "extends": "@yummy/eslint-config-core/.eslintrc",
-  "rules": {
-    "no-console": "off"
-  }
-}
