@@ -12,6 +12,12 @@
 yarn blog storybook
 ```
 
+#### Tailwind viewer
+
+```
+yarn blog theme
+```
+
 #### Everything
 
 ```
