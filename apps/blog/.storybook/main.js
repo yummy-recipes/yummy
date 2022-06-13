@@ -4,10 +4,10 @@ module.exports = {
   stories: ['../src/stories/*.jsx'],
   core: {
     builder: process.env.USE_VITE_BUILDER
-      ? 'storybook-builder-vite'
+      ? '@storybook/builder-vite'
       : 'webpack5',
   },
-  addons: ['@storybook/addon-actions', '@storybook/addon-links'],
+  addons: ['@storybook/addon-essentials'],
   async viteFinal(config, { configType }) {
     // return the customized config
     return mergeConfig(config, {})
@@ -21,7 +21,7 @@ module.exports = {
     )
 
     // Replace default css loader
-    config.module.rules[3].use = [
+    config.module.rules[7].use = [
       require.resolve('style-loader'), // creates style nodes from JS strings
       {
         // css modules support
