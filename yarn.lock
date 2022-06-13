@@ -6446,58 +6446,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/builder-webpack5@npm:^6.5.9":
-  version: 6.5.9
-  resolution: "@storybook/builder-webpack5@npm:6.5.9"
-  dependencies:
-    "@babel/core": ^7.12.10
-    "@storybook/addons": 6.5.9
-    "@storybook/api": 6.5.9
-    "@storybook/channel-postmessage": 6.5.9
-    "@storybook/channels": 6.5.9
-    "@storybook/client-api": 6.5.9
-    "@storybook/client-logger": 6.5.9
-    "@storybook/components": 6.5.9
-    "@storybook/core-common": 6.5.9
-    "@storybook/core-events": 6.5.9
-    "@storybook/node-logger": 6.5.9
-    "@storybook/preview-web": 6.5.9
-    "@storybook/router": 6.5.9
-    "@storybook/semver": ^7.3.2
-    "@storybook/store": 6.5.9
-    "@storybook/theming": 6.5.9
-    "@types/node": ^14.0.10 || ^16.0.0
-    babel-loader: ^8.0.0
-    babel-plugin-named-exports-order: ^0.0.2
-    browser-assert: ^1.2.1
-    case-sensitive-paths-webpack-plugin: ^2.3.0
-    core-js: ^3.8.2
-    css-loader: ^5.0.1
-    fork-ts-checker-webpack-plugin: ^6.0.4
-    glob: ^7.1.6
-    glob-promise: ^3.4.0
-    html-webpack-plugin: ^5.0.0
-    path-browserify: ^1.0.1
-    process: ^0.11.10
-    stable: ^0.1.8
-    style-loader: ^2.0.0
-    terser-webpack-plugin: ^5.0.3
-    ts-dedent: ^2.0.0
-    util-deprecate: ^1.0.2
-    webpack: ^5.9.0
-    webpack-dev-middleware: ^4.1.0
-    webpack-hot-middleware: ^2.25.1
-    webpack-virtual-modules: ^0.4.1
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  checksum: 28d8f77de567184158e3db68811af56c6654f5460c4073f76ff6de218972ff770699cabe3f6f9c4085f75e3f783658267ab678d625f7b205031a6767fc84eec6
-  languageName: node
-  linkType: hard
-
 "@storybook/channel-postmessage@npm:6.5.9":
   version: 6.5.9
   resolution: "@storybook/channel-postmessage@npm:6.5.9"
@@ -10481,13 +10429,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-named-exports-order@npm:^0.0.2":
-  version: 0.0.2
-  resolution: "babel-plugin-named-exports-order@npm:0.0.2"
-  checksum: d918390a09c0148893ea93bdc9c4fc6a03447c688eaf40bed0f0682d036e985ecee830b90fec2ab149b8dc0cb3220a2c0ac5054e42626bdfe0b436b505b7ef22
-  languageName: node
-  linkType: hard
-
 "babel-plugin-polyfill-corejs2@npm:^0.3.0":
   version: 0.3.0
   resolution: "babel-plugin-polyfill-corejs2@npm:0.3.0"
@@ -10943,7 +10884,6 @@ __metadata:
     "@storybook/addon-essentials": ^6.5.9
     "@storybook/addons": ^6.5.9
     "@storybook/builder-vite": ^0.1.36
-    "@storybook/builder-webpack5": ^6.5.9
     "@storybook/manager-webpack5": ^6.5.9
     "@storybook/react": ^6.5.9
     "@svgr/cli": ^6.2.1
@@ -10956,7 +10896,7 @@ __metadata:
     "@yummy/gatsby-source-fixtures": "workspace:^"
     autoprefixer: ^10.4.7
     babel-loader: ^8.0.5
-    chromatic: ^6.4.2
+    chromatic: ^6.5.6
     cypress: ^3.2.0
     cypress-testing-library: ^2.3.6
     emotion: 9
@@ -11236,13 +11176,6 @@ __metadata:
   version: 1.1.0
   resolution: "brorand@npm:1.1.0"
   checksum: 8a05c9f3c4b46572dec6ef71012b1946db6cae8c7bb60ccd4b7dd5a84655db49fe043ecc6272e7ef1f69dc53d6730b9e2a3a03a8310509a3d797a618cbee52be
-  languageName: node
-  linkType: hard
-
-"browser-assert@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "browser-assert@npm:1.2.1"
-  checksum: 8b2407cd04c1ed592cf892dec35942b7d72635829221e0788c9a16c4d2afa8b7156bc9705b1c4b32c30d88136c576fda3cbcb8f494d6f865264c706ea8798d92
   languageName: node
   linkType: hard
 
@@ -12100,14 +12033,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:^6.4.2":
-  version: 6.4.2
-  resolution: "chromatic@npm:6.4.2"
+"chromatic@npm:^6.5.6":
+  version: 6.5.6
+  resolution: "chromatic@npm:6.5.6"
   bin:
     chroma: bin/main.cjs
     chromatic: bin/main.cjs
     chromatic-cli: bin/main.cjs
-  checksum: fba5c189894fd043c81bcc747759ddc4aaca5b705381e55e30760ea47a14892f36fb611eb01f315c0bf2b98c06e42d9c368fe394989696fa59c465f6c3faaee9
+  checksum: dbfe276683add0420e559c1dc42e5c10d9dcd8c3b53fb4a1d36de684077a455d472c5e64427d83ccb88f3b73643aabc4979bd1b38339c42784c73e3659377fc2
   languageName: node
   linkType: hard
 
@@ -27005,13 +26938,6 @@ __metadata:
   version: 0.0.1
   resolution: "path-browserify@npm:0.0.1"
   checksum: ae8dcd45d0d3cfbaf595af4f206bf3ed82d77f72b4877ae7e77328079e1468c84f9386754bb417d994d5a19bf47882fd253565c18441cd5c5c90ae5187599e35
-  languageName: node
-  linkType: hard
-
-"path-browserify@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "path-browserify@npm:1.0.1"
-  checksum: c6d7fa376423fe35b95b2d67990060c3ee304fc815ff0a2dc1c6c3cfaff2bd0d572ee67e18f19d0ea3bbe32e8add2a05021132ac40509416459fffee35200699
   languageName: node
   linkType: hard
 
