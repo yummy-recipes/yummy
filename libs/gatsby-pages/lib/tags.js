@@ -62,7 +62,7 @@ async function createTagPage({ tag, tagSlug, actions, graphql }) {
   createPaginated({
     actions,
     collection: result.data.allStrapiRecipe.edges,
-    component: path.resolve('./src/templates/post-list-by-tag.js'),
+    component: path.resolve('./src/templates/post-list-by-tag.jsx'),
     baseUrl: `/tag/${tagSlug}/`,
     context: {
       slug: tagSlug,

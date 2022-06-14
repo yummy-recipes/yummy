@@ -67,7 +67,7 @@ async function createCategoryPage({ category, slug, actions, graphql }) {
   createPaginated({
     actions,
     collection: result.data.allStrapiRecipe.edges,
-    component: path.resolve('./src/templates/post-list-by-category.js'),
+    component: path.resolve('./src/templates/post-list-by-category.jsx'),
     baseUrl: `/${slug}/`,
     context: {
       slug: slug,

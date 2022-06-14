@@ -30,7 +30,7 @@ function createMainBlogPage({ actions, graphql }) {
       actions,
       collection: result.data.allStrapiArticle.edges,
       baseUrl: '/blog/',
-      component: path.resolve('./src/templates/blog-post-list.js'),
+      component: path.resolve('./src/templates/blog-post-list.jsx'),
       context: {
         fullHeaderVersion: false,
         subsection: 'Kulinarne dygresje',

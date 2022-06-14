@@ -30,7 +30,7 @@ function createMainPage({ actions, graphql }) {
       actions,
       collection: result.data.allStrapiRecipe.edges,
       baseUrl: '/',
-      component: path.resolve('./src/templates/post-list.js'),
+      component: path.resolve('./src/templates/post-list.jsx'),
       context: {
         allCategories: result.data.allRecipeCategory.edges.map(
           ({ node }) => node,

@@ -38,7 +38,7 @@ async function createError404Page({ actions, graphql }) {
 
   createPage({
     path: '/404.html',
-    component: path.resolve('./src/templates/error-404.js'),
+    component: path.resolve('./src/templates/error-404.jsx'),
     context: {
       fullHeaderVersion: false,
       allCategories: result.data.allRecipeCategory.edges.map(
@@ -81,7 +81,7 @@ async function createBlogPostPages({ actions, graphql }) {
   }
 
   const posts = result.data.allStrapiArticle.edges
-  const component = path.resolve('./src/templates/blog-post-page/index.js')
+  const component = path.resolve('./src/templates/blog-post-page/index.jsx')
 
   posts.forEach(({ node }) => {
     createPage({
@@ -132,7 +132,7 @@ async function createRecipePages({ actions, graphql }) {
   }
 
   const collection = result.data.allStrapiRecipe.edges
-  const component = path.resolve('./src/templates/post-page/index.js')
+  const component = path.resolve('./src/templates/post-page/index.jsx')
 
   collection.forEach(({ node }) => {
     createPage({
