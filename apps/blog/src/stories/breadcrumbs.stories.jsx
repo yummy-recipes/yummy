@@ -1,10 +1,13 @@
-import React from 'react'
-
 import Breadcrumbs from '../components/breadcrumbs'
+import '../styles/global.css'
 
 export default {
-  title: 'Breadcrumbs',
-  component: Breadcrumbs
+  component: Breadcrumbs,
 }
 
-export const Primary = () => <Breadcrumbs subsectionName="desery" subsectionSlug="desery" />
+export const Primary = {
+  args: {
+    subsectionName: 'desery',
+    subsectionSlug: 'desery',
+  },
+}
