@@ -6,7 +6,10 @@ module.exports = {
   core: {
     builder: '@storybook/builder-vite',
   },
-  addons: ['@storybook/addon-essentials'],
+  features: {
+    previewCsfV3: true,
+  },
+  addons: ['@storybook/addon-essentials', 'storybook-addon-themes'],
   async viteFinal(config, { configType }) {
     // return the customized config
     return mergeConfig(config, {

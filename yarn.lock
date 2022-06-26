@@ -6308,7 +6308,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addons@npm:6.5.9, @storybook/addons@npm:^6.5.9":
+"@storybook/addons@npm:6.5.9, @storybook/addons@npm:^6.0.0, @storybook/addons@npm:^6.5.9":
   version: 6.5.9
   resolution: "@storybook/addons@npm:6.5.9"
   dependencies:
@@ -6330,7 +6330,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/api@npm:6.5.9":
+"@storybook/api@npm:6.5.9, @storybook/api@npm:^6.0.0":
   version: 6.5.9
   resolution: "@storybook/api@npm:6.5.9"
   dependencies:
@@ -6526,7 +6526,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/components@npm:6.5.9":
+"@storybook/components@npm:6.5.9, @storybook/components@npm:^6.0.0":
   version: 6.5.9
   resolution: "@storybook/components@npm:6.5.9"
   dependencies:
@@ -6646,7 +6646,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/core-events@npm:6.5.9":
+"@storybook/core-events@npm:6.5.9, @storybook/core-events@npm:^6.0.0":
   version: 6.5.9
   resolution: "@storybook/core-events@npm:6.5.9"
   dependencies:
@@ -7131,7 +7131,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/theming@npm:6.5.9":
+"@storybook/theming@npm:6.5.9, @storybook/theming@npm:^6.0.0":
   version: 6.5.9
   resolution: "@storybook/theming@npm:6.5.9"
   dependencies:
@@ -10937,6 +10937,7 @@ __metadata:
     react-test-renderer: ^16.8.2
     react-testing-library: ^6.0.0
     start-server-and-test: ^1.7.11
+    storybook-addon-themes: ^6.1.0
     style-loader: ^3.3.1
     svgo: ^2.8.0
     tailwind-config-viewer: ^1.7.1
@@ -32100,6 +32101,29 @@ __metadata:
   version: 2.13.1
   resolution: "store2@npm:2.13.1"
   checksum: c5fa1ac7dbf8431d87ad4563d9838311bb421cc6e13696b668c772192942be2e07ef20d36104f7496acab6dc4d569a9b50d6c2299ceaddbcb86628f585323ff4
+  languageName: node
+  linkType: hard
+
+"storybook-addon-themes@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "storybook-addon-themes@npm:6.1.0"
+  dependencies:
+    "@storybook/addons": ^6.0.0
+    "@storybook/api": ^6.0.0
+    "@storybook/components": ^6.0.0
+    "@storybook/core-events": ^6.0.0
+    "@storybook/theming": ^6.0.0
+    core-js: ^3.6.4
+    global: ^4.4.0
+    memoizerific: ^1.11.3
+  peerDependenciesMeta:
+    react:
+      optional: true
+    svelte:
+      optional: true
+    vue:
+      optional: true
+  checksum: 35c87ad90f270c88f21838f9e7b90864b34ace7a4920a7f8d4d4c00c5f40702fe1758348efe973392fe1b134b4f4d7848f72f842cda3dba78a29a0be007e86af
   languageName: node
   linkType: hard
 

@@ -55,6 +55,7 @@
     "react-loadable": "^5.5.0",
     "react-select": "2.4.4",
     "react-testing-library": "^6.0.0",
+    "storybook-addon-themes": "^6.1.0",
     "underscore.string": "^3.3.5"
   },
   "devDependencies": {

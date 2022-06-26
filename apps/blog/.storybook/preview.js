@@ -1,3 +1,5 @@
+import './style.css'
+
 // Gatsby's Link overrides:
 // Gatsby Link calls the `enqueue` & `hovering` methods on the global variable ___loader.
 // This global object isn't set in storybook context, requiring you to override it to empty functions (no-op),
@@ -17,4 +19,12 @@ window.___navigate = (pathname) => {
 
 export const parameters = {
   chromatic: { viewports: [360, 1200] },
+  backgrounds: {},
+  themes: {
+    default: 'light',
+    list: [
+      { name: 'light', class: 'light', color: '#fff' },
+      { name: 'dark', class: 'dark', color: '#000' },
+    ],
+  },
 }
