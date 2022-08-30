@@ -1,14 +1,12 @@
 import React from 'react'
 
-import * as styles from './post-card-header.module.css'
-
 const PostCardHeader = ({ title, html }) => {
   return (
-    <div className={styles.contentHeader}>
-      <h2 className={styles.contentTitle}>
+    <div className="text-lg mt-4 mr-4">
+      <h2 className="text-lg text-black no-underline my-2 font-medium">
         {title}
       </h2>
-      <div className={styles.contentSummary} dangerouslySetInnerHTML={ {__html: html} }></div>
+      <div className="my-4" dangerouslySetInnerHTML={{ __html: html }}></div>
     </div>
   )
 }

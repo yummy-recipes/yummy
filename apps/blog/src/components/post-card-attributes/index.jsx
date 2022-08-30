@@ -1,15 +1,13 @@
 import React from 'react'
 import TimeToPrepare from '../time_to_prepare'
 import VegetarianMark from '../icons/VegetarianMark'
-import * as styles from './post-card-attributes.module.css'
 
 const PostCardAttributes = ({ preparationTime, tags }) => (
-  <div className={styles.attributes}>
+  <div className="flex py-2 px-4">
     <TimeToPrepare>{preparationTime}</TimeToPrepare>
-    {
-      tags.indexOf('wegetariańskie') !== -1
-      && <VegetarianMark className={styles.vegetarianIcon} />
-    }
+    {tags.indexOf('wegetariańskie') !== -1 && (
+      <VegetarianMark className="w-4 h-4 ml-2" />
+    )}
   </div>
 )
 

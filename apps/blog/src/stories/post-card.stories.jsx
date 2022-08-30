@@ -8,27 +8,35 @@ import PostCardAttributes from '../components/post-card-attributes'
 
 export default {
   title: 'PostCard',
-  component: PostCard
+  component: PostCard,
 }
 
-const fluid = {'aspectRatio':0.75,'src':'https://raw.githubusercontent.com/yummy-recipes/yummy/master/apps/blog/cypress/fixtures/images/cover.jpg','sizes':'(max-width: 500px) 100vw, 500px'}
+const fluid = {
+  aspectRatio: 0.75,
+  src: 'https://raw.githubusercontent.com/yummy-recipes/yummy/master/apps/blog/cypress/fixtures/images/cover.jpg',
+  sizes: '(max-width: 500px) 100vw, 500px',
+}
 
 export const Primary = () => (
-  <PostCard href='/'>
+  <PostCard href="/">
     <PostCardCover fluid={fluid} criticalImage />
 
-    <PostCardHeader
-      title='Test'
-      html='Summary'
-    />
+    <PostCardHeader title="Test" html="Summary" />
 
     <PostCardSeparator />
 
-    <PostCardAttributes
-      preparationTime='120'
-      tags={[]}
-    />
+    <PostCardAttributes preparationTime="120" tags={[]} />
   </PostCard>
 )
 
+export const Vege = () => (
+  <PostCard href="/">
+    <PostCardCover fluid={fluid} criticalImage />
 
+    <PostCardHeader title="Test" html="Summary" />
+
+    <PostCardSeparator />
+
+    <PostCardAttributes preparationTime="120" tags={['wegetariańskie']} />
+  </PostCard>
+)
