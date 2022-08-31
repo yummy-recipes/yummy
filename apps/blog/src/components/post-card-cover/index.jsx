@@ -1,14 +1,12 @@
 import Img from 'gatsby-image'
 import React from 'react'
 
-import * as styles from './post-card-cover.module.css'
-
 const PostCardCover = ({ fluid, criticalImage }) => {
   return (
-    <div className={styles.coverLink}>
+    <div className="relative overflow-hidden h-[200px]">
       <Img
         fluid={fluid}
-        className={styles.cover}
+        className="h-[200px] grow-0 shrink-0 basis-1/2"
         critical={criticalImage}
       />
     </div>

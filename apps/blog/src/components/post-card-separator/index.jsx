@@ -1,6 +1,5 @@
 import React from 'react'
-import * as styles from './post-card-separator.module.css'
 
-const PostCardSeparator = () => (<hr className={styles.separator} />)
+const PostCardSeparator = () => <hr className="mt-auto mr-2 mb-0" />
 
 export default PostCardSeparator
