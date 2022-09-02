@@ -6,8 +6,6 @@ import {
   createBlogListQueryQueryMock,
   createBlogListQueryQueryMock_allStrapiRecipe_edges,
   createBlogListQueryQueryMock_allStrapiRecipe_edges_node,
-  createBlogListQueryQueryMock_allStrapiRecipe_edges_node_StrapiRecipe_parsedHeadline,
-  createBlogListQueryQueryMock_allStrapiRecipe_edges_node_StrapiRecipe_parsedHeadline_childMarkdownRemark,
 } from '../templates/post-list.generated'
 
 const LayoutDecorator = (storyFn) => (

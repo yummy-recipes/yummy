@@ -34,199 +34,180 @@ export type Unnamed_1_Query = {
       siteUrl?: string | null
     } | null
   } | null
+  allCategories: {
+    __typename: 'RecipeCategoryConnection'
+    edges: Array<{
+      __typename: 'RecipeCategoryEdge'
+      node: {
+        __typename: 'RecipeCategory'
+        name?: string | null
+        slug?: string | null
+      }
+    }>
+  }
 }
 
 export function createUnnamed_1_QueryMock(
-  props: Partial<Unnamed_1_Query>,
+  props: Partial<Unnamed_1_Query> = {},
 ): Unnamed_1_Query {
-  switch (props.__typename) {
-    case 'Query': {
-      const {} = schemaFactories.createQueryMock({})
-      return {
-        ...createUnnamed_1_QueryMock_Query({}),
-        strapiArticle: null,
-        ...props,
-      }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock({ ...props, __typename: 'Query' })
+  return {
+    __typename: 'Query',
+    site: null,
+    allCategories: createUnnamed_1_QueryMock_allCategories({}),
+    strapiArticle: null,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_Query(
-  props: Partial<Extract<Unnamed_1_Query, { __typename: 'Query' }>>,
-): Extract<Unnamed_1_Query, { __typename: 'Query' }> {
-  switch (props.__typename) {
-    case 'Query': {
-      const {} = schemaFactories.createQueryMock({})
-      return { site: null, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_Query({ ...props, __typename: 'Query' })
+
+export function createUnnamed_1_QueryMock_site(
+  props: Partial<NonNullable<Unnamed_1_Query['site']>> = {},
+): NonNullable<Unnamed_1_Query['site']> {
+  return {
+    __typename: 'Site',
+    siteMetadata: null,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_Query_site(
+
+export function createUnnamed_1_QueryMock_site_siteMetadata(
   props: Partial<
-    NonNull<Extract<Unnamed_1_Query, { __typename: 'Query' }>['site']>
-  >,
-): NonNull<Extract<Unnamed_1_Query, { __typename: 'Query' }>['site']> {
-  switch (props.__typename) {
-    case 'Site': {
-      const {} = schemaFactories.createSiteMock({})
-      return { siteMetadata: null, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_Query_site({
-        ...props,
-        __typename: 'Site',
-      })
+    NonNullable<NonNullable<Unnamed_1_Query['site']>['siteMetadata']>
+  > = {},
+): NonNullable<NonNullable<Unnamed_1_Query['site']>['siteMetadata']> {
+  const siteSiteMetadata = schemaFactories.createSiteSiteMetadataMock({
+    siteUrl: props.siteUrl,
+  })
+  return {
+    __typename: 'SiteSiteMetadata',
+    siteUrl: siteSiteMetadata.siteUrl,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_Query_site_siteMetadata(
+
+export function createUnnamed_1_QueryMock_allCategories(
+  props: Partial<Unnamed_1_Query['allRecipeCategory']> = {},
+): Unnamed_1_Query['allRecipeCategory'] {
+  return {
+    __typename: 'RecipeCategoryConnection',
+    edges: [],
+    ...props,
+  }
+}
+
+export function createUnnamed_1_QueryMock_allCategories_edges(
+  props: Partial<Unnamed_1_Query['allRecipeCategory']['edges'][number]> = {},
+): Unnamed_1_Query['allRecipeCategory']['edges'][number] {
+  return {
+    __typename: 'RecipeCategoryEdge',
+    node: createUnnamed_1_QueryMock_allCategories_edges_node({}),
+    ...props,
+  }
+}
+
+export function createUnnamed_1_QueryMock_allCategories_edges_node(
   props: Partial<
-    NonNull<
-      NonNull<
-        Extract<Unnamed_1_Query, { __typename: 'Query' }>['site']
-      >['siteMetadata']
-    >
-  >,
-): NonNull<
-  NonNull<
-    Extract<Unnamed_1_Query, { __typename: 'Query' }>['site']
-  >['siteMetadata']
-> {
-  switch (props.__typename) {
-    case 'SiteSiteMetadata': {
-      const { siteUrl } = schemaFactories.createSiteSiteMetadataMock({
-        siteUrl: props.siteUrl,
-      })
-      return { siteUrl, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_Query_site_siteMetadata({
-        ...props,
-        __typename: 'SiteSiteMetadata',
-      })
+    Unnamed_1_Query['allRecipeCategory']['edges'][number]['node']
+  > = {},
+): Unnamed_1_Query['allRecipeCategory']['edges'][number]['node'] {
+  const recipeCategory = schemaFactories.createRecipeCategoryMock({
+    name: props.name,
+    slug: props.slug,
+  })
+  return {
+    __typename: 'RecipeCategory',
+    name: recipeCategory.name,
+    slug: recipeCategory.slug,
+    ...props,
   }
 }
+
 export function createUnnamed_1_QueryMock_strapiArticle(
-  props: Partial<NonNull<Unnamed_1_Query['strapiArticle']>>,
-): NonNull<Unnamed_1_Query['strapiArticle']> {
-  switch (props.__typename) {
-    case 'StrapiArticle': {
-      const { slug, title, published_at } =
-        schemaFactories.createStrapiArticleMock({
-          slug: props.slug,
-          title: props.title,
-          published_at: props.published_at,
-        })
-      return {
-        parsedHeadline: null,
-        parsedContent: null,
-        slug,
-        title,
-        published_at,
-        ...props,
-      }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiArticle({
-        ...props,
-        __typename: 'StrapiArticle',
-      })
+  props: Partial<NonNullable<Unnamed_1_Query['strapiArticle']>> = {},
+): NonNullable<Unnamed_1_Query['strapiArticle']> {
+  const strapiArticle = schemaFactories.createStrapiArticleMock({
+    slug: props.slug,
+    title: props.title,
+    published_at: props.published_at,
+  })
+  return {
+    __typename: 'StrapiArticle',
+    parsedHeadline: null,
+    parsedContent: null,
+    slug: strapiArticle.slug,
+    title: strapiArticle.title,
+    published_at: strapiArticle.published_at,
+    ...props,
   }
 }
+
 export function createUnnamed_1_QueryMock_strapiArticle_parsedHeadline(
   props: Partial<
-    NonNull<NonNull<Unnamed_1_Query['strapiArticle']>['parsedHeadline']>
-  >,
-): NonNull<NonNull<Unnamed_1_Query['strapiArticle']>['parsedHeadline']> {
-  switch (props.__typename) {
-    case 'RecipePart': {
-      const {} = schemaFactories.createRecipePartMock({})
-      return { childMarkdownRemark: null, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiArticle_parsedHeadline({
-        ...props,
-        __typename: 'RecipePart',
-      })
+    NonNullable<NonNullable<Unnamed_1_Query['strapiArticle']>['parsedHeadline']>
+  > = {},
+): NonNullable<
+  NonNullable<Unnamed_1_Query['strapiArticle']>['parsedHeadline']
+> {
+  return {
+    __typename: 'RecipePart',
+    childMarkdownRemark: null,
+    ...props,
   }
 }
+
 export function createUnnamed_1_QueryMock_strapiArticle_parsedHeadline_childMarkdownRemark(
   props: Partial<
-    NonNull<
-      NonNull<
-        NonNull<Unnamed_1_Query['strapiArticle']>['parsedHeadline']
+    NonNullable<
+      NonNullable<
+        NonNullable<Unnamed_1_Query['strapiArticle']>['parsedHeadline']
       >['childMarkdownRemark']
     >
-  >,
-): NonNull<
-  NonNull<
-    NonNull<Unnamed_1_Query['strapiArticle']>['parsedHeadline']
+  > = {},
+): NonNullable<
+  NonNullable<
+    NonNullable<Unnamed_1_Query['strapiArticle']>['parsedHeadline']
   >['childMarkdownRemark']
 > {
-  switch (props.__typename) {
-    case 'MarkdownRemark': {
-      const { html } = schemaFactories.createMarkdownRemarkMock({
-        html: props.html,
-      })
-      return { html, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiArticle_parsedHeadline_childMarkdownRemark(
-        { ...props, __typename: 'MarkdownRemark' },
-      )
+  const markdownRemark = schemaFactories.createMarkdownRemarkMock({
+    html: props.html,
+  })
+  return {
+    __typename: 'MarkdownRemark',
+    html: markdownRemark.html,
+    ...props,
   }
 }
+
 export function createUnnamed_1_QueryMock_strapiArticle_parsedContent(
   props: Partial<
-    NonNull<NonNull<Unnamed_1_Query['strapiArticle']>['parsedContent']>
-  >,
-): NonNull<NonNull<Unnamed_1_Query['strapiArticle']>['parsedContent']> {
-  switch (props.__typename) {
-    case 'RecipePart': {
-      const {} = schemaFactories.createRecipePartMock({})
-      return { childMarkdownRemark: null, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiArticle_parsedContent({
-        ...props,
-        __typename: 'RecipePart',
-      })
+    NonNullable<NonNullable<Unnamed_1_Query['strapiArticle']>['parsedContent']>
+  > = {},
+): NonNullable<NonNullable<Unnamed_1_Query['strapiArticle']>['parsedContent']> {
+  return {
+    __typename: 'RecipePart',
+    childMarkdownRemark: null,
+    ...props,
   }
 }
+
 export function createUnnamed_1_QueryMock_strapiArticle_parsedContent_childMarkdownRemark(
   props: Partial<
-    NonNull<
-      NonNull<
-        NonNull<Unnamed_1_Query['strapiArticle']>['parsedContent']
+    NonNullable<
+      NonNullable<
+        NonNullable<Unnamed_1_Query['strapiArticle']>['parsedContent']
       >['childMarkdownRemark']
     >
-  >,
-): NonNull<
-  NonNull<
-    NonNull<Unnamed_1_Query['strapiArticle']>['parsedContent']
+  > = {},
+): NonNullable<
+  NonNullable<
+    NonNullable<Unnamed_1_Query['strapiArticle']>['parsedContent']
   >['childMarkdownRemark']
 > {
-  switch (props.__typename) {
-    case 'MarkdownRemark': {
-      const { html } = schemaFactories.createMarkdownRemarkMock({
-        html: props.html,
-      })
-      return { html, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiArticle_parsedContent_childMarkdownRemark(
-        { ...props, __typename: 'MarkdownRemark' },
-      )
+  const markdownRemark = schemaFactories.createMarkdownRemarkMock({
+    html: props.html,
+  })
+  return {
+    __typename: 'MarkdownRemark',
+    html: markdownRemark.html,
+    ...props,
   }
 }

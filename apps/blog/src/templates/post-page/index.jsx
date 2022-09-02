@@ -95,7 +95,7 @@ export default function PostPage({ data }) {
 }
 
 export const pageQuery = graphql`
-  query ($slug: String!) {
+  query post($slug: String!) {
     ...siteMetadata
     ...allCategories
 

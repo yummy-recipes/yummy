@@ -6154,7 +6154,7 @@ export type WebPOptions = {
 }
 
 export function createAvifOptionsMock(
-  props: Partial<AvifOptions>,
+  props: Partial<AvifOptions> = {},
 ): AvifOptions {
   return {
     lossless: null,
@@ -6165,7 +6165,7 @@ export function createAvifOptionsMock(
 }
 
 export function createBlogPostPartMock(
-  props: Partial<BlogPostPart>,
+  props: Partial<BlogPostPart> = {},
 ): BlogPostPart {
   return {
     __typename: 'BlogPostPart',
@@ -6180,7 +6180,7 @@ export function createBlogPostPartMock(
 }
 
 export function createBlogPostPartConnectionMock(
-  props: Partial<BlogPostPartConnection>,
+  props: Partial<BlogPostPartConnection> = {},
 ): BlogPostPartConnection {
   return {
     __typename: 'BlogPostPartConnection',
@@ -6198,7 +6198,7 @@ export function createBlogPostPartConnectionMock(
 }
 
 export function createBlogPostPartEdgeMock(
-  props: Partial<BlogPostPartEdge>,
+  props: Partial<BlogPostPartEdge> = {},
 ): BlogPostPartEdge {
   return {
     __typename: 'BlogPostPartEdge',
@@ -6210,7 +6210,7 @@ export function createBlogPostPartEdgeMock(
 }
 
 export function createBlogPostPartFilterInputMock(
-  props: Partial<BlogPostPartFilterInput>,
+  props: Partial<BlogPostPartFilterInput> = {},
 ): BlogPostPartFilterInput {
   return {
     childMarkdownRemark: null,
@@ -6224,7 +6224,7 @@ export function createBlogPostPartFilterInputMock(
 }
 
 export function createBlogPostPartGroupConnectionMock(
-  props: Partial<BlogPostPartGroupConnection>,
+  props: Partial<BlogPostPartGroupConnection> = {},
 ): BlogPostPartGroupConnection {
   return {
     __typename: 'BlogPostPartGroupConnection',
@@ -6244,7 +6244,7 @@ export function createBlogPostPartGroupConnectionMock(
 }
 
 export function createBlogPostPartSortInputMock(
-  props: Partial<BlogPostPartSortInput>,
+  props: Partial<BlogPostPartSortInput> = {},
 ): BlogPostPartSortInput {
   return {
     fields: null,
@@ -6254,7 +6254,7 @@ export function createBlogPostPartSortInputMock(
 }
 
 export function createBlurredOptionsMock(
-  props: Partial<BlurredOptions>,
+  props: Partial<BlurredOptions> = {},
 ): BlurredOptions {
   return {
     toFormat: null,
@@ -6264,7 +6264,7 @@ export function createBlurredOptionsMock(
 }
 
 export function createBooleanQueryOperatorInputMock(
-  props: Partial<BooleanQueryOperatorInput>,
+  props: Partial<BooleanQueryOperatorInput> = {},
 ): BooleanQueryOperatorInput {
   return {
     eq: null,
@@ -6276,7 +6276,7 @@ export function createBooleanQueryOperatorInputMock(
 }
 
 export function createDateQueryOperatorInputMock(
-  props: Partial<DateQueryOperatorInput>,
+  props: Partial<DateQueryOperatorInput> = {},
 ): DateQueryOperatorInput {
   return {
     eq: null,
@@ -6291,7 +6291,7 @@ export function createDateQueryOperatorInputMock(
   }
 }
 
-export function createDirectoryMock(props: Partial<Directory>): Directory {
+export function createDirectoryMock(props: Partial<Directory> = {}): Directory {
   return {
     __typename: 'Directory',
     absolutePath: '',
@@ -6334,7 +6334,7 @@ export function createDirectoryMock(props: Partial<Directory>): Directory {
 }
 
 export function createDirectoryConnectionMock(
-  props: Partial<DirectoryConnection>,
+  props: Partial<DirectoryConnection> = {},
 ): DirectoryConnection {
   return {
     __typename: 'DirectoryConnection',
@@ -6352,7 +6352,7 @@ export function createDirectoryConnectionMock(
 }
 
 export function createDirectoryEdgeMock(
-  props: Partial<DirectoryEdge>,
+  props: Partial<DirectoryEdge> = {},
 ): DirectoryEdge {
   return {
     __typename: 'DirectoryEdge',
@@ -6364,7 +6364,7 @@ export function createDirectoryEdgeMock(
 }
 
 export function createDirectoryFilterInputMock(
-  props: Partial<DirectoryFilterInput>,
+  props: Partial<DirectoryFilterInput> = {},
 ): DirectoryFilterInput {
   return {
     absolutePath: null,
@@ -6407,7 +6407,7 @@ export function createDirectoryFilterInputMock(
 }
 
 export function createDirectoryGroupConnectionMock(
-  props: Partial<DirectoryGroupConnection>,
+  props: Partial<DirectoryGroupConnection> = {},
 ): DirectoryGroupConnection {
   return {
     __typename: 'DirectoryGroupConnection',
@@ -6427,7 +6427,7 @@ export function createDirectoryGroupConnectionMock(
 }
 
 export function createDirectorySortInputMock(
-  props: Partial<DirectorySortInput>,
+  props: Partial<DirectorySortInput> = {},
 ): DirectorySortInput {
   return {
     fields: null,
@@ -6437,7 +6437,7 @@ export function createDirectorySortInputMock(
 }
 
 export function createDuotoneGradientMock(
-  props: Partial<DuotoneGradient>,
+  props: Partial<DuotoneGradient> = {},
 ): DuotoneGradient {
   return {
     highlight: '',
@@ -6447,7 +6447,7 @@ export function createDuotoneGradientMock(
   }
 }
 
-export function createFileMock(props: Partial<File>): File {
+export function createFileMock(props: Partial<File> = {}): File {
   return {
     __typename: 'File',
     absolutePath: '',
@@ -6495,7 +6495,7 @@ export function createFileMock(props: Partial<File>): File {
 }
 
 export function createFileConnectionMock(
-  props: Partial<FileConnection>,
+  props: Partial<FileConnection> = {},
 ): FileConnection {
   return {
     __typename: 'FileConnection',
@@ -6512,7 +6512,7 @@ export function createFileConnectionMock(
   }
 }
 
-export function createFileEdgeMock(props: Partial<FileEdge>): FileEdge {
+export function createFileEdgeMock(props: Partial<FileEdge> = {}): FileEdge {
   return {
     __typename: 'FileEdge',
     next: null,
@@ -6523,7 +6523,7 @@ export function createFileEdgeMock(props: Partial<FileEdge>): FileEdge {
 }
 
 export function createFileFilterInputMock(
-  props: Partial<FileFilterInput>,
+  props: Partial<FileFilterInput> = {},
 ): FileFilterInput {
   return {
     absolutePath: null,
@@ -6571,7 +6571,7 @@ export function createFileFilterInputMock(
 }
 
 export function createFileGroupConnectionMock(
-  props: Partial<FileGroupConnection>,
+  props: Partial<FileGroupConnection> = {},
 ): FileGroupConnection {
   return {
     __typename: 'FileGroupConnection',
@@ -6591,7 +6591,7 @@ export function createFileGroupConnectionMock(
 }
 
 export function createFileSortInputMock(
-  props: Partial<FileSortInput>,
+  props: Partial<FileSortInput> = {},
 ): FileSortInput {
   return {
     fields: null,
@@ -6601,7 +6601,7 @@ export function createFileSortInputMock(
 }
 
 export function createFloatQueryOperatorInputMock(
-  props: Partial<FloatQueryOperatorInput>,
+  props: Partial<FloatQueryOperatorInput> = {},
 ): FloatQueryOperatorInput {
   return {
     eq: null,
@@ -6616,7 +6616,9 @@ export function createFloatQueryOperatorInputMock(
   }
 }
 
-export function createImageSharpMock(props: Partial<ImageSharp>): ImageSharp {
+export function createImageSharpMock(
+  props: Partial<ImageSharp> = {},
+): ImageSharp {
   return {
     __typename: 'ImageSharp',
     children: [],
@@ -6633,7 +6635,7 @@ export function createImageSharpMock(props: Partial<ImageSharp>): ImageSharp {
 }
 
 export function createImageSharpConnectionMock(
-  props: Partial<ImageSharpConnection>,
+  props: Partial<ImageSharpConnection> = {},
 ): ImageSharpConnection {
   return {
     __typename: 'ImageSharpConnection',
@@ -6651,7 +6653,7 @@ export function createImageSharpConnectionMock(
 }
 
 export function createImageSharpEdgeMock(
-  props: Partial<ImageSharpEdge>,
+  props: Partial<ImageSharpEdge> = {},
 ): ImageSharpEdge {
   return {
     __typename: 'ImageSharpEdge',
@@ -6663,7 +6665,7 @@ export function createImageSharpEdgeMock(
 }
 
 export function createImageSharpFilterInputMock(
-  props: Partial<ImageSharpFilterInput>,
+  props: Partial<ImageSharpFilterInput> = {},
 ): ImageSharpFilterInput {
   return {
     children: null,
@@ -6680,7 +6682,7 @@ export function createImageSharpFilterInputMock(
 }
 
 export function createImageSharpFilterListInputMock(
-  props: Partial<ImageSharpFilterListInput>,
+  props: Partial<ImageSharpFilterListInput> = {},
 ): ImageSharpFilterListInput {
   return {
     elemMatch: null,
@@ -6689,7 +6691,7 @@ export function createImageSharpFilterListInputMock(
 }
 
 export function createImageSharpFixedMock(
-  props: Partial<ImageSharpFixed>,
+  props: Partial<ImageSharpFixed> = {},
 ): ImageSharpFixed {
   return {
     __typename: 'ImageSharpFixed',
@@ -6708,7 +6710,7 @@ export function createImageSharpFixedMock(
 }
 
 export function createImageSharpFixedFilterInputMock(
-  props: Partial<ImageSharpFixedFilterInput>,
+  props: Partial<ImageSharpFixedFilterInput> = {},
 ): ImageSharpFixedFilterInput {
   return {
     aspectRatio: null,
@@ -6726,7 +6728,7 @@ export function createImageSharpFixedFilterInputMock(
 }
 
 export function createImageSharpFluidMock(
-  props: Partial<ImageSharpFluid>,
+  props: Partial<ImageSharpFluid> = {},
 ): ImageSharpFluid {
   return {
     __typename: 'ImageSharpFluid',
@@ -6747,7 +6749,7 @@ export function createImageSharpFluidMock(
 }
 
 export function createImageSharpFluidFilterInputMock(
-  props: Partial<ImageSharpFluidFilterInput>,
+  props: Partial<ImageSharpFluidFilterInput> = {},
 ): ImageSharpFluidFilterInput {
   return {
     aspectRatio: null,
@@ -6767,7 +6769,7 @@ export function createImageSharpFluidFilterInputMock(
 }
 
 export function createImageSharpGroupConnectionMock(
-  props: Partial<ImageSharpGroupConnection>,
+  props: Partial<ImageSharpGroupConnection> = {},
 ): ImageSharpGroupConnection {
   return {
     __typename: 'ImageSharpGroupConnection',
@@ -6787,7 +6789,7 @@ export function createImageSharpGroupConnectionMock(
 }
 
 export function createImageSharpOriginalMock(
-  props: Partial<ImageSharpOriginal>,
+  props: Partial<ImageSharpOriginal> = {},
 ): ImageSharpOriginal {
   return {
     __typename: 'ImageSharpOriginal',
@@ -6799,7 +6801,7 @@ export function createImageSharpOriginalMock(
 }
 
 export function createImageSharpOriginalFilterInputMock(
-  props: Partial<ImageSharpOriginalFilterInput>,
+  props: Partial<ImageSharpOriginalFilterInput> = {},
 ): ImageSharpOriginalFilterInput {
   return {
     height: null,
@@ -6810,7 +6812,7 @@ export function createImageSharpOriginalFilterInputMock(
 }
 
 export function createImageSharpResizeMock(
-  props: Partial<ImageSharpResize>,
+  props: Partial<ImageSharpResize> = {},
 ): ImageSharpResize {
   return {
     __typename: 'ImageSharpResize',
@@ -6825,7 +6827,7 @@ export function createImageSharpResizeMock(
 }
 
 export function createImageSharpResizeFilterInputMock(
-  props: Partial<ImageSharpResizeFilterInput>,
+  props: Partial<ImageSharpResizeFilterInput> = {},
 ): ImageSharpResizeFilterInput {
   return {
     aspectRatio: null,
@@ -6839,7 +6841,7 @@ export function createImageSharpResizeFilterInputMock(
 }
 
 export function createImageSharpSortInputMock(
-  props: Partial<ImageSharpSortInput>,
+  props: Partial<ImageSharpSortInput> = {},
 ): ImageSharpSortInput {
   return {
     fields: null,
@@ -6849,7 +6851,7 @@ export function createImageSharpSortInputMock(
 }
 
 export function createIntQueryOperatorInputMock(
-  props: Partial<IntQueryOperatorInput>,
+  props: Partial<IntQueryOperatorInput> = {},
 ): IntQueryOperatorInput {
   return {
     eq: null,
@@ -6864,7 +6866,7 @@ export function createIntQueryOperatorInputMock(
   }
 }
 
-export function createInternalMock(props: Partial<Internal>): Internal {
+export function createInternalMock(props: Partial<Internal> = {}): Internal {
   return {
     __typename: 'Internal',
     content: null,
@@ -6880,7 +6882,7 @@ export function createInternalMock(props: Partial<Internal>): Internal {
 }
 
 export function createInternalFilterInputMock(
-  props: Partial<InternalFilterInput>,
+  props: Partial<InternalFilterInput> = {},
 ): InternalFilterInput {
   return {
     content: null,
@@ -6895,7 +6897,9 @@ export function createInternalFilterInputMock(
   }
 }
 
-export function createJpgOptionsMock(props: Partial<JpgOptions>): JpgOptions {
+export function createJpgOptionsMock(
+  props: Partial<JpgOptions> = {},
+): JpgOptions {
   return {
     progressive: null,
     quality: null,
@@ -6904,7 +6908,7 @@ export function createJpgOptionsMock(props: Partial<JpgOptions>): JpgOptions {
 }
 
 export function createJsonQueryOperatorInputMock(
-  props: Partial<JsonQueryOperatorInput>,
+  props: Partial<JsonQueryOperatorInput> = {},
 ): JsonQueryOperatorInput {
   return {
     eq: null,
@@ -6918,7 +6922,7 @@ export function createJsonQueryOperatorInputMock(
 }
 
 export function createMarkdownHeadingMock(
-  props: Partial<MarkdownHeading>,
+  props: Partial<MarkdownHeading> = {},
 ): MarkdownHeading {
   return {
     __typename: 'MarkdownHeading',
@@ -6930,7 +6934,7 @@ export function createMarkdownHeadingMock(
 }
 
 export function createMarkdownHeadingFilterInputMock(
-  props: Partial<MarkdownHeadingFilterInput>,
+  props: Partial<MarkdownHeadingFilterInput> = {},
 ): MarkdownHeadingFilterInput {
   return {
     depth: null,
@@ -6941,7 +6945,7 @@ export function createMarkdownHeadingFilterInputMock(
 }
 
 export function createMarkdownHeadingFilterListInputMock(
-  props: Partial<MarkdownHeadingFilterListInput>,
+  props: Partial<MarkdownHeadingFilterListInput> = {},
 ): MarkdownHeadingFilterListInput {
   return {
     elemMatch: null,
@@ -6950,7 +6954,7 @@ export function createMarkdownHeadingFilterListInputMock(
 }
 
 export function createMarkdownRemarkMock(
-  props: Partial<MarkdownRemark>,
+  props: Partial<MarkdownRemark> = {},
 ): MarkdownRemark {
   return {
     __typename: 'MarkdownRemark',
@@ -6973,7 +6977,7 @@ export function createMarkdownRemarkMock(
 }
 
 export function createMarkdownRemarkConnectionMock(
-  props: Partial<MarkdownRemarkConnection>,
+  props: Partial<MarkdownRemarkConnection> = {},
 ): MarkdownRemarkConnection {
   return {
     __typename: 'MarkdownRemarkConnection',
@@ -6991,7 +6995,7 @@ export function createMarkdownRemarkConnectionMock(
 }
 
 export function createMarkdownRemarkEdgeMock(
-  props: Partial<MarkdownRemarkEdge>,
+  props: Partial<MarkdownRemarkEdge> = {},
 ): MarkdownRemarkEdge {
   return {
     __typename: 'MarkdownRemarkEdge',
@@ -7003,7 +7007,7 @@ export function createMarkdownRemarkEdgeMock(
 }
 
 export function createMarkdownRemarkFilterInputMock(
-  props: Partial<MarkdownRemarkFilterInput>,
+  props: Partial<MarkdownRemarkFilterInput> = {},
 ): MarkdownRemarkFilterInput {
   return {
     children: null,
@@ -7025,7 +7029,7 @@ export function createMarkdownRemarkFilterInputMock(
 }
 
 export function createMarkdownRemarkFilterListInputMock(
-  props: Partial<MarkdownRemarkFilterListInput>,
+  props: Partial<MarkdownRemarkFilterListInput> = {},
 ): MarkdownRemarkFilterListInput {
   return {
     elemMatch: null,
@@ -7034,7 +7038,7 @@ export function createMarkdownRemarkFilterListInputMock(
 }
 
 export function createMarkdownRemarkFrontmatterMock(
-  props: Partial<MarkdownRemarkFrontmatter>,
+  props: Partial<MarkdownRemarkFrontmatter> = {},
 ): MarkdownRemarkFrontmatter {
   return {
     __typename: 'MarkdownRemarkFrontmatter',
@@ -7044,7 +7048,7 @@ export function createMarkdownRemarkFrontmatterMock(
 }
 
 export function createMarkdownRemarkFrontmatterFilterInputMock(
-  props: Partial<MarkdownRemarkFrontmatterFilterInput>,
+  props: Partial<MarkdownRemarkFrontmatterFilterInput> = {},
 ): MarkdownRemarkFrontmatterFilterInput {
   return {
     title: null,
@@ -7053,7 +7057,7 @@ export function createMarkdownRemarkFrontmatterFilterInputMock(
 }
 
 export function createMarkdownRemarkGroupConnectionMock(
-  props: Partial<MarkdownRemarkGroupConnection>,
+  props: Partial<MarkdownRemarkGroupConnection> = {},
 ): MarkdownRemarkGroupConnection {
   return {
     __typename: 'MarkdownRemarkGroupConnection',
@@ -7073,7 +7077,7 @@ export function createMarkdownRemarkGroupConnectionMock(
 }
 
 export function createMarkdownRemarkSortInputMock(
-  props: Partial<MarkdownRemarkSortInput>,
+  props: Partial<MarkdownRemarkSortInput> = {},
 ): MarkdownRemarkSortInput {
   return {
     fields: null,
@@ -7083,7 +7087,7 @@ export function createMarkdownRemarkSortInputMock(
 }
 
 export function createMarkdownWordCountMock(
-  props: Partial<MarkdownWordCount>,
+  props: Partial<MarkdownWordCount> = {},
 ): MarkdownWordCount {
   return {
     __typename: 'MarkdownWordCount',
@@ -7095,7 +7099,7 @@ export function createMarkdownWordCountMock(
 }
 
 export function createMarkdownWordCountFilterInputMock(
-  props: Partial<MarkdownWordCountFilterInput>,
+  props: Partial<MarkdownWordCountFilterInput> = {},
 ): MarkdownWordCountFilterInput {
   return {
     paragraphs: null,
@@ -7106,7 +7110,7 @@ export function createMarkdownWordCountFilterInputMock(
 }
 
 export function createNodeFilterInputMock(
-  props: Partial<NodeFilterInput>,
+  props: Partial<NodeFilterInput> = {},
 ): NodeFilterInput {
   return {
     children: null,
@@ -7118,7 +7122,7 @@ export function createNodeFilterInputMock(
 }
 
 export function createNodeFilterListInputMock(
-  props: Partial<NodeFilterListInput>,
+  props: Partial<NodeFilterListInput> = {},
 ): NodeFilterListInput {
   return {
     elemMatch: null,
@@ -7126,7 +7130,9 @@ export function createNodeFilterListInputMock(
   }
 }
 
-export function createPngOptionsMock(props: Partial<PngOptions>): PngOptions {
+export function createPngOptionsMock(
+  props: Partial<PngOptions> = {},
+): PngOptions {
   return {
     compressionSpeed: null,
     quality: null,
@@ -7134,7 +7140,7 @@ export function createPngOptionsMock(props: Partial<PngOptions>): PngOptions {
   }
 }
 
-export function createPageInfoMock(props: Partial<PageInfo>): PageInfo {
+export function createPageInfoMock(props: Partial<PageInfo> = {}): PageInfo {
   return {
     __typename: 'PageInfo',
     currentPage: 0,
@@ -7148,7 +7154,7 @@ export function createPageInfoMock(props: Partial<PageInfo>): PageInfo {
   }
 }
 
-export function createPotraceMock(props: Partial<Potrace>): Potrace {
+export function createPotraceMock(props: Partial<Potrace> = {}): Potrace {
   return {
     alphaMax: null,
     background: null,
@@ -7163,7 +7169,7 @@ export function createPotraceMock(props: Partial<Potrace>): Potrace {
   }
 }
 
-export function createQueryMock(props: Partial<Query>): Query {
+export function createQueryMock(props: Partial<Query> = {}): Query {
   return {
     __typename: 'Query',
     allBlogPostPart: createBlogPostPartConnectionMock({}),
@@ -7203,7 +7209,7 @@ export function createQueryMock(props: Partial<Query>): Query {
 }
 
 export function createRecipeCategoryMock(
-  props: Partial<RecipeCategory>,
+  props: Partial<RecipeCategory> = {},
 ): RecipeCategory {
   return {
     __typename: 'RecipeCategory',
@@ -7219,7 +7225,7 @@ export function createRecipeCategoryMock(
 }
 
 export function createRecipeCategoryConnectionMock(
-  props: Partial<RecipeCategoryConnection>,
+  props: Partial<RecipeCategoryConnection> = {},
 ): RecipeCategoryConnection {
   return {
     __typename: 'RecipeCategoryConnection',
@@ -7237,7 +7243,7 @@ export function createRecipeCategoryConnectionMock(
 }
 
 export function createRecipeCategoryEdgeMock(
-  props: Partial<RecipeCategoryEdge>,
+  props: Partial<RecipeCategoryEdge> = {},
 ): RecipeCategoryEdge {
   return {
     __typename: 'RecipeCategoryEdge',
@@ -7249,7 +7255,7 @@ export function createRecipeCategoryEdgeMock(
 }
 
 export function createRecipeCategoryFilterInputMock(
-  props: Partial<RecipeCategoryFilterInput>,
+  props: Partial<RecipeCategoryFilterInput> = {},
 ): RecipeCategoryFilterInput {
   return {
     children: null,
@@ -7264,7 +7270,7 @@ export function createRecipeCategoryFilterInputMock(
 }
 
 export function createRecipeCategoryGroupConnectionMock(
-  props: Partial<RecipeCategoryGroupConnection>,
+  props: Partial<RecipeCategoryGroupConnection> = {},
 ): RecipeCategoryGroupConnection {
   return {
     __typename: 'RecipeCategoryGroupConnection',
@@ -7284,7 +7290,7 @@ export function createRecipeCategoryGroupConnectionMock(
 }
 
 export function createRecipeCategorySortInputMock(
-  props: Partial<RecipeCategorySortInput>,
+  props: Partial<RecipeCategorySortInput> = {},
 ): RecipeCategorySortInput {
   return {
     fields: null,
@@ -7293,7 +7299,9 @@ export function createRecipeCategorySortInputMock(
   }
 }
 
-export function createRecipePartMock(props: Partial<RecipePart>): RecipePart {
+export function createRecipePartMock(
+  props: Partial<RecipePart> = {},
+): RecipePart {
   return {
     __typename: 'RecipePart',
     childMarkdownRemark: null,
@@ -7307,7 +7315,7 @@ export function createRecipePartMock(props: Partial<RecipePart>): RecipePart {
 }
 
 export function createRecipePartConnectionMock(
-  props: Partial<RecipePartConnection>,
+  props: Partial<RecipePartConnection> = {},
 ): RecipePartConnection {
   return {
     __typename: 'RecipePartConnection',
@@ -7325,7 +7333,7 @@ export function createRecipePartConnectionMock(
 }
 
 export function createRecipePartEdgeMock(
-  props: Partial<RecipePartEdge>,
+  props: Partial<RecipePartEdge> = {},
 ): RecipePartEdge {
   return {
     __typename: 'RecipePartEdge',
@@ -7337,7 +7345,7 @@ export function createRecipePartEdgeMock(
 }
 
 export function createRecipePartFilterInputMock(
-  props: Partial<RecipePartFilterInput>,
+  props: Partial<RecipePartFilterInput> = {},
 ): RecipePartFilterInput {
   return {
     childMarkdownRemark: null,
@@ -7351,7 +7359,7 @@ export function createRecipePartFilterInputMock(
 }
 
 export function createRecipePartGroupConnectionMock(
-  props: Partial<RecipePartGroupConnection>,
+  props: Partial<RecipePartGroupConnection> = {},
 ): RecipePartGroupConnection {
   return {
     __typename: 'RecipePartGroupConnection',
@@ -7371,7 +7379,7 @@ export function createRecipePartGroupConnectionMock(
 }
 
 export function createRecipePartSortInputMock(
-  props: Partial<RecipePartSortInput>,
+  props: Partial<RecipePartSortInput> = {},
 ): RecipePartSortInput {
   return {
     fields: null,
@@ -7380,7 +7388,7 @@ export function createRecipePartSortInputMock(
   }
 }
 
-export function createSiteMock(props: Partial<Site>): Site {
+export function createSiteMock(props: Partial<Site> = {}): Site {
   return {
     __typename: 'Site',
     buildTime: null,
@@ -7400,7 +7408,7 @@ export function createSiteMock(props: Partial<Site>): Site {
 }
 
 export function createSiteBuildMetadataMock(
-  props: Partial<SiteBuildMetadata>,
+  props: Partial<SiteBuildMetadata> = {},
 ): SiteBuildMetadata {
   return {
     __typename: 'SiteBuildMetadata',
@@ -7414,7 +7422,7 @@ export function createSiteBuildMetadataMock(
 }
 
 export function createSiteBuildMetadataConnectionMock(
-  props: Partial<SiteBuildMetadataConnection>,
+  props: Partial<SiteBuildMetadataConnection> = {},
 ): SiteBuildMetadataConnection {
   return {
     __typename: 'SiteBuildMetadataConnection',
@@ -7432,7 +7440,7 @@ export function createSiteBuildMetadataConnectionMock(
 }
 
 export function createSiteBuildMetadataEdgeMock(
-  props: Partial<SiteBuildMetadataEdge>,
+  props: Partial<SiteBuildMetadataEdge> = {},
 ): SiteBuildMetadataEdge {
   return {
     __typename: 'SiteBuildMetadataEdge',
@@ -7444,7 +7452,7 @@ export function createSiteBuildMetadataEdgeMock(
 }
 
 export function createSiteBuildMetadataFilterInputMock(
-  props: Partial<SiteBuildMetadataFilterInput>,
+  props: Partial<SiteBuildMetadataFilterInput> = {},
 ): SiteBuildMetadataFilterInput {
   return {
     buildTime: null,
@@ -7457,7 +7465,7 @@ export function createSiteBuildMetadataFilterInputMock(
 }
 
 export function createSiteBuildMetadataGroupConnectionMock(
-  props: Partial<SiteBuildMetadataGroupConnection>,
+  props: Partial<SiteBuildMetadataGroupConnection> = {},
 ): SiteBuildMetadataGroupConnection {
   return {
     __typename: 'SiteBuildMetadataGroupConnection',
@@ -7477,7 +7485,7 @@ export function createSiteBuildMetadataGroupConnectionMock(
 }
 
 export function createSiteBuildMetadataSortInputMock(
-  props: Partial<SiteBuildMetadataSortInput>,
+  props: Partial<SiteBuildMetadataSortInput> = {},
 ): SiteBuildMetadataSortInput {
   return {
     fields: null,
@@ -7487,7 +7495,7 @@ export function createSiteBuildMetadataSortInputMock(
 }
 
 export function createSiteConnectionMock(
-  props: Partial<SiteConnection>,
+  props: Partial<SiteConnection> = {},
 ): SiteConnection {
   return {
     __typename: 'SiteConnection',
@@ -7504,7 +7512,7 @@ export function createSiteConnectionMock(
   }
 }
 
-export function createSiteEdgeMock(props: Partial<SiteEdge>): SiteEdge {
+export function createSiteEdgeMock(props: Partial<SiteEdge> = {}): SiteEdge {
   return {
     __typename: 'SiteEdge',
     next: null,
@@ -7515,7 +7523,7 @@ export function createSiteEdgeMock(props: Partial<SiteEdge>): SiteEdge {
 }
 
 export function createSiteFilterInputMock(
-  props: Partial<SiteFilterInput>,
+  props: Partial<SiteFilterInput> = {},
 ): SiteFilterInput {
   return {
     buildTime: null,
@@ -7535,7 +7543,7 @@ export function createSiteFilterInputMock(
 }
 
 export function createSiteFunctionMock(
-  props: Partial<SiteFunction>,
+  props: Partial<SiteFunction> = {},
 ): SiteFunction {
   return {
     __typename: 'SiteFunction',
@@ -7555,7 +7563,7 @@ export function createSiteFunctionMock(
 }
 
 export function createSiteFunctionConnectionMock(
-  props: Partial<SiteFunctionConnection>,
+  props: Partial<SiteFunctionConnection> = {},
 ): SiteFunctionConnection {
   return {
     __typename: 'SiteFunctionConnection',
@@ -7573,7 +7581,7 @@ export function createSiteFunctionConnectionMock(
 }
 
 export function createSiteFunctionEdgeMock(
-  props: Partial<SiteFunctionEdge>,
+  props: Partial<SiteFunctionEdge> = {},
 ): SiteFunctionEdge {
   return {
     __typename: 'SiteFunctionEdge',
@@ -7585,7 +7593,7 @@ export function createSiteFunctionEdgeMock(
 }
 
 export function createSiteFunctionFilterInputMock(
-  props: Partial<SiteFunctionFilterInput>,
+  props: Partial<SiteFunctionFilterInput> = {},
 ): SiteFunctionFilterInput {
   return {
     absoluteCompiledFilePath: null,
@@ -7604,7 +7612,7 @@ export function createSiteFunctionFilterInputMock(
 }
 
 export function createSiteFunctionGroupConnectionMock(
-  props: Partial<SiteFunctionGroupConnection>,
+  props: Partial<SiteFunctionGroupConnection> = {},
 ): SiteFunctionGroupConnection {
   return {
     __typename: 'SiteFunctionGroupConnection',
@@ -7624,7 +7632,7 @@ export function createSiteFunctionGroupConnectionMock(
 }
 
 export function createSiteFunctionSortInputMock(
-  props: Partial<SiteFunctionSortInput>,
+  props: Partial<SiteFunctionSortInput> = {},
 ): SiteFunctionSortInput {
   return {
     fields: null,
@@ -7634,7 +7642,7 @@ export function createSiteFunctionSortInputMock(
 }
 
 export function createSiteGroupConnectionMock(
-  props: Partial<SiteGroupConnection>,
+  props: Partial<SiteGroupConnection> = {},
 ): SiteGroupConnection {
   return {
     __typename: 'SiteGroupConnection',
@@ -7653,7 +7661,7 @@ export function createSiteGroupConnectionMock(
   }
 }
 
-export function createSitePageMock(props: Partial<SitePage>): SitePage {
+export function createSitePageMock(props: Partial<SitePage> = {}): SitePage {
   return {
     __typename: 'SitePage',
     children: [],
@@ -7672,7 +7680,7 @@ export function createSitePageMock(props: Partial<SitePage>): SitePage {
 }
 
 export function createSitePageConnectionMock(
-  props: Partial<SitePageConnection>,
+  props: Partial<SitePageConnection> = {},
 ): SitePageConnection {
   return {
     __typename: 'SitePageConnection',
@@ -7690,7 +7698,7 @@ export function createSitePageConnectionMock(
 }
 
 export function createSitePageEdgeMock(
-  props: Partial<SitePageEdge>,
+  props: Partial<SitePageEdge> = {},
 ): SitePageEdge {
   return {
     __typename: 'SitePageEdge',
@@ -7702,7 +7710,7 @@ export function createSitePageEdgeMock(
 }
 
 export function createSitePageFilterInputMock(
-  props: Partial<SitePageFilterInput>,
+  props: Partial<SitePageFilterInput> = {},
 ): SitePageFilterInput {
   return {
     children: null,
@@ -7721,7 +7729,7 @@ export function createSitePageFilterInputMock(
 }
 
 export function createSitePageGroupConnectionMock(
-  props: Partial<SitePageGroupConnection>,
+  props: Partial<SitePageGroupConnection> = {},
 ): SitePageGroupConnection {
   return {
     __typename: 'SitePageGroupConnection',
@@ -7741,7 +7749,7 @@ export function createSitePageGroupConnectionMock(
 }
 
 export function createSitePageSortInputMock(
-  props: Partial<SitePageSortInput>,
+  props: Partial<SitePageSortInput> = {},
 ): SitePageSortInput {
   return {
     fields: null,
@@ -7750,7 +7758,9 @@ export function createSitePageSortInputMock(
   }
 }
 
-export function createSitePluginMock(props: Partial<SitePlugin>): SitePlugin {
+export function createSitePluginMock(
+  props: Partial<SitePlugin> = {},
+): SitePlugin {
   return {
     __typename: 'SitePlugin',
     browserAPIs: null,
@@ -7771,7 +7781,7 @@ export function createSitePluginMock(props: Partial<SitePlugin>): SitePlugin {
 }
 
 export function createSitePluginConnectionMock(
-  props: Partial<SitePluginConnection>,
+  props: Partial<SitePluginConnection> = {},
 ): SitePluginConnection {
   return {
     __typename: 'SitePluginConnection',
@@ -7789,7 +7799,7 @@ export function createSitePluginConnectionMock(
 }
 
 export function createSitePluginEdgeMock(
-  props: Partial<SitePluginEdge>,
+  props: Partial<SitePluginEdge> = {},
 ): SitePluginEdge {
   return {
     __typename: 'SitePluginEdge',
@@ -7801,7 +7811,7 @@ export function createSitePluginEdgeMock(
 }
 
 export function createSitePluginFilterInputMock(
-  props: Partial<SitePluginFilterInput>,
+  props: Partial<SitePluginFilterInput> = {},
 ): SitePluginFilterInput {
   return {
     browserAPIs: null,
@@ -7822,7 +7832,7 @@ export function createSitePluginFilterInputMock(
 }
 
 export function createSitePluginGroupConnectionMock(
-  props: Partial<SitePluginGroupConnection>,
+  props: Partial<SitePluginGroupConnection> = {},
 ): SitePluginGroupConnection {
   return {
     __typename: 'SitePluginGroupConnection',
@@ -7842,7 +7852,7 @@ export function createSitePluginGroupConnectionMock(
 }
 
 export function createSitePluginSortInputMock(
-  props: Partial<SitePluginSortInput>,
+  props: Partial<SitePluginSortInput> = {},
 ): SitePluginSortInput {
   return {
     fields: null,
@@ -7852,7 +7862,7 @@ export function createSitePluginSortInputMock(
 }
 
 export function createSiteSiteMetadataMock(
-  props: Partial<SiteSiteMetadata>,
+  props: Partial<SiteSiteMetadata> = {},
 ): SiteSiteMetadata {
   return {
     __typename: 'SiteSiteMetadata',
@@ -7865,7 +7875,7 @@ export function createSiteSiteMetadataMock(
 }
 
 export function createSiteSiteMetadataFilterInputMock(
-  props: Partial<SiteSiteMetadataFilterInput>,
+  props: Partial<SiteSiteMetadataFilterInput> = {},
 ): SiteSiteMetadataFilterInput {
   return {
     author: null,
@@ -7877,7 +7887,7 @@ export function createSiteSiteMetadataFilterInputMock(
 }
 
 export function createSiteSortInputMock(
-  props: Partial<SiteSortInput>,
+  props: Partial<SiteSortInput> = {},
 ): SiteSortInput {
   return {
     fields: null,
@@ -7887,7 +7897,7 @@ export function createSiteSortInputMock(
 }
 
 export function createStrapiArticleMock(
-  props: Partial<StrapiArticle>,
+  props: Partial<StrapiArticle> = {},
 ): StrapiArticle {
   return {
     __typename: 'StrapiArticle',
@@ -7910,7 +7920,7 @@ export function createStrapiArticleMock(
 }
 
 export function createStrapiArticleConnectionMock(
-  props: Partial<StrapiArticleConnection>,
+  props: Partial<StrapiArticleConnection> = {},
 ): StrapiArticleConnection {
   return {
     __typename: 'StrapiArticleConnection',
@@ -7928,7 +7938,7 @@ export function createStrapiArticleConnectionMock(
 }
 
 export function createStrapiArticleEdgeMock(
-  props: Partial<StrapiArticleEdge>,
+  props: Partial<StrapiArticleEdge> = {},
 ): StrapiArticleEdge {
   return {
     __typename: 'StrapiArticleEdge',
@@ -7940,7 +7950,7 @@ export function createStrapiArticleEdgeMock(
 }
 
 export function createStrapiArticleFilterInputMock(
-  props: Partial<StrapiArticleFilterInput>,
+  props: Partial<StrapiArticleFilterInput> = {},
 ): StrapiArticleFilterInput {
   return {
     children: null,
@@ -7960,7 +7970,7 @@ export function createStrapiArticleFilterInputMock(
 }
 
 export function createStrapiArticleGroupConnectionMock(
-  props: Partial<StrapiArticleGroupConnection>,
+  props: Partial<StrapiArticleGroupConnection> = {},
 ): StrapiArticleGroupConnection {
   return {
     __typename: 'StrapiArticleGroupConnection',
@@ -7980,7 +7990,7 @@ export function createStrapiArticleGroupConnectionMock(
 }
 
 export function createStrapiArticleSortInputMock(
-  props: Partial<StrapiArticleSortInput>,
+  props: Partial<StrapiArticleSortInput> = {},
 ): StrapiArticleSortInput {
   return {
     fields: null,
@@ -7990,7 +8000,7 @@ export function createStrapiArticleSortInputMock(
 }
 
 export function createStrapiCategoryMock(
-  props: Partial<StrapiCategory>,
+  props: Partial<StrapiCategory> = {},
 ): StrapiCategory {
   return {
     __typename: 'StrapiCategory',
@@ -8009,7 +8019,7 @@ export function createStrapiCategoryMock(
 }
 
 export function createStrapiCategoryConnectionMock(
-  props: Partial<StrapiCategoryConnection>,
+  props: Partial<StrapiCategoryConnection> = {},
 ): StrapiCategoryConnection {
   return {
     __typename: 'StrapiCategoryConnection',
@@ -8027,7 +8037,7 @@ export function createStrapiCategoryConnectionMock(
 }
 
 export function createStrapiCategoryEdgeMock(
-  props: Partial<StrapiCategoryEdge>,
+  props: Partial<StrapiCategoryEdge> = {},
 ): StrapiCategoryEdge {
   return {
     __typename: 'StrapiCategoryEdge',
@@ -8039,7 +8049,7 @@ export function createStrapiCategoryEdgeMock(
 }
 
 export function createStrapiCategoryFilterInputMock(
-  props: Partial<StrapiCategoryFilterInput>,
+  props: Partial<StrapiCategoryFilterInput> = {},
 ): StrapiCategoryFilterInput {
   return {
     children: null,
@@ -8057,7 +8067,7 @@ export function createStrapiCategoryFilterInputMock(
 }
 
 export function createStrapiCategoryGroupConnectionMock(
-  props: Partial<StrapiCategoryGroupConnection>,
+  props: Partial<StrapiCategoryGroupConnection> = {},
 ): StrapiCategoryGroupConnection {
   return {
     __typename: 'StrapiCategoryGroupConnection',
@@ -8077,7 +8087,7 @@ export function createStrapiCategoryGroupConnectionMock(
 }
 
 export function createStrapiCategoryRecipesMock(
-  props: Partial<StrapiCategoryRecipes>,
+  props: Partial<StrapiCategoryRecipes> = {},
 ): StrapiCategoryRecipes {
   return {
     __typename: 'StrapiCategoryRecipes',
@@ -8100,7 +8110,7 @@ export function createStrapiCategoryRecipesMock(
 }
 
 export function createStrapiCategoryRecipesCoverMock(
-  props: Partial<StrapiCategoryRecipesCover>,
+  props: Partial<StrapiCategoryRecipesCover> = {},
 ): StrapiCategoryRecipesCover {
   return {
     __typename: 'StrapiCategoryRecipesCover',
@@ -8123,7 +8133,7 @@ export function createStrapiCategoryRecipesCoverMock(
 }
 
 export function createStrapiCategoryRecipesCoverFilterInputMock(
-  props: Partial<StrapiCategoryRecipesCoverFilterInput>,
+  props: Partial<StrapiCategoryRecipesCoverFilterInput> = {},
 ): StrapiCategoryRecipesCoverFilterInput {
   return {
     created_at: null,
@@ -8145,7 +8155,7 @@ export function createStrapiCategoryRecipesCoverFilterInputMock(
 }
 
 export function createStrapiCategoryRecipesCoverFormatsMock(
-  props: Partial<StrapiCategoryRecipesCoverFormats>,
+  props: Partial<StrapiCategoryRecipesCoverFormats> = {},
 ): StrapiCategoryRecipesCoverFormats {
   return {
     __typename: 'StrapiCategoryRecipesCoverFormats',
@@ -8155,7 +8165,7 @@ export function createStrapiCategoryRecipesCoverFormatsMock(
 }
 
 export function createStrapiCategoryRecipesCoverFormatsFilterInputMock(
-  props: Partial<StrapiCategoryRecipesCoverFormatsFilterInput>,
+  props: Partial<StrapiCategoryRecipesCoverFormatsFilterInput> = {},
 ): StrapiCategoryRecipesCoverFormatsFilterInput {
   return {
     thumbnail: null,
@@ -8164,7 +8174,7 @@ export function createStrapiCategoryRecipesCoverFormatsFilterInputMock(
 }
 
 export function createStrapiCategoryRecipesCoverFormatsThumbnailMock(
-  props: Partial<StrapiCategoryRecipesCoverFormatsThumbnail>,
+  props: Partial<StrapiCategoryRecipesCoverFormatsThumbnail> = {},
 ): StrapiCategoryRecipesCoverFormatsThumbnail {
   return {
     __typename: 'StrapiCategoryRecipesCoverFormatsThumbnail',
@@ -8181,7 +8191,7 @@ export function createStrapiCategoryRecipesCoverFormatsThumbnailMock(
 }
 
 export function createStrapiCategoryRecipesCoverFormatsThumbnailFilterInputMock(
-  props: Partial<StrapiCategoryRecipesCoverFormatsThumbnailFilterInput>,
+  props: Partial<StrapiCategoryRecipesCoverFormatsThumbnailFilterInput> = {},
 ): StrapiCategoryRecipesCoverFormatsThumbnailFilterInput {
   return {
     ext: null,
@@ -8197,7 +8207,7 @@ export function createStrapiCategoryRecipesCoverFormatsThumbnailFilterInputMock(
 }
 
 export function createStrapiCategoryRecipesFilterInputMock(
-  props: Partial<StrapiCategoryRecipesFilterInput>,
+  props: Partial<StrapiCategoryRecipesFilterInput> = {},
 ): StrapiCategoryRecipesFilterInput {
   return {
     category: null,
@@ -8219,7 +8229,7 @@ export function createStrapiCategoryRecipesFilterInputMock(
 }
 
 export function createStrapiCategoryRecipesFilterListInputMock(
-  props: Partial<StrapiCategoryRecipesFilterListInput>,
+  props: Partial<StrapiCategoryRecipesFilterListInput> = {},
 ): StrapiCategoryRecipesFilterListInput {
   return {
     elemMatch: null,
@@ -8228,7 +8238,7 @@ export function createStrapiCategoryRecipesFilterListInputMock(
 }
 
 export function createStrapiCategoryRecipesGalleryMock(
-  props: Partial<StrapiCategoryRecipesGallery>,
+  props: Partial<StrapiCategoryRecipesGallery> = {},
 ): StrapiCategoryRecipesGallery {
   return {
     __typename: 'StrapiCategoryRecipesGallery',
@@ -8251,7 +8261,7 @@ export function createStrapiCategoryRecipesGalleryMock(
 }
 
 export function createStrapiCategoryRecipesGalleryFilterInputMock(
-  props: Partial<StrapiCategoryRecipesGalleryFilterInput>,
+  props: Partial<StrapiCategoryRecipesGalleryFilterInput> = {},
 ): StrapiCategoryRecipesGalleryFilterInput {
   return {
     created_at: null,
@@ -8273,7 +8283,7 @@ export function createStrapiCategoryRecipesGalleryFilterInputMock(
 }
 
 export function createStrapiCategoryRecipesGalleryFilterListInputMock(
-  props: Partial<StrapiCategoryRecipesGalleryFilterListInput>,
+  props: Partial<StrapiCategoryRecipesGalleryFilterListInput> = {},
 ): StrapiCategoryRecipesGalleryFilterListInput {
   return {
     elemMatch: null,
@@ -8282,7 +8292,7 @@ export function createStrapiCategoryRecipesGalleryFilterListInputMock(
 }
 
 export function createStrapiCategoryRecipesGalleryFormatsMock(
-  props: Partial<StrapiCategoryRecipesGalleryFormats>,
+  props: Partial<StrapiCategoryRecipesGalleryFormats> = {},
 ): StrapiCategoryRecipesGalleryFormats {
   return {
     __typename: 'StrapiCategoryRecipesGalleryFormats',
@@ -8292,7 +8302,7 @@ export function createStrapiCategoryRecipesGalleryFormatsMock(
 }
 
 export function createStrapiCategoryRecipesGalleryFormatsFilterInputMock(
-  props: Partial<StrapiCategoryRecipesGalleryFormatsFilterInput>,
+  props: Partial<StrapiCategoryRecipesGalleryFormatsFilterInput> = {},
 ): StrapiCategoryRecipesGalleryFormatsFilterInput {
   return {
     thumbnail: null,
@@ -8301,7 +8311,7 @@ export function createStrapiCategoryRecipesGalleryFormatsFilterInputMock(
 }
 
 export function createStrapiCategoryRecipesGalleryFormatsThumbnailMock(
-  props: Partial<StrapiCategoryRecipesGalleryFormatsThumbnail>,
+  props: Partial<StrapiCategoryRecipesGalleryFormatsThumbnail> = {},
 ): StrapiCategoryRecipesGalleryFormatsThumbnail {
   return {
     __typename: 'StrapiCategoryRecipesGalleryFormatsThumbnail',
@@ -8318,7 +8328,7 @@ export function createStrapiCategoryRecipesGalleryFormatsThumbnailMock(
 }
 
 export function createStrapiCategoryRecipesGalleryFormatsThumbnailFilterInputMock(
-  props: Partial<StrapiCategoryRecipesGalleryFormatsThumbnailFilterInput>,
+  props: Partial<StrapiCategoryRecipesGalleryFormatsThumbnailFilterInput> = {},
 ): StrapiCategoryRecipesGalleryFormatsThumbnailFilterInput {
   return {
     ext: null,
@@ -8334,7 +8344,7 @@ export function createStrapiCategoryRecipesGalleryFormatsThumbnailFilterInputMoc
 }
 
 export function createStrapiCategoryRecipesSeoMock(
-  props: Partial<StrapiCategoryRecipesSeo>,
+  props: Partial<StrapiCategoryRecipesSeo> = {},
 ): StrapiCategoryRecipesSeo {
   return {
     __typename: 'StrapiCategoryRecipesSeo',
@@ -8346,7 +8356,7 @@ export function createStrapiCategoryRecipesSeoMock(
 }
 
 export function createStrapiCategoryRecipesSeoFilterInputMock(
-  props: Partial<StrapiCategoryRecipesSeoFilterInput>,
+  props: Partial<StrapiCategoryRecipesSeoFilterInput> = {},
 ): StrapiCategoryRecipesSeoFilterInput {
   return {
     htmlDescription: null,
@@ -8357,7 +8367,7 @@ export function createStrapiCategoryRecipesSeoFilterInputMock(
 }
 
 export function createStrapiCategorySortInputMock(
-  props: Partial<StrapiCategorySortInput>,
+  props: Partial<StrapiCategorySortInput> = {},
 ): StrapiCategorySortInput {
   return {
     fields: null,
@@ -8367,7 +8377,7 @@ export function createStrapiCategorySortInputMock(
 }
 
 export function createStrapiRecipeMock(
-  props: Partial<StrapiRecipe>,
+  props: Partial<StrapiRecipe> = {},
 ): StrapiRecipe {
   return {
     __typename: 'StrapiRecipe',
@@ -8398,7 +8408,7 @@ export function createStrapiRecipeMock(
 }
 
 export function createStrapiRecipeCategoryMock(
-  props: Partial<StrapiRecipeCategory>,
+  props: Partial<StrapiRecipeCategory> = {},
 ): StrapiRecipeCategory {
   return {
     __typename: 'StrapiRecipeCategory',
@@ -8412,7 +8422,7 @@ export function createStrapiRecipeCategoryMock(
 }
 
 export function createStrapiRecipeCategoryFilterInputMock(
-  props: Partial<StrapiRecipeCategoryFilterInput>,
+  props: Partial<StrapiRecipeCategoryFilterInput> = {},
 ): StrapiRecipeCategoryFilterInput {
   return {
     created_at: null,
@@ -8425,7 +8435,7 @@ export function createStrapiRecipeCategoryFilterInputMock(
 }
 
 export function createStrapiRecipeConnectionMock(
-  props: Partial<StrapiRecipeConnection>,
+  props: Partial<StrapiRecipeConnection> = {},
 ): StrapiRecipeConnection {
   return {
     __typename: 'StrapiRecipeConnection',
@@ -8443,7 +8453,7 @@ export function createStrapiRecipeConnectionMock(
 }
 
 export function createStrapiRecipeCoverMock(
-  props: Partial<StrapiRecipeCover>,
+  props: Partial<StrapiRecipeCover> = {},
 ): StrapiRecipeCover {
   return {
     __typename: 'StrapiRecipeCover',
@@ -8467,7 +8477,7 @@ export function createStrapiRecipeCoverMock(
 }
 
 export function createStrapiRecipeCoverFilterInputMock(
-  props: Partial<StrapiRecipeCoverFilterInput>,
+  props: Partial<StrapiRecipeCoverFilterInput> = {},
 ): StrapiRecipeCoverFilterInput {
   return {
     created_at: null,
@@ -8489,7 +8499,7 @@ export function createStrapiRecipeCoverFilterInputMock(
 }
 
 export function createStrapiRecipeCoverFormatsMock(
-  props: Partial<StrapiRecipeCoverFormats>,
+  props: Partial<StrapiRecipeCoverFormats> = {},
 ): StrapiRecipeCoverFormats {
   return {
     __typename: 'StrapiRecipeCoverFormats',
@@ -8499,7 +8509,7 @@ export function createStrapiRecipeCoverFormatsMock(
 }
 
 export function createStrapiRecipeCoverFormatsFilterInputMock(
-  props: Partial<StrapiRecipeCoverFormatsFilterInput>,
+  props: Partial<StrapiRecipeCoverFormatsFilterInput> = {},
 ): StrapiRecipeCoverFormatsFilterInput {
   return {
     thumbnail: null,
@@ -8508,7 +8518,7 @@ export function createStrapiRecipeCoverFormatsFilterInputMock(
 }
 
 export function createStrapiRecipeCoverFormatsThumbnailMock(
-  props: Partial<StrapiRecipeCoverFormatsThumbnail>,
+  props: Partial<StrapiRecipeCoverFormatsThumbnail> = {},
 ): StrapiRecipeCoverFormatsThumbnail {
   return {
     __typename: 'StrapiRecipeCoverFormatsThumbnail',
@@ -8525,7 +8535,7 @@ export function createStrapiRecipeCoverFormatsThumbnailMock(
 }
 
 export function createStrapiRecipeCoverFormatsThumbnailFilterInputMock(
-  props: Partial<StrapiRecipeCoverFormatsThumbnailFilterInput>,
+  props: Partial<StrapiRecipeCoverFormatsThumbnailFilterInput> = {},
 ): StrapiRecipeCoverFormatsThumbnailFilterInput {
   return {
     ext: null,
@@ -8541,7 +8551,7 @@ export function createStrapiRecipeCoverFormatsThumbnailFilterInputMock(
 }
 
 export function createStrapiRecipeEdgeMock(
-  props: Partial<StrapiRecipeEdge>,
+  props: Partial<StrapiRecipeEdge> = {},
 ): StrapiRecipeEdge {
   return {
     __typename: 'StrapiRecipeEdge',
@@ -8553,7 +8563,7 @@ export function createStrapiRecipeEdgeMock(
 }
 
 export function createStrapiRecipeFilterInputMock(
-  props: Partial<StrapiRecipeFilterInput>,
+  props: Partial<StrapiRecipeFilterInput> = {},
 ): StrapiRecipeFilterInput {
   return {
     category: null,
@@ -8580,7 +8590,7 @@ export function createStrapiRecipeFilterInputMock(
 }
 
 export function createStrapiRecipeGalleryMock(
-  props: Partial<StrapiRecipeGallery>,
+  props: Partial<StrapiRecipeGallery> = {},
 ): StrapiRecipeGallery {
   return {
     __typename: 'StrapiRecipeGallery',
@@ -8604,7 +8614,7 @@ export function createStrapiRecipeGalleryMock(
 }
 
 export function createStrapiRecipeGalleryFilterInputMock(
-  props: Partial<StrapiRecipeGalleryFilterInput>,
+  props: Partial<StrapiRecipeGalleryFilterInput> = {},
 ): StrapiRecipeGalleryFilterInput {
   return {
     created_at: null,
@@ -8626,7 +8636,7 @@ export function createStrapiRecipeGalleryFilterInputMock(
 }
 
 export function createStrapiRecipeGalleryFilterListInputMock(
-  props: Partial<StrapiRecipeGalleryFilterListInput>,
+  props: Partial<StrapiRecipeGalleryFilterListInput> = {},
 ): StrapiRecipeGalleryFilterListInput {
   return {
     elemMatch: null,
@@ -8635,7 +8645,7 @@ export function createStrapiRecipeGalleryFilterListInputMock(
 }
 
 export function createStrapiRecipeGalleryFormatsMock(
-  props: Partial<StrapiRecipeGalleryFormats>,
+  props: Partial<StrapiRecipeGalleryFormats> = {},
 ): StrapiRecipeGalleryFormats {
   return {
     __typename: 'StrapiRecipeGalleryFormats',
@@ -8645,7 +8655,7 @@ export function createStrapiRecipeGalleryFormatsMock(
 }
 
 export function createStrapiRecipeGalleryFormatsFilterInputMock(
-  props: Partial<StrapiRecipeGalleryFormatsFilterInput>,
+  props: Partial<StrapiRecipeGalleryFormatsFilterInput> = {},
 ): StrapiRecipeGalleryFormatsFilterInput {
   return {
     thumbnail: null,
@@ -8654,7 +8664,7 @@ export function createStrapiRecipeGalleryFormatsFilterInputMock(
 }
 
 export function createStrapiRecipeGalleryFormatsThumbnailMock(
-  props: Partial<StrapiRecipeGalleryFormatsThumbnail>,
+  props: Partial<StrapiRecipeGalleryFormatsThumbnail> = {},
 ): StrapiRecipeGalleryFormatsThumbnail {
   return {
     __typename: 'StrapiRecipeGalleryFormatsThumbnail',
@@ -8671,7 +8681,7 @@ export function createStrapiRecipeGalleryFormatsThumbnailMock(
 }
 
 export function createStrapiRecipeGalleryFormatsThumbnailFilterInputMock(
-  props: Partial<StrapiRecipeGalleryFormatsThumbnailFilterInput>,
+  props: Partial<StrapiRecipeGalleryFormatsThumbnailFilterInput> = {},
 ): StrapiRecipeGalleryFormatsThumbnailFilterInput {
   return {
     ext: null,
@@ -8687,7 +8697,7 @@ export function createStrapiRecipeGalleryFormatsThumbnailFilterInputMock(
 }
 
 export function createStrapiRecipeGroupConnectionMock(
-  props: Partial<StrapiRecipeGroupConnection>,
+  props: Partial<StrapiRecipeGroupConnection> = {},
 ): StrapiRecipeGroupConnection {
   return {
     __typename: 'StrapiRecipeGroupConnection',
@@ -8707,7 +8717,7 @@ export function createStrapiRecipeGroupConnectionMock(
 }
 
 export function createStrapiRecipeSeoMock(
-  props: Partial<StrapiRecipeSeo>,
+  props: Partial<StrapiRecipeSeo> = {},
 ): StrapiRecipeSeo {
   return {
     __typename: 'StrapiRecipeSeo',
@@ -8719,7 +8729,7 @@ export function createStrapiRecipeSeoMock(
 }
 
 export function createStrapiRecipeSeoFilterInputMock(
-  props: Partial<StrapiRecipeSeoFilterInput>,
+  props: Partial<StrapiRecipeSeoFilterInput> = {},
 ): StrapiRecipeSeoFilterInput {
   return {
     htmlDescription: null,
@@ -8730,7 +8740,7 @@ export function createStrapiRecipeSeoFilterInputMock(
 }
 
 export function createStrapiRecipeSortInputMock(
-  props: Partial<StrapiRecipeSortInput>,
+  props: Partial<StrapiRecipeSortInput> = {},
 ): StrapiRecipeSortInput {
   return {
     fields: null,
@@ -8740,7 +8750,7 @@ export function createStrapiRecipeSortInputMock(
 }
 
 export function createStrapiRecipeTagsMock(
-  props: Partial<StrapiRecipeTags>,
+  props: Partial<StrapiRecipeTags> = {},
 ): StrapiRecipeTags {
   return {
     __typename: 'StrapiRecipeTags',
@@ -8754,7 +8764,7 @@ export function createStrapiRecipeTagsMock(
 }
 
 export function createStrapiRecipeTagsFilterInputMock(
-  props: Partial<StrapiRecipeTagsFilterInput>,
+  props: Partial<StrapiRecipeTagsFilterInput> = {},
 ): StrapiRecipeTagsFilterInput {
   return {
     created_at: null,
@@ -8767,7 +8777,7 @@ export function createStrapiRecipeTagsFilterInputMock(
 }
 
 export function createStrapiRecipeTagsFilterListInputMock(
-  props: Partial<StrapiRecipeTagsFilterListInput>,
+  props: Partial<StrapiRecipeTagsFilterListInput> = {},
 ): StrapiRecipeTagsFilterListInput {
   return {
     elemMatch: null,
@@ -8775,7 +8785,7 @@ export function createStrapiRecipeTagsFilterListInputMock(
   }
 }
 
-export function createStrapiTagMock(props: Partial<StrapiTag>): StrapiTag {
+export function createStrapiTagMock(props: Partial<StrapiTag> = {}): StrapiTag {
   return {
     __typename: 'StrapiTag',
     children: [],
@@ -8793,7 +8803,7 @@ export function createStrapiTagMock(props: Partial<StrapiTag>): StrapiTag {
 }
 
 export function createStrapiTagConnectionMock(
-  props: Partial<StrapiTagConnection>,
+  props: Partial<StrapiTagConnection> = {},
 ): StrapiTagConnection {
   return {
     __typename: 'StrapiTagConnection',
@@ -8811,7 +8821,7 @@ export function createStrapiTagConnectionMock(
 }
 
 export function createStrapiTagEdgeMock(
-  props: Partial<StrapiTagEdge>,
+  props: Partial<StrapiTagEdge> = {},
 ): StrapiTagEdge {
   return {
     __typename: 'StrapiTagEdge',
@@ -8823,7 +8833,7 @@ export function createStrapiTagEdgeMock(
 }
 
 export function createStrapiTagFilterInputMock(
-  props: Partial<StrapiTagFilterInput>,
+  props: Partial<StrapiTagFilterInput> = {},
 ): StrapiTagFilterInput {
   return {
     children: null,
@@ -8841,7 +8851,7 @@ export function createStrapiTagFilterInputMock(
 }
 
 export function createStrapiTagGroupConnectionMock(
-  props: Partial<StrapiTagGroupConnection>,
+  props: Partial<StrapiTagGroupConnection> = {},
 ): StrapiTagGroupConnection {
   return {
     __typename: 'StrapiTagGroupConnection',
@@ -8861,7 +8871,7 @@ export function createStrapiTagGroupConnectionMock(
 }
 
 export function createStrapiTagRecipesMock(
-  props: Partial<StrapiTagRecipes>,
+  props: Partial<StrapiTagRecipes> = {},
 ): StrapiTagRecipes {
   return {
     __typename: 'StrapiTagRecipes',
@@ -8884,7 +8894,7 @@ export function createStrapiTagRecipesMock(
 }
 
 export function createStrapiTagRecipesCoverMock(
-  props: Partial<StrapiTagRecipesCover>,
+  props: Partial<StrapiTagRecipesCover> = {},
 ): StrapiTagRecipesCover {
   return {
     __typename: 'StrapiTagRecipesCover',
@@ -8907,7 +8917,7 @@ export function createStrapiTagRecipesCoverMock(
 }
 
 export function createStrapiTagRecipesCoverFilterInputMock(
-  props: Partial<StrapiTagRecipesCoverFilterInput>,
+  props: Partial<StrapiTagRecipesCoverFilterInput> = {},
 ): StrapiTagRecipesCoverFilterInput {
   return {
     created_at: null,
@@ -8929,7 +8939,7 @@ export function createStrapiTagRecipesCoverFilterInputMock(
 }
 
 export function createStrapiTagRecipesCoverFormatsMock(
-  props: Partial<StrapiTagRecipesCoverFormats>,
+  props: Partial<StrapiTagRecipesCoverFormats> = {},
 ): StrapiTagRecipesCoverFormats {
   return {
     __typename: 'StrapiTagRecipesCoverFormats',
@@ -8939,7 +8949,7 @@ export function createStrapiTagRecipesCoverFormatsMock(
 }
 
 export function createStrapiTagRecipesCoverFormatsFilterInputMock(
-  props: Partial<StrapiTagRecipesCoverFormatsFilterInput>,
+  props: Partial<StrapiTagRecipesCoverFormatsFilterInput> = {},
 ): StrapiTagRecipesCoverFormatsFilterInput {
   return {
     thumbnail: null,
@@ -8948,7 +8958,7 @@ export function createStrapiTagRecipesCoverFormatsFilterInputMock(
 }
 
 export function createStrapiTagRecipesCoverFormatsThumbnailMock(
-  props: Partial<StrapiTagRecipesCoverFormatsThumbnail>,
+  props: Partial<StrapiTagRecipesCoverFormatsThumbnail> = {},
 ): StrapiTagRecipesCoverFormatsThumbnail {
   return {
     __typename: 'StrapiTagRecipesCoverFormatsThumbnail',
@@ -8965,7 +8975,7 @@ export function createStrapiTagRecipesCoverFormatsThumbnailMock(
 }
 
 export function createStrapiTagRecipesCoverFormatsThumbnailFilterInputMock(
-  props: Partial<StrapiTagRecipesCoverFormatsThumbnailFilterInput>,
+  props: Partial<StrapiTagRecipesCoverFormatsThumbnailFilterInput> = {},
 ): StrapiTagRecipesCoverFormatsThumbnailFilterInput {
   return {
     ext: null,
@@ -8981,7 +8991,7 @@ export function createStrapiTagRecipesCoverFormatsThumbnailFilterInputMock(
 }
 
 export function createStrapiTagRecipesFilterInputMock(
-  props: Partial<StrapiTagRecipesFilterInput>,
+  props: Partial<StrapiTagRecipesFilterInput> = {},
 ): StrapiTagRecipesFilterInput {
   return {
     category: null,
@@ -9003,7 +9013,7 @@ export function createStrapiTagRecipesFilterInputMock(
 }
 
 export function createStrapiTagRecipesFilterListInputMock(
-  props: Partial<StrapiTagRecipesFilterListInput>,
+  props: Partial<StrapiTagRecipesFilterListInput> = {},
 ): StrapiTagRecipesFilterListInput {
   return {
     elemMatch: null,
@@ -9012,7 +9022,7 @@ export function createStrapiTagRecipesFilterListInputMock(
 }
 
 export function createStrapiTagRecipesGalleryMock(
-  props: Partial<StrapiTagRecipesGallery>,
+  props: Partial<StrapiTagRecipesGallery> = {},
 ): StrapiTagRecipesGallery {
   return {
     __typename: 'StrapiTagRecipesGallery',
@@ -9035,7 +9045,7 @@ export function createStrapiTagRecipesGalleryMock(
 }
 
 export function createStrapiTagRecipesGalleryFilterInputMock(
-  props: Partial<StrapiTagRecipesGalleryFilterInput>,
+  props: Partial<StrapiTagRecipesGalleryFilterInput> = {},
 ): StrapiTagRecipesGalleryFilterInput {
   return {
     created_at: null,
@@ -9057,7 +9067,7 @@ export function createStrapiTagRecipesGalleryFilterInputMock(
 }
 
 export function createStrapiTagRecipesGalleryFilterListInputMock(
-  props: Partial<StrapiTagRecipesGalleryFilterListInput>,
+  props: Partial<StrapiTagRecipesGalleryFilterListInput> = {},
 ): StrapiTagRecipesGalleryFilterListInput {
   return {
     elemMatch: null,
@@ -9066,7 +9076,7 @@ export function createStrapiTagRecipesGalleryFilterListInputMock(
 }
 
 export function createStrapiTagRecipesGalleryFormatsMock(
-  props: Partial<StrapiTagRecipesGalleryFormats>,
+  props: Partial<StrapiTagRecipesGalleryFormats> = {},
 ): StrapiTagRecipesGalleryFormats {
   return {
     __typename: 'StrapiTagRecipesGalleryFormats',
@@ -9076,7 +9086,7 @@ export function createStrapiTagRecipesGalleryFormatsMock(
 }
 
 export function createStrapiTagRecipesGalleryFormatsFilterInputMock(
-  props: Partial<StrapiTagRecipesGalleryFormatsFilterInput>,
+  props: Partial<StrapiTagRecipesGalleryFormatsFilterInput> = {},
 ): StrapiTagRecipesGalleryFormatsFilterInput {
   return {
     thumbnail: null,
@@ -9085,7 +9095,7 @@ export function createStrapiTagRecipesGalleryFormatsFilterInputMock(
 }
 
 export function createStrapiTagRecipesGalleryFormatsThumbnailMock(
-  props: Partial<StrapiTagRecipesGalleryFormatsThumbnail>,
+  props: Partial<StrapiTagRecipesGalleryFormatsThumbnail> = {},
 ): StrapiTagRecipesGalleryFormatsThumbnail {
   return {
     __typename: 'StrapiTagRecipesGalleryFormatsThumbnail',
@@ -9102,7 +9112,7 @@ export function createStrapiTagRecipesGalleryFormatsThumbnailMock(
 }
 
 export function createStrapiTagRecipesGalleryFormatsThumbnailFilterInputMock(
-  props: Partial<StrapiTagRecipesGalleryFormatsThumbnailFilterInput>,
+  props: Partial<StrapiTagRecipesGalleryFormatsThumbnailFilterInput> = {},
 ): StrapiTagRecipesGalleryFormatsThumbnailFilterInput {
   return {
     ext: null,
@@ -9118,7 +9128,7 @@ export function createStrapiTagRecipesGalleryFormatsThumbnailFilterInputMock(
 }
 
 export function createStrapiTagRecipesSeoMock(
-  props: Partial<StrapiTagRecipesSeo>,
+  props: Partial<StrapiTagRecipesSeo> = {},
 ): StrapiTagRecipesSeo {
   return {
     __typename: 'StrapiTagRecipesSeo',
@@ -9130,7 +9140,7 @@ export function createStrapiTagRecipesSeoMock(
 }
 
 export function createStrapiTagRecipesSeoFilterInputMock(
-  props: Partial<StrapiTagRecipesSeoFilterInput>,
+  props: Partial<StrapiTagRecipesSeoFilterInput> = {},
 ): StrapiTagRecipesSeoFilterInput {
   return {
     htmlDescription: null,
@@ -9141,7 +9151,7 @@ export function createStrapiTagRecipesSeoFilterInputMock(
 }
 
 export function createStrapiTagSortInputMock(
-  props: Partial<StrapiTagSortInput>,
+  props: Partial<StrapiTagSortInput> = {},
 ): StrapiTagSortInput {
   return {
     fields: null,
@@ -9151,7 +9161,7 @@ export function createStrapiTagSortInputMock(
 }
 
 export function createStringQueryOperatorInputMock(
-  props: Partial<StringQueryOperatorInput>,
+  props: Partial<StringQueryOperatorInput> = {},
 ): StringQueryOperatorInput {
   return {
     eq: null,
@@ -9165,7 +9175,7 @@ export function createStringQueryOperatorInputMock(
 }
 
 export function createTransformOptionsMock(
-  props: Partial<TransformOptions>,
+  props: Partial<TransformOptions> = {},
 ): TransformOptions {
   return {
     cropFocus: null,
@@ -9179,7 +9189,7 @@ export function createTransformOptionsMock(
 }
 
 export function createWebPOptionsMock(
-  props: Partial<WebPOptions>,
+  props: Partial<WebPOptions> = {},
 ): WebPOptions {
   return {
     quality: null,
