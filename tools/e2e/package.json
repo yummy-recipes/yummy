@@ -12,6 +12,6 @@
     "test:visual:update": "UPDATE_SNAPSHOTS=true yarn test:visual"
   },
   "dependencies": {
-    "start-server-and-test": "^1.12.1"
+    "start-server-and-test": "1.14.0"
   }
 }

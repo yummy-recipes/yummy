@@ -14,14 +14,14 @@
     "hoistingLimits": "workspaces"
   },
   "dependencies": {
-    "@octokit/core": "^3.2.4",
-    "@octokit/plugin-retry": "^3.0.6",
-    "@octokit/plugin-throttling": "^3.3.4",
-    "debounce": "^1.2.0",
-    "knex": "<0.20.0",
-    "pg": "^8.5.1",
-    "pg-connection-string": "^2.4.0",
-    "slugify": "^1.4.6",
+    "@octokit/core": "3.5.1",
+    "@octokit/plugin-retry": "3.0.9",
+    "@octokit/plugin-throttling": "3.5.2",
+    "debounce": "1.2.1",
+    "knex": "0.19.5",
+    "pg": "8.7.1",
+    "pg-connection-string": "2.5.0",
+    "slugify": "1.6.4",
     "sqlite3": "5.0.0",
     "strapi": "3.6.8",
     "strapi-admin": "3.6.8",
@@ -34,7 +34,7 @@
     "strapi-plugin-users-permissions": "3.6.8",
     "strapi-provider-upload-github": "workspace:^",
     "strapi-utils": "3.6.8",
-    "yaml": "^1.10.0"
+    "yaml": "1.10.2"
   },
   "author": {
     "name": "Dyrksy"
