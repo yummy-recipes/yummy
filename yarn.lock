@@ -10920,7 +10920,7 @@ __metadata:
     gatsby-transformer-remark: ^5.7.0
     gatsby-transformer-sharp: ^4.7.0
     graphql: ^16.4.0
-    graphql-codegen-factories: ^1.0.0-beta.4
+    graphql-codegen-factories: ^1.0.0
     identity-obj-proxy: ^3.0.0
     jest-junit: 13.0.0
     mkdirp: ^0.5.1
@@ -18962,16 +18962,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-codegen-factories@npm:^1.0.0-beta.4":
-  version: 1.0.0-beta.4
-  resolution: "graphql-codegen-factories@npm:1.0.0-beta.4"
+"graphql-codegen-factories@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "graphql-codegen-factories@npm:1.0.0"
   dependencies:
     "@graphql-codegen/plugin-helpers": ^2.4.2
     "@graphql-codegen/visitor-plugin-common": ^2.7.4
     change-case-all: ^1.0.14
   peerDependencies:
     graphql: ^16.3.0
-  checksum: 005aa7110cf263ee52bf633d53acc6d205f03a0ac1f78c0b02435ca81255d6fc9fd449420418584e529ccbfb89c112afa913eaa8f13650c0432c54685f341ecf
+  checksum: ca1f21c19a0c6ce7cab0efbbd406b80914b99d524ed7ae517bd38d90ea1f530b930c8c86dd372861ad290b4e6cb2ceaec119a14f6ae92aa665092c72230df88a
   languageName: node
   linkType: hard
 

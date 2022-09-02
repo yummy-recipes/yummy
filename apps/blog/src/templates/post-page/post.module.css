@@ -7,8 +7,6 @@
 @value hPaddingMobile: 25px;
 
 .post {
-  background-color: colorBackground;
-  color: colorText;
   padding: 30px hPaddingMobile;
   margin-bottom: 32px;
 }

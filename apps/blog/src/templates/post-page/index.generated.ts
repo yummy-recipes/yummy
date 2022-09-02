@@ -1,11 +1,11 @@
 import * as Types from '../../types'
 
 import * as schemaFactories from '../../types'
-export type Unnamed_1_QueryVariables = Types.Exact<{
+export type PostQueryVariables = Types.Exact<{
   slug: Types.Scalars['String']
 }>
 
-export type Unnamed_1_Query = {
+export type PostQuery = {
   __typename: 'Query'
   strapiRecipe?: {
     __typename: 'StrapiRecipe'
@@ -99,698 +99,498 @@ export type Unnamed_1_Query = {
       siteUrl?: string | null
     } | null
   } | null
+  allCategories: {
+    __typename: 'RecipeCategoryConnection'
+    edges: Array<{
+      __typename: 'RecipeCategoryEdge'
+      node: {
+        __typename: 'RecipeCategory'
+        name?: string | null
+        slug?: string | null
+      }
+    }>
+  }
 }
 
-export function createUnnamed_1_QueryMock(
-  props: Partial<Unnamed_1_Query>,
-): Unnamed_1_Query {
-  switch (props.__typename) {
-    case 'Query': {
-      const {} = schemaFactories.createQueryMock({})
-      return {
-        ...createUnnamed_1_QueryMock_Query({}),
-        strapiRecipe: null,
-        ...props,
-      }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock({ ...props, __typename: 'Query' })
+export function createPostQueryMock(props: Partial<PostQuery> = {}): PostQuery {
+  return {
+    __typename: 'Query',
+    site: null,
+    allCategories: createPostQueryMock_allCategories({}),
+    strapiRecipe: null,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_Query(
-  props: Partial<Extract<Unnamed_1_Query, { __typename: 'Query' }>>,
-): Extract<Unnamed_1_Query, { __typename: 'Query' }> {
-  switch (props.__typename) {
-    case 'Query': {
-      const {} = schemaFactories.createQueryMock({})
-      return { site: null, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_Query({ ...props, __typename: 'Query' })
+
+export function createPostQueryMock_site(
+  props: Partial<NonNullable<PostQuery['site']>> = {},
+): NonNullable<PostQuery['site']> {
+  return {
+    __typename: 'Site',
+    siteMetadata: null,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_Query_site(
+
+export function createPostQueryMock_site_siteMetadata(
   props: Partial<
-    NonNull<Extract<Unnamed_1_Query, { __typename: 'Query' }>['site']>
-  >,
-): NonNull<Extract<Unnamed_1_Query, { __typename: 'Query' }>['site']> {
-  switch (props.__typename) {
-    case 'Site': {
-      const {} = schemaFactories.createSiteMock({})
-      return { siteMetadata: null, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_Query_site({
-        ...props,
-        __typename: 'Site',
-      })
+    NonNullable<NonNullable<PostQuery['site']>['siteMetadata']>
+  > = {},
+): NonNullable<NonNullable<PostQuery['site']>['siteMetadata']> {
+  const siteSiteMetadata = schemaFactories.createSiteSiteMetadataMock({
+    siteUrl: props.siteUrl,
+  })
+  return {
+    __typename: 'SiteSiteMetadata',
+    siteUrl: siteSiteMetadata.siteUrl,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_Query_site_siteMetadata(
+
+export function createPostQueryMock_allCategories(
+  props: Partial<PostQuery['allRecipeCategory']> = {},
+): PostQuery['allRecipeCategory'] {
+  return {
+    __typename: 'RecipeCategoryConnection',
+    edges: [],
+    ...props,
+  }
+}
+
+export function createPostQueryMock_allCategories_edges(
+  props: Partial<PostQuery['allRecipeCategory']['edges'][number]> = {},
+): PostQuery['allRecipeCategory']['edges'][number] {
+  return {
+    __typename: 'RecipeCategoryEdge',
+    node: createPostQueryMock_allCategories_edges_node({}),
+    ...props,
+  }
+}
+
+export function createPostQueryMock_allCategories_edges_node(
+  props: Partial<PostQuery['allRecipeCategory']['edges'][number]['node']> = {},
+): PostQuery['allRecipeCategory']['edges'][number]['node'] {
+  const recipeCategory = schemaFactories.createRecipeCategoryMock({
+    name: props.name,
+    slug: props.slug,
+  })
+  return {
+    __typename: 'RecipeCategory',
+    name: recipeCategory.name,
+    slug: recipeCategory.slug,
+    ...props,
+  }
+}
+
+export function createPostQueryMock_strapiRecipe(
+  props: Partial<NonNullable<PostQuery['strapiRecipe']>> = {},
+): NonNullable<PostQuery['strapiRecipe']> {
+  const strapiRecipe = schemaFactories.createStrapiRecipeMock({
+    slug: props.slug,
+    title: props.title,
+    preparationTime: props.preparationTime,
+    published_at: props.published_at,
+  })
+  return {
+    __typename: 'StrapiRecipe',
+    seo: null,
+    parsedHeadline: null,
+    parsedDirections: null,
+    parsedIngredients: null,
+    slug: strapiRecipe.slug,
+    title: strapiRecipe.title,
+    tags: null,
+    cover: null,
+    gallery: null,
+    preparationTime: strapiRecipe.preparationTime,
+    category: null,
+    published_at: strapiRecipe.published_at,
+    ...props,
+  }
+}
+
+export function createPostQueryMock_strapiRecipe_seo(
   props: Partial<
-    NonNull<
-      NonNull<
-        Extract<Unnamed_1_Query, { __typename: 'Query' }>['site']
-      >['siteMetadata']
-    >
-  >,
-): NonNull<
-  NonNull<
-    Extract<Unnamed_1_Query, { __typename: 'Query' }>['site']
-  >['siteMetadata']
-> {
-  switch (props.__typename) {
-    case 'SiteSiteMetadata': {
-      const { siteUrl } = schemaFactories.createSiteSiteMetadataMock({
-        siteUrl: props.siteUrl,
-      })
-      return { siteUrl, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_Query_site_siteMetadata({
-        ...props,
-        __typename: 'SiteSiteMetadata',
-      })
+    NonNullable<NonNullable<PostQuery['strapiRecipe']>['seo']>
+  > = {},
+): NonNullable<NonNullable<PostQuery['strapiRecipe']>['seo']> {
+  const strapiRecipeSeo = schemaFactories.createStrapiRecipeSeoMock({
+    htmlTitle: props.htmlTitle,
+    htmlDescription: props.htmlDescription,
+  })
+  return {
+    __typename: 'StrapiRecipeSeo',
+    htmlTitle: strapiRecipeSeo.htmlTitle,
+    htmlDescription: strapiRecipeSeo.htmlDescription,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_strapiRecipe(
-  props: Partial<NonNull<Unnamed_1_Query['strapiRecipe']>>,
-): NonNull<Unnamed_1_Query['strapiRecipe']> {
-  switch (props.__typename) {
-    case 'StrapiRecipe': {
-      const { slug, title, preparationTime, published_at } =
-        schemaFactories.createStrapiRecipeMock({
-          slug: props.slug,
-          title: props.title,
-          preparationTime: props.preparationTime,
-          published_at: props.published_at,
-        })
-      return {
-        seo: null,
-        parsedHeadline: null,
-        parsedDirections: null,
-        parsedIngredients: null,
-        slug,
-        title,
-        tags: null,
-        cover: null,
-        gallery: null,
-        preparationTime,
-        category: null,
-        published_at,
-        ...props,
-      }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe({
-        ...props,
-        __typename: 'StrapiRecipe',
-      })
-  }
-}
-export function createUnnamed_1_QueryMock_strapiRecipe_seo(
-  props: Partial<NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['seo']>>,
-): NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['seo']> {
-  switch (props.__typename) {
-    case 'StrapiRecipeSeo': {
-      const { htmlTitle, htmlDescription } =
-        schemaFactories.createStrapiRecipeSeoMock({
-          htmlTitle: props.htmlTitle,
-          htmlDescription: props.htmlDescription,
-        })
-      return { htmlTitle, htmlDescription, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_seo({
-        ...props,
-        __typename: 'StrapiRecipeSeo',
-      })
-  }
-}
-export function createUnnamed_1_QueryMock_strapiRecipe_parsedHeadline(
+
+export function createPostQueryMock_strapiRecipe_parsedHeadline(
   props: Partial<
-    NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['parsedHeadline']>
-  >,
-): NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['parsedHeadline']> {
-  switch (props.__typename) {
-    case 'RecipePart': {
-      const {} = schemaFactories.createRecipePartMock({})
-      return { childMarkdownRemark: null, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_parsedHeadline({
-        ...props,
-        __typename: 'RecipePart',
-      })
+    NonNullable<NonNullable<PostQuery['strapiRecipe']>['parsedHeadline']>
+  > = {},
+): NonNullable<NonNullable<PostQuery['strapiRecipe']>['parsedHeadline']> {
+  return {
+    __typename: 'RecipePart',
+    childMarkdownRemark: null,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_strapiRecipe_parsedHeadline_childMarkdownRemark(
+
+export function createPostQueryMock_strapiRecipe_parsedHeadline_childMarkdownRemark(
   props: Partial<
-    NonNull<
-      NonNull<
-        NonNull<Unnamed_1_Query['strapiRecipe']>['parsedHeadline']
+    NonNullable<
+      NonNullable<
+        NonNullable<PostQuery['strapiRecipe']>['parsedHeadline']
       >['childMarkdownRemark']
     >
-  >,
-): NonNull<
-  NonNull<
-    NonNull<Unnamed_1_Query['strapiRecipe']>['parsedHeadline']
+  > = {},
+): NonNullable<
+  NonNullable<
+    NonNullable<PostQuery['strapiRecipe']>['parsedHeadline']
   >['childMarkdownRemark']
 > {
-  switch (props.__typename) {
-    case 'MarkdownRemark': {
-      const { html } = schemaFactories.createMarkdownRemarkMock({
-        html: props.html,
-      })
-      return { html, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_parsedHeadline_childMarkdownRemark(
-        { ...props, __typename: 'MarkdownRemark' },
-      )
+  const markdownRemark = schemaFactories.createMarkdownRemarkMock({
+    html: props.html,
+  })
+  return {
+    __typename: 'MarkdownRemark',
+    html: markdownRemark.html,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_strapiRecipe_parsedDirections(
+
+export function createPostQueryMock_strapiRecipe_parsedDirections(
   props: Partial<
-    NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['parsedDirections']>
-  >,
-): NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['parsedDirections']> {
-  switch (props.__typename) {
-    case 'RecipePart': {
-      const {} = schemaFactories.createRecipePartMock({})
-      return { childMarkdownRemark: null, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_parsedDirections({
-        ...props,
-        __typename: 'RecipePart',
-      })
+    NonNullable<NonNullable<PostQuery['strapiRecipe']>['parsedDirections']>
+  > = {},
+): NonNullable<NonNullable<PostQuery['strapiRecipe']>['parsedDirections']> {
+  return {
+    __typename: 'RecipePart',
+    childMarkdownRemark: null,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_strapiRecipe_parsedDirections_childMarkdownRemark(
+
+export function createPostQueryMock_strapiRecipe_parsedDirections_childMarkdownRemark(
   props: Partial<
-    NonNull<
-      NonNull<
-        NonNull<Unnamed_1_Query['strapiRecipe']>['parsedDirections']
+    NonNullable<
+      NonNullable<
+        NonNullable<PostQuery['strapiRecipe']>['parsedDirections']
       >['childMarkdownRemark']
     >
-  >,
-): NonNull<
-  NonNull<
-    NonNull<Unnamed_1_Query['strapiRecipe']>['parsedDirections']
+  > = {},
+): NonNullable<
+  NonNullable<
+    NonNullable<PostQuery['strapiRecipe']>['parsedDirections']
   >['childMarkdownRemark']
 > {
-  switch (props.__typename) {
-    case 'MarkdownRemark': {
-      const { html } = schemaFactories.createMarkdownRemarkMock({
-        html: props.html,
-      })
-      return { html, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_parsedDirections_childMarkdownRemark(
-        { ...props, __typename: 'MarkdownRemark' },
-      )
+  const markdownRemark = schemaFactories.createMarkdownRemarkMock({
+    html: props.html,
+  })
+  return {
+    __typename: 'MarkdownRemark',
+    html: markdownRemark.html,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_strapiRecipe_parsedIngredients(
+
+export function createPostQueryMock_strapiRecipe_parsedIngredients(
   props: Partial<
-    NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['parsedIngredients']>
-  >,
-): NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['parsedIngredients']> {
-  switch (props.__typename) {
-    case 'RecipePart': {
-      const {} = schemaFactories.createRecipePartMock({})
-      return { childMarkdownRemark: null, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_parsedIngredients({
-        ...props,
-        __typename: 'RecipePart',
-      })
+    NonNullable<NonNullable<PostQuery['strapiRecipe']>['parsedIngredients']>
+  > = {},
+): NonNullable<NonNullable<PostQuery['strapiRecipe']>['parsedIngredients']> {
+  return {
+    __typename: 'RecipePart',
+    childMarkdownRemark: null,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_strapiRecipe_parsedIngredients_childMarkdownRemark(
+
+export function createPostQueryMock_strapiRecipe_parsedIngredients_childMarkdownRemark(
   props: Partial<
-    NonNull<
-      NonNull<
-        NonNull<Unnamed_1_Query['strapiRecipe']>['parsedIngredients']
+    NonNullable<
+      NonNullable<
+        NonNullable<PostQuery['strapiRecipe']>['parsedIngredients']
       >['childMarkdownRemark']
     >
-  >,
-): NonNull<
-  NonNull<
-    NonNull<Unnamed_1_Query['strapiRecipe']>['parsedIngredients']
+  > = {},
+): NonNullable<
+  NonNullable<
+    NonNullable<PostQuery['strapiRecipe']>['parsedIngredients']
   >['childMarkdownRemark']
 > {
-  switch (props.__typename) {
-    case 'MarkdownRemark': {
-      const { html } = schemaFactories.createMarkdownRemarkMock({
-        html: props.html,
-      })
-      return { html, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_parsedIngredients_childMarkdownRemark(
-        { ...props, __typename: 'MarkdownRemark' },
-      )
+  const markdownRemark = schemaFactories.createMarkdownRemarkMock({
+    html: props.html,
+  })
+  return {
+    __typename: 'MarkdownRemark',
+    html: markdownRemark.html,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_strapiRecipe_tags(
+
+export function createPostQueryMock_strapiRecipe_tags(
   props: Partial<
-    NonNull<NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['tags']>[number]>
-  >,
-): NonNull<NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['tags']>[number]> {
-  switch (props.__typename) {
-    case 'StrapiRecipeTags': {
-      const { name, slug } = schemaFactories.createStrapiRecipeTagsMock({
-        name: props.name,
-        slug: props.slug,
-      })
-      return { name, slug, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_tags({
-        ...props,
-        __typename: 'StrapiRecipeTags',
-      })
-  }
-}
-export function createUnnamed_1_QueryMock_strapiRecipe_cover(
-  props: Partial<NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['cover']>>,
-): NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['cover']> {
-  switch (props.__typename) {
-    case 'StrapiRecipeCover': {
-      const {} = schemaFactories.createStrapiRecipeCoverMock({})
-      return { image: null, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_cover({
-        ...props,
-        __typename: 'StrapiRecipeCover',
-      })
-  }
-}
-export function createUnnamed_1_QueryMock_strapiRecipe_cover_image(
-  props: Partial<
-    NonNull<NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['cover']>['image']>
-  >,
-): NonNull<
-  NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['cover']>['image']
+    NonNullable<
+      NonNullable<NonNullable<PostQuery['strapiRecipe']>['tags']>[number]
+    >
+  > = {},
+): NonNullable<
+  NonNullable<NonNullable<PostQuery['strapiRecipe']>['tags']>[number]
 > {
-  switch (props.__typename) {
-    case 'File': {
-      const {} = schemaFactories.createFileMock({})
-      return { childImageSharp: null, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_cover_image({
-        ...props,
-        __typename: 'File',
-      })
+  const strapiRecipeTags = schemaFactories.createStrapiRecipeTagsMock({
+    name: props.name,
+    slug: props.slug,
+  })
+  return {
+    __typename: 'StrapiRecipeTags',
+    name: strapiRecipeTags.name,
+    slug: strapiRecipeTags.slug,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_strapiRecipe_cover_image_childImageSharp(
+
+export function createPostQueryMock_strapiRecipe_cover(
   props: Partial<
-    NonNull<
-      NonNull<
-        NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['cover']>['image']
+    NonNullable<NonNullable<PostQuery['strapiRecipe']>['cover']>
+  > = {},
+): NonNullable<NonNullable<PostQuery['strapiRecipe']>['cover']> {
+  return {
+    __typename: 'StrapiRecipeCover',
+    image: null,
+    ...props,
+  }
+}
+
+export function createPostQueryMock_strapiRecipe_cover_image(
+  props: Partial<
+    NonNullable<
+      NonNullable<NonNullable<PostQuery['strapiRecipe']>['cover']>['image']
+    >
+  > = {},
+): NonNullable<
+  NonNullable<NonNullable<PostQuery['strapiRecipe']>['cover']>['image']
+> {
+  return {
+    __typename: 'File',
+    childImageSharp: null,
+    ...props,
+  }
+}
+
+export function createPostQueryMock_strapiRecipe_cover_image_childImageSharp(
+  props: Partial<
+    NonNullable<
+      NonNullable<
+        NonNullable<NonNullable<PostQuery['strapiRecipe']>['cover']>['image']
       >['childImageSharp']
     >
-  >,
-): NonNull<
-  NonNull<
-    NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['cover']>['image']
+  > = {},
+): NonNullable<
+  NonNullable<
+    NonNullable<NonNullable<PostQuery['strapiRecipe']>['cover']>['image']
   >['childImageSharp']
 > {
-  switch (props.__typename) {
-    case 'ImageSharp': {
-      const {} = schemaFactories.createImageSharpMock({})
-      return { fluid: null, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_cover_image_childImageSharp(
-        { ...props, __typename: 'ImageSharp' },
-      )
+  return {
+    __typename: 'ImageSharp',
+    fluid: null,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_strapiRecipe_cover_image_childImageSharp_fluid(
+
+export function createPostQueryMock_strapiRecipe_cover_image_childImageSharp_fluid(
   props: Partial<
-    NonNull<
-      NonNull<
-        NonNull<
-          NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['cover']>['image']
+    NonNullable<
+      NonNullable<
+        NonNullable<
+          NonNullable<NonNullable<PostQuery['strapiRecipe']>['cover']>['image']
         >['childImageSharp']
       >['fluid']
     >
-  >,
-): NonNull<
-  NonNull<
-    NonNull<
-      NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['cover']>['image']
+  > = {},
+): NonNullable<
+  NonNullable<
+    NonNullable<
+      NonNullable<NonNullable<PostQuery['strapiRecipe']>['cover']>['image']
     >['childImageSharp']
   >['fluid']
 > {
-  switch (props.__typename) {
-    case 'ImageSharpFluid': {
-      const {} = schemaFactories.createImageSharpFluidMock({})
-      return {
-        ...createUnnamed_1_QueryMock_strapiRecipe_cover_image_childImageSharp_fluid_ImageSharpFluid(
-          {},
-        ),
-        ...props,
-      }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_cover_image_childImageSharp_fluid(
-        { ...props, __typename: 'ImageSharpFluid' },
-      )
+  const imageSharpFluid = schemaFactories.createImageSharpFluidMock({
+    tracedSVG: props.tracedSVG,
+    aspectRatio: props.aspectRatio,
+    src: props.src,
+    srcSet: props.srcSet,
+    sizes: props.sizes,
+  })
+  return {
+    __typename: 'ImageSharpFluid',
+    tracedSVG: imageSharpFluid.tracedSVG,
+    aspectRatio: imageSharpFluid.aspectRatio,
+    src: imageSharpFluid.src,
+    srcSet: imageSharpFluid.srcSet,
+    sizes: imageSharpFluid.sizes,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_strapiRecipe_cover_image_childImageSharp_fluid_ImageSharpFluid(
+
+export function createPostQueryMock_strapiRecipe_gallery(
   props: Partial<
-    Extract<
-      NonNull<
-        NonNull<
-          NonNull<
-            NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['cover']>['image']
-          >['childImageSharp']
-        >['fluid']
-      >,
-      { __typename: 'ImageSharpFluid' }
+    NonNullable<
+      NonNullable<NonNullable<PostQuery['strapiRecipe']>['gallery']>[number]
     >
-  >,
-): Extract<
-  NonNull<
-    NonNull<
-      NonNull<
-        NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['cover']>['image']
-      >['childImageSharp']
-    >['fluid']
-  >,
-  { __typename: 'ImageSharpFluid' }
+  > = {},
+): NonNullable<
+  NonNullable<NonNullable<PostQuery['strapiRecipe']>['gallery']>[number]
 > {
-  switch (props.__typename) {
-    case 'ImageSharpFluid': {
-      const { tracedSVG, aspectRatio, src, srcSet, sizes } =
-        schemaFactories.createImageSharpFluidMock({
-          tracedSVG: props.tracedSVG,
-          aspectRatio: props.aspectRatio,
-          src: props.src,
-          srcSet: props.srcSet,
-          sizes: props.sizes,
-        })
-      return { tracedSVG, aspectRatio, src, srcSet, sizes, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_cover_image_childImageSharp_fluid_ImageSharpFluid(
-        { ...props, __typename: 'ImageSharpFluid' },
-      )
+  return {
+    __typename: 'StrapiRecipeGallery',
+    image: null,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_strapiRecipe_gallery(
+
+export function createPostQueryMock_strapiRecipe_gallery_image(
   props: Partial<
-    NonNull<
-      NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['gallery']>[number]
-    >
-  >,
-): NonNull<
-  NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['gallery']>[number]
-> {
-  switch (props.__typename) {
-    case 'StrapiRecipeGallery': {
-      const {} = schemaFactories.createStrapiRecipeGalleryMock({})
-      return { image: null, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_gallery({
-        ...props,
-        __typename: 'StrapiRecipeGallery',
-      })
-  }
-}
-export function createUnnamed_1_QueryMock_strapiRecipe_gallery_image(
-  props: Partial<
-    NonNull<
-      NonNull<
-        NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['gallery']>[number]
+    NonNullable<
+      NonNullable<
+        NonNullable<NonNullable<PostQuery['strapiRecipe']>['gallery']>[number]
       >['image']
     >
-  >,
-): NonNull<
-  NonNull<
-    NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['gallery']>[number]
+  > = {},
+): NonNullable<
+  NonNullable<
+    NonNullable<NonNullable<PostQuery['strapiRecipe']>['gallery']>[number]
   >['image']
 > {
-  switch (props.__typename) {
-    case 'File': {
-      const {} = schemaFactories.createFileMock({})
-      return { childImageSharp: null, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_gallery_image({
-        ...props,
-        __typename: 'File',
-      })
+  return {
+    __typename: 'File',
+    childImageSharp: null,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_strapiRecipe_gallery_image_childImageSharp(
+
+export function createPostQueryMock_strapiRecipe_gallery_image_childImageSharp(
   props: Partial<
-    NonNull<
-      NonNull<
-        NonNull<
-          NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['gallery']>[number]
+    NonNullable<
+      NonNullable<
+        NonNullable<
+          NonNullable<NonNullable<PostQuery['strapiRecipe']>['gallery']>[number]
         >['image']
       >['childImageSharp']
     >
-  >,
-): NonNull<
-  NonNull<
-    NonNull<
-      NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['gallery']>[number]
+  > = {},
+): NonNullable<
+  NonNullable<
+    NonNullable<
+      NonNullable<NonNullable<PostQuery['strapiRecipe']>['gallery']>[number]
     >['image']
   >['childImageSharp']
 > {
-  switch (props.__typename) {
-    case 'ImageSharp': {
-      const {} = schemaFactories.createImageSharpMock({})
-      return { small: null, large: null, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_gallery_image_childImageSharp(
-        { ...props, __typename: 'ImageSharp' },
-      )
+  return {
+    __typename: 'ImageSharp',
+    small: null,
+    large: null,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_strapiRecipe_gallery_image_childImageSharp_small(
+
+export function createPostQueryMock_strapiRecipe_gallery_image_childImageSharp_small(
   props: Partial<
-    NonNull<
-      NonNull<
-        NonNull<
-          NonNull<
-            NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['gallery']>[number]
+    NonNullable<
+      NonNullable<
+        NonNullable<
+          NonNullable<
+            NonNullable<
+              NonNullable<PostQuery['strapiRecipe']>['gallery']
+            >[number]
           >['image']
         >['childImageSharp']
-      >['small']
+      >['fluid']
     >
-  >,
-): NonNull<
-  NonNull<
-    NonNull<
-      NonNull<
-        NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['gallery']>[number]
+  > = {},
+): NonNullable<
+  NonNullable<
+    NonNullable<
+      NonNullable<
+        NonNullable<NonNullable<PostQuery['strapiRecipe']>['gallery']>[number]
       >['image']
     >['childImageSharp']
-  >['small']
+  >['fluid']
 > {
-  switch (props.__typename) {
-    case 'ImageSharpFluid': {
-      const {} = schemaFactories.createImageSharpFluidMock({})
-      return {
-        ...createUnnamed_1_QueryMock_strapiRecipe_gallery_image_childImageSharp_small_ImageSharpFluid(
-          {},
-        ),
-        ...props,
-      }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_gallery_image_childImageSharp_small(
-        { ...props, __typename: 'ImageSharpFluid' },
-      )
+  const imageSharpFluid = schemaFactories.createImageSharpFluidMock({
+    tracedSVG: props.tracedSVG,
+    aspectRatio: props.aspectRatio,
+    src: props.src,
+    srcSet: props.srcSet,
+    sizes: props.sizes,
+  })
+  return {
+    __typename: 'ImageSharpFluid',
+    tracedSVG: imageSharpFluid.tracedSVG,
+    aspectRatio: imageSharpFluid.aspectRatio,
+    src: imageSharpFluid.src,
+    srcSet: imageSharpFluid.srcSet,
+    sizes: imageSharpFluid.sizes,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_strapiRecipe_gallery_image_childImageSharp_small_ImageSharpFluid(
+
+export function createPostQueryMock_strapiRecipe_gallery_image_childImageSharp_large(
   props: Partial<
-    Extract<
-      NonNull<
-        NonNull<
-          NonNull<
-            NonNull<
-              NonNull<
-                NonNull<Unnamed_1_Query['strapiRecipe']>['gallery']
-              >[number]
-            >['image']
-          >['childImageSharp']
-        >['small']
-      >,
-      { __typename: 'ImageSharpFluid' }
-    >
-  >,
-): Extract<
-  NonNull<
-    NonNull<
-      NonNull<
-        NonNull<
-          NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['gallery']>[number]
-        >['image']
-      >['childImageSharp']
-    >['small']
-  >,
-  { __typename: 'ImageSharpFluid' }
-> {
-  switch (props.__typename) {
-    case 'ImageSharpFluid': {
-      const { tracedSVG, aspectRatio, src, srcSet, sizes } =
-        schemaFactories.createImageSharpFluidMock({
-          tracedSVG: props.tracedSVG,
-          aspectRatio: props.aspectRatio,
-          src: props.src,
-          srcSet: props.srcSet,
-          sizes: props.sizes,
-        })
-      return { tracedSVG, aspectRatio, src, srcSet, sizes, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_gallery_image_childImageSharp_small_ImageSharpFluid(
-        { ...props, __typename: 'ImageSharpFluid' },
-      )
-  }
-}
-export function createUnnamed_1_QueryMock_strapiRecipe_gallery_image_childImageSharp_large(
-  props: Partial<
-    NonNull<
-      NonNull<
-        NonNull<
-          NonNull<
-            NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['gallery']>[number]
+    NonNullable<
+      NonNullable<
+        NonNullable<
+          NonNullable<
+            NonNullable<
+              NonNullable<PostQuery['strapiRecipe']>['gallery']
+            >[number]
           >['image']
         >['childImageSharp']
-      >['large']
+      >['fluid']
     >
-  >,
-): NonNull<
-  NonNull<
-    NonNull<
-      NonNull<
-        NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['gallery']>[number]
+  > = {},
+): NonNullable<
+  NonNullable<
+    NonNullable<
+      NonNullable<
+        NonNullable<NonNullable<PostQuery['strapiRecipe']>['gallery']>[number]
       >['image']
     >['childImageSharp']
-  >['large']
+  >['fluid']
 > {
-  switch (props.__typename) {
-    case 'ImageSharpFluid': {
-      const {} = schemaFactories.createImageSharpFluidMock({})
-      return {
-        ...createUnnamed_1_QueryMock_strapiRecipe_gallery_image_childImageSharp_large_ImageSharpFluid(
-          {},
-        ),
-        ...props,
-      }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_gallery_image_childImageSharp_large(
-        { ...props, __typename: 'ImageSharpFluid' },
-      )
+  const imageSharpFluid = schemaFactories.createImageSharpFluidMock({
+    tracedSVG: props.tracedSVG,
+    aspectRatio: props.aspectRatio,
+    src: props.src,
+    srcSet: props.srcSet,
+    sizes: props.sizes,
+  })
+  return {
+    __typename: 'ImageSharpFluid',
+    tracedSVG: imageSharpFluid.tracedSVG,
+    aspectRatio: imageSharpFluid.aspectRatio,
+    src: imageSharpFluid.src,
+    srcSet: imageSharpFluid.srcSet,
+    sizes: imageSharpFluid.sizes,
+    ...props,
   }
 }
-export function createUnnamed_1_QueryMock_strapiRecipe_gallery_image_childImageSharp_large_ImageSharpFluid(
+
+export function createPostQueryMock_strapiRecipe_category(
   props: Partial<
-    Extract<
-      NonNull<
-        NonNull<
-          NonNull<
-            NonNull<
-              NonNull<
-                NonNull<Unnamed_1_Query['strapiRecipe']>['gallery']
-              >[number]
-            >['image']
-          >['childImageSharp']
-        >['large']
-      >,
-      { __typename: 'ImageSharpFluid' }
-    >
-  >,
-): Extract<
-  NonNull<
-    NonNull<
-      NonNull<
-        NonNull<
-          NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['gallery']>[number]
-        >['image']
-      >['childImageSharp']
-    >['large']
-  >,
-  { __typename: 'ImageSharpFluid' }
-> {
-  switch (props.__typename) {
-    case 'ImageSharpFluid': {
-      const { tracedSVG, aspectRatio, src, srcSet, sizes } =
-        schemaFactories.createImageSharpFluidMock({
-          tracedSVG: props.tracedSVG,
-          aspectRatio: props.aspectRatio,
-          src: props.src,
-          srcSet: props.srcSet,
-          sizes: props.sizes,
-        })
-      return { tracedSVG, aspectRatio, src, srcSet, sizes, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_gallery_image_childImageSharp_large_ImageSharpFluid(
-        { ...props, __typename: 'ImageSharpFluid' },
-      )
-  }
-}
-export function createUnnamed_1_QueryMock_strapiRecipe_category(
-  props: Partial<NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['category']>>,
-): NonNull<NonNull<Unnamed_1_Query['strapiRecipe']>['category']> {
-  switch (props.__typename) {
-    case 'StrapiRecipeCategory': {
-      const { name, slug } = schemaFactories.createStrapiRecipeCategoryMock({
-        name: props.name,
-        slug: props.slug,
-      })
-      return { name, slug, ...props }
-    }
-    case undefined:
-    default:
-      return createUnnamed_1_QueryMock_strapiRecipe_category({
-        ...props,
-        __typename: 'StrapiRecipeCategory',
-      })
+    NonNullable<NonNullable<PostQuery['strapiRecipe']>['category']>
+  > = {},
+): NonNullable<NonNullable<PostQuery['strapiRecipe']>['category']> {
+  const strapiRecipeCategory = schemaFactories.createStrapiRecipeCategoryMock({
+    name: props.name,
+    slug: props.slug,
+  })
+  return {
+    __typename: 'StrapiRecipeCategory',
+    name: strapiRecipeCategory.name,
+    slug: strapiRecipeCategory.slug,
+    ...props,
   }
 }
