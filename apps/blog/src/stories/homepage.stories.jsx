@@ -7,6 +7,7 @@ import {
   createBlogListQueryQueryMock_allStrapiRecipe_edges,
   createBlogListQueryQueryMock_allStrapiRecipe_edges_node,
 } from '../templates/post-list.generated'
+import imageUrl from '../assets/logo/Logotype green.png'
 
 const LayoutDecorator = (storyFn) => (
   <Layout categories={[{ slug: 'obiady', name: 'Obiady' }]}>{storyFn()}</Layout>
@@ -17,7 +18,15 @@ const createRecipe = () =>
     node: createBlogListQueryQueryMock_allStrapiRecipe_edges_node({
       slug: 'pizza',
       title: 'Pizza',
-
+      cover: {
+        image: {
+          childImageSharp: {
+            fluid: {
+              src: imageUrl,
+            },
+          },
+        },
+      },
       category: {
         slug: 'test',
       },
