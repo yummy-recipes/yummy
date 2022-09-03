@@ -12366,7 +12366,7 @@ __metadata:
     knex: 0.19.5
     pg: 8.7.1
     pg-connection-string: 2.5.0
-    slugify: 1.6.4
+    slugify: 1.6.5
     sqlite3: 5.0.0
     strapi: 3.6.8
     strapi-admin: 3.6.8
@@ -31541,14 +31541,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"slugify@npm:1.6.4":
-  version: 1.6.4
-  resolution: "slugify@npm:1.6.4"
-  checksum: b72baa37e2d9a389032633f3a9c51f8727827dcd1790a3e7f75e43986b0f1da9feba8004d615543b009d096e416688328995717303f243e1536dc417ed23ccc1
-  languageName: node
-  linkType: hard
-
-"slugify@npm:^1.6.1":
+"slugify@npm:1.6.5, slugify@npm:^1.6.1":
   version: 1.6.5
   resolution: "slugify@npm:1.6.5"
   checksum: a955a1b600201030f4c1daa9bb74a17d4402a0693fc40978bbd17e44e64fd72dad3bac4037422aa8aed55b5170edd57f3f4cd8f59ba331f5cf0f10f1a7795609
@@ -32600,7 +32593,7 @@ __metadata:
     "@octokit/core": 3.5.1
     "@octokit/plugin-retry": 3.0.9
     "@octokit/plugin-throttling": 3.5.2
-    slugify: 1.6.4
+    slugify: 1.6.5
   languageName: unknown
   linkType: soft
 
