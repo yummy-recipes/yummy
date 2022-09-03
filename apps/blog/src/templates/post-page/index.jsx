@@ -5,7 +5,6 @@ import { Helmet } from 'react-helmet'
 import TimeToPrepare from '../../components/time_to_prepare'
 import Breadcrumbs from '../../components/breadcrumbs'
 import * as pageStyles from '../page.module.css'
-import * as postStyles from './post.module.css'
 import Page from '../page'
 import Tag from '../../components/tag'
 import Gallery from '../../components/gallery'
@@ -13,8 +12,8 @@ import Gallery from '../../components/gallery'
 export default function PostPage({ data }) {
   const { strapiRecipe: recipe } = data
 
-  const Tags = (recipe.tags || []).map((tag) => {
-    return <Tag name={tag.name} key={tag.slug} className={postStyles.postTag} />
+  const tags = (recipe.tags || []).map((tag) => {
+    return <Tag name={tag.name} key={tag.slug} className="mb-4 mr-2" />
   })
 
   const siteUrl = data.site.siteMetadata.siteUrl
@@ -42,11 +41,10 @@ export default function PostPage({ data }) {
         </Helmet>
 
         <section className={pageStyles.main}>
-          <article className={postStyles.post}>
-            <h1 className={postStyles.postTitle}>{recipe.title}</h1>
-
+          <article className="mt-2">
+            <h1 className="text-5xl">{recipe.title}</h1>
             <div
-              className={postStyles.postHeadline}
+              className="mb-4"
               dangerouslySetInnerHTML={{
                 __html: recipe.parsedHeadline.childMarkdownRemark.html,
               }}
@@ -56,12 +54,12 @@ export default function PostPage({ data }) {
               <Img
                 fluid={recipe.cover.image.childImageSharp.fluid}
                 alt={'Photography of the food from the recipe.'}
-                className={postStyles.coverImage}
+                className="h-[300px] md:h-[500px]"
               />
             )}
 
-            <div className={postStyles.postIntro}>
-              <div className={postStyles.postPreamble}>
+            <div className="mt-2">
+              <div className="flex items-baseline justify-between mb-2">
                 <Breadcrumbs
                   subsectionName={recipe.category.name}
                   subsectionSlug={recipe.category.slug}
@@ -69,18 +67,18 @@ export default function PostPage({ data }) {
                 <TimeToPrepare>{recipe.preparationTime}</TimeToPrepare>
               </div>
 
-              <div className={postStyles.postTags}>{Tags}</div>
+              <div className="mb-4">{tags}</div>
             </div>
 
-            <div className={postStyles.postBody}>
+            <div className="flex pt-5 pb-4 flex-col md:flex-row md:py-5">
               <div
-                className={postStyles.postIngredients}
+                className="flex-1 min-w-[250px] md:pr-6 md:border-r md:border-gray-300"
                 dangerouslySetInnerHTML={{
                   __html: recipe.parsedIngredients.childMarkdownRemark.html,
                 }}
               />
               <div
-                className={postStyles.postDirections}
+                className="flex-[3] mt-5 md:mt-0 md:pl-6"
                 dangerouslySetInnerHTML={{
                   __html: recipe.parsedDirections.childMarkdownRemark.html,
                 }}

@@ -5,10 +5,18 @@ import Layout from '../components/layout'
 import {
   createPostQueryMock,
   createPostQueryMock_strapiRecipe,
+  createPostQueryMock_strapiRecipe_tags,
 } from '../templates/post-page/index.generated'
+import imageUrl from '../assets/logo/Logotype green.png'
 
 const LayoutDecorator = (storyFn) => (
-  <Layout categories={[{ slug: 'obiady', name: 'Obiady' }]}>{storyFn()}</Layout>
+  <Layout
+    categories={[{ slug: 'obiady', name: 'Obiady' }]}
+    fullHeaderVersion={false}
+    isSingleRecipe
+  >
+    {storyFn()}
+  </Layout>
 )
 
 const createRecipe = () =>
@@ -19,8 +27,26 @@ const createRecipe = () =>
       name: 'Obiady',
       slug: 'test',
     },
+    cover: {
+      image: {
+        childImageSharp: {
+          fluid: {
+            src: imageUrl,
+          },
+        },
+      },
+    },
     preparationTime: '100',
-    tags: [],
+    tags: [
+      createPostQueryMock_strapiRecipe_tags({
+        name: 'My Tag',
+        slug: 'mytag',
+      }),
+      createPostQueryMock_strapiRecipe_tags({
+        name: 'My Tag 2',
+        slug: 'mytag2',
+      }),
+    ],
     seo: {
       htmlTitle: 'Pizza',
       htmlDescription: 'Pizza',
