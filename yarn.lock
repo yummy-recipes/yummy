@@ -4395,6 +4395,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@discoveryjs/json-ext@npm:^0.5.7":
+  version: 0.5.7
+  resolution: "@discoveryjs/json-ext@npm:0.5.7"
+  checksum: 2176d301cc258ea5c2324402997cf8134ebb212469c0d397591636cea8d3c02f2b3cf9fd58dcb748c7a0dade77ebdc1b10284fa63e608c033a1db52fddc69918
+  languageName: node
+  linkType: hard
+
 "@emotion/babel-utils@npm:^0.6.4":
   version: 0.6.10
   resolution: "@emotion/babel-utils@npm:0.6.10"
@@ -9563,6 +9570,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/webpack-env@npm:^1.17.0":
+  version: 1.18.0
+  resolution: "@types/webpack-env@npm:1.18.0"
+  checksum: ecf4daa31cb37d474ac0ce058d83a3cadeb9881ca8107ae93c2299eaa9954943aae09b43e143c62ccbe4288a14db00c918c9debd707afe17c3998f873eaabc59
+  languageName: node
+  linkType: hard
+
 "@types/webpack-sources@npm:*":
   version: 3.2.0
   resolution: "@types/webpack-sources@npm:3.2.0"
@@ -12266,7 +12280,7 @@ __metadata:
     "@yummy/gatsby-source-fixtures": "workspace:^"
     autoprefixer: 10.4.8
     babel-loader: 8.2.5
-    chromatic: 6.5.6
+    chromatic: 6.9.0
     cypress: 3.8.3
     cypress-testing-library: 2.6.0
     emotion: 9.2.12
@@ -13403,14 +13417,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:6.5.6":
-  version: 6.5.6
-  resolution: "chromatic@npm:6.5.6"
+"chromatic@npm:6.9.0":
+  version: 6.9.0
+  resolution: "chromatic@npm:6.9.0"
+  dependencies:
+    "@discoveryjs/json-ext": ^0.5.7
+    "@types/webpack-env": ^1.17.0
   bin:
     chroma: bin/main.cjs
     chromatic: bin/main.cjs
     chromatic-cli: bin/main.cjs
-  checksum: dbfe276683add0420e559c1dc42e5c10d9dcd8c3b53fb4a1d36de684077a455d472c5e64427d83ccb88f3b73643aabc4979bd1b38339c42784c73e3659377fc2
+  checksum: ec9b466a9e6750bfcc6bfc6c93b92e7920314be71f01018b0370099ae7ff5c290c3bf6b8c869965df560e15e8f15c5135f3b5476195d741ae601fdbea717fadb
   languageName: node
   linkType: hard
 
