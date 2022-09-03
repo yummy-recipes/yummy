@@ -56,7 +56,7 @@
     "react-select": "2.4.4",
     "react-testing-library": "6.1.2",
     "storybook-addon-themes": "6.1.0",
-    "underscore.string": "3.3.5"
+    "underscore.string": "3.3.6"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.6.2",
