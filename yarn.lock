@@ -8920,7 +8920,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:^7.28.2":
+"@types/eslint@npm:^7.28.2, @types/eslint@npm:^7.29.0":
   version: 7.29.0
   resolution: "@types/eslint@npm:7.29.0"
   dependencies:
@@ -12328,7 +12328,7 @@ __metadata:
     emotion-server: 9.2.12
     eslint: 7.32.0
     eslint-loader: 2.2.1
-    eslint-webpack-plugin: 2.6.0
+    eslint-webpack-plugin: 2.7.0
     fsevents: ^2.2.1
     fuse.js: 3.6.1
     gatsby: 4.7.1
@@ -12575,7 +12575,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"braces@npm:^3.0.1, braces@npm:~3.0.2":
+"braces@npm:^3.0.1, braces@npm:^3.0.2, braces@npm:~3.0.2":
   version: 3.0.2
   resolution: "braces@npm:3.0.2"
   dependencies:
@@ -17518,7 +17518,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-webpack-plugin@npm:2.6.0, eslint-webpack-plugin@npm:^2.6.0":
+"eslint-webpack-plugin@npm:2.7.0":
+  version: 2.7.0
+  resolution: "eslint-webpack-plugin@npm:2.7.0"
+  dependencies:
+    "@types/eslint": ^7.29.0
+    arrify: ^2.0.1
+    jest-worker: ^27.5.1
+    micromatch: ^4.0.5
+    normalize-path: ^3.0.0
+    schema-utils: ^3.1.1
+  peerDependencies:
+    eslint: ^7.0.0 || ^8.0.0
+    webpack: ^4.0.0 || ^5.0.0
+  checksum: b6fd7cf4c49078b345a908b82b0bee06bc82ab0cec214ddd5fe5bb18b065765d52a07ad4077f6bba5830ba2f55f37d8f2208a52d11f34ee29df81153e3124d9c
+  languageName: node
+  linkType: hard
+
+"eslint-webpack-plugin@npm:^2.6.0":
   version: 2.6.0
   resolution: "eslint-webpack-plugin@npm:2.6.0"
   dependencies:
@@ -23780,6 +23797,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-worker@npm:^27.5.1":
+  version: 27.5.1
+  resolution: "jest-worker@npm:27.5.1"
+  dependencies:
+    "@types/node": "*"
+    merge-stream: ^2.0.0
+    supports-color: ^8.0.0
+  checksum: 98cd68b696781caed61c983a3ee30bf880b5bd021c01d98f47b143d4362b85d0737f8523761e2713d45e18b4f9a2b98af1eaee77afade4111bb65c77d6f7c980
+  languageName: node
+  linkType: hard
+
 "jest@npm:27.4.5":
   version: 27.4.5
   resolution: "jest@npm:27.4.5"
@@ -26272,6 +26300,16 @@ __metadata:
     braces: ^3.0.1
     picomatch: ^2.2.3
   checksum: ef3d1c88e79e0a68b0e94a03137676f3324ac18a908c245a9e5936f838079fcc108ac7170a5fadc265a9c2596963462e402841406bda1a4bb7b68805601d631c
+  languageName: node
+  linkType: hard
+
+"micromatch@npm:^4.0.5":
+  version: 4.0.5
+  resolution: "micromatch@npm:4.0.5"
+  dependencies:
+    braces: ^3.0.2
+    picomatch: ^2.3.1
+  checksum: 02a17b671c06e8fefeeb6ef996119c1e597c942e632a21ef589154f23898c9c6a9858526246abb14f8bca6e77734aa9dcf65476fca47cedfb80d9577d52843fc
   languageName: node
   linkType: hard
 
@@ -28802,7 +28840,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"picomatch@npm:^2.2.2":
+"picomatch@npm:^2.2.2, picomatch@npm:^2.3.1":
   version: 2.3.1
   resolution: "picomatch@npm:2.3.1"
   checksum: 050c865ce81119c4822c45d3c84f1ced46f93a0126febae20737bd05ca20589c564d6e9226977df859ed5e03dc73f02584a2b0faad36e896936238238b0446cf
