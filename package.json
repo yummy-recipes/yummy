@@ -27,7 +27,7 @@
     "babel-preset-gatsby": "2.4.0",
     "husky": "7.0.4",
     "jest": "27.4.5",
-    "lint-staged": "12.3.7",
+    "lint-staged": "12.5.0",
     "prettier": "2.7.1"
   },
   "cacheDirectories": [],
