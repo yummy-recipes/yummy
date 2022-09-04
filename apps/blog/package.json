@@ -91,7 +91,7 @@
     "svgo": "2.8.0",
     "tailwind-config-viewer": "1.7.1",
     "tailwindcss": "3.1.8",
-    "vite": "2.8.1",
+    "vite": "2.9.15",
     "webpack": "5.67.0"
   },
   "optionalDependencies": {
