@@ -3,3 +3,4 @@ puppeteer/screenshots/current
 data.json
 public
 test-results
+storybook-static/
