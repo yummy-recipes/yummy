@@ -1,35 +1,26 @@
 import React from 'react'
 import Navbar from '../navbar'
-import Logo from '../icons/Logo'
+import LogoSimple from '../icons/LogoSimple'
 import { Link } from 'gatsby'
 import * as styles from './header.module.css'
 
-const Header = ({ fullVersion, subsection, categories, children }) => {
+const Header = ({ subsection, categories, children }) => {
   return (
-    <header className={styles.header}>
-      <div className={styles.navbar}>
-        <Navbar categories={categories} hasHomepageLink={fullVersion === false}/>
+    <header className="relative">
+      <div className="flex justify-between relative z-20">
+        <Link to="/">
+          <LogoSimple className="h-[46px] my-2" />
+        </Link>
+        <Navbar categories={categories} />
       </div>
-
-      {
-        fullVersion !== false
-        ?
-          <Link to='/' className={styles.logoLink}>
-            <Logo className={styles.logo}/>
-          </Link>
-        : null
-      }
 
       {children}
 
-      {
-        subsection
-        && (
-          <div className={styles.subsectionHeadingWrapper}>
-            <h2 className={styles.subsectionHeading}>{subsection}</h2>
-          </div>
-        )
-      }
+      {subsection && (
+        <div className={styles.subsectionHeadingWrapper}>
+          <h2 className={styles.subsectionHeading}>{subsection}</h2>
+        </div>
+      )}
     </header>
   )
 }
