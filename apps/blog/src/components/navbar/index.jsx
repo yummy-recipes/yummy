@@ -5,7 +5,7 @@ import MenuCloseIcon from '../icons/MenuClose'
 import * as styles from './navbar.module.css'
 
 function titleize(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+  return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
 export default class Navbar extends React.Component {
@@ -13,7 +13,7 @@ export default class Navbar extends React.Component {
     super(props)
 
     this.state = {
-      menuOpen: false
+      menuOpen: false,
     }
   }
 
@@ -31,7 +31,7 @@ export default class Navbar extends React.Component {
     document.addEventListener('keydown', this.handleEscapeKey)
 
     this.setState({
-      menuOpen: true
+      menuOpen: true,
     })
   }
 
@@ -39,7 +39,7 @@ export default class Navbar extends React.Component {
     document.removeEventListener('keydown', this.handleEscapeKey)
 
     this.setState({
-      menuOpen: false
+      menuOpen: false,
     })
   }
 
@@ -49,23 +49,36 @@ export default class Navbar extends React.Component {
       : styles.navbarCategories
 
     const overlay = this.state.menuOpen ? (
-        <div className={styles.navbarMenuOverlay} onClick={this.handleMenuCloseClick} />)
-      : null;
+      <div
+        className={styles.navbarMenuOverlay}
+        onClick={this.handleMenuCloseClick}
+      />
+    ) : null
 
-    const {categories} = this.props
+    const { categories } = this.props
 
     return (
       <nav className={styles.navbar}>
-        <button className={[styles.navbarMenuIcon, this.state.menuOpen ? styles.hidden : ''].join(' ')}
-           aria-label="Open category menu"
-           onClick={this.handleMenuOpenClick}>
+        <button
+          className={[
+            styles.navbarMenuIcon,
+            this.state.menuOpen ? styles.hidden : '',
+          ].join(' ')}
+          aria-label="Open category menu"
+          onClick={this.handleMenuOpenClick}
+        >
           <span aria-hidden="true">
             <MenuBarsIcon className={styles.iconMenu} />
           </span>
         </button>
-        <button className={[styles.navbarMenuIcon, this.state.menuOpen ? '' : styles.hidden].join(' ')}
-           aria-label="Close category menu"
-           onClick={this.handleMenuCloseClick}>
+        <button
+          className={[
+            styles.navbarMenuIcon,
+            this.state.menuOpen ? '' : styles.hidden,
+          ].join(' ')}
+          aria-label="Close category menu"
+          onClick={this.handleMenuCloseClick}
+        >
           <span aria-hidden="true">
             <MenuCloseIcon className={styles.iconMenu} />
           </span>
@@ -73,27 +86,18 @@ export default class Navbar extends React.Component {
         <div className={categoryMenuClass}>
           {overlay}
 
-          <Link
-            to={'/'}
-            key={'homepage'}
-            className={styles.navbarLink}
-            onClick={this.handleMenuCloseClick}
-          >
-            Wszystkie
-          </Link>
-
-          {categories.map(({slug, name}) =>
-           <Link
-               to={`/${slug}`}
-               key={slug}
-               className={styles.navbarLink}
-               onClick={this.handleMenuCloseClick}
-             >
-             {titleize(name)}
-           </Link>
-          )}
+          {categories.map(({ slug, name }) => (
+            <Link
+              to={`/${slug}`}
+              key={slug}
+              className={styles.navbarLink}
+              onClick={this.handleMenuCloseClick}
+            >
+              {titleize(name)}
+            </Link>
+          ))}
         </div>
-    </nav>
+      </nav>
     )
   }
 }
