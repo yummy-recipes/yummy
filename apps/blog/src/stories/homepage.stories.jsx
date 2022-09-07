@@ -7,7 +7,9 @@ import {
   createBlogListQueryQueryMock_allStrapiRecipe_edges,
   createBlogListQueryQueryMock_allStrapiRecipe_edges_node,
 } from '../templates/post-list.generated'
-import imageUrl from '../assets/logo/Logotype green.png'
+
+const imageUrl =
+  'https://raw.githubusercontent.com/yummy-recipes/yummy/master/apps/blog/cypress/fixtures/images/cover.jpg'
 
 const LayoutDecorator = (storyFn) => (
   <Layout categories={[{ slug: 'obiady', name: 'Obiady' }]}>{storyFn()}</Layout>
@@ -42,6 +44,9 @@ export default {
   title: 'Pages/PostListPage',
   component: PostListPage,
   decorators: [LayoutDecorator],
+  parameters: {
+    layout: 'fullscreen',
+  },
 }
 
 export const Primary = () => (

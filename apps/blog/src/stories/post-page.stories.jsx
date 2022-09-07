@@ -7,7 +7,9 @@ import {
   createPostQueryMock_strapiRecipe,
   createPostQueryMock_strapiRecipe_tags,
 } from '../templates/post-page/index.generated'
-import imageUrl from '../assets/logo/Logotype green.png'
+
+const imageUrl =
+  'https://raw.githubusercontent.com/yummy-recipes/yummy/master/apps/blog/cypress/fixtures/images/cover.jpg'
 
 const LayoutDecorator = (storyFn) => (
   <Layout
@@ -73,6 +75,9 @@ export default {
   title: 'Pages/PostPage',
   component: PostPage,
   decorators: [LayoutDecorator],
+  parameters: {
+    layout: 'fullscreen',
+  },
 }
 
 export const Primary = () => (

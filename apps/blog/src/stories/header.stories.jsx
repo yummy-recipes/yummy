@@ -9,6 +9,9 @@ const categories = [
 export default {
   title: 'Header',
   component: Header,
+  parameters: {
+    layout: 'fullscreen',
+  },
 }
 
 export const Default = () => <Header categories={categories} />

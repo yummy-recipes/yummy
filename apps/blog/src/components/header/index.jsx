@@ -8,7 +8,7 @@ const Header = ({ subsection, categories, children }) => {
   return (
     <header className="relative">
       <div className="flex justify-between relative z-20">
-        <Link to="/">
+        <Link to="/" className="ml-2">
           <LogoSimple className="h-[46px] my-2" />
         </Link>
         <Navbar categories={categories} />
