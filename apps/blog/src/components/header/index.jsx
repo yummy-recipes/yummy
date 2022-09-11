@@ -17,8 +17,15 @@ const Header = ({ subsection, categories, children }) => {
       {children}
 
       {subsection && (
-        <div className={styles.subsectionHeadingWrapper}>
-          <h2 className={styles.subsectionHeading}>{subsection}</h2>
+        <div className="pb-5 max-w-7xl mx-auto md:pb-6">
+          <h2
+            className={[
+              'text-4xl px-2 pt-4 pb-3 tracking-wider uppercase md:px-4',
+              styles.hypensAuto,
+            ].join(' ')}
+          >
+            {subsection}
+          </h2>
         </div>
       )}
     </header>
