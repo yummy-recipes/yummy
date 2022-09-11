@@ -63,6 +63,7 @@ jobs:
           API_URL: https://api.kuchnia-yummy.pl
           API_USER_EMAIL: bot@ertrzyiks.me
           API_USER_PASSWORD: ${{ secrets.STRAPI_BOT_USER_PASSWORD }}
+          VERBOSE: 1
       - uses: actions/upload-artifact@v2
         with:
           name: public
