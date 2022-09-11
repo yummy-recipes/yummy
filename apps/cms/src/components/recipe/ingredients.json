@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_recipe_ingredients",
+  "info": {
+    "name": "Ingredients",
+    "icon": "align-justify",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": false
+    },
+    "content": {
+      "type": "richtext"
+    }
+  }
+}
