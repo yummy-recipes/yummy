@@ -1,18 +1,17 @@
-import React, {createRef} from 'react'
+import React, { createRef } from 'react'
 import { navigate } from 'gatsby'
 import Select from '../select'
-import * as styles from './searchbar.module.css'
-import {RecentSearchesCache, LocalStorageClient} from './recent'
+import { RecentSearchesCache, LocalStorageClient } from './recent'
 
 const loadLocalSearch = () => import('./local_search')
 
 export function isMobileDevice() {
   try {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
-    );
+      navigator.userAgent,
+    )
   } catch (e) {
-    return false;
+    return false
   }
 }
 
@@ -23,13 +22,13 @@ export default class Searchbar extends React.Component {
     this._selectNode = createRef()
 
     this.cache = new RecentSearchesCache({
-      storage: new LocalStorageClient({name: '_recent_searches'}),
-      historySize: 3
+      storage: new LocalStorageClient({ name: '_recent_searches' }),
+      historySize: 3,
     })
 
     this.state = {
       visible: !!props.forceVisibility,
-      selectedOption: null
+      selectedOption: null,
     }
   }
 
@@ -44,30 +43,34 @@ export default class Searchbar extends React.Component {
   }
 
   promiseOptions = (inputValue) => {
-    return loadLocalSearch().then(module => {
+    return loadLocalSearch().then((module) => {
       const search = module.default
       return search(inputValue)
     })
   }
 
-  noOptionMessage = ({inputValue}) => {
+  noOptionMessage = ({ inputValue }) => {
     if (inputValue.length === 0) return null
 
     return 'Nie znaleziono'
   }
 
   scrollToMenu = () => {
-    if (typeof window.scrollBy !== 'function' || !isMobileDevice()) { return }
+    if (typeof window.scrollBy !== 'function' || !isMobileDevice()) {
+      return
+    }
 
     const node = this._selectNode.current
-    if (!node) { return }
+    if (!node) {
+      return
+    }
 
     const box = node.getBoundingClientRect()
 
     window.scrollBy({
       top: box.top - 10,
       left: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     })
   }
 
@@ -75,11 +78,12 @@ export default class Searchbar extends React.Component {
     const { className } = this.props
     const { visible, selectedOption } = this.state
 
-    const wrapperClasses = [className, styles.searchbar]
-
-    if (visible) {
-      wrapperClasses.push(styles.active)
-    }
+    const wrapperClasses = [
+      className,
+      'relative',
+      'transition-opacity',
+      visible ? 'opacity-100' : 'opacity-0',
+    ]
 
     return (
       <div ref={this._selectNode} className={wrapperClasses.join(' ')}>
@@ -88,7 +92,7 @@ export default class Searchbar extends React.Component {
           noOptionsMessage={this.noOptionMessage}
           value={selectedOption}
           onChange={this.handleChange}
-          placeholder='Wyszukaj przepis'
+          placeholder="Wyszukaj przepis"
           loadOptions={this.promiseOptions}
           onMenuOpen={this.scrollToMenu}
         />
