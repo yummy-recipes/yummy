@@ -4,7 +4,7 @@ module.exports = {
       method: 'POST',
       path: '/deploy',
       handler: 'deploy.run',
-      config: { policies: ['withDeployKey'] },
+      // config: { policies: ['api::deploy.withDeployKey'] },
     },
   ],
 }

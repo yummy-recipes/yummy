@@ -9277,6 +9277,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@strapi/plugin-i18n@npm:4.3.8":
+  version: 4.3.8
+  resolution: "@strapi/plugin-i18n@npm:4.3.8"
+  dependencies:
+    "@strapi/utils": 4.3.8
+    lodash: 4.17.21
+  checksum: 9793d731b98149ed60580c67424682e5c82846f301f4bc52ebecd6e800e3b2dbec3fdd294a2d0703aea51508ef9cf6b55c945be75e5e2f46815bde7228a82afa
+  languageName: node
+  linkType: hard
+
 "@strapi/plugin-upload@npm:4.3.8":
   version: 4.3.8
   resolution: "@strapi/plugin-upload@npm:4.3.8"
@@ -14920,6 +14930,7 @@ __metadata:
     "@strapi/plugin-content-type-builder": 4.3.8
     "@strapi/plugin-email": 4.3.8
     "@strapi/plugin-graphql": 4.3.8
+    "@strapi/plugin-i18n": 4.3.8
     "@strapi/plugin-upload": 4.3.8
     "@strapi/plugin-users-permissions": 4.3.8
     "@strapi/strapi": 4.3.8
