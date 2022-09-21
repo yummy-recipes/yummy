@@ -1,10 +1,13 @@
 import React from 'react'
-import * as styles from './footer.module.css'
 
-export default function Footer({className}) {
-  return <footer className={[styles.footer, className].join(' ')}>
-    <div className={styles.inner}>
-      © 2018-2022 J. M. Derks
-    </div>
-  </footer>
+export default function Footer({ className }) {
+  return (
+    <footer
+      className={['py-6 mt-6 md:mt-8 font-semibold border-t', className].join(
+        ' ',
+      )}
+    >
+      <div className="px-4">© 2018-{new Date().getFullYear()} J. M. Derks</div>
+    </footer>
+  )
 }
