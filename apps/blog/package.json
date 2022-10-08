@@ -21,9 +21,9 @@
     "registry": "https://registry.yarnpkg.com"
   },
   "dependencies": {
-    "@graphql-codegen/cli": "2.12.0",
-    "@graphql-codegen/near-operation-file-preset": "2.2.9",
-    "@graphql-codegen/typescript-operations": "2.3.5",
+    "@graphql-codegen/cli": "2.13.5",
+    "@graphql-codegen/near-operation-file-preset": "2.4.1",
+    "@graphql-codegen/typescript-operations": "2.5.3",
     "@yummy/gatsby-categories": "workspace:^",
     "@yummy/gatsby-pages": "workspace:^",
     "@yummy/gatsby-posts": "workspace:^",
@@ -59,9 +59,9 @@
     "underscore.string": "3.3.6"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "2.6.2",
-    "@graphql-codegen/introspection": "2.1.1",
-    "@graphql-codegen/typescript": "2.4.8",
+    "@graphql-codegen/cli": "2.13.5",
+    "@graphql-codegen/introspection": "2.2.1",
+    "@graphql-codegen/typescript": "2.7.3",
     "@mdx-js/react": "2.1.4",
     "@storybook/addon-essentials": "6.5.12",
     "@storybook/addons": "6.5.12",
