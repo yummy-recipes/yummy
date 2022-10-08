@@ -12548,7 +12548,7 @@ __metadata:
     "@yummy/gatsby-source-fixtures": "workspace:^"
     autoprefixer: 10.4.12
     babel-loader: 8.2.5
-    chromatic: 6.9.0
+    chromatic: 6.10.1
     cypress: 3.8.3
     cypress-testing-library: 2.6.0
     emotion: 9.2.12
@@ -13717,9 +13717,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:6.9.0":
-  version: 6.9.0
-  resolution: "chromatic@npm:6.9.0"
+"chromatic@npm:6.10.1":
+  version: 6.10.1
+  resolution: "chromatic@npm:6.10.1"
   dependencies:
     "@discoveryjs/json-ext": ^0.5.7
     "@types/webpack-env": ^1.17.0
@@ -13727,7 +13727,7 @@ __metadata:
     chroma: bin/main.cjs
     chromatic: bin/main.cjs
     chromatic-cli: bin/main.cjs
-  checksum: ec9b466a9e6750bfcc6bfc6c93b92e7920314be71f01018b0370099ae7ff5c290c3bf6b8c869965df560e15e8f15c5135f3b5476195d741ae601fdbea717fadb
+  checksum: 25fbb86b92255e555aa6dfb3d1d240d9c7c5e87ed45ac820afa17a6aed81b16e1f5e5df9dbad71b703be0d0fda49e6e9f1107a8d821eae93d03cea65345f5912
   languageName: node
   linkType: hard
 
