@@ -1,7 +1,7 @@
 {
   "name": "yummy-monorepo",
   "private": true,
-  "packageManager": "yarn@3.2.3",
+  "packageManager": "yarn@3.2.4",
   "engines": {
     "node": "16.x"
   },
