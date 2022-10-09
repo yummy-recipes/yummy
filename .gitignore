@@ -67,4 +67,7 @@ jspm_packages/
 # OS X temporary files
 .DS_Store
 
+# jest report
+junit.xml
+
 apps/blog/.cache

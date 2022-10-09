@@ -13,7 +13,7 @@
   "scripts": {
     "blog": "yarn workspace blog",
     "cms": "yarn workspace cms",
-    "test:ci": "jest",
+    "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
     "test:e2e:ci": "yarn workspace e2e test:e2e:ci",
     "test:visual:ci": "yarn workspace e2e test:visual",
     "postinstall": "husky install",
@@ -27,6 +27,7 @@
     "babel-preset-gatsby": "2.4.0",
     "husky": "7.0.4",
     "jest": "27.4.5",
+    "jest-junit": "^14.0.1",
     "lint-staged": "12.5.0",
     "prettier": "2.7.1"
   },
