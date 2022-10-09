@@ -24,6 +24,14 @@ jobs:
       - run: yarn install --immutable --immutable-cache
       - run: yarn test:ci
 
+      - name: Test Summary
+        if: always()
+        uses: test-summary/action@v1
+        with:
+          paths: |
+            junit.xml
+
+
   e2e:
     runs-on: ubuntu-latest
 

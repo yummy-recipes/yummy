@@ -23875,6 +23875,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-junit@npm:^14.0.1":
+  version: 14.0.1
+  resolution: "jest-junit@npm:14.0.1"
+  dependencies:
+    mkdirp: ^1.0.4
+    strip-ansi: ^6.0.1
+    uuid: ^8.3.2
+    xml: ^1.0.1
+  checksum: 2a9ccfecbe4c0df1be24e64b3e12a260356db999b3d821578c325bd34367d2f54b27e9560a8d5abe6c19412400268bf55dd41473565903cb8f616d998f7eb9ac
+  languageName: node
+  linkType: hard
+
 "jest-leak-detector@npm:^27.4.2":
   version: 27.4.2
   resolution: "jest-leak-detector@npm:27.4.2"
@@ -38834,6 +38846,7 @@ __metadata:
     babel-preset-gatsby: 2.4.0
     husky: 7.0.4
     jest: 27.4.5
+    jest-junit: ^14.0.1
     lint-staged: 12.5.0
     prettier: 2.7.1
   languageName: unknown
