@@ -6,6 +6,7 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     colors: {
+      transparent: 'transparent',
       black: colors.black,
       white: colors.white,
       gray: colors.gray,
@@ -21,6 +22,19 @@ module.exports = {
         700: '#AD7400',
         800: '#754E00',
         900: '#3D2900',
+      },
+      blue: {
+        DEFAULT: '#E69900',
+        50: '#eff6ff',
+        100: '#dbeafe',
+        200: '#bfdbfe',
+        300: '#93c5fd',
+        400: '#60a5fa',
+        500: '#3b82f6',
+        600: '#2563eb',
+        700: '#1d4ed8',
+        800: '#3730a3',
+        900: '#312e81',
       },
     },
     spacing: {
@@ -51,6 +65,7 @@ module.exports = {
     },
     borderWidth: {
       DEFAULT: '1px',
+      2: '2px',
     },
   },
   plugins: [],

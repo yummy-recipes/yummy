@@ -1,12 +1,11 @@
 import React from 'react'
 
-import * as transparent from '../components/button/button.transparent.module.css'
-import * as transparentNoBorder from '../components/button/button.transparent-noborder.module.css'
+import Button from '../components/button'
 
 export default {
-  title: 'Button'
+  title: 'Button',
 }
 
-export const Transparent = () => <button className={transparent.button}>Action</button>
+export const Transparent = () => <Button>Action</Button>
 
-export const TransparentNoBorder = () => <button className={transparentNoBorder.button}>Action</button>
+export const TransparentNoBorder = () => <Button borderless>Action</Button>
