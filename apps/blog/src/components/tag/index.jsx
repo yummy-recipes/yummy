@@ -9,7 +9,7 @@ export default function Tag({ name, className }) {
   const label = titleize(name)
 
   return (
-    <Button as={Button} to={'/tag/' + slug} className={className}>
+    <Button as={Link} to={'/tag/' + slug} className={className}>
       {label}
     </Button>
   )

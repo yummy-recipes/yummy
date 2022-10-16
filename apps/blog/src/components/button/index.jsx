@@ -1,3 +1,5 @@
+import React from 'react'
+
 export default function Button({ borderless, className, ...props }) {
   const { as: Cmp = 'button', ...rest } = props
   const borderColor = borderless ? 'border-transparent' : 'border-blue-500'
