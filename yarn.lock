@@ -23887,7 +23887,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-junit@npm:^14.0.1":
+"jest-junit@npm:14.0.1":
   version: 14.0.1
   resolution: "jest-junit@npm:14.0.1"
   dependencies:
@@ -38857,7 +38857,7 @@ __metadata:
     babel-preset-gatsby: 2.4.0
     husky: 7.0.4
     jest: 27.5.1
-    jest-junit: ^14.0.1
+    jest-junit: 14.0.1
     lint-staged: 12.5.0
     prettier: 2.7.1
   languageName: unknown
