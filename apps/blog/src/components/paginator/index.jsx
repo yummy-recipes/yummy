@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { calculatePages } from '../../utils/paginationHelper';
-import { paginationElementTypes } from '../../utils/paginationConsts';
+import { calculatePages } from '../../utils/paginationHelper'
+import { paginationElementTypes } from '../../utils/paginationConsts'
 import * as styles from './paginator.module.css'
-import * as buttonStyles from '../button/button.transparent-noborder.module.css'
+import Button from '../button'
 import ChevronLeft from '../icons/ChevronLeft'
 import ChevronRight from '../icons/ChevronRight'
 
@@ -26,59 +26,76 @@ const generatePagePath = (subsectionPath, pageNumber) => {
     return `/strony/${pageNumber}`
   }
 
-  return`${subsectionPath}/strony/${pageNumber}`
+  return `${subsectionPath}/strony/${pageNumber}`
 }
 
-function PaginationLinkElement({ elementType, pageNumber, subsectionPath, elementIndex }) {
-  const listItemStyles = elementType === paginationElementTypes.CURRENT_PAGE
-    ? [styles.pageNavItem, styles.currentPage].join(' ')
-    : styles.pageNavItem
+function PaginationLinkElement({
+  elementType,
+  pageNumber,
+  subsectionPath,
+  elementIndex,
+}) {
+  const listItemStyles =
+    elementType === paginationElementTypes.CURRENT_PAGE
+      ? [styles.pageNavItem, styles.currentPage].join(' ')
+      : styles.pageNavItem
 
-  const testId = elementType === paginationElementTypes.CURRENT_PAGE ? 'current_page' : undefined
+  const testId =
+    elementType === paginationElementTypes.CURRENT_PAGE
+      ? 'current_page'
+      : undefined
 
   let elementContent
   switch (elementType) {
     case paginationElementTypes.PAGE:
-      elementContent = <Link className={styles.pageLink} to={generatePagePath(subsectionPath, pageNumber)}>{pageNumber}</Link>
-      break;
+      elementContent = (
+        <Link
+          className={styles.pageLink}
+          to={generatePagePath(subsectionPath, pageNumber)}
+        >
+          {pageNumber}
+        </Link>
+      )
+      break
     case paginationElementTypes.CURRENT_PAGE:
       elementContent = pageNumber
-      break;
+      break
     case paginationElementTypes.SEPARATOR:
-      elementContent = '\u2026';
-      break;
+      elementContent = '\u2026'
+      break
     default:
       elementContent = null
-      break;
+      break
   }
 
-  const elementKey = elementType !== paginationElementTypes.SEPARATOR
-    ? `page-${pageNumber}`
-    : `ellipsis-${elementIndex}`
+  const elementKey =
+    elementType !== paginationElementTypes.SEPARATOR
+      ? `page-${pageNumber}`
+      : `ellipsis-${elementIndex}`
 
   return (
     <li className={listItemStyles} key={elementKey} data-testid={testId}>
-      { elementContent }
+      {elementContent}
     </li>
   )
 }
 
-export default function Paginator ({currentPage, totalPages, currentPath}) {
+export default function Paginator({ currentPage, totalPages, currentPath }) {
   const subsectionPath = toSubsectionPath(currentPath)
   const nextPagePath = generatePagePath(subsectionPath, currentPage + 1)
   const prevPagePath = generatePagePath(subsectionPath, currentPage - 1)
 
-  const pages =
-    calculatePages(2, 2, currentPage, totalPages)
-    .map((p, ndx) => {
-      return (<PaginationLinkElement
+  const pages = calculatePages(2, 2, currentPage, totalPages).map((p, ndx) => {
+    return (
+      <PaginationLinkElement
         elementType={p.type}
         pageNumber={p.pageNumber}
         subsectionPath={subsectionPath}
         elementIndex={ndx}
         key={ndx}
-      />)
-    })
+      />
+    )
+  })
 
   if (pages.length === 0) {
     return null
@@ -86,26 +103,21 @@ export default function Paginator ({currentPage, totalPages, currentPath}) {
 
   return (
     <nav className={styles.paginator}>
-      {
-        currentPage > 1 &&
-        <Link to={prevPagePath} className={[buttonStyles.button, styles.prev].join(' ')}>
+      {currentPage > 1 && (
+        <Button as={Link} to={prevPagePath} className={styles.prev}>
           <ChevronLeft className={styles.icon} />
           <span className={styles.link_text}>Poprzednia</span>
-        </Link>
-      }
+        </Button>
+      )}
 
-      {
-        currentPage < totalPages &&
-        <Link to={nextPagePath} className={[buttonStyles.button, styles.next].join(' ')}>
+      {currentPage < totalPages && (
+        <Button as={Link} to={nextPagePath} className={styles.next}>
           <span className={styles.link_text}>Następna</span>
-          <ChevronRight className={styles.icon}/>
-        </Link>
-      }
+          <ChevronRight className={styles.icon} />
+        </Button>
+      )}
 
-      <ol className={styles.pageList}>
-        { pages }
-      </ol>
-
+      <ol className={styles.pageList}>{pages}</ol>
     </nav>
   )
 }
