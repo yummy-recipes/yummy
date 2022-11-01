@@ -62,7 +62,7 @@
     "@graphql-codegen/cli": "2.13.5",
     "@graphql-codegen/introspection": "2.2.1",
     "@graphql-codegen/typescript": "2.7.3",
-    "@mdx-js/react": "2.1.4",
+    "@mdx-js/react": "2.1.5",
     "@storybook/addon-essentials": "6.5.12",
     "@storybook/addons": "6.5.12",
     "@storybook/builder-vite": "0.2.4",
