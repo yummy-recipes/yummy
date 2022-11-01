@@ -7189,15 +7189,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/plugin-throttling@npm:3.7.0":
-  version: 3.7.0
-  resolution: "@octokit/plugin-throttling@npm:3.7.0"
+"@octokit/plugin-throttling@npm:4.3.2":
+  version: 4.3.2
+  resolution: "@octokit/plugin-throttling@npm:4.3.2"
   dependencies:
-    "@octokit/types": ^6.0.1
+    "@octokit/types": ^8.0.0
     bottleneck: ^2.15.3
   peerDependencies:
-    "@octokit/core": ^3.5.0
-  checksum: a1c29094d060f1c221c2795b899cb86cd83dc71ea61c6e2a272aabed4f7856bfac2696f3e8f31beccc7c99bbe14d172d3175cd68ae939ae5ff1d01fadf8df00b
+    "@octokit/core": ^4.0.0
+  checksum: 2c9ef9be2cc1b9cb01d4d9f04e82246ccaa41ab05a4dc315f926b11abf5a99e3a38a98756fbb7f9e8d4c4f5e43f052c1dbd11c062017096dd943b8896c9e414c
   languageName: node
   linkType: hard
 
@@ -7226,7 +7226,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/types@npm:^6.0.1, @octokit/types@npm:^6.0.3":
+"@octokit/types@npm:^6.0.3":
   version: 6.34.0
   resolution: "@octokit/types@npm:6.34.0"
   dependencies:
@@ -14490,7 +14490,7 @@ __metadata:
   dependencies:
     "@octokit/core": 4.1.0
     "@octokit/plugin-retry": 3.0.9
-    "@octokit/plugin-throttling": 3.7.0
+    "@octokit/plugin-throttling": 4.3.2
     debounce: 1.2.1
     knex: 0.95.15
     pg: 8.8.0
@@ -34865,7 +34865,7 @@ __metadata:
   dependencies:
     "@octokit/core": 4.1.0
     "@octokit/plugin-retry": 3.0.9
-    "@octokit/plugin-throttling": 3.7.0
+    "@octokit/plugin-throttling": 4.3.2
     slugify: 1.6.5
   languageName: unknown
   linkType: soft

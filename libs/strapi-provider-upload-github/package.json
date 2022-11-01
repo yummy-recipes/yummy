@@ -4,7 +4,7 @@
   "dependencies": {
     "@octokit/core": "4.1.0",
     "@octokit/plugin-retry": "3.0.9",
-    "@octokit/plugin-throttling": "3.7.0",
+    "@octokit/plugin-throttling": "4.3.2",
     "slugify": "1.6.5"
   }
 }
