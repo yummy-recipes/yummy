@@ -20,8 +20,8 @@
     "pre-commit": "lint-staged"
   },
   "devDependencies": {
-    "@babel/core": "7.19.3",
-    "@babel/preset-env": "7.19.3",
+    "@babel/core": "7.19.6",
+    "@babel/preset-env": "7.19.4",
     "babel-jest": "27.5.1",
     "babel-plugin-dynamic-import-node": "2.3.3",
     "babel-preset-gatsby": "2.4.0",
