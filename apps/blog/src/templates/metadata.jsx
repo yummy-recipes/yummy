@@ -8,7 +8,7 @@ import appleTouchIcon from '../components/layout/assets/apple-touch-icon.png'
 import safariPinnedTab from '../components/layout/assets/safari-pinned-tab.svg'
 import defaultOgImage from '../components/layout/assets/default_og_image.jpg'
 
-export default function Page({ siteUrl, children }) {
+export default function Metadata({ siteUrl, children }) {
   return (
     <React.Fragment>
       <Helmet>
