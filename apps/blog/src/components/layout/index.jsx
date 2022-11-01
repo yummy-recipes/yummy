@@ -4,7 +4,6 @@ import Footer from '../footer'
 import Searchbar from '../searchbar'
 
 import './layout.css'
-import * as styles from './layout.module.css'
 
 const HeaderWithCategories = ({
   fullVersion,
@@ -27,7 +26,7 @@ const HeaderWithCategories = ({
       {isSingleRecipe ? null : (
         <Searchbar
           forceVisibility={alreadyMounted}
-          className={styles.searchbar}
+          className="max-w-lg mx-auto px-2 mt-3 mb-6"
         />
       )}
     </Header>

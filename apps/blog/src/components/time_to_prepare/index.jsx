@@ -1,7 +1,11 @@
 import React from 'react'
 import Timer from '../icons/Timer'
-import * as styles from './time_to_prepare.module.css'
 
-export default function TimeToPrepare({children}) {
-  return <span className={styles.timeBox}><Timer className={styles.icon}/>{children}min</span>
+export default function TimeToPrepare({ children }) {
+  return (
+    <span className="flex items-center">
+      <Timer className="h-[20px] text-black align-baseline relative mr-1" />
+      {children}min
+    </span>
+  )
 }
