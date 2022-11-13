@@ -1,4 +1,5 @@
 import React from 'react'
+import Page from '../components/page'
 import PostCard from '../components/post-card'
 import PostCardCover from '../components/post-card-cover'
 import PostCardHeader from '../components/post-card-header'
@@ -33,15 +34,14 @@ export default function PostListContent({
   })
 
   return (
-    <div className={styles.layout}>
-      <section className={styles.main}>
-        <div className={styles.posts}>{Posts}</div>
-        <Paginator
-          currentPage={pageInfo.currentPage}
-          totalPages={pageInfo.totalPages}
-          currentPath={location.pathname}
-        />
-      </section>
-    </div>
+    <Page>
+      <div className={styles.posts}>{Posts}</div>
+
+      <Paginator
+        currentPage={pageInfo.currentPage}
+        totalPages={pageInfo.totalPages}
+        currentPath={location.pathname}
+      />
+    </Page>
   )
 }

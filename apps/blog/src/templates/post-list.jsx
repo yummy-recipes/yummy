@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Page from './page'
+import Page from './metadata'
 import PostListContent from './post-list-content'
 
 export default function PostListPage({ data, pageContext, location }) {

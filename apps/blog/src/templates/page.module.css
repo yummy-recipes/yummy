@@ -1,26 +1,6 @@
 @value breakpoints: '../components/breakpoints.css';
 @value tablet-up, phone-l from breakpoints;
 
-.layout {
-  display: flex;
-  flex-direction: column;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 10px;
-  position: relative;
-}
-
-@media phone-l-up {
-  .layout {
-    padding: 0 20px;
-    flex-direction: row;
-  }
-}
-
-.main {
-  flex: 0 0 100%;
-}
-
 .posts {
   display: flex;
   flex-wrap: wrap;

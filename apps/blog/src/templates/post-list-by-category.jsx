@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import Page from './page'
+import Metadata from './metadata'
 import PostListContent from './post-list-content'
 
 export default function PostListByCategoryPage({
@@ -16,7 +16,7 @@ export default function PostListByCategoryPage({
   }
 
   return (
-    <Page siteUrl={data.site.siteMetadata.siteUrl}>
+    <Metadata siteUrl={data.site.siteMetadata.siteUrl}>
       <Helmet>
         <meta
           name="description"
@@ -29,7 +29,7 @@ export default function PostListByCategoryPage({
         pageInfo={pageInfo}
         location={location}
       />
-    </Page>
+    </Metadata>
   )
 }
 

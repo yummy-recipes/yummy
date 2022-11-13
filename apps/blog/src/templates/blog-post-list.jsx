@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Page from './page'
+import Metadata from './metadata'
 import BlogPostListContent from './blog-post-list-content'
 
 export default function BlogPostListPage({ data, pageContext, location }) {
@@ -11,13 +11,13 @@ export default function BlogPostListPage({ data, pageContext, location }) {
   }
 
   return (
-    <Page siteUrl={data.site.siteMetadata.siteUrl}>
+    <Metadata siteUrl={data.site.siteMetadata.siteUrl}>
       <BlogPostListContent
         allPostsData={data.allStrapiArticle}
         pageInfo={pageInfo}
         location={location}
       />
-    </Page>
+    </Metadata>
   )
 }
 
