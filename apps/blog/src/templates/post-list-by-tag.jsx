@@ -22,12 +22,12 @@ export default function PostListByTagPage({ data, pageContext, location }) {
 }
 
 export const pageQuery = graphql`
-  query blogListByTagQuery($tag: String!, $skip: Int!, $limit: Int!) {
+  query blogListByTagQuery($slug: String!, $skip: Int!, $limit: Int!) {
     ...siteMetadata
     ...allCategories
 
     allStrapiRecipe(
-      filter: { tags: { elemMatch: { slug: { in: [$tag] } } } }
+      filter: { tags: { elemMatch: { slug: { in: [$slug] } } } }
       sort: { order: DESC, fields: [published_at] }
       limit: $limit
       skip: $skip
