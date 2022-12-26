@@ -23,20 +23,43 @@ module.exports = async function bootstrap({ strapi }) {
   }
 
   async function enableRead(type) {
+    const actions = [
+      'api::article.article.find',
+      'api::article.article.findOne',
+      'api::recipe.recipe.find',
+      'api::recipe.recipe.findOne',
+      'api::tag.tag.find',
+      'api::tag.tag.findOne',
+      'api::category.category.find',
+      'api::category.category.findOne',
+      'plugin::upload.content-api.find',
+      'plugin::upload.content-api.findOne',
+    ]
+
     const role = await strapi
       .query('plugin::users-permissions.role')
-      .findOne({ type })
+      .findOne({ where: { type } })
+
+    console.log({ role })
+
     const permissions = await strapi
       .query('plugin::users-permissions.permission')
-      .findMany({ type: 'application', role: role.id })
+      .findMany({ where: { role: role.id } })
 
-    for (const permission of permissions) {
-      if (permission.type === 'application' && permission.action === 'find') {
-        await strapi
-          .query('plugin::users-permissions.permission')
-          .update({ id: permission.id }, { ...permission, enabled: true })
-      }
-    }
+    const missingActions = actions.filter(
+      (a) => !permissions.find((p) => p.action === a),
+    )
+
+    await Promise.all(
+      missingActions.map((action) =>
+        strapi.query('plugin::users-permissions.permission').create({
+          data: {
+            action,
+            role: role.id,
+          },
+        }),
+      ),
+    )
   }
 
   async function updateUploadSettings() {
@@ -185,6 +208,7 @@ module.exports = async function bootstrap({ strapi }) {
   }
 
   // START OF BOOTSTRAP
+  console.log('NODE_ENV', process.env.NODE_ENV)
   const roleToRead =
     process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development'
       ? 'public'
