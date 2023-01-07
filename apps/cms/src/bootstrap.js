@@ -34,6 +34,10 @@ module.exports = async function bootstrap({ strapi }) {
       'api::category.category.findOne',
       'plugin::upload.content-api.find',
       'plugin::upload.content-api.findOne',
+      'plugin::content-type-builder.components.getComponent',
+      'plugin::content-type-builder.components.getComponents',
+      'plugin::content-type-builder.content-types.getContentType',
+      'plugin::content-type-builder.content-types.getContentTypes',
     ]
 
     const role = await strapi
@@ -251,7 +255,7 @@ module.exports = async function bootstrap({ strapi }) {
         title: 'Demo',
         headline: 'Lorem ipsum',
         content: 'Lorem ipsum',
-        published_at: '2019-05-15T12:00:00Z',
+        publishedAt: '2019-05-15T12:00:00Z',
       },
     })
 
@@ -267,7 +271,7 @@ module.exports = async function bootstrap({ strapi }) {
           'Spicy jalapeno bacon',
           'Spicy jalapeno bacon',
         ].join('\n\n'),
-        published_at: '2019-05-22T12:00:00Z',
+        publishedAt: '2019-05-22T12:00:00Z',
       },
     })
   }
