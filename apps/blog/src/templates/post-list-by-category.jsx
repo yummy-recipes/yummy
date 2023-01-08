@@ -40,7 +40,7 @@ export const pageQuery = graphql`
 
     allStrapiRecipe(
       filter: { category: { name: { eq: $category } } }
-      sort: { order: DESC, fields: [published_at] }
+      sort: { order: DESC, fields: [publishedAt] }
       limit: $limit
       skip: $skip
     ) {

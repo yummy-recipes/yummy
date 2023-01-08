@@ -53,14 +53,22 @@ async function createBlogPostPages({ actions, graphql }) {
 
   const result = await graphql(`
     {
-      allStrapiArticle(sort: { order: DESC, fields: [published_at] }) {
+      allStrapiArticle(sort: { order: DESC, fields: [publishedAt] }) {
         edges {
           node {
             title
-            published_at
+            publishedAt
             slug
-            headline
-            content
+            headline {
+              data {
+                headline
+              }
+            }
+            content {
+              data {
+                content
+              }
+            }
           }
         }
       }
@@ -104,7 +112,7 @@ async function createRecipePages({ actions, graphql }) {
 
   const result = await graphql(`
     {
-      allStrapiRecipe(sort: { order: DESC, fields: [published_at] }) {
+      allStrapiRecipe(sort: { order: DESC, fields: [publishedAt] }) {
         edges {
           node {
             slug

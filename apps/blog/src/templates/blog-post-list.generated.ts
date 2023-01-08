@@ -2,11 +2,11 @@ import * as Types from '../types'
 
 import * as schemaFactories from '../types'
 export type BlogPostForListFragment = {
-  __typename: 'StrapiArticle'
+  __typename: 'STRAPI_ARTICLE'
   id: string
   title?: string | null
   slug?: string | null
-  published_at?: any | null
+  publishedAt?: any | null
   parsedHeadline?: {
     __typename: 'RecipePart'
     childMarkdownRemark?: {
@@ -24,15 +24,15 @@ export type BlogPostListQueryQueryVariables = Types.Exact<{
 export type BlogPostListQueryQuery = {
   __typename: 'Query'
   allStrapiArticle: {
-    __typename: 'StrapiArticleConnection'
+    __typename: 'STRAPI_ARTICLEConnection'
     edges: Array<{
-      __typename: 'StrapiArticleEdge'
+      __typename: 'STRAPI_ARTICLEEdge'
       node: {
-        __typename: 'StrapiArticle'
+        __typename: 'STRAPI_ARTICLE'
         id: string
         title?: string | null
         slug?: string | null
-        published_at?: any | null
+        publishedAt?: any | null
         parsedHeadline?: {
           __typename: 'RecipePart'
           childMarkdownRemark?: {
@@ -143,7 +143,7 @@ export function createBlogPostListQueryQueryMock_allStrapiArticle(
   props: Partial<BlogPostListQueryQuery['allStrapiArticle']> = {},
 ): BlogPostListQueryQuery['allStrapiArticle'] {
   return {
-    __typename: 'StrapiArticleConnection',
+    __typename: 'STRAPI_ARTICLEConnection',
     edges: [],
     ...props,
   }
@@ -155,7 +155,7 @@ export function createBlogPostListQueryQueryMock_allStrapiArticle_edges(
   > = {},
 ): BlogPostListQueryQuery['allStrapiArticle']['edges'][number] {
   return {
-    __typename: 'StrapiArticleEdge',
+    __typename: 'STRAPI_ARTICLEEdge',
     node: createBlogPostListQueryQueryMock_allStrapiArticle_edges_node({}),
     ...props,
   }
@@ -166,18 +166,18 @@ export function createBlogPostListQueryQueryMock_allStrapiArticle_edges_node(
     BlogPostListQueryQuery['allStrapiArticle']['edges'][number]['node']
   > = {},
 ): BlogPostListQueryQuery['allStrapiArticle']['edges'][number]['node'] {
-  const strapiArticle = schemaFactories.createStrapiArticleMock({
+  const strapiArticle = schemaFactories.createStrapi_ArticleMock({
     id: props.id,
     title: props.title,
     slug: props.slug,
-    published_at: props.published_at,
+    publishedAt: props.publishedAt,
   })
   return {
-    __typename: 'StrapiArticle',
+    __typename: 'STRAPI_ARTICLE',
     id: strapiArticle.id,
     title: strapiArticle.title,
     slug: strapiArticle.slug,
-    published_at: strapiArticle.published_at,
+    publishedAt: strapiArticle.publishedAt,
     parsedHeadline: null,
     ...props,
   }

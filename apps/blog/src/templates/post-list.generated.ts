@@ -2,12 +2,12 @@ import * as Types from '../types'
 
 import * as schemaFactories from '../types'
 export type PostForListFragment = {
-  __typename: 'StrapiRecipe'
+  __typename: 'STRAPI_RECIPE'
   id: string
   title?: string | null
   slug?: string | null
   preparationTime?: number | null
-  published_at?: any | null
+  publishedAt?: any | null
   parsedHeadline?: {
     __typename: 'RecipePart'
     childMarkdownRemark?: {
@@ -16,17 +16,17 @@ export type PostForListFragment = {
     } | null
   } | null
   tags?: Array<{
-    __typename: 'StrapiRecipeTags'
+    __typename: 'STRAPI_TAG'
     name?: string | null
     slug?: string | null
   } | null> | null
   category?: {
-    __typename: 'StrapiRecipeCategory'
+    __typename: 'STRAPI_CATEGORY'
     name?: string | null
     slug?: string | null
   } | null
   cover?: {
-    __typename: 'StrapiRecipeCover'
+    __typename: 'STRAPI__MEDIA'
     image?: {
       __typename: 'File'
       childImageSharp?: {
@@ -52,16 +52,16 @@ export type BlogListQueryQueryVariables = Types.Exact<{
 export type BlogListQueryQuery = {
   __typename: 'Query'
   allStrapiRecipe: {
-    __typename: 'StrapiRecipeConnection'
+    __typename: 'STRAPI_RECIPEConnection'
     edges: Array<{
-      __typename: 'StrapiRecipeEdge'
+      __typename: 'STRAPI_RECIPEEdge'
       node: {
-        __typename: 'StrapiRecipe'
+        __typename: 'STRAPI_RECIPE'
         id: string
         title?: string | null
         slug?: string | null
         preparationTime?: number | null
-        published_at?: any | null
+        publishedAt?: any | null
         parsedHeadline?: {
           __typename: 'RecipePart'
           childMarkdownRemark?: {
@@ -70,17 +70,17 @@ export type BlogListQueryQuery = {
           } | null
         } | null
         tags?: Array<{
-          __typename: 'StrapiRecipeTags'
+          __typename: 'STRAPI_TAG'
           name?: string | null
           slug?: string | null
         } | null> | null
         category?: {
-          __typename: 'StrapiRecipeCategory'
+          __typename: 'STRAPI_CATEGORY'
           name?: string | null
           slug?: string | null
         } | null
         cover?: {
-          __typename: 'StrapiRecipeCover'
+          __typename: 'STRAPI__MEDIA'
           image?: {
             __typename: 'File'
             childImageSharp?: {
@@ -197,7 +197,7 @@ export function createBlogListQueryQueryMock_allStrapiRecipe(
   props: Partial<BlogListQueryQuery['allStrapiRecipe']> = {},
 ): BlogListQueryQuery['allStrapiRecipe'] {
   return {
-    __typename: 'StrapiRecipeConnection',
+    __typename: 'STRAPI_RECIPEConnection',
     edges: [],
     ...props,
   }
@@ -207,7 +207,7 @@ export function createBlogListQueryQueryMock_allStrapiRecipe_edges(
   props: Partial<BlogListQueryQuery['allStrapiRecipe']['edges'][number]> = {},
 ): BlogListQueryQuery['allStrapiRecipe']['edges'][number] {
   return {
-    __typename: 'StrapiRecipeEdge',
+    __typename: 'STRAPI_RECIPEEdge',
     node: createBlogListQueryQueryMock_allStrapiRecipe_edges_node({}),
     ...props,
   }
@@ -218,15 +218,15 @@ export function createBlogListQueryQueryMock_allStrapiRecipe_edges_node(
     BlogListQueryQuery['allStrapiRecipe']['edges'][number]['node']
   > = {},
 ): BlogListQueryQuery['allStrapiRecipe']['edges'][number]['node'] {
-  const strapiRecipe = schemaFactories.createStrapiRecipeMock({
+  const strapiRecipe = schemaFactories.createStrapi_RecipeMock({
     id: props.id,
     title: props.title,
     slug: props.slug,
     preparationTime: props.preparationTime,
-    published_at: props.published_at,
+    publishedAt: props.publishedAt,
   })
   return {
-    __typename: 'StrapiRecipe',
+    __typename: 'STRAPI_RECIPE',
     id: strapiRecipe.id,
     title: strapiRecipe.title,
     parsedHeadline: null,
@@ -234,7 +234,7 @@ export function createBlogListQueryQueryMock_allStrapiRecipe_edges_node(
     tags: null,
     category: null,
     preparationTime: strapiRecipe.preparationTime,
-    published_at: strapiRecipe.published_at,
+    publishedAt: strapiRecipe.publishedAt,
     cover: null,
     ...props,
   }
@@ -292,14 +292,14 @@ export function createBlogListQueryQueryMock_allStrapiRecipe_edges_node_tags(
     BlogListQueryQuery['allStrapiRecipe']['edges'][number]['node']['tags']
   >[number]
 > {
-  const strapiRecipeTags = schemaFactories.createStrapiRecipeTagsMock({
+  const strapiTag = schemaFactories.createStrapi_TagMock({
     name: props.name,
     slug: props.slug,
   })
   return {
-    __typename: 'StrapiRecipeTags',
-    name: strapiRecipeTags.name,
-    slug: strapiRecipeTags.slug,
+    __typename: 'STRAPI_TAG',
+    name: strapiTag.name,
+    slug: strapiTag.slug,
     ...props,
   }
 }
@@ -313,14 +313,14 @@ export function createBlogListQueryQueryMock_allStrapiRecipe_edges_node_category
 ): NonNullable<
   BlogListQueryQuery['allStrapiRecipe']['edges'][number]['node']['category']
 > {
-  const strapiRecipeCategory = schemaFactories.createStrapiRecipeCategoryMock({
+  const strapiCategory = schemaFactories.createStrapi_CategoryMock({
     name: props.name,
     slug: props.slug,
   })
   return {
-    __typename: 'StrapiRecipeCategory',
-    name: strapiRecipeCategory.name,
-    slug: strapiRecipeCategory.slug,
+    __typename: 'STRAPI_CATEGORY',
+    name: strapiCategory.name,
+    slug: strapiCategory.slug,
     ...props,
   }
 }
@@ -335,7 +335,7 @@ export function createBlogListQueryQueryMock_allStrapiRecipe_edges_node_cover(
   BlogListQueryQuery['allStrapiRecipe']['edges'][number]['node']['cover']
 > {
   return {
-    __typename: 'StrapiRecipeCover',
+    __typename: 'STRAPI__MEDIA',
     image: null,
     ...props,
   }

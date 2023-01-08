@@ -22,7 +22,7 @@ export default function PostListPage({ data, pageContext, location }) {
 }
 
 export const query = graphql`
-  fragment postForList on StrapiRecipe {
+  fragment postForList on STRAPI_RECIPE {
     id
     title
     parsedHeadline {
@@ -40,7 +40,7 @@ export const query = graphql`
       slug
     }
     preparationTime
-    published_at(formatString: "D MMM YYYY", locale: "pl")
+    publishedAt(formatString: "D MMM YYYY", locale: "pl")
     cover {
       image {
         childImageSharp {
@@ -59,7 +59,7 @@ export const pageQuery = graphql`
     ...allCategories
 
     allStrapiRecipe(
-      sort: { order: DESC, fields: [published_at] }
+      sort: { order: DESC, fields: [publishedAt] }
       limit: $limit
       skip: $skip
     ) {

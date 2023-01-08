@@ -28,7 +28,7 @@ export const pageQuery = graphql`
 
     allStrapiRecipe(
       filter: { tags: { elemMatch: { slug: { in: [$slug] } } } }
-      sort: { order: DESC, fields: [published_at] }
+      sort: { order: DESC, fields: [publishedAt] }
       limit: $limit
       skip: $skip
     ) {

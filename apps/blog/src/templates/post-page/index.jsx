@@ -146,7 +146,7 @@ export const pageQuery = graphql`
         name
         slug
       }
-      published_at(formatString: "D MMM YYYY", locale: "pl")
+      publishedAt(formatString: "D MMM YYYY", locale: "pl")
     }
   }
 `

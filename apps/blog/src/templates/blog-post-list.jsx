@@ -22,11 +22,11 @@ export default function BlogPostListPage({ data, pageContext, location }) {
 }
 
 export const query = graphql`
-  fragment blogPostForList on StrapiArticle {
+  fragment blogPostForList on STRAPI_ARTICLE {
     id
     title
     slug
-    published_at(formatString: "D MMM YYYY", locale: "pl")
+    publishedAt(formatString: "D MMM YYYY", locale: "pl")
     parsedHeadline {
       childMarkdownRemark {
         html
@@ -41,7 +41,7 @@ export const pageQuery = graphql`
     ...allCategories
 
     allStrapiArticle(
-      sort: { order: DESC, fields: [published_at] }
+      sort: { order: DESC, fields: [publishedAt] }
       limit: $limit
       skip: $skip
     ) {

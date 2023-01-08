@@ -2,38 +2,41 @@ const crypto = require('crypto')
 
 exports.createResolvers = ({ createResolvers, createNodeId }) => {
   const resolvers = {
-    StrapiArticle: {
+    STRAPI_ARTICLE: {
       parsedHeadline: {
         type: 'RecipePart',
         resolve: (source, args, context, info) => {
           const id = createNodeId(`Headline >>> ${source.id} >>> BlogPostPart`)
-          return context.nodeModel.getNodeById({ id, type: 'BlogPostPart'})
-        }
+          return context.nodeModel.getNodeById({ id, type: 'BlogPostPart' })
+        },
       },
       parsedContent: {
         type: 'RecipePart',
         resolve: (source, args, context, info) => {
           const id = createNodeId(`Content >>> ${source.id} >>> BlogPostPart`)
-          return context.nodeModel.getNodeById({ id, type: 'BlogPostPart'})
-        }
-      }
-    }
+          return context.nodeModel.getNodeById({ id, type: 'BlogPostPart' })
+        },
+      },
+    },
   }
   createResolvers(resolvers)
 }
 
 exports.onCreateNode = async ({ node, createNodeId, actions }) => {
-  if (node.internal.type !== 'StrapiArticle') {
+  if (node.internal.type !== 'STRAPI_ARTICLE') {
     return
   }
 
   const { createNode } = actions
 
-  createRecipePart(node, 'Headline', node.headline, {createNode, createNodeId})
-  createRecipePart(node, 'Content', node.content, {createNode, createNodeId})
+  createRecipePart(node, 'Headline', node.headline, {
+    createNode,
+    createNodeId,
+  })
+  createRecipePart(node, 'Content', node.content, { createNode, createNodeId })
 }
 
-function createRecipePart(parent, kind, content, {createNodeId, createNode}) {
+function createRecipePart(parent, kind, content, { createNodeId, createNode }) {
   const id = createNodeId(`${kind} >>> ${parent.id} >>> BlogPostPart`)
   const node = {
     id: id,
@@ -42,8 +45,8 @@ function createRecipePart(parent, kind, content, {createNodeId, createNode}) {
     internal: {
       content: content,
       type: 'BlogPostPart',
-      mediaType: 'text/markdown'
-    }
+      mediaType: 'text/markdown',
+    },
   }
 
   node.internal.contentDigest = crypto
