@@ -8,13 +8,13 @@ export type PostQueryVariables = Types.Exact<{
 export type PostQuery = {
   __typename: 'Query'
   strapiRecipe?: {
-    __typename: 'StrapiRecipe'
+    __typename: 'STRAPI_RECIPE'
     slug?: string | null
     title?: string | null
     preparationTime?: number | null
-    published_at?: any | null
+    publishedAt?: any | null
     seo?: {
-      __typename: 'StrapiRecipeSeo'
+      __typename: 'STRAPI__COMPONENT_SEO_DESCRIPTION'
       htmlTitle?: string | null
       htmlDescription?: string | null
     } | null
@@ -40,12 +40,12 @@ export type PostQuery = {
       } | null
     } | null
     tags?: Array<{
-      __typename: 'StrapiRecipeTags'
+      __typename: 'STRAPI_TAG'
       name?: string | null
       slug?: string | null
     } | null> | null
     cover?: {
-      __typename: 'StrapiRecipeCover'
+      __typename: 'STRAPI__MEDIA'
       image?: {
         __typename: 'File'
         childImageSharp?: {
@@ -62,7 +62,7 @@ export type PostQuery = {
       } | null
     } | null
     gallery?: Array<{
-      __typename: 'StrapiRecipeGallery'
+      __typename: 'STRAPI__MEDIA'
       image?: {
         __typename: 'File'
         childImageSharp?: {
@@ -87,7 +87,7 @@ export type PostQuery = {
       } | null
     } | null> | null
     category?: {
-      __typename: 'StrapiRecipeCategory'
+      __typename: 'STRAPI_CATEGORY'
       name?: string | null
       slug?: string | null
     } | null
@@ -185,14 +185,14 @@ export function createPostQueryMock_allCategories_edges_node(
 export function createPostQueryMock_strapiRecipe(
   props: Partial<NonNullable<PostQuery['strapiRecipe']>> = {},
 ): NonNullable<PostQuery['strapiRecipe']> {
-  const strapiRecipe = schemaFactories.createStrapiRecipeMock({
+  const strapiRecipe = schemaFactories.createStrapi_RecipeMock({
     slug: props.slug,
     title: props.title,
     preparationTime: props.preparationTime,
-    published_at: props.published_at,
+    publishedAt: props.publishedAt,
   })
   return {
-    __typename: 'StrapiRecipe',
+    __typename: 'STRAPI_RECIPE',
     seo: null,
     parsedHeadline: null,
     parsedDirections: null,
@@ -204,7 +204,7 @@ export function createPostQueryMock_strapiRecipe(
     gallery: null,
     preparationTime: strapiRecipe.preparationTime,
     category: null,
-    published_at: strapiRecipe.published_at,
+    publishedAt: strapiRecipe.publishedAt,
     ...props,
   }
 }
@@ -214,14 +214,15 @@ export function createPostQueryMock_strapiRecipe_seo(
     NonNullable<NonNullable<PostQuery['strapiRecipe']>['seo']>
   > = {},
 ): NonNullable<NonNullable<PostQuery['strapiRecipe']>['seo']> {
-  const strapiRecipeSeo = schemaFactories.createStrapiRecipeSeoMock({
-    htmlTitle: props.htmlTitle,
-    htmlDescription: props.htmlDescription,
-  })
+  const strapiComponentSeoDescription =
+    schemaFactories.createStrapi__Component_Seo_DescriptionMock({
+      htmlTitle: props.htmlTitle,
+      htmlDescription: props.htmlDescription,
+    })
   return {
-    __typename: 'StrapiRecipeSeo',
-    htmlTitle: strapiRecipeSeo.htmlTitle,
-    htmlDescription: strapiRecipeSeo.htmlDescription,
+    __typename: 'STRAPI__COMPONENT_SEO_DESCRIPTION',
+    htmlTitle: strapiComponentSeoDescription.htmlTitle,
+    htmlDescription: strapiComponentSeoDescription.htmlDescription,
     ...props,
   }
 }
@@ -340,14 +341,14 @@ export function createPostQueryMock_strapiRecipe_tags(
 ): NonNullable<
   NonNullable<NonNullable<PostQuery['strapiRecipe']>['tags']>[number]
 > {
-  const strapiRecipeTags = schemaFactories.createStrapiRecipeTagsMock({
+  const strapiTag = schemaFactories.createStrapi_TagMock({
     name: props.name,
     slug: props.slug,
   })
   return {
-    __typename: 'StrapiRecipeTags',
-    name: strapiRecipeTags.name,
-    slug: strapiRecipeTags.slug,
+    __typename: 'STRAPI_TAG',
+    name: strapiTag.name,
+    slug: strapiTag.slug,
     ...props,
   }
 }
@@ -358,7 +359,7 @@ export function createPostQueryMock_strapiRecipe_cover(
   > = {},
 ): NonNullable<NonNullable<PostQuery['strapiRecipe']>['cover']> {
   return {
-    __typename: 'StrapiRecipeCover',
+    __typename: 'STRAPI__MEDIA',
     image: null,
     ...props,
   }
@@ -445,7 +446,7 @@ export function createPostQueryMock_strapiRecipe_gallery(
   NonNullable<NonNullable<PostQuery['strapiRecipe']>['gallery']>[number]
 > {
   return {
-    __typename: 'StrapiRecipeGallery',
+    __typename: 'STRAPI__MEDIA',
     image: null,
     ...props,
   }
@@ -583,14 +584,14 @@ export function createPostQueryMock_strapiRecipe_category(
     NonNullable<NonNullable<PostQuery['strapiRecipe']>['category']>
   > = {},
 ): NonNullable<NonNullable<PostQuery['strapiRecipe']>['category']> {
-  const strapiRecipeCategory = schemaFactories.createStrapiRecipeCategoryMock({
+  const strapiCategory = schemaFactories.createStrapi_CategoryMock({
     name: props.name,
     slug: props.slug,
   })
   return {
-    __typename: 'StrapiRecipeCategory',
-    name: strapiRecipeCategory.name,
-    slug: strapiRecipeCategory.slug,
+    __typename: 'STRAPI_CATEGORY',
+    name: strapiCategory.name,
+    slug: strapiCategory.slug,
     ...props,
   }
 }

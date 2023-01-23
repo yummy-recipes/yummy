@@ -75,7 +75,7 @@ module.exports = {
                   description: JSDOM.fragment(
                     edge.node.parsedHeadline.childMarkdownRemark.html,
                   ).textContent,
-                  date: edge.node.published_at,
+                  date: edge.node.publishedAt,
                   url: site.siteMetadata.siteUrl + edge.node.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.slug,
                 }
@@ -85,7 +85,7 @@ module.exports = {
             {
               allStrapiRecipe(
                 limit: 1000,
-                sort: { order: DESC, fields: [published_at] }
+                sort: { order: DESC, fields: [publishedAt] }
               ) {
                 edges {
                   node {
@@ -96,7 +96,7 @@ module.exports = {
                     }
                     slug
                     title
-                    published_at
+                    publishedAt
                   }
                 }
               }

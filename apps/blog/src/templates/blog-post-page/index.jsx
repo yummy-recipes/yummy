@@ -32,9 +32,7 @@ export default function BlogPostPage({ data }) {
             <h1 className={postStyles.postTitle}>{post.title}</h1>
 
             {/*TODO: can be a component since it's used on both pages*/}
-            <span className={postStyles.datePublished}>
-              {post.published_at}
-            </span>
+            <span className={postStyles.datePublished}>{post.publishedAt}</span>
 
             <div
               className={postStyles.postHeadline}
@@ -57,7 +55,7 @@ export default function BlogPostPage({ data }) {
 }
 
 export const pageQuery = graphql`
-  query ($slug: String!) {
+  query blogPost($slug: String!) {
     ...siteMetadata
     ...allCategories
 
@@ -74,7 +72,7 @@ export const pageQuery = graphql`
       }
       slug
       title
-      published_at(formatString: "D MMM YYYY", locale: "pl")
+      publishedAt(formatString: "D MMM YYYY", locale: "pl")
     }
   }
 `

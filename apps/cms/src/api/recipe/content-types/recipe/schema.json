@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recipes",
+  "info": {
+    "singularName": "recipe",
+    "pluralName": "recipes",
+    "displayName": "Recipe",
+    "name": "recipe"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": false
+    },
+    "headline": {
+      "type": "string",
+      "required": true
+    },
+    "preparationTime": {
+      "type": "integer",
+      "required": true
+    },
+    "cover": {
+      "type": "media",
+      "allowedTypes": [
+        "images"
+      ],
+      "multiple": false,
+      "required": false
+    },
+    "ingredients": {
+      "type": "richtext",
+      "required": true
+    },
+    "directions": {
+      "type": "richtext",
+      "required": true
+    },
+    "gallery": {
+      "type": "media",
+      "allowedTypes": [
+        "images"
+      ],
+      "multiple": true,
+      "required": false
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "recipes"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "recipes"
+    },
+    "seo": {
+      "required": true,
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.description"
+    }
+  }
+}

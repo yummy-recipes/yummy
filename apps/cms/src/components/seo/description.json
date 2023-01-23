@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_seo_descriptions",
+  "info": {
+    "name": "Description",
+    "icon": "address-book",
+    "displayName": "Description"
+  },
+  "options": {},
+  "attributes": {
+    "htmlTitle": {
+      "type": "string",
+      "required": false
+    },
+    "htmlDescription": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

@@ -1,17 +1,17 @@
 import * as Types from '../../types'
 
 import * as schemaFactories from '../../types'
-export type Unnamed_1_QueryVariables = Types.Exact<{
+export type BlogPostQueryVariables = Types.Exact<{
   slug: Types.Scalars['String']
 }>
 
-export type Unnamed_1_Query = {
+export type BlogPostQuery = {
   __typename: 'Query'
   strapiArticle?: {
-    __typename: 'StrapiArticle'
+    __typename: 'STRAPI_ARTICLE'
     slug?: string | null
     title?: string | null
-    published_at?: any | null
+    publishedAt?: any | null
     parsedHeadline?: {
       __typename: 'RecipePart'
       childMarkdownRemark?: {
@@ -47,21 +47,21 @@ export type Unnamed_1_Query = {
   }
 }
 
-export function createUnnamed_1_QueryMock(
-  props: Partial<Unnamed_1_Query> = {},
-): Unnamed_1_Query {
+export function createBlogPostQueryMock(
+  props: Partial<BlogPostQuery> = {},
+): BlogPostQuery {
   return {
     __typename: 'Query',
     site: null,
-    allCategories: createUnnamed_1_QueryMock_allCategories({}),
+    allCategories: createBlogPostQueryMock_allCategories({}),
     strapiArticle: null,
     ...props,
   }
 }
 
-export function createUnnamed_1_QueryMock_site(
-  props: Partial<NonNullable<Unnamed_1_Query['site']>> = {},
-): NonNullable<Unnamed_1_Query['site']> {
+export function createBlogPostQueryMock_site(
+  props: Partial<NonNullable<BlogPostQuery['site']>> = {},
+): NonNullable<BlogPostQuery['site']> {
   return {
     __typename: 'Site',
     siteMetadata: null,
@@ -69,11 +69,11 @@ export function createUnnamed_1_QueryMock_site(
   }
 }
 
-export function createUnnamed_1_QueryMock_site_siteMetadata(
+export function createBlogPostQueryMock_site_siteMetadata(
   props: Partial<
-    NonNullable<NonNullable<Unnamed_1_Query['site']>['siteMetadata']>
+    NonNullable<NonNullable<BlogPostQuery['site']>['siteMetadata']>
   > = {},
-): NonNullable<NonNullable<Unnamed_1_Query['site']>['siteMetadata']> {
+): NonNullable<NonNullable<BlogPostQuery['site']>['siteMetadata']> {
   const siteSiteMetadata = schemaFactories.createSiteSiteMetadataMock({
     siteUrl: props.siteUrl,
   })
@@ -84,9 +84,9 @@ export function createUnnamed_1_QueryMock_site_siteMetadata(
   }
 }
 
-export function createUnnamed_1_QueryMock_allCategories(
-  props: Partial<Unnamed_1_Query['allRecipeCategory']> = {},
-): Unnamed_1_Query['allRecipeCategory'] {
+export function createBlogPostQueryMock_allCategories(
+  props: Partial<BlogPostQuery['allRecipeCategory']> = {},
+): BlogPostQuery['allRecipeCategory'] {
   return {
     __typename: 'RecipeCategoryConnection',
     edges: [],
@@ -94,21 +94,21 @@ export function createUnnamed_1_QueryMock_allCategories(
   }
 }
 
-export function createUnnamed_1_QueryMock_allCategories_edges(
-  props: Partial<Unnamed_1_Query['allRecipeCategory']['edges'][number]> = {},
-): Unnamed_1_Query['allRecipeCategory']['edges'][number] {
+export function createBlogPostQueryMock_allCategories_edges(
+  props: Partial<BlogPostQuery['allRecipeCategory']['edges'][number]> = {},
+): BlogPostQuery['allRecipeCategory']['edges'][number] {
   return {
     __typename: 'RecipeCategoryEdge',
-    node: createUnnamed_1_QueryMock_allCategories_edges_node({}),
+    node: createBlogPostQueryMock_allCategories_edges_node({}),
     ...props,
   }
 }
 
-export function createUnnamed_1_QueryMock_allCategories_edges_node(
+export function createBlogPostQueryMock_allCategories_edges_node(
   props: Partial<
-    Unnamed_1_Query['allRecipeCategory']['edges'][number]['node']
+    BlogPostQuery['allRecipeCategory']['edges'][number]['node']
   > = {},
-): Unnamed_1_Query['allRecipeCategory']['edges'][number]['node'] {
+): BlogPostQuery['allRecipeCategory']['edges'][number]['node'] {
   const recipeCategory = schemaFactories.createRecipeCategoryMock({
     name: props.name,
     slug: props.slug,
@@ -121,32 +121,30 @@ export function createUnnamed_1_QueryMock_allCategories_edges_node(
   }
 }
 
-export function createUnnamed_1_QueryMock_strapiArticle(
-  props: Partial<NonNullable<Unnamed_1_Query['strapiArticle']>> = {},
-): NonNullable<Unnamed_1_Query['strapiArticle']> {
-  const strapiArticle = schemaFactories.createStrapiArticleMock({
+export function createBlogPostQueryMock_strapiArticle(
+  props: Partial<NonNullable<BlogPostQuery['strapiArticle']>> = {},
+): NonNullable<BlogPostQuery['strapiArticle']> {
+  const strapiArticle = schemaFactories.createStrapi_ArticleMock({
     slug: props.slug,
     title: props.title,
-    published_at: props.published_at,
+    publishedAt: props.publishedAt,
   })
   return {
-    __typename: 'StrapiArticle',
+    __typename: 'STRAPI_ARTICLE',
     parsedHeadline: null,
     parsedContent: null,
     slug: strapiArticle.slug,
     title: strapiArticle.title,
-    published_at: strapiArticle.published_at,
+    publishedAt: strapiArticle.publishedAt,
     ...props,
   }
 }
 
-export function createUnnamed_1_QueryMock_strapiArticle_parsedHeadline(
+export function createBlogPostQueryMock_strapiArticle_parsedHeadline(
   props: Partial<
-    NonNullable<NonNullable<Unnamed_1_Query['strapiArticle']>['parsedHeadline']>
+    NonNullable<NonNullable<BlogPostQuery['strapiArticle']>['parsedHeadline']>
   > = {},
-): NonNullable<
-  NonNullable<Unnamed_1_Query['strapiArticle']>['parsedHeadline']
-> {
+): NonNullable<NonNullable<BlogPostQuery['strapiArticle']>['parsedHeadline']> {
   return {
     __typename: 'RecipePart',
     childMarkdownRemark: null,
@@ -154,17 +152,17 @@ export function createUnnamed_1_QueryMock_strapiArticle_parsedHeadline(
   }
 }
 
-export function createUnnamed_1_QueryMock_strapiArticle_parsedHeadline_childMarkdownRemark(
+export function createBlogPostQueryMock_strapiArticle_parsedHeadline_childMarkdownRemark(
   props: Partial<
     NonNullable<
       NonNullable<
-        NonNullable<Unnamed_1_Query['strapiArticle']>['parsedHeadline']
+        NonNullable<BlogPostQuery['strapiArticle']>['parsedHeadline']
       >['childMarkdownRemark']
     >
   > = {},
 ): NonNullable<
   NonNullable<
-    NonNullable<Unnamed_1_Query['strapiArticle']>['parsedHeadline']
+    NonNullable<BlogPostQuery['strapiArticle']>['parsedHeadline']
   >['childMarkdownRemark']
 > {
   const markdownRemark = schemaFactories.createMarkdownRemarkMock({
@@ -177,11 +175,11 @@ export function createUnnamed_1_QueryMock_strapiArticle_parsedHeadline_childMark
   }
 }
 
-export function createUnnamed_1_QueryMock_strapiArticle_parsedContent(
+export function createBlogPostQueryMock_strapiArticle_parsedContent(
   props: Partial<
-    NonNullable<NonNullable<Unnamed_1_Query['strapiArticle']>['parsedContent']>
+    NonNullable<NonNullable<BlogPostQuery['strapiArticle']>['parsedContent']>
   > = {},
-): NonNullable<NonNullable<Unnamed_1_Query['strapiArticle']>['parsedContent']> {
+): NonNullable<NonNullable<BlogPostQuery['strapiArticle']>['parsedContent']> {
   return {
     __typename: 'RecipePart',
     childMarkdownRemark: null,
@@ -189,17 +187,17 @@ export function createUnnamed_1_QueryMock_strapiArticle_parsedContent(
   }
 }
 
-export function createUnnamed_1_QueryMock_strapiArticle_parsedContent_childMarkdownRemark(
+export function createBlogPostQueryMock_strapiArticle_parsedContent_childMarkdownRemark(
   props: Partial<
     NonNullable<
       NonNullable<
-        NonNullable<Unnamed_1_Query['strapiArticle']>['parsedContent']
+        NonNullable<BlogPostQuery['strapiArticle']>['parsedContent']
       >['childMarkdownRemark']
     >
   > = {},
 ): NonNullable<
   NonNullable<
-    NonNullable<Unnamed_1_Query['strapiArticle']>['parsedContent']
+    NonNullable<BlogPostQuery['strapiArticle']>['parsedContent']
   >['childMarkdownRemark']
 > {
   const markdownRemark = schemaFactories.createMarkdownRemarkMock({
