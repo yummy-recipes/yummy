@@ -29,11 +29,16 @@ exports.onCreateNode = async ({ node, createNodeId, actions }) => {
 
   const { createNode } = actions
 
+  console.log({ node })
+
   createRecipePart(node, 'Headline', node.headline, {
     createNode,
     createNodeId,
   })
-  createRecipePart(node, 'Content', node.content, { createNode, createNodeId })
+  createRecipePart(node, 'Content', node.content.data, {
+    createNode,
+    createNodeId,
+  })
 }
 
 function createRecipePart(parent, kind, content, { createNodeId, createNode }) {

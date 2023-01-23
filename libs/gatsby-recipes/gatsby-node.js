@@ -29,21 +29,6 @@ exports.createResolvers = ({
         },
       },
     },
-    // StrapiRecipeGallery: {
-    //   image: {
-    //     type: 'File',
-    //     resolve: (source, args, context, info) => {
-    //       return createRemoteFileNode({
-    //         url: source.url.startsWith('/') ? `${apiUrl}${source.url}` : source.url,
-    //         store,
-    //         cache,
-    //         createNode,
-    //         createNodeId,
-    //         reporter,
-    //       })
-    //     }
-    //   }
-    // },
     STRAPI_RECIPE: {
       parsedHeadline: {
         type: 'RecipePart',
@@ -82,11 +67,11 @@ exports.onCreateNode = async ({ node, createNodeId, actions }) => {
     createNode,
     createNodeId,
   })
-  createRecipePart(node, 'Ingredients', node.ingredients, {
+  createRecipePart(node, 'Ingredients', node.ingredients.data || '', {
     createNode,
     createNodeId,
   })
-  createRecipePart(node, 'Directions', node.directions, {
+  createRecipePart(node, 'Directions', node.directions.data || '', {
     createNode,
     createNodeId,
   })
