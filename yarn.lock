@@ -4304,7 +4304,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.10.5, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.14.0, @babel/runtime@npm:^7.14.6, @babel/runtime@npm:^7.15.4, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.2.0, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.4.2, @babel/runtime@npm:^7.4.3, @babel/runtime@npm:^7.4.5, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.10.5, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.14.0, @babel/runtime@npm:^7.14.6, @babel/runtime@npm:^7.15.4, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.2.0, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.4.3, @babel/runtime@npm:^7.4.5, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
   version: 7.16.5
   resolution: "@babel/runtime@npm:7.16.5"
   dependencies:
@@ -13015,7 +13015,7 @@ __metadata:
     react-loadable: 5.5.0
     react-select: 2.4.4
     react-test-renderer: 16.14.0
-    react-testing-library: 6.1.2
+    react-testing-library: 8.0.1
     start-server-and-test: 1.14.0
     storybook-addon-themes: 6.1.0
     style-loader: 3.3.1
@@ -16689,7 +16689,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dom-testing-library@npm:^3.12.4, dom-testing-library@npm:^3.19.0":
+"dom-testing-library@npm:^3.12.4":
   version: 3.19.4
   resolution: "dom-testing-library@npm:3.19.4"
   dependencies:
@@ -31596,16 +31596,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-testing-library@npm:6.1.2":
-  version: 6.1.2
-  resolution: "react-testing-library@npm:6.1.2"
-  dependencies:
-    "@babel/runtime": ^7.4.2
-    dom-testing-library: ^3.19.0
-  peerDependencies:
-    react: "*"
-    react-dom: "*"
-  checksum: 19607fd5274b545b30d4f97fd2c6c2ffb56d1799e4656735d607fc79a1e26d09c891a8f4dea5eaa701ec0339802e0bfc4b2802747420685d5c0e337e75bb2793
+"react-testing-library@npm:8.0.1":
+  version: 8.0.1
+  resolution: "react-testing-library@npm:8.0.1"
+  checksum: b2f03584b0ec18b2377e26ad9469eb484c4f36e1b4ff9205448792513fe7bb69fbb0346e5b87c3b9d6893aefcb94d117bdc500dcd04083ff6bffa0c49d141077
   languageName: node
   linkType: hard
 
