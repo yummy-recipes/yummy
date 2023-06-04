@@ -12977,7 +12977,7 @@ __metadata:
     babel-loader: 8.2.5
     chromatic: 6.10.1
     cypress: 3.8.3
-    cypress-testing-library: 2.6.0
+    cypress-testing-library: 4.0.0
     emotion: 9.2.12
     emotion-server: 9.2.12
     eslint: 7.32.0
@@ -15756,15 +15756,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress-testing-library@npm:2.6.0":
-  version: 2.6.0
-  resolution: "cypress-testing-library@npm:2.6.0"
-  dependencies:
-    "@babel/runtime": ^7.4.3
-    dom-testing-library: ^3.12.4
-  peerDependencies:
-    cypress: ^2.1.0 || ^3.0.0
-  checksum: 86532d1a2d08f849a852cb902ff0c862e6733813383ce4e5637d8458c6b5a064ecf2522912f52f746fcb47704b95be6bc549c261812720d45e6ef1282c1bcf65
+"cypress-testing-library@npm:4.0.0":
+  version: 4.0.0
+  resolution: "cypress-testing-library@npm:4.0.0"
+  checksum: 11174ab6ad8530c1495a8cc8713310e0f904adced602d772073ee6b10e633336b6f7315263ac407b71875a4721d9439b7abea7956f44aef53911233717e438e5
   languageName: node
   linkType: hard
 
@@ -16689,7 +16684,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dom-testing-library@npm:^3.12.4, dom-testing-library@npm:^3.19.0":
+"dom-testing-library@npm:^3.19.0":
   version: 3.19.4
   resolution: "dom-testing-library@npm:3.19.4"
   dependencies:
