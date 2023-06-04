@@ -14504,6 +14504,7 @@ __metadata:
     strapi-plugin-content-type-builder: 3.6.10
     strapi-plugin-email: 3.6.10
     strapi-plugin-graphql: 3.6.10
+    strapi-plugin-import-export-content: ^0.4.2
     strapi-plugin-upload: 3.6.10
     strapi-plugin-users-permissions: 3.6.10
     strapi-provider-upload-github: "workspace:^"
@@ -15722,6 +15723,20 @@ __metadata:
   version: 3.0.10
   resolution: "csstype@npm:3.0.10"
   checksum: 20a8fa324f2b33ddf94aa7507d1b6ab3daa6f3cc308888dc50126585d7952f2471de69b2dbe0635d1fdc31223fef8e070842691877e725caf456e2378685a631
+  languageName: node
+  linkType: hard
+
+"csv-parse@npm:^4.15.3":
+  version: 4.16.3
+  resolution: "csv-parse@npm:4.16.3"
+  checksum: 5ad7790fc31c32ca1623bad1a54906134ba44fa109e8dd2dfda440bf7e9fd93610d9076a78f45c872701bfafdf7f93c9b75500c09d7efd6611d863f1d45ec69f
+  languageName: node
+  linkType: hard
+
+"csv-string@npm:^4.0.1":
+  version: 4.1.1
+  resolution: "csv-string@npm:4.1.1"
+  checksum: 5855d4a9a59c5d7ee93d0522a636a18be721085ff5be9e98a64c7002341130af107ff362c606d977eb3e7bff8872526d3e1994b4cb177c94bb171a5fd0a79859
   languageName: node
   linkType: hard
 
@@ -30405,6 +30420,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prismjs@npm:^1.23.0":
+  version: 1.29.0
+  resolution: "prismjs@npm:1.29.0"
+  checksum: 007a8869d4456ff8049dc59404e32d5666a07d99c3b0e30a18bd3b7676dfa07d1daae9d0f407f20983865fd8da56de91d09cb08e6aa61f5bc420a27c0beeaf93
+  languageName: node
+  linkType: hard
+
 "prismjs@npm:^1.27.0":
   version: 1.28.0
   resolution: "prismjs@npm:1.28.0"
@@ -31532,6 +31554,16 @@ __metadata:
   peerDependencies:
     react: ^16.3.0 || ^17.0.0
   checksum: 324511ea8f6669555e166b4af280cdf46034bf0e33c486711e3ce17f88f6f21fed17055098408be1347657d0cbcd614bca944cf9f8e4ecfa96a21d13893fe9fc
+  languageName: node
+  linkType: hard
+
+"react-simple-code-editor@npm:^0.11.0":
+  version: 0.11.3
+  resolution: "react-simple-code-editor@npm:0.11.3"
+  peerDependencies:
+    react: "*"
+    react-dom: "*"
+  checksum: 15a03bfd7fef4efd73f0c25136e2eb253990ec9878199083853d8bcfad2246ac9750edfb64183c9dc33ad27d38f5e0e12052005c2ef7c80cbb6b1d4a9a4da511
   languageName: node
   linkType: hard
 
@@ -34775,6 +34807,18 @@ __metadata:
     pluralize: ^8.0.0
     strapi-utils: 3.6.10
   checksum: ec66f7a6adba6a5ec6c88df05dd07bf8cf2567b3a0f3c31970a095056cf90c1f01cd91f278af4adff85ed65b5b90a4c47dd380a720cadb694f17ccdba58d161c
+  languageName: node
+  linkType: hard
+
+"strapi-plugin-import-export-content@npm:^0.4.2":
+  version: 0.4.2
+  resolution: "strapi-plugin-import-export-content@npm:0.4.2"
+  dependencies:
+    csv-parse: ^4.15.3
+    csv-string: ^4.0.1
+    prismjs: ^1.23.0
+    react-simple-code-editor: ^0.11.0
+  checksum: df46f273d8e5553312266c890861bcda8b86fc57e4de6a1458ed0c39f80ee19bc5833e6b87176068441f82bca90e5fe2e995c1dfc2891579f390047fd85084ba
   languageName: node
   linkType: hard
 
