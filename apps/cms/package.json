@@ -35,7 +35,7 @@
     "strapi-plugin-users-permissions": "3.6.10",
     "strapi-provider-upload-github": "workspace:^",
     "strapi-utils": "3.6.10",
-    "yaml": "1.10.2"
+    "yaml": "2.3.1"
   },
   "author": {
     "name": "Dyrksy"
